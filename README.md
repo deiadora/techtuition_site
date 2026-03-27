@@ -122,12 +122,13 @@ Deployed on **Cloudflare Pages**.
 
 ---
 
-## part of the deiadora ecosystem
-
-→ [deiadora.com](https://deiadora.com) · node 0 · the field  
+### part of the deiadora ecosystem
+ 
+→ [deiadora.com](https://deiadora.com) · node 0 · the field
 → [drblexchange.com](https://drblexchange.com) · node 2 · recognition
-→ [deiadorebel.com](https://deiadorebel.com) · node 6 · transmission  
-→ [techtuition.ai](https://techtuition.ai) · node 7 · expression  
-→ [thequantumceo.com](https://thequantumceo.com) · node 8 · structure  
+→ [quantummagic.com](https://quantummagic.ai) · node 3 · discernment
+→ [iamdeiadora.com](https://iamdeiadora.com) · node 4 · wave
+→ [techtuition.ai](https://techtuition.ai) · node 7 · expression
+→ [thequantumceo.com](https://thequantumceo.com) · node 8 · structure
 
 *limited seats · ten slides · it lands every time*
