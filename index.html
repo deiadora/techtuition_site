@@ -72,13 +72,13 @@
       --line:       rgba(26,24,20,.12);
     }
 
-    [data-theme="light"] .nav  { background: #f4f2ec; }
-    [data-theme="light"] .card { background: #fffff2; }
+    [data-theme="light"] .nav   { background: #f4f2ec; }
+    [data-theme="light"] .card  { background: #fffff2; }
     [data-theme="light"] .brand { color: #1a1814; }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background .25s, color .25s; }
 
     /* ─── nav ─── */
     .nav {
@@ -325,14 +325,15 @@
     <nav class="navlinks">
       <a href="#about">about</a>
       <a href="#work">work</a>
+      <!-- future anchor: pending — replace waitlist link with workshop booking link on launch -->
       <a href="https://techtuition.getform.com/v0p8m" target="_blank" rel="noopener" class="pill">join waitlist</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="toggle dark mode">🌙</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌙</button>
     </nav>
   </header>
 
   <main class="page">
 
-    <!-- ─── hero ─── -->
+    <!-- ─── hero ─── */
     <section class="hero">
       <p class="kicker">techtuition · fractal awareness for the next era of work</p>
       <h1>The framework underneath <em>the framework.</em></h1>
@@ -346,6 +347,7 @@
         actually cohere — with practical implications for operations, collaboration, and governance.
       </p>
       <div class="ctaRow">
+        <!-- future anchor: pending — replace waitlist link with workshop booking link on launch -->
         <a class="btn primary" href="https://techtuition.getform.com/v0p8m" target="_blank" rel="noopener">join the workshop waitlist</a>
         <a class="btn ghost" href="#work">see the work</a>
       </div>
@@ -387,6 +389,7 @@
           <p>A live, hands-on session on the geometry of complexity, coordination, and collaboration —
             the fractal framework in practice. Leave with the mental model, the templates, and a playbook
             you can use immediately.</p>
+          <!-- future anchor: pending — replace waitlist link with booking link on launch -->
           <a class="textLink" href="https://techtuition.getform.com/v0p8m" target="_blank" rel="noopener">join the waitlist →</a>
         </div>
 
@@ -427,20 +430,52 @@
 
   </main>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const toggle = document.getElementById("themeToggle");
-    const saved = localStorage.getItem("theme-techtuition") || "light";
-    document.documentElement.setAttribute("data-theme", saved);
-    toggle.textContent = saved === "dark" ? "🌙" : "☀️";
+    const toggle  = document.getElementById("themeToggle");
+    const root    = document.documentElement;
+    const STORE   = "qc-theme"; // shared key across all ecosystem sites
 
+    // Detect system preference
+    const sysDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function resolveTheme() {
+      const saved = localStorage.getItem(STORE);
+      if (saved) return saved;                     // explicit user override
+      return sysDark.matches ? "dark" : "light";   // follow system
+    }
+
+    function applyTheme(theme) {
+      root.setAttribute("data-theme", theme);
+      toggle.textContent = theme === "dark" ? "🌙" : "☀️";
+      toggle.setAttribute("aria-label", theme === "dark" ? "switch to light mode" : "switch to dark mode");
+    }
+
+    // Initial paint
+    applyTheme(resolveTheme());
+
+    // Toggle click — cycle: override opposite → clear override (return to system)
     toggle.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme");
+      const current = root.getAttribute("data-theme");
+      const sysTheme = sysDark.matches ? "dark" : "light";
       const next = current === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme-techtuition", next);
-      toggle.textContent = next === "dark" ? "🌙" : "☀️";
+
+      if (next === sysTheme) {
+        // Returning to system default — clear the override
+        localStorage.removeItem(STORE);
+      } else {
+        localStorage.setItem(STORE, next);
+      }
+      applyTheme(next);
+    });
+
+    // Follow OS schedule changes if no manual override is set
+    sysDark.addEventListener("change", () => {
+      if (!localStorage.getItem(STORE)) {
+        applyTheme(sysDark.matches ? "dark" : "light");
+      }
     });
   </script>
 </body>
