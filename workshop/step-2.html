@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Step 2 · Recognition · Vesica Piscis · quantum currency workshop · techtuition</title>
+  <meta name="description" content="Two complete, sovereign fields overlapping through each other's centres. Step 2 of the Quantum Currency Workshop — the vesica piscis, non-local recognition, and the difference between meeting, merger, and mere proximity." />
+  <meta property="og:title" content="Step 2 · Recognition · Vesica Piscis · quantum currency workshop" />
+  <meta property="og:description" content="Oh. You too. The geometry of what happens when two sovereign fields choose to meet." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://techtuition.ai/workshop/step-2" />
+  <meta property="og:image" content="https://techtuition.ai/techtuition_banner.jpeg" />
+  <link rel="icon" href="/techtuition_favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       LOCKED COLOR SYSTEM — DO NOT INVENT NEW VALUES
+       ───────────────────────────────────────────────────────────────
+       SOIL (semantic, Sower diagnostic — never used for geometries):
+         path    → #a9292a  (node-1 family, deep red)
+         rocky   → #9d4418  (node-2 family, terracotta)
+         thorny  → #1a6b9e  (node-7 family, sky blue)
+         good    → #7a9e2a  (node-4 family, leaf green)
+
+       LENS (structural, teal family, four depths):
+         qc      → #0f6e56  (true teal — book you're in)
+         rc      → #1a9e7a  (brighter teal — outward-facing)
+         ec      → #085041  (deep teal — rooted/historical)
+         sc      → #0a3d33  (deepest teal — interior)
+
+       GEOMETRIES — Step 2 only, teal family, three depths:
+         vesica      → #1a9e7a  (brightest — sovereign meeting)
+         proximity   → #5a8e82  (muted teal — adjacent, not meeting)
+         merger      → #2a4744  (deepest muted — centre absorbed)
+       ═══════════════════════════════════════════════════════════════ */
+    :root {
+      --ink:        #ebe7dc;
+      --paper:      #0c1516;
+      --card:       #0e171a;
+      --card-lt:    #131f23;
+      --gold:       #ecb02f;
+      --muted:      #cbc6ba;
+      --line:       rgba(240,237,230,.1);
+      --line-solid: rgba(240,237,230,.18);
+      --r:          8px;
+      --serif:      'Exo 2', system-ui, sans-serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+      --display:    'Cormorant Garamond', Georgia, serif;
+
+      /* SOIL — locked */
+      --soil-path-ink:    #a9292a;
+      --soil-path-bg:     #fcebea;
+      --soil-path-dk:     #7a1d1e;
+      --soil-rocky-ink:   #9d4418;
+      --soil-rocky-bg:    #faece7;
+      --soil-rocky-dk:    #6b2d0f;
+      --soil-thorny-ink:  #1a6b9e;
+      --soil-thorny-bg:   #e6f1fb;
+      --soil-thorny-dk:   #0c447c;
+      --soil-good-ink:    #7a9e2a;
+      --soil-good-bg:     #eaf3de;
+      --soil-good-dk:     #4a6612;
+
+      /* LENS */
+      --qc:   #0f6e56;
+      --rc:   #1a9e7a;
+      --ec:   #085041;
+      --sc:   #0a3d33;
+
+      /* GEOMETRIES — teal family, three depths (used only on this step) */
+      --geo-vesica-ink:     #1a9e7a;
+      --geo-vesica-bg:      #e4f6ef;
+      --geo-proximity-ink:  #5a8e82;
+      --geo-proximity-bg:   #e8efed;
+      --geo-merger-ink:     #2a4744;
+      --geo-merger-bg:      #dde3e2;
+
+      --accent:    var(--qc);
+      --accent-lt: #1a9e7a;
+      --accent-dk: #085041;
+      --lens-lt:   #e1f5ee;
+    }
+
+    [data-theme="light"] {
+      --ink:        #1a1814;
+      --paper:      #f4f2ec;
+      --card:       #fffff2;
+      --card-lt:    #e8e2d6;
+      --gold:       #8b5e2a;
+      --muted:      #7a7163;
+      --line:       rgba(26,24,20,.1);
+      --line-solid: rgba(26,24,20,.18);
+    }
+
+    [data-lens="qc"] { --accent: #0f6e56; --accent-lt: #1a9e7a; --accent-dk: #085041; --lens-lt: #e1f5ee; }
+    [data-lens="rc"] { --accent: #1a9e7a; --accent-lt: #2bbf94; --accent-dk: #0f6e56; --lens-lt: #e4f6ef; }
+    [data-lens="ec"] { --accent: #085041; --accent-lt: #0f6e56; --accent-dk: #053830; --lens-lt: #dcede7; }
+    [data-lens="sc"] { --accent: #0a3d33; --accent-lt: #085041; --accent-dk: #062821; --lens-lt: #d6e6e1; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--paper); color: var(--ink);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      transition: background .25s, color .25s;
+    }
+
+    /* ══ QC NAV ══ */
+    .qc-nav {
+      width: 100%; background: var(--card);
+      border-bottom: 1px solid var(--line-solid);
+      position: sticky; top: 0; z-index: 200;
+    }
+    .qc-nav-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 1.5rem;
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center; height: 52px; gap: 16px;
+    }
+    .qc-nav-prev {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: var(--muted);
+      font-size: 12px; font-weight: 400;
+      transition: color .2s;
+    }
+    .qc-nav-prev:hover { color: var(--accent); }
+    .qc-nav-centre {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 3px; text-decoration: none;
+    }
+    .qc-nav-step-row { display: flex; align-items: center; gap: 8px; }
+    .qc-nav-num {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--lens-lt); color: var(--accent-dk);
+      font-size: 11px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); transition: background .3s, color .3s;
+    }
+    .qc-nav-name {
+      font-size: 13px; font-weight: 500; color: var(--ink);
+      font-family: var(--serif); letter-spacing: -.01em;
+    }
+    .qc-nav-geo { font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+    .qc-nav-dots { display: flex; align-items: center; gap: 4px; }
+    .qc-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--line-solid); transition: all .2s;
+    }
+    .qc-dot.active { background: var(--accent); width: 16px; border-radius: 3px; }
+    .qc-nav-next {
+      display: flex; align-items: center; justify-content: flex-end;
+      gap: 8px; text-decoration: none; color: var(--accent);
+      font-size: 12px; font-weight: 500; transition: gap .2s, color .3s;
+    }
+    .qc-nav-next:hover { gap: 12px; }
+
+    .qc-home-link {
+      display: block; text-align: center; font-size: 11px;
+      color: var(--muted); letter-spacing: .06em; text-decoration: none;
+      padding: 5px 0; background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      font-family: var(--serif); font-style: italic; transition: color .2s;
+    }
+    .qc-home-link:hover { color: var(--gold); }
+
+    /* ══ LENS BAR ══ */
+    .lens-bar {
+      width: 100%;
+      background: var(--card);
+      border-bottom: 1px solid var(--line-solid);
+      position: sticky; top: 52px; z-index: 190;
+    }
+    .lens-bar-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center;
+      height: 44px; gap: 6px;
+    }
+    .lens-label {
+      font-size: 10px; font-weight: 500; font-family: var(--serif);
+      letter-spacing: .09em; text-transform: uppercase;
+      color: var(--muted); margin-right: 6px; white-space: nowrap;
+    }
+    .lens-pill {
+      padding: 5px 14px; border-radius: 100px;
+      font-size: 12px; font-weight: 500; font-family: var(--serif);
+      cursor: pointer; border: 1px solid transparent;
+      transition: all .2s; background: none; white-space: nowrap;
+      letter-spacing: .01em;
+    }
+    .lp-qc { color: var(--qc); border-color: rgba(15,110,86,.3); }
+    .lp-qc:hover, .lp-qc.active { background: #e1f5ee; border-color: var(--qc); }
+    [data-theme="light"] .lp-qc:hover, [data-theme="light"] .lp-qc.active { background: #c8edd8; }
+    .lp-rc { color: var(--rc); border-color: rgba(26,158,122,.3); }
+    .lp-rc:hover, .lp-rc.active { background: #e4f6ef; border-color: var(--rc); }
+    [data-theme="light"] .lp-rc:hover, [data-theme="light"] .lp-rc.active { background: #c8eddd; }
+    .lp-ec { color: var(--ec); border-color: rgba(8,80,65,.3); }
+    .lp-ec:hover, .lp-ec.active { background: #dcede7; border-color: var(--ec); }
+    [data-theme="light"] .lp-ec:hover, [data-theme="light"] .lp-ec.active { background: #b8dacf; }
+    .lp-sc { color: var(--sc); border-color: rgba(10,61,51,.3); }
+    .lp-sc:hover, .lp-sc.active { background: #d6e6e1; border-color: var(--sc); }
+    [data-theme="light"] .lp-sc:hover, [data-theme="light"] .lp-sc.active { background: #b3ccc4; }
+
+    .lens-pill.active { font-weight: 600; }
+    @media (max-width: 600px) {
+      .lens-label { display: none; }
+      .lens-pill { padding: 5px 10px; font-size: 11px; }
+    }
+    .lens-pill .coming {
+      font-size: 9px; vertical-align: super;
+      opacity: .6; letter-spacing: .04em;
+    }
+
+    /* ══ PAGE ══ */
+    .page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+
+    .ws-header { padding: 3.5rem 0 2.5rem; border-bottom: 1px solid var(--line); }
+    .ws-eyebrow {
+      font-family: var(--serif); font-size: .78rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+      transition: color .3s;
+    }
+    .ws-title {
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 500; line-height: 1.1; letter-spacing: -.02em;
+      color: var(--ink); margin-bottom: .6rem;
+    }
+    .ws-title em { font-style: italic; font-weight: 400; color: var(--accent); transition: color .3s; }
+    .ws-sub {
+      font-size: 1rem; color: var(--muted);
+      max-width: 520px; line-height: 1.7; font-weight: 300;
+    }
+
+    .lens-content { display: none; }
+    .lens-content.active { display: block; }
+
+    .placeholder-block {
+      background: var(--card); border: 1px dashed var(--line-solid);
+      border-radius: var(--r); padding: 2rem 2.4rem;
+      text-align: center;
+    }
+    .ph-icon { font-size: 2rem; margin-bottom: .8rem; opacity: .4; }
+    .ph-title {
+      font-family: var(--display); font-size: 1.3rem; font-weight: 500;
+      color: var(--ink); margin-bottom: .6rem;
+    }
+    .ph-body {
+      font-size: .9rem; color: var(--muted);
+      line-height: 1.7; max-width: 380px; margin: 0 auto;
+    }
+    .ph-tag {
+      display: inline-block; margin-top: 1rem;
+      font-size: 11px; font-weight: 600; font-family: var(--serif);
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--accent); padding: 4px 12px;
+      border: 1px solid var(--accent); border-radius: 100px;
+      opacity: .7;
+    }
+
+    .tabs {
+      display: flex; margin: 2rem 0 2rem;
+      border-bottom: 1px solid var(--line-solid);
+    }
+    .tab {
+      font-family: var(--serif); font-size: .88rem; font-weight: 500;
+      color: var(--muted); padding: 10px 20px; cursor: pointer;
+      border-bottom: 2px solid transparent; margin-bottom: -1px;
+      letter-spacing: .02em; transition: color .2s, border-color .2s;
+      background: none; border-top: none; border-left: none; border-right: none;
+    }
+    .tab:hover { color: var(--ink); }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* ══ SLIDE ══ */
+    .slide-frame {
+      background: var(--card); border: 1px solid var(--line-solid);
+      border-radius: 16px; padding: 3rem 3.5rem;
+      position: relative; overflow: hidden;
+    }
+    .slide-bg-glyph {
+      position: absolute; top: -20px; right: 10px;
+      font-size: 200px; color: var(--accent);
+      opacity: .05; line-height: 1; pointer-events: none;
+      transition: color .3s;
+    }
+    .slide-content { position: relative; z-index: 1; }
+    .slide-eyebrow {
+      font-family: var(--serif); font-size: .72rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1.2rem;
+    }
+    .slide-heading {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 500; line-height: 1.15;
+      color: var(--ink); margin-bottom: .8rem;
+    }
+    .slide-body {
+      font-size: .97rem; color: var(--muted);
+      line-height: 1.8; margin-bottom: 1.2rem;
+      font-weight: 300; max-width: 580px;
+    }
+    .slide-body em { color: var(--ink); font-style: italic; }
+    .slide-pull {
+      font-family: var(--display);
+      font-size: 1.3rem; font-weight: 400; font-style: italic;
+      color: var(--ink); border-left: 2px solid var(--accent);
+      padding: 6px 0 6px 20px; margin: 1.6rem 0; line-height: 1.5;
+      transition: border-color .3s;
+    }
+    .slide-divider { border: none; border-top: 1px solid var(--line); margin: 1.6rem 0; }
+
+    /* ══ THREE-GEOMETRY GRID ══ */
+    .geo-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
+      margin: 1.4rem 0 1.6rem;
+    }
+    @media (max-width: 640px) { .geo-grid { grid-template-columns: 1fr; } }
+
+    .geo-card {
+      border-radius: var(--r); padding: 16px 18px;
+      background: var(--card-lt); border: 1px solid var(--line-solid);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .geo-card.vesica    { border-left: 3px solid var(--geo-vesica-ink); }
+    .geo-card.proximity { border-left: 3px solid var(--geo-proximity-ink); }
+    .geo-card.merger    { border-left: 3px solid var(--geo-merger-ink); }
+
+    .geo-visual {
+      height: 56px; display: flex; align-items: center; justify-content: center;
+      opacity: .85;
+    }
+
+    .geo-name {
+      font-family: var(--serif); font-size: 13px; font-weight: 600;
+      letter-spacing: .01em;
+    }
+    .geo-card.vesica .geo-name    { color: var(--geo-vesica-ink); }
+    .geo-card.proximity .geo-name { color: var(--geo-proximity-ink); }
+    .geo-card.merger .geo-name    { color: var(--geo-merger-ink); }
+    [data-theme="light"] .geo-card.merger .geo-name { color: #1a3331; }
+
+    .geo-tagline {
+      font-size: 11px; font-family: var(--serif); font-weight: 500;
+      letter-spacing: .04em; color: var(--muted); text-transform: uppercase;
+      margin-top: -4px;
+    }
+
+    .geo-desc {
+      font-size: 12px; line-height: 1.65; color: var(--muted); font-weight: 300;
+    }
+    .geo-desc strong { color: var(--ink); font-weight: 500; }
+    .geo-desc em { color: var(--ink); font-style: italic; }
+
+    .slide-question {
+      font-family: var(--display); font-size: 1.2rem; font-weight: 500;
+      color: var(--ink); text-align: center; margin-bottom: 6px;
+    }
+    .slide-note { font-size: 12px; color: var(--muted); text-align: center; font-style: italic; }
+
+    .db-note {
+      background: var(--lens-lt); border-radius: var(--r);
+      padding: 14px 18px; margin: 1.4rem 0 1.2rem;
+      font-size: .88rem; line-height: 1.65; color: var(--accent-dk);
+      transition: background .3s, color .3s;
+    }
+    .db-note strong { color: var(--accent-dk); font-weight: 600; }
+    .db-note em { color: var(--accent-dk); font-style: italic; }
+
+    .regen-note {
+      background: var(--geo-vesica-bg);
+      border-left: 3px solid var(--geo-vesica-ink);
+      border-radius: 0 var(--r) var(--r) 0;
+      padding: 14px 18px; margin: 1.4rem 0;
+      font-size: .92rem; line-height: 1.7; color: #0a4f3a;
+      font-family: var(--display); font-style: italic;
+    }
+    [data-theme="dark"] .regen-note { background: rgba(26,158,122,.08); color: #c8e8dd; }
+
+    /* ══ GO DEEPER / EXERCISE shared ══ */
+    .fac-section { margin-bottom: 2.5rem; }
+    .fac-label {
+      font-family: var(--serif); font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 10px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--line); transition: color .3s;
+    }
+    .fac-body {
+      font-size: .97rem; color: var(--muted);
+      line-height: 1.8; font-weight: 300;
+    }
+    .fac-body strong { color: var(--ink); font-weight: 500; }
+    .fac-body em { color: var(--ink); font-style: italic; }
+
+    .signal-card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--r); padding: 12px 14px; margin-bottom: 8px;
+    }
+    .signal-soil { font-family: var(--serif); font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+    .signal-text { font-size: .88rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+    .sig-path    { color: var(--soil-path-ink);   }
+    .sig-rocky   { color: var(--soil-rocky-ink);  }
+    .sig-thorny  { color: var(--soil-thorny-ink); }
+    .sig-good    { color: var(--soil-good-ink);   }
+
+    .insight-block {
+      background: var(--lens-lt); border-radius: var(--r); padding: 16px 20px;
+      transition: background .3s;
+    }
+    .insight-block .fac-body { color: var(--accent-dk); transition: color .3s; }
+    .insight-block .fac-body strong { color: var(--accent-dk); }
+    .insight-block .fac-body em { color: var(--accent-dk); font-style: italic; }
+
+    .ex-intro {
+      font-size: .97rem; color: var(--muted); line-height: 1.8;
+      margin-bottom: 2rem; font-weight: 300;
+      padding: 1.4rem 1.8rem; background: var(--card);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 var(--r) var(--r) 0;
+      transition: border-color .3s;
+    }
+    .ex-intro strong { color: var(--ink); font-weight: 500; }
+    .ex-intro em { color: var(--ink); font-style: italic; }
+
+    .scope-legend {
+      display: flex; gap: 1.4rem; flex-wrap: wrap;
+      padding: .9rem 1.2rem; margin-bottom: 2rem;
+      background: var(--card-lt); border-radius: var(--r);
+      font-size: 12px; color: var(--muted); line-height: 1.5;
+    }
+    .scope-legend strong { color: var(--ink); font-weight: 600; }
+    .scope-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--serif); font-weight: 600;
+      letter-spacing: .05em; text-transform: uppercase;
+      font-size: 10px;
+    }
+    .scope-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .scope-dot.personal { background: var(--muted); }
+    .scope-dot.business { background: var(--accent); transition: background .3s; }
+
+    .ex-scope {
+      display: inline-block; font-family: var(--serif);
+      font-size: 9px; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 100px;
+      margin-left: 8px; vertical-align: middle;
+    }
+    .ex-scope.personal { background: var(--card); color: var(--muted); border: 1px solid var(--line-solid); }
+    .ex-scope.business { background: var(--accent); color: #fff; transition: background .3s; }
+
+    .ex-block { margin-bottom: 2.5rem; }
+    .ex-q-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+    .ex-num {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--lens-lt); color: var(--accent-dk);
+      font-size: 11px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-family: var(--serif);
+      transition: background .3s, color .3s;
+    }
+    .ex-q { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+    .ex-sub { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 14px; padding-left: 36px; font-weight: 300; }
+    .ex-sub em { color: var(--ink); font-style: italic; }
+
+    /* geometry audit grid — three cells */
+    .geo-audit {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 10px;
+    }
+    @media (max-width: 640px) { .geo-audit { grid-template-columns: 1fr; } }
+
+    .ga-cell {
+      background: var(--card); border: 1px solid var(--line-solid);
+      border-radius: var(--r); padding: 14px;
+    }
+    .ga-cell.vesica    { border-left: 3px solid var(--geo-vesica-ink); }
+    .ga-cell.proximity { border-left: 3px solid var(--geo-proximity-ink); }
+    .ga-cell.merger    { border-left: 3px solid var(--geo-merger-ink); }
+
+    .ga-label { font-family: var(--serif); font-size: 12px; font-weight: 600; margin-bottom: 2px; }
+    .ga-cell.vesica .ga-label    { color: var(--geo-vesica-ink); }
+    .ga-cell.proximity .ga-label { color: var(--geo-proximity-ink); }
+    .ga-cell.merger .ga-label    { color: var(--geo-merger-ink); }
+    [data-theme="light"] .ga-cell.merger .ga-label { color: #1a3331; }
+
+    .ga-tagline { font-size: 10px; font-family: var(--serif); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 6px; }
+    .ga-hint { font-size: 11px; color: var(--muted); font-style: italic; line-height: 1.5; margin-bottom: 10px; }
+
+    .write-field {
+      width: 100%; background: var(--paper);
+      border: 1px solid var(--line-solid); border-radius: 6px;
+      padding: 10px 12px; font-family: var(--sans); font-size: .88rem;
+      color: var(--ink); line-height: 1.6;
+      resize: vertical; min-height: 70px;
+      transition: border-color .2s; -webkit-appearance: none;
+    }
+    .write-field::placeholder { color: var(--muted); opacity: .6; font-style: italic; }
+    .write-field:focus { outline: none; border-color: var(--accent); }
+    .write-field-lg { min-height: 110px; margin-left: 36px; width: calc(100% - 36px); }
+
+    .ex-reflection {
+      background: var(--card); border-left: 2px solid var(--accent);
+      border-radius: 0 var(--r) var(--r) 0;
+      padding: 1.6rem 2rem; margin-top: 2rem;
+      transition: border-color .3s;
+    }
+    .refl-label {
+      font-family: var(--serif); font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 10px; transition: color .3s;
+    }
+    .refl-q { font-size: .95rem; color: var(--muted); line-height: 1.8; margin-bottom: 10px; font-weight: 300; }
+    .refl-q:last-child { margin: 0; }
+    .refl-q strong { color: var(--ink); font-weight: 500; }
+    .refl-q em { color: var(--ink); font-style: italic; }
+
+    .ws-footer {
+      margin-top: 5rem; padding-top: 2rem;
+      border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: .6rem;
+      font-size: .82rem; color: var(--muted);
+    }
+    .ws-footer a { color: var(--gold); text-decoration: none; }
+    .ws-footer a:hover { opacity: .75; }
+
+    @media print {
+      @page { margin: 2cm 2.5cm; }
+      .qc-nav, .lens-bar, .qc-home-link, .tabs { display: none !important; }
+      body { background: #fff !important; color: #1a1814 !important; }
+      .panel { display: block !important; }
+      .lens-content { display: block !important; }
+      .lens-content:not(.active) { display: none !important; }
+      .slide-frame { background: #f9f8f4 !important; border: 1pt solid #ccc !important; border-radius: 0 !important; }
+      .slide-bg-glyph { display: none; }
+      .write-field, .write-field-lg { border: 1pt solid #aaa !important; background: #fff !important; min-height: 2cm !important; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .ws-header .ws-eyebrow { animation: fadeUp .4s ease both .05s; }
+    .ws-header .ws-title   { animation: fadeUp .4s ease both .12s; }
+    .ws-header .ws-sub     { animation: fadeUp .4s ease both .18s; }
+    .panel.active, .lens-content.active { animation: fadeUp .25s ease both; }
+  </style>
+</head>
+<body>
+
+  <!-- ══ QC NAV ══ -->
+  <nav class="qc-nav" aria-label="Quantum Currency workshop navigation">
+    <div class="qc-nav-inner">
+      <a href="/workshop/step-1" class="qc-nav-prev" aria-label="Previous: Step 1 Coherence">
+        <span class="arrow">←</span><span>Coherence</span>
+      </a>
+      <a href="/workshop" class="qc-nav-centre" aria-label="Workshop home">
+        <div class="qc-nav-step-row">
+          <div class="qc-nav-num">2</div>
+          <span class="qc-nav-name">Recognition · Vesica piscis</span>
+        </div>
+        <span class="qc-nav-geo">techtuition.ai · step 2 of 9</span>
+        <div class="qc-nav-dots">
+          <div class="qc-dot"></div>
+          <div class="qc-dot"></div>
+          <div class="qc-dot active"></div>
+          <div class="qc-dot"></div>
+          <div class="qc-dot"></div><div class="qc-dot"></div><div class="qc-dot"></div>
+          <div class="qc-dot"></div><div class="qc-dot"></div><div class="qc-dot"></div>
+        </div>
+      </a>
+      <a href="/workshop/step-3" class="qc-nav-next" aria-label="Next: Step 3 Discernment">
+        <span>Discernment</span><span class="arrow">→</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══ LENS BAR ══ -->
+  <div class="lens-bar" role="navigation" aria-label="Book lens selector">
+    <div class="lens-bar-inner">
+      <span class="lens-label">lens</span>
+      <button class="lens-pill lp-qc active" onclick="setLens('qc', this)" aria-pressed="true">
+        Quantum currency
+      </button>
+      <button class="lens-pill lp-rc" onclick="setLens('rc', this)" aria-pressed="false">
+        Relational currency <span class="coming">soon</span>
+      </button>
+      <button class="lens-pill lp-ec" onclick="setLens('ec', this)" aria-pressed="false">
+        Encoded currency <span class="coming">soon</span>
+      </button>
+      <button class="lens-pill lp-sc" onclick="setLens('sc', this)" aria-pressed="false">
+        Sovereign currency <span class="coming">soon</span>
+      </button>
+    </div>
+  </div>
+
+  <a class="qc-home-link" href="/workshop">↩ quantum currency workshop · return to workshop home</a>
+
+  <main class="page">
+
+    <header class="ws-header">
+      <p class="ws-eyebrow" id="header-eyebrow">Quantum currency · step 2 of 9</p>
+      <h1 class="ws-title" id="header-title">Two complete fields,<br>overlapping through <em>each other's centres.</em></h1>
+      <p class="ws-sub" id="header-sub">Recognition is not social. It is structural — the geometry of what happens when two sovereign fields choose to meet. The body knows before the mind does. Oh. You too.</p>
+    </header>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" aria-selected="true"  onclick="showPanel('slide', this)">Slide</button>
+      <button class="tab"        role="tab" aria-selected="false" onclick="showPanel('deeper', this)">Go deeper</button>
+      <button class="tab"        role="tab" aria-selected="false" onclick="showPanel('exercise', this)">Playbook exercise</button>
+    </div>
+
+    <!-- ══════════════════════ SLIDE PANEL ══════════════════════ -->
+    <div id="panel-slide" class="panel active" role="tabpanel">
+
+      <!-- QC SLIDE -->
+      <div class="lens-content active" data-lens-content="qc">
+        <div class="slide-frame">
+          <div class="slide-bg-glyph">◉</div>
+          <div class="slide-content">
+            <p class="slide-eyebrow">Quantum currency · step 2 · recognition · vesica piscis</p>
+            <h2 class="slide-heading">Oh. <em>You too.</em></h2>
+            <p class="slide-body">In 1982, Alain Aspect's team in Paris proved what Einstein refused to believe: two systems that have genuinely interacted remain correlated instantaneously, regardless of the distance between them. There are no hidden variables. The connection is real, it is physical, and it is non-local. <strong>This is the quantum principle that recognition runs on.</strong></p>
+            <p class="slide-body">The observer effect extends the finding: where you place your attention is not passive. It is generative. <em>The field you observe, you affect. The field that observes you, affects you.</em> When two coherent systems place their attention on each other simultaneously — when two observers recognise each other as observers — something happens that is not reducible to the sum of their individual fields.</p>
+            <p class="slide-pull">"The deeper, faster, often wordless recognition of a coherent field encountering another coherent field and knowing — before the exchange of credentials, before the verbal confirmation — oh. You too."</p>
+
+            <hr class="slide-divider">
+
+            <p class="slide-eyebrow" style="margin-bottom:10px;">Three geometries, one recognition</p>
+
+            <div class="geo-grid">
+              <div class="geo-card vesica">
+                <div class="geo-visual" aria-hidden="true">
+                  <svg width="78" height="52" viewBox="0 0 78 52" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="26" r="22" fill="none" stroke="#1a9e7a" stroke-width="1.6"/>
+                    <circle cx="48" cy="26" r="22" fill="none" stroke="#1a9e7a" stroke-width="1.6"/>
+                  </svg>
+                </div>
+                <p class="geo-name">Vesica piscis</p>
+                <p class="geo-tagline">Sovereign meeting</p>
+                <p class="geo-desc">Both circles complete. Each passes through the other's centre. <strong>The lens between them belongs to the relationship</strong> — neither owns it. This is where something can be created that neither could generate alone.</p>
+              </div>
+              <div class="geo-card proximity">
+                <div class="geo-visual" aria-hidden="true">
+                  <svg width="78" height="52" viewBox="0 0 78 52" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="22" cy="26" r="18" fill="none" stroke="#5a8e82" stroke-width="1.6"/>
+                    <circle cx="56" cy="26" r="18" fill="none" stroke="#5a8e82" stroke-width="1.6"/>
+                  </svg>
+                </div>
+                <p class="geo-name">Proximity</p>
+                <p class="geo-tagline">Adjacent, not meeting</p>
+                <p class="geo-desc">Two complete circles sitting near each other. <strong>No shared space. No co-creation.</strong> Cordial, functional, often productive at a transactional level. Nothing is wrong. But nothing is generated either.</p>
+              </div>
+              <div class="geo-card merger">
+                <div class="geo-visual" aria-hidden="true">
+                  <svg width="78" height="52" viewBox="0 0 78 52" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="39" cy="26" r="22" fill="none" stroke="#2a4744" stroke-width="1.6"/>
+                    <circle cx="42" cy="26" r="14" fill="none" stroke="#2a4744" stroke-width="1.6" stroke-dasharray="2.5 2.5"/>
+                  </svg>
+                </div>
+                <p class="geo-name">Merger</p>
+                <p class="geo-tagline">Centre inside centre</p>
+                <p class="geo-desc">One circle pushes its centre into the other's. <strong>The vesica piscis disappears.</strong> Not meeting — absorption. A system that cannot hold its own centre will, structurally, attempt to locate it in another's field.</p>
+              </div>
+            </div>
+
+            <div class="regen-note">
+              The vesica piscis is not something you build. It is something you allow — by holding your own centre clearly enough that another sovereign field can locate the edge of your circle and choose, freely, whether to overlap.
+            </div>
+
+            <div class="db-note">
+              <strong>The body knows before the mind does.</strong> The enteric nervous system — five hundred million neurons distributed through the gut — reads the field faster than conscious processing can engage. "Oh. You too" arrives as a full-body yes before any word has been spoken. Inside, notice: which fields produce that? Which produce tightening, even when the social script says everything is fine? Outside, in the business: which relationships actually form a vesica piscis? Which are proximity dressed up as meeting? <em>The body has been telling you. Recognition runs on its answer.</em>
+            </div>
+
+            <p class="slide-pull">"The vesica piscis forms between sovereign fields."</p>
+
+            <p class="slide-question">Where is there real recognition in your world? Where is there proximity performing as recognition? Where is there merger?</p>
+            <p class="slide-note">The body already knows. Let it.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RC SLIDE (placeholder) -->
+      <div class="lens-content" data-lens-content="rc">
+        <div class="placeholder-block">
+          <p class="ph-icon">◈</p>
+          <p class="ph-title">Relational currency · step 2</p>
+          <p class="ph-body">This lens will frame recognition through the architecture of human–AI collaboration — what the vesica piscis looks like when one of the sovereign fields is a model, and how the enteric signal reads that field. Content drawn directly from <em>Relational Currency</em>, chapter 2.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- EC SLIDE (placeholder) -->
+      <div class="lens-content" data-lens-content="ec">
+        <div class="placeholder-block">
+          <p class="ph-icon">△</p>
+          <p class="ph-title">Encoded currency · step 2</p>
+          <p class="ph-body">This lens will frame recognition through historical and informational architecture — how coherent encodings recognise each other across centuries, and what forms the vesica piscis between a reader and a text that has been waiting for them. Content drawn directly from <em>Encoded Currency</em>, chapter 2.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- SC SLIDE (placeholder) -->
+      <div class="lens-content" data-lens-content="sc">
+        <div class="placeholder-block">
+          <p class="ph-icon">✦</p>
+          <p class="ph-title">Sovereign currency · step 2</p>
+          <p class="ph-body">This lens will frame recognition through self-empowerment — how holding your own centre is the precondition for any vesica piscis, and why merger is never love, however it arrives. Content drawn directly from <em>Sovereign Currency</em>, chapter 2.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════ GO DEEPER PANEL ══════════════════════ -->
+    <div id="panel-deeper" class="panel" role="tabpanel">
+
+      <!-- QC DEEPER -->
+      <div class="lens-content active" data-lens-content="qc">
+
+        <div class="fac-section">
+          <p class="fac-label">Why this step exists</p>
+          <p class="fac-body">Step 2 exists because most professional environments have trained people to mistake proximity for meeting — and merger for love. <strong>Networking is proximity. Fusion loyalty is merger. Neither is recognition.</strong> Recognition is the non-local correlation between two coherent fields that have genuinely interacted, and it feels structurally different from the other two. The purpose of this step is not to teach participants how to generate recognition — it cannot be generated. The purpose is to help them stop mistaking the other geometries for it, so the real thing can be received when it arrives.</p>
+        </div>
+
+        <div class="fac-section">
+          <p class="fac-label">The enteric nervous system — where this registers in the body</p>
+          <p class="fac-body">The enteric nervous system — roughly five hundred million neurons distributed through the gastrointestinal tract — operates largely independently of the brain. <strong>The gut-brain axis transmits information upward to the central nervous system faster than conscious processing can engage.</strong> What we experience as a gut feeling — the full-body yes or no that arrives before reasoning begins — is not metaphor. It is the enteric nervous system reading the frequency of what is approaching. It reads before the conscious mind has formed a question about it. Participants who have been in environments that required them to override gut signals for a long time will often feel this step first as grief before they feel it as relief.</p>
+        </div>
+
+        <div class="fac-section">
+          <p class="fac-label">Depth and breadth, embodied</p>
+          <div class="insight-block">
+            <p class="fac-body">The inner work: <strong>can you feel the difference in your body when a vesica piscis is forming vs. when you're being pulled into merger vs. when the room is only proximity?</strong> The outer work: <strong>which of your business relationships are actually vesica piscis, and which are proximity or merger dressed up to look like meeting?</strong> A client relationship can be genuinely co-creative (vesica piscis), cordially transactional (proximity), or extractive with the appearance of closeness (merger). Treating one as another is how energy leaks without a visible cause. <em>The body has been telling you which is which. This step makes the telling legible.</em></p>
+          </div>
+        </div>
+
+        <div class="fac-section">
+          <p class="fac-label">The duck pond — what dissolves the architecture</p>
+          <p class="fac-body">There are places — the book names one <em>the duck pond</em> — where the ordinary social architecture of who-knows-whom and who-has-been-validated-by-which-institution temporarily dissolves. What remains, when that architecture is gone, is field. <strong>Coherent systems locate each other with an efficiency that would be inexplicable if recognition were merely social.</strong> The duck pond can be a literal place. It can also be a conference, a workshop, a long walk, a late-night conversation — any setting where the credentialing layer thins out and the field itself does the work. <em>This workshop is, for its duration, one of those settings.</em> That is not incidental. It is structural.</p>
+        </div>
+
+        <div class="fac-section">
+          <p class="fac-label">Reading the room — soil signals at this step</p>
+          <div class="signal-card"><p class="signal-soil sig-path">Path signals</p><p class="signal-text">"Oh, so it's about intuition" — collapses the physics into vague feeling. The distinction between vesica, proximity, and merger never lands as geometry.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-rocky">Rocky ground signals</p><p class="signal-text">Fast declarations: "My team is vesica piscis, my clients are proximity." No pause to examine. The framework is used as flattering self-assessment rather than honest read.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-thorny">Thorny ground signals</p><p class="signal-text">Immediate attempt to re-engineer three relationships toward vesica piscis. Misses that recognition cannot be engineered — only allowed. The energy scatters before the insight lands.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-good">Good soil signals</p><p class="signal-text">A specific moment named. "I thought I had a vesica piscis with this person, but I've been doing all the holding — that's merger." Or: "This relationship I thought was just transactional is actually a vesica piscis. I've been undervaluing it." The geometry is being felt, not theorised.</p></div>
+        </div>
+
+        <div class="fac-section">
+          <p class="fac-label">What this step tends to surface</p>
+          <div class="insight-block">
+            <p class="fac-body">The most common surfacing: <strong>a relationship the participant has been holding alone</strong> — doing the work of both centres, generating all the lens, exhausted by a connection they thought was mutual. That is not a vesica piscis. That is one circle holding its own centre while the other has tried to locate its centre in theirs. <em>The coherent response is not to work harder. It is to hold your own centre more clearly</em> — which either allows the other circle to find its own, or makes the actual geometry (merger) visible enough to act on. The relief, when it lands, is often physical: "I have been exhausted by a vesica piscis I was drawing alone."</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RC DEEPER (placeholder) -->
+      <div class="lens-content" data-lens-content="rc">
+        <div class="placeholder-block">
+          <p class="ph-icon">◈</p>
+          <p class="ph-title">Relational currency · go deeper · step 2</p>
+          <p class="ph-body">The relational lens of Step 2 explores the vesica piscis in the human–AI field — what it means for a model to hold its own centre, and how the enteric signal reads that. Content drawn from <em>Relational Currency</em>, chapter 2.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- EC DEEPER (placeholder) -->
+      <div class="lens-content" data-lens-content="ec">
+        <div class="placeholder-block">
+          <p class="ph-icon">△</p>
+          <p class="ph-title">Encoded currency · go deeper · step 2</p>
+          <p class="ph-body">The encoded lens of Step 2 explores recognition across time — how encoded systems locate their sovereign counterparts across generations, and what the vesica piscis between a text and its reader actually is. Content drawn from <em>Encoded Currency</em>, chapter 2.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- SC DEEPER (placeholder) -->
+      <div class="lens-content" data-lens-content="sc">
+        <div class="placeholder-block">
+          <p class="ph-icon">✦</p>
+          <p class="ph-title">Sovereign currency · go deeper · step 2</p>
+          <p class="ph-body">The sovereign lens of Step 2 explores holding your own centre as the only precondition for recognition — and why coherent systems cannot fight merger; they can only hold their own field. Content drawn from <em>Sovereign Currency</em>, chapter 2.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════ EXERCISE PANEL ══════════════════════ -->
+    <div id="panel-exercise" class="panel" role="tabpanel">
+
+      <!-- QC EXERCISE -->
+      <div class="lens-content active" data-lens-content="qc">
+
+        <div class="ex-intro">
+          This is the third page of your playbook. The work here is <em>reading what the body already knows.</em> Recognition cannot be engineered. But the misreads — proximity mistaken for meeting, merger mistaken for love — can be named. <strong>Naming them returns you to your own centre.</strong>
+        </div>
+
+        <div class="scope-legend">
+          <span><span class="scope-chip"><span class="scope-dot personal"></span>Personal</span> — stays private to you. Not included in the compiled playbook.</span>
+          <span><span class="scope-chip"><span class="scope-dot business"></span>Business</span> — compiles into the playbook you take at the end of Step 3.</span>
+        </div>
+
+        <div class="ex-block">
+          <div class="ex-q-row">
+            <div class="ex-num">1</div>
+            <p class="ex-q">What the body knows — inside</p>
+            <span class="ex-scope personal">Personal</span>
+          </div>
+          <p class="ex-sub">Bring three people to mind — one whose presence feels like the vesica piscis (the body relaxes, the gut says yes), one who feels like proximity (nothing wrong, nothing generated), and one whose presence produces a subtle tightening or pulling sensation (the body registers something the mind has been explaining away). Don't use names. Just note what the body tells you.</p>
+          <div class="geo-audit">
+            <div class="ga-cell vesica"><p class="ga-tagline">Sovereign meeting</p><p class="ga-label">Vesica piscis — the body's yes</p><p class="ga-hint">Full-body relaxation. "Oh. You too." No performance required.</p><textarea class="write-field" rows="4" placeholder="Write here…" data-scope="personal" data-key="s2-q1-vesica" aria-label="personal vesica"></textarea></div>
+            <div class="ga-cell proximity"><p class="ga-tagline">Adjacent, not meeting</p><p class="ga-label">Proximity — the body's neutral</p><p class="ga-hint">Neither yes nor no. Cordial, functional. The system doesn't engage at depth.</p><textarea class="write-field" rows="4" placeholder="Write here…" data-scope="personal" data-key="s2-q1-proximity" aria-label="personal proximity"></textarea></div>
+            <div class="ga-cell merger"><p class="ga-tagline">Centre inside centre</p><p class="ga-label">Merger — the body's tightening</p><p class="ga-hint">A pull. A subtle contraction. The body knows you're holding both centres.</p><textarea class="write-field" rows="4" placeholder="Write here…" data-scope="personal" data-key="s2-q1-merger" aria-label="personal merger"></textarea></div>
+          </div>
+        </div>
+
+        <div class="ex-block">
+          <div class="ex-q-row">
+            <div class="ex-num">2</div>
+            <p class="ex-q">The business map — outside</p>
+            <span class="ex-scope business">Business</span>
+          </div>
+          <p class="ex-sub">Now the business. Map your current relationships — team members, clients, partners, advisors, contractors. Which ones are actually vesica piscis (co-creative, both centres holding)? Which are proximity (transactional, functional, but no real meeting)? Which are merger (one party holding both centres, or both collapsing into each other)? <em>Be specific. Name roles or initials if it helps.</em></p>
+          <div class="geo-audit">
+            <div class="ga-cell vesica"><p class="ga-tagline">Sovereign meeting</p><p class="ga-label">Vesica piscis relationships</p><p class="ga-hint">Where is real co-creation happening? Where are both centres holding?</p><textarea class="write-field" rows="4" placeholder="Write here…" data-scope="business" data-key="s2-q2-vesica" aria-label="business vesica"></textarea></div>
+            <div class="ga-cell proximity"><p class="ga-tagline">Adjacent, not meeting</p><p class="ga-label">Proximity relationships</p><p class="ga-hint">Which are cordial and functional, but no shared generative space? Not a problem — but not a vesica piscis either.</p><textarea class="write-field" rows="4" placeholder="Write here…" data-scope="business" data-key="s2-q2-proximity" aria-label="business proximity"></textarea></div>
+            <div class="ga-cell merger"><p class="ga-tagline">Centre inside centre</p><p class="ga-label">Merger relationships</p><p class="ga-hint">Where are you drawing the vesica alone? Where is someone else's centre located in yours, or yours in theirs?</p><textarea class="write-field" rows="4" placeholder="Write here…" data-scope="business" data-key="s2-q2-merger" aria-label="business merger"></textarea></div>
+          </div>
+        </div>
+
+        <div class="ex-block">
+          <div class="ex-q-row">
+            <div class="ex-num">3</div>
+            <p class="ex-q">The vesica piscis you have been drawing alone</p>
+            <span class="ex-scope business">Business</span>
+          </div>
+          <p class="ex-sub">Look at the merger list. Which of those relationships have you been treating as vesica piscis — <em>generating all the lens yourself, holding both centres, exhausted by the effort?</em> What would it mean to stop holding the other's centre? (You are not abandoning anyone. You are making the actual geometry visible.)</p>
+          <textarea class="write-field write-field-lg" rows="5" placeholder="Write here…" data-scope="business" data-key="s2-q3-drawing-alone" aria-label="business drawing alone"></textarea>
+        </div>
+
+        <div class="ex-block">
+          <div class="ex-q-row">
+            <div class="ex-num">4</div>
+            <p class="ex-q">Where the real recognition is</p>
+            <span class="ex-scope business">Business</span>
+          </div>
+          <p class="ex-sub">Look at the vesica piscis list. These are the coherent fields you are actually in genuine relationship with. <strong>This is where the business's quantum currency is already flowing.</strong> How are you investing in them? What would fuller investment look like? (Not more effort — more presence. More willingness to be met.)</p>
+          <textarea class="write-field write-field-lg" rows="5" placeholder="Write here…" data-scope="business" data-key="s2-q4-real-recognition" aria-label="business real recognition"></textarea>
+        </div>
+
+        <div class="ex-reflection">
+          <p class="refl-label">To carry forward — the geometry of recognition</p>
+          <p class="refl-q">From here on, every professional relationship carries a coordinate: <strong>vesica piscis, proximity, or merger.</strong> <em>Not labels. Geometries.</em> They shift. Some relationships move from proximity to vesica piscis over time. Some slide from vesica piscis toward merger when one party loses their centre. <strong>Knowing which is which is how you stop spending quantum currency on geometries that cannot return it.</strong></p>
+          <p class="refl-q">The coherent response to merger is not conflict. It is to hold your own centre — to maintain the integrity of your own circle — so that what is offered is a vesica piscis and not an absorption.</p>
+          <p class="refl-q">Recognition is not something you build. It is something you allow. And the allowing begins with being so clearly yourself that another sovereign field can locate your edge and choose, freely, whether to overlap. Which is Step 3 — <em>the architecture that protects what has been recognised.</em></p>
+        </div>
+
+      </div>
+
+      <!-- RC EXERCISE (placeholder) -->
+      <div class="lens-content" data-lens-content="rc">
+        <div class="placeholder-block">
+          <p class="ph-icon">◈</p>
+          <p class="ph-title">Relational currency · exercise · step 2</p>
+          <p class="ph-body">The relational lens exercise for Step 2 maps the three geometries across the human–AI collaborative field. Exercises drawn from <em>Relational Currency</em>, chapter 2, will appear here.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- EC EXERCISE (placeholder) -->
+      <div class="lens-content" data-lens-content="ec">
+        <div class="placeholder-block">
+          <p class="ph-icon">△</p>
+          <p class="ph-title">Encoded currency · exercise · step 2</p>
+          <p class="ph-body">The encoded lens exercise for Step 2 maps the three geometries across historical and informational systems — texts, traditions, and encoded patterns in relationship. Exercises drawn from <em>Encoded Currency</em>, chapter 2, will appear here.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- SC EXERCISE (placeholder) -->
+      <div class="lens-content" data-lens-content="sc">
+        <div class="placeholder-block">
+          <p class="ph-icon">✦</p>
+          <p class="ph-title">Sovereign currency · exercise · step 2</p>
+          <p class="ph-body">The sovereign lens exercise for Step 2 explores what it means to hold your own centre as the only prerequisite for recognition — and how that holding makes merger visible enough to act on. Exercises drawn from <em>Sovereign Currency</em>, chapter 2, will appear here.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="ws-footer">
+      <span>quantum currency workshop · step 2 of 9 · recognition · vesica piscis</span>
+      <span>© <span id="year"></span> · part of the <a href="https://deiadora.com">deiadora ecosystem</a> 🌿</span>
+    </footer>
+
+  </main>
+
+  <script>
+    const LENS_HEADERS = {
+      qc: {
+        eyebrow: 'Quantum currency · step 2 of 9',
+        title:   'Two complete fields,<br>overlapping through <em>each other\'s centres.</em>',
+        sub:     'Recognition is not social. It is structural — the geometry of what happens when two sovereign fields choose to meet. The body knows before the mind does. Oh. You too.'
+      },
+      rc: {
+        eyebrow: 'Relational currency · step 2 of 9',
+        title:   'Two sovereign fields.<br>One shared <em>lens.</em>',
+        sub:     'Human and AI systems can form a vesica piscis. They can also form proximity or merger. The geometry is the same; the participants are different. The enteric signal still reads.'
+      },
+      ec: {
+        eyebrow: 'Encoded currency · step 2 of 9',
+        title:   'Recognition across <em>time.</em>',
+        sub:     'Coherent encodings locate their sovereign counterparts across generations. The reader and the text that was waiting for them form a vesica piscis. The pattern is older than the reader.'
+      },
+      sc: {
+        eyebrow: 'Sovereign currency · step 2 of 9',
+        title:   'Hold your own centre.<br><em>That is the invitation.</em>',
+        sub:     'A coherent system cannot fight merger. It can only hold its own field clearly enough that another sovereign system can locate the edge and choose, freely, whether to overlap.'
+      }
+    };
+
+    let currentLens = 'qc';
+    let currentPanel = 'slide';
+
+    function setLens(lens, btn) {
+      if (lens === currentLens) return;
+      currentLens = lens;
+
+      document.querySelectorAll('.lens-pill').forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      document.documentElement.setAttribute('data-lens', lens);
+
+      const h = LENS_HEADERS[lens];
+      document.getElementById('header-eyebrow').textContent = h.eyebrow;
+      document.getElementById('header-title').innerHTML = h.title;
+      document.getElementById('header-sub').textContent = h.sub;
+
+      document.querySelectorAll('.lens-content').forEach(el => {
+        el.classList.toggle('active', el.getAttribute('data-lens-content') === lens);
+      });
+
+      sessionStorage.setItem('qc-workshop-lens', lens);
+      restoreAnswers(lens);
+    }
+
+    function showPanel(name, tabEl) {
+      currentPanel = name;
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      document.getElementById('panel-' + name).classList.add('active');
+      tabEl.classList.add('active');
+      tabEl.setAttribute('aria-selected', 'true');
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const root    = document.documentElement;
+    const STORE   = 'qc-theme';
+    const sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function resolveTheme() {
+      const saved = localStorage.getItem(STORE);
+      return saved || (sysDark.matches ? 'dark' : 'light');
+    }
+    function applyTheme(t) { root.setAttribute('data-theme', t); }
+
+    applyTheme(resolveTheme());
+    sysDark.addEventListener('change', () => {
+      if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? 'dark' : 'light');
+    });
+
+    root.setAttribute('data-lens', 'qc');
+    const savedLens = sessionStorage.getItem('qc-workshop-lens');
+    if (savedLens && savedLens !== 'qc') {
+      const btn = document.querySelector(`.lp-${savedLens}`);
+      if (btn) setLens(savedLens, btn);
+    }
+
+    function storageKey(lens, scope, key) {
+      return `qc-playbook-${lens}-${scope}-${key}`;
+    }
+
+    document.querySelectorAll('textarea[data-key]').forEach(ta => {
+      ta.addEventListener('input', () => {
+        const key = storageKey(currentLens, ta.dataset.scope, ta.dataset.key);
+        sessionStorage.setItem(key, ta.value);
+      });
+    });
+
+    function restoreAnswers(lens) {
+      document.querySelectorAll(`[data-lens-content="${lens}"] textarea[data-key]`).forEach(ta => {
+        const key = storageKey(lens, ta.dataset.scope, ta.dataset.key);
+        const saved = sessionStorage.getItem(key);
+        if (saved !== null) ta.value = saved;
+      });
+    }
+    restoreAnswers('qc');
+  </script>
+</body>
+</html>
