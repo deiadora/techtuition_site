@@ -1,15 +1,15 @@
-<!-- step-0.html (Cloudflare Pages — techtuition.ai/workshop/step-0) -->
+<!-- step-1.html (Cloudflare Pages — techtuition.ai/workshop/step-1) -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Step 0 · Field · Zero point · quantum currency workshop · techtuition</title>
-  <meta name="description" content="Before we count anything, let's find the ground. Step 0 of the Quantum Currency Workshop — the field, the zero point, and the Sower lens carried through every step." />
-  <meta property="og:title" content="Step 0 · Field · Zero point · quantum currency workshop" />
-  <meta property="og:description" content="The field is primary. Before any model, any map, any strategy — we stand here first." />
+  <title>Step 1 · Coherence · Torus · quantum currency workshop · techtuition</title>
+  <meta name="description" content="A coherent system under pressure compresses; it does not fragment. Step 1 of the Quantum Currency Workshop — two independent axes, four quadrants, one goal: Regeneration." />
+  <meta property="og:title" content="Step 1 · Coherence · Torus · quantum currency workshop" />
+  <meta property="og:description" content="Two axes, not one. Four quadrants. The goal is Regeneration — when all nodes are generating and contributing to the whole." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://techtuition.ai/workshop/step-0" />
+  <meta property="og:url" content="https://techtuition.ai/workshop/step-1" />
   <meta property="og:image" content="https://techtuition.ai/techtuition_banner.jpeg" />
   <link rel="icon" href="/techtuition_favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,7 +19,7 @@
     /* ═══════════════════════════════════════════════════════════════
        LOCKED COLOR SYSTEM — DO NOT INVENT NEW VALUES
        ───────────────────────────────────────────────────────────────
-       SOIL (semantic, never changes across steps/lenses/pages):
+       SOIL (semantic, Sower diagnostic — never used for quadrants):
          path    → #a9292a  (node-1 family, deep red)
          rocky   → #9d4418  (node-2 family, terracotta)
          thorny  → #1a6b9e  (node-7 family, sky blue)
@@ -30,6 +30,12 @@
          rc      → #1a9e7a  (brighter teal — outward-facing)
          ec      → #085041  (deep teal — rooted/historical)
          sc      → #0a3d33  (deepest teal — interior)
+
+       QUADRANTS — Step 1 only, teal family, four depths:
+         generating  → #1a9e7a  (brightest — full radius, outward)
+         compressed  → #0f6e56  (true teal — held, waiting for contact)
+         scattered   → #5a8e82  (muted teal — moving but not phased)
+         fragmented  → #2a4744  (deepest muted teal — compartmentalised)
        ═══════════════════════════════════════════════════════════════ */
     :root {
       --ink:        #ebe7dc;
@@ -45,7 +51,7 @@
       --sans:       'DM Sans', system-ui, sans-serif;
       --display:    'Cormorant Garamond', Georgia, serif;
 
-      /* SOIL — locked, semantic */
+      /* SOIL — locked */
       --soil-path-ink:    #a9292a;
       --soil-path-bg:     #fcebea;
       --soil-path-dk:     #7a1d1e;
@@ -59,13 +65,22 @@
       --soil-good-bg:     #eaf3de;
       --soil-good-dk:     #4a6612;
 
-      /* LENS — teal family, four depths */
+      /* LENS */
       --qc:   #0f6e56;
       --rc:   #1a9e7a;
       --ec:   #085041;
       --sc:   #0a3d33;
 
-      /* ACTIVE LENS — defaults to QC */
+      /* QUADRANTS — teal family, four depths (used only on this step) */
+      --quad-generating-ink: #1a9e7a;
+      --quad-generating-bg:  #e4f6ef;
+      --quad-compressed-ink: #0f6e56;
+      --quad-compressed-bg:  #dcede7;
+      --quad-scattered-ink:  #5a8e82;
+      --quad-scattered-bg:   #e8efed;
+      --quad-fragmented-ink: #2a4744;
+      --quad-fragmented-bg:  #dde3e2;
+
       --accent:    var(--qc);
       --accent-lt: #1a9e7a;
       --accent-dk: #085041;
@@ -83,7 +98,6 @@
       --line-solid: rgba(26,24,20,.18);
     }
 
-    /* per-lens overrides — only the accent varies, everything else stable */
     [data-lens="qc"] { --accent: #0f6e56; --accent-lt: #1a9e7a; --accent-dk: #085041; --lens-lt: #e1f5ee; }
     [data-lens="rc"] { --accent: #1a9e7a; --accent-lt: #2bbf94; --accent-dk: #0f6e56; --lens-lt: #e4f6ef; }
     [data-lens="ec"] { --accent: #085041; --accent-lt: #0f6e56; --accent-dk: #053830; --lens-lt: #dcede7; }
@@ -113,8 +127,9 @@
       display: flex; align-items: center; gap: 8px;
       text-decoration: none; color: var(--muted);
       font-size: 12px; font-weight: 400;
-      opacity: .3; pointer-events: none;
+      transition: color .2s;
     }
+    .qc-nav-prev:hover { color: var(--accent); }
     .qc-nav-centre {
       display: flex; flex-direction: column;
       align-items: center; gap: 3px; text-decoration: none;
@@ -178,30 +193,24 @@
       transition: all .2s; background: none; white-space: nowrap;
       letter-spacing: .01em;
     }
-    /* all four pills use the teal family, four depths */
     .lp-qc { color: var(--qc); border-color: rgba(15,110,86,.3); }
     .lp-qc:hover, .lp-qc.active { background: #e1f5ee; border-color: var(--qc); }
     [data-theme="light"] .lp-qc:hover, [data-theme="light"] .lp-qc.active { background: #c8edd8; }
-
     .lp-rc { color: var(--rc); border-color: rgba(26,158,122,.3); }
     .lp-rc:hover, .lp-rc.active { background: #e4f6ef; border-color: var(--rc); }
     [data-theme="light"] .lp-rc:hover, [data-theme="light"] .lp-rc.active { background: #c8eddd; }
-
     .lp-ec { color: var(--ec); border-color: rgba(8,80,65,.3); }
     .lp-ec:hover, .lp-ec.active { background: #dcede7; border-color: var(--ec); }
     [data-theme="light"] .lp-ec:hover, [data-theme="light"] .lp-ec.active { background: #b8dacf; }
-
     .lp-sc { color: var(--sc); border-color: rgba(10,61,51,.3); }
     .lp-sc:hover, .lp-sc.active { background: #d6e6e1; border-color: var(--sc); }
     [data-theme="light"] .lp-sc:hover, [data-theme="light"] .lp-sc.active { background: #b3ccc4; }
 
     .lens-pill.active { font-weight: 600; }
-
     @media (max-width: 600px) {
       .lens-label { display: none; }
       .lens-pill { padding: 5px 10px; font-size: 11px; }
     }
-
     .lens-pill .coming {
       font-size: 9px; vertical-align: super;
       opacity: .6; letter-spacing: .04em;
@@ -232,7 +241,6 @@
     .lens-content { display: none; }
     .lens-content.active { display: block; }
 
-    /* placeholder */
     .placeholder-block {
       background: var(--card); border: 1px dashed var(--line-solid);
       border-radius: var(--r); padding: 2rem 2.4rem;
@@ -256,7 +264,6 @@
       opacity: .7;
     }
 
-    /* ── tabs ── */
     .tabs {
       display: flex; margin: 2rem 0 2rem;
       border-bottom: 1px solid var(--line-solid);
@@ -302,6 +309,7 @@
       line-height: 1.8; margin-bottom: 1.2rem;
       font-weight: 300; max-width: 580px;
     }
+    .slide-body em { color: var(--ink); font-style: italic; }
     .slide-pull {
       font-family: var(--display);
       font-size: 1.3rem; font-weight: 400; font-style: italic;
@@ -311,16 +319,72 @@
     }
     .slide-divider { border: none; border-top: 1px solid var(--line); margin: 1.6rem 0; }
 
-    .four-soils {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 1.2rem 0 1.6rem;
+    /* ══ QUADRANT MATRIX ══ */
+    .matrix-wrap { margin: 1.4rem 0 1.6rem; }
+    .matrix-axes {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: 1fr auto;
+      gap: 8px;
     }
-    .soil-chip { border-radius: var(--r); padding: 12px 14px; }
-    .soil-chip .s-name { font-family: var(--serif); font-size: 12px; font-weight: 600; margin-bottom: 4px; }
-    .soil-chip .s-desc { font-size: 12px; line-height: 1.5; font-weight: 300; }
-    .soil-path   { background: var(--soil-path-bg);   } .soil-path .s-name   { color: var(--soil-path-ink);   } .soil-path .s-desc   { color: var(--soil-path-dk);   }
-    .soil-rocky  { background: var(--soil-rocky-bg);  } .soil-rocky .s-name  { color: var(--soil-rocky-ink);  } .soil-rocky .s-desc  { color: var(--soil-rocky-dk);  }
-    .soil-thorny { background: var(--soil-thorny-bg); } .soil-thorny .s-name { color: var(--soil-thorny-ink); } .soil-thorny .s-desc { color: var(--soil-thorny-dk); }
-    .soil-good   { background: var(--soil-good-bg);   } .soil-good .s-name   { color: var(--soil-good-ink);   } .soil-good .s-desc   { color: var(--soil-good-dk);   }
+    .axis-y {
+      grid-column: 1; grid-row: 1;
+      writing-mode: vertical-rl; transform: rotate(180deg);
+      font-family: var(--serif); font-size: 10px; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); text-align: center;
+      padding: 8px 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .axis-x {
+      grid-column: 2; grid-row: 2;
+      font-family: var(--serif); font-size: 10px; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); text-align: center;
+      padding: 6px 0 0;
+    }
+    .matrix-grid {
+      grid-column: 2; grid-row: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    }
+    .quad-cell {
+      border-radius: var(--r); padding: 14px 16px;
+      background: var(--card-lt); border: 1px solid var(--line-solid);
+      position: relative;
+    }
+    .quad-cell.generating  { border-left: 3px solid var(--quad-generating-ink); }
+    .quad-cell.compressed  { border-left: 3px solid var(--quad-compressed-ink); }
+    .quad-cell.scattered   { border-left: 3px solid var(--quad-scattered-ink); }
+    .quad-cell.fragmented  { border-left: 3px solid var(--quad-fragmented-ink); }
+
+    .quad-name {
+      font-family: var(--serif); font-size: 13px; font-weight: 600;
+      margin-bottom: 6px; letter-spacing: .01em;
+    }
+    .quad-cell.generating .quad-name  { color: var(--quad-generating-ink); }
+    .quad-cell.compressed .quad-name  { color: var(--quad-compressed-ink); }
+    .quad-cell.scattered .quad-name   { color: var(--quad-scattered-ink); }
+    .quad-cell.fragmented .quad-name  { color: var(--quad-fragmented-ink); }
+    [data-theme="light"] .quad-cell.fragmented .quad-name { color: #1a3331; }
+
+    .quad-coord {
+      font-size: 10px; font-family: var(--serif); font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 8px;
+    }
+    .quad-desc {
+      font-size: 12px; line-height: 1.6; color: var(--muted); font-weight: 300;
+    }
+    .quad-desc strong { color: var(--ink); font-weight: 500; }
+    .quad-desc em { color: var(--ink); font-style: italic; }
+
+    @media (max-width: 560px) {
+      .matrix-grid { grid-template-columns: 1fr; }
+      .matrix-axes { grid-template-columns: 1fr; grid-template-rows: auto auto auto; gap: 8px; }
+      .axis-y { writing-mode: horizontal-tb; transform: none; grid-column: 1; grid-row: 1; padding: 0 0 6px; }
+      .matrix-grid { grid-column: 1; grid-row: 2; }
+      .axis-x { grid-column: 1; grid-row: 3; }
+    }
 
     .slide-question {
       font-family: var(--display); font-size: 1.2rem; font-weight: 500;
@@ -328,7 +392,6 @@
     }
     .slide-note { font-size: 12px; color: var(--muted); text-align: center; font-style: italic; }
 
-    /* depth & breadth note — inner/outer dual thread */
     .db-note {
       background: var(--lens-lt); border-radius: var(--r);
       padding: 14px 18px; margin: 1.4rem 0 1.2rem;
@@ -336,6 +399,17 @@
       transition: background .3s, color .3s;
     }
     .db-note strong { color: var(--accent-dk); font-weight: 600; }
+    .db-note em { color: var(--accent-dk); font-style: italic; }
+
+    .regen-note {
+      background: var(--quad-generating-bg);
+      border-left: 3px solid var(--quad-generating-ink);
+      border-radius: 0 var(--r) var(--r) 0;
+      padding: 14px 18px; margin: 1.4rem 0;
+      font-size: .92rem; line-height: 1.7; color: #0a4f3a;
+      font-family: var(--display); font-style: italic;
+    }
+    [data-theme="dark"] .regen-note { background: rgba(26,158,122,.08); color: #c8e8dd; }
 
     /* ══ GO DEEPER / EXERCISE shared ══ */
     .fac-section { margin-bottom: 2.5rem; }
@@ -350,6 +424,7 @@
       line-height: 1.8; font-weight: 300;
     }
     .fac-body strong { color: var(--ink); font-weight: 500; }
+    .fac-body em { color: var(--ink); font-style: italic; }
 
     .signal-card {
       background: var(--card); border: 1px solid var(--line);
@@ -368,8 +443,8 @@
     }
     .insight-block .fac-body { color: var(--accent-dk); transition: color .3s; }
     .insight-block .fac-body strong { color: var(--accent-dk); }
+    .insight-block .fac-body em { color: var(--accent-dk); font-style: italic; }
 
-    /* exercise */
     .ex-intro {
       font-size: .97rem; color: var(--muted); line-height: 1.8;
       margin-bottom: 2rem; font-weight: 300;
@@ -379,8 +454,8 @@
       transition: border-color .3s;
     }
     .ex-intro strong { color: var(--ink); font-weight: 500; }
+    .ex-intro em { color: var(--ink); font-style: italic; }
 
-    /* scope legend */
     .scope-legend {
       display: flex; gap: 1.4rem; flex-wrap: wrap;
       padding: .9rem 1.2rem; margin-bottom: 2rem;
@@ -398,7 +473,6 @@
     .scope-dot.personal { background: var(--muted); }
     .scope-dot.business { background: var(--accent); transition: background .3s; }
 
-    /* per-question scope indicator */
     .ex-scope {
       display: inline-block; font-family: var(--serif);
       font-size: 9px; font-weight: 600; letter-spacing: .08em;
@@ -420,20 +494,32 @@
     }
     .ex-q { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--ink); }
     .ex-sub { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 14px; padding-left: 36px; font-weight: 300; }
+    .ex-sub em { color: var(--ink); font-style: italic; }
 
-    .soil-audit { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
-    @media (max-width: 520px) { .soil-audit { grid-template-columns: 1fr; } }
+    /* quadrant audit grid */
+    .quad-audit {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;
+    }
+    @media (max-width: 520px) { .quad-audit { grid-template-columns: 1fr; } }
 
-    .audit-cell {
+    .qa-cell {
       background: var(--card); border: 1px solid var(--line-solid);
       border-radius: var(--r); padding: 14px;
     }
-    .audit-label { font-family: var(--serif); font-size: 12px; font-weight: 600; margin-bottom: 6px; }
-    .audit-hint { font-size: 11px; color: var(--muted); font-style: italic; line-height: 1.5; margin-bottom: 10px; }
-    .ac-path .audit-label   { color: var(--soil-path-ink);   }
-    .ac-rocky .audit-label  { color: var(--soil-rocky-ink);  }
-    .ac-thorny .audit-label { color: var(--soil-thorny-ink); }
-    .ac-good .audit-label   { color: var(--soil-good-ink);   }
+    .qa-cell.generating  { border-left: 3px solid var(--quad-generating-ink); }
+    .qa-cell.compressed  { border-left: 3px solid var(--quad-compressed-ink); }
+    .qa-cell.scattered   { border-left: 3px solid var(--quad-scattered-ink); }
+    .qa-cell.fragmented  { border-left: 3px solid var(--quad-fragmented-ink); }
+
+    .qa-label { font-family: var(--serif); font-size: 12px; font-weight: 600; margin-bottom: 2px; }
+    .qa-cell.generating .qa-label  { color: var(--quad-generating-ink); }
+    .qa-cell.compressed .qa-label  { color: var(--quad-compressed-ink); }
+    .qa-cell.scattered .qa-label   { color: var(--quad-scattered-ink); }
+    .qa-cell.fragmented .qa-label  { color: var(--quad-fragmented-ink); }
+    [data-theme="light"] .qa-cell.fragmented .qa-label { color: #1a3331; }
+
+    .qa-coord { font-size: 10px; font-family: var(--serif); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 6px; }
+    .qa-hint { font-size: 11px; color: var(--muted); font-style: italic; line-height: 1.5; margin-bottom: 10px; }
 
     .write-field {
       width: 100%; background: var(--paper);
@@ -461,8 +547,8 @@
     .refl-q { font-size: .95rem; color: var(--muted); line-height: 1.8; margin-bottom: 10px; font-weight: 300; }
     .refl-q:last-child { margin: 0; }
     .refl-q strong { color: var(--ink); font-weight: 500; }
+    .refl-q em { color: var(--ink); font-style: italic; }
 
-    /* ── footer ── */
     .ws-footer {
       margin-top: 5rem; padding-top: 2rem;
       border-top: 1px solid var(--line);
@@ -473,7 +559,6 @@
     .ws-footer a { color: var(--gold); text-decoration: none; }
     .ws-footer a:hover { opacity: .75; }
 
-    /* ══ PRINT ══ */
     @media print {
       @page { margin: 2cm 2.5cm; }
       .qc-nav, .lens-bar, .qc-home-link, .tabs { display: none !important; }
@@ -501,24 +586,25 @@
   <!-- ══ QC NAV ══ -->
   <nav class="qc-nav" aria-label="Quantum Currency workshop navigation">
     <div class="qc-nav-inner">
-      <span class="qc-nav-prev" aria-hidden="true">
-        <span class="arrow">←</span><span>begin here</span>
-      </span>
+      <a href="/workshop/step-0" class="qc-nav-prev" aria-label="Previous: Step 0 Field">
+        <span class="arrow">←</span><span>Field</span>
+      </a>
       <a href="/workshop" class="qc-nav-centre" aria-label="Workshop home">
         <div class="qc-nav-step-row">
-          <div class="qc-nav-num">0</div>
-          <span class="qc-nav-name">Field · Zero point</span>
+          <div class="qc-nav-num">1</div>
+          <span class="qc-nav-name">Coherence · Torus</span>
         </div>
-        <span class="qc-nav-geo">techtuition.ai · step 0 of 9</span>
+        <span class="qc-nav-geo">techtuition.ai · step 1 of 9</span>
         <div class="qc-nav-dots">
+          <div class="qc-dot"></div>
           <div class="qc-dot active"></div>
-          <div class="qc-dot"></div><div class="qc-dot"></div><div class="qc-dot"></div>
+          <div class="qc-dot"></div><div class="qc-dot"></div>
           <div class="qc-dot"></div><div class="qc-dot"></div><div class="qc-dot"></div>
           <div class="qc-dot"></div><div class="qc-dot"></div><div class="qc-dot"></div>
         </div>
       </a>
-      <a href="/workshop/step-1" class="qc-nav-next" aria-label="Next: Step 1 Coherence">
-        <span>Coherence</span><span class="arrow">→</span>
+      <a href="/workshop/step-2" class="qc-nav-next" aria-label="Next: Step 2 Recognition">
+        <span>Recognition</span><span class="arrow">→</span>
       </a>
     </div>
   </nav>
@@ -546,14 +632,12 @@
 
   <main class="page">
 
-    <!-- ── header (lens-aware) ── -->
     <header class="ws-header">
-      <p class="ws-eyebrow" id="header-eyebrow">Quantum currency · step 0 of 9</p>
-      <h1 class="ws-title" id="header-title">Before we count anything,<br>let's find <em>the ground.</em></h1>
-      <p class="ws-sub" id="header-sub">The field is primary. Things are what the field does locally. Before any model, any map, any strategy — we stand here first.</p>
+      <p class="ws-eyebrow" id="header-eyebrow">Quantum currency · step 1 of 9</p>
+      <h1 class="ws-title" id="header-title">A coherent system under pressure<br><em>compresses.</em> It does not fragment.</h1>
+      <p class="ws-sub" id="header-sub">Two independent axes, not one. Coherence is how well your parts are in phase. Energy is what's available to do work. They vary together — and apart. Four quadrants. One goal: Regeneration.</p>
     </header>
 
-    <!-- ── tabs ── -->
     <div class="tabs" role="tablist">
       <button class="tab active" role="tab" aria-selected="true"  onclick="showPanel('slide', this)">Slide</button>
       <button class="tab"        role="tab" aria-selected="false" onclick="showPanel('deeper', this)">Go deeper</button>
@@ -566,26 +650,59 @@
       <!-- QC SLIDE -->
       <div class="lens-content active" data-lens-content="qc">
         <div class="slide-frame">
-          <div class="slide-bg-glyph">◎</div>
+          <div class="slide-bg-glyph">◯</div>
           <div class="slide-content">
-            <p class="slide-eyebrow">Quantum currency · step 0 · field · zero point</p>
-            <h2 class="slide-heading">Our natural state is <br>regeneration.</h2>
-            <p class="slide-body">Quantum field theory establishes that fields are more fundamental than particles — the primary reality is not objects moving through space but the field from which objects temporarily emerge. What the instruments revealed was not the billiard-ball universe of classical mechanics. It was something stranger: a field. Continuous, undivided, present everywhere simultaneously.</p>
-            <p class="slide-pull">"The field is not between things. The field is primary. Things are what the field does locally."</p>
-            <p class="slide-body">Zero point energy is the irreducible minimum that remains even at absolute zero — the ground that is never truly empty. Before we build any financial model, governance structure, or exit strategy, we stand here first. We ask: what kind of ground are we in?</p>
+            <p class="slide-eyebrow">Quantum currency · step 1 · coherence · torus</p>
+            <h2 class="slide-heading">Systems in nature are <br>regenerative.</h2>
+            <p class="slide-body">The first geometry of coherence is the torus — the form a self-sustaining energy field naturally takes. Plasma containment arrives at it. The electromagnetic field of a regulated heart is one. The torus appears wherever a system needs to generate, from its own internal dynamics, the energy required to keep moving. It takes its own output and folds it back as input.</p>
+            <p class="slide-pull">"The torus is not a circle. A circle is flat — the idea of return without the reality of it. The torus folds back through its own centre."</p>
+            <p class="slide-body">Here is the distinction this step turns on: <strong>coherence and energy are two independent axes, not one.</strong> Coherence is the phase relationship between a system's parts — how well they are moving together. Energy is the quantity available to do work. They vary together. They vary apart. A system can be maximally coherent with almost nothing to give. A system can be vibrating with energy while deeply out of phase with itself.</p>
+
             <hr class="slide-divider">
-            <p class="slide-eyebrow" style="margin-bottom:10px;">The Sower lens — a diagnostic carried through every step</p>
-            <div class="four-soils">
-              <div class="soil-chip soil-path"><p class="s-name">The path</p><p class="s-desc">Seed lands but never roots. Information exists; it doesn't travel.</p></div>
-              <div class="soil-chip soil-rocky"><p class="s-name">Rocky ground</p><p class="s-desc">Fast enthusiasm, no depth. Grows quickly, burns on friction.</p></div>
-              <div class="soil-chip soil-thorny"><p class="s-name">Thorny ground</p><p class="s-desc">Too many competing demands. Energy leaks in all directions.</p></div>
-              <div class="soil-chip soil-good"><p class="s-name">Good soil</p><p class="s-desc">Coherent, self-sustaining. The seed multiplies — ten-fold, hundred-fold.</p></div>
+
+            <p class="slide-eyebrow" style="margin-bottom:10px;">Two axes, four states</p>
+
+            <div class="matrix-wrap">
+              <div class="matrix-axes">
+                <div class="axis-y">More coherent →</div>
+                <div class="matrix-grid">
+                  <div class="quad-cell compressed">
+                    <p class="quad-coord">Coherent · Depleted</p>
+                    <p class="quad-name">Compressed</p>
+                    <p class="quad-desc">The torus at reduced radius. <strong>Phase intact, resources low.</strong> Still transmitting — coherent fields in proximity will still read it. Needs contact with other coherent fields. Rest alone won't do it. <em>We need each other.</em></p>
+                  </div>
+                  <div class="quad-cell generating">
+                    <p class="quad-coord">Coherent · Energised</p>
+                    <p class="quad-name">Generating</p>
+                    <p class="quad-desc">The torus at full radius. <strong>Phase intact, resources flowing.</strong> Output folds back as input. The system contributes to its own fuel and to the fields around it. The goal is not this state alone — it is <em>Regeneration:</em> when all nodes generate and the whole expands.</p>
+                  </div>
+                  <div class="quad-cell fragmented">
+                    <p class="quad-coord">Decoherent · Depleted</p>
+                    <p class="quad-name">Fragmented</p>
+                    <p class="quad-desc">Highly structured and compartmentalised. Often looks put together on the outside. <strong>Departments not talking to each other.</strong> Movement costs more than it produces. Needs reintegration — resources alone land in rooms still walled off from each other.</p>
+                  </div>
+                  <div class="quad-cell scattered">
+                    <p class="quad-coord">Decoherent · Energised</p>
+                    <p class="quad-name">Scattered</p>
+                    <p class="quad-desc">Bouncing off the walls — often charming, often handsome, <em>often looking great while doing it.</em> <strong>Always putting out fires.</strong> High output, high noise, unclear signal. The most expensive state to run because the energy is real but unphased.</p>
+                  </div>
+                </div>
+                <div class="axis-x">← More energy →</div>
+              </div>
             </div>
+
+            <div class="regen-note">
+              The goal is Regeneration. When all nodes are generating and contributing to the whole, the system expands and evolves. No single node carries that load. The torus at full radius needs other tori at full radius.
+            </div>
+
             <div class="db-note">
-              <strong>Depth and breadth, always simultaneous.</strong> The soil is the ground <em>inside</em> you — what you carry, what you're metabolising, how present you are. And the soil is the ground <em>outside</em> you — the business, the team, the conditions you're planting in. Read only the inside and we stare at our navels. Read only the outside and we point fingers. Coherence architecture holds both — and works at the line where they meet.
+              <strong>This is not a judgment.</strong> It is awareness of two states — coherence and energy — and how they interact. We see it in practice: lots of movement in the business but no ops (scattered). Lots of ops but no adherence (fragmented). Ops that hold and movement that flows (generating). <strong>The ops bring the coherence.</strong> You and the business may be in different quadrants at the same moment — and that is useful information, not a problem.
             </div>
-            <p class="slide-question">What soil have you been planting in — and what soil are you standing in right now?</p>
-            <p class="slide-note">This question is not rhetorical. We are going to answer it together — inside and out.</p>
+
+            <p class="slide-pull">"You are the genesis node. Not as metaphor. As structural fact. The information architecture within you cannot be deleted. It can only be appended to."</p>
+
+            <p class="slide-question">Where are you on the matrix right now? Where is the business? Are they the same?</p>
+            <p class="slide-note">Not labels. Coordinates. A read you can adjust from.</p>
           </div>
         </div>
       </div>
@@ -594,8 +711,8 @@
       <div class="lens-content" data-lens-content="rc">
         <div class="placeholder-block">
           <p class="ph-icon">◈</p>
-          <p class="ph-title">Relational currency · step 0</p>
-          <p class="ph-body">This lens will frame Step 0 through the architecture of human–AI collaboration — how the field between people and systems either generates or depletes relational energy. Content drawn directly from <em>Relational Currency</em>, chapter 0.</p>
+          <p class="ph-title">Relational currency · step 1</p>
+          <p class="ph-body">This lens will frame coherence through the architecture of human–AI collaboration — the two axes of coherence and energy applied to the relational field. Content drawn directly from <em>Relational Currency</em>, chapter 1.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
@@ -604,8 +721,8 @@
       <div class="lens-content" data-lens-content="ec">
         <div class="placeholder-block">
           <p class="ph-icon">△</p>
-          <p class="ph-title">Encoded currency · step 0</p>
-          <p class="ph-body">This lens will frame Step 0 through the historical and informational architecture of the field — how currency has been encoded across cultures and epochs, and what that encoding reveals about the ground we stand in now. Content drawn directly from <em>Encoded Currency</em>, chapter 0.</p>
+          <p class="ph-title">Encoded currency · step 1</p>
+          <p class="ph-body">This lens will frame coherence through historical and informational architecture — how the two axes show up across encoded systems that persist through pressure. Content drawn directly from <em>Encoded Currency</em>, chapter 1.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
@@ -614,8 +731,8 @@
       <div class="lens-content" data-lens-content="sc">
         <div class="placeholder-block">
           <p class="ph-icon">✦</p>
-          <p class="ph-title">Sovereign currency · step 0</p>
-          <p class="ph-body">This lens will frame Step 0 through the architecture of self-empowerment — how a system stands in its own ground regardless of the external conditions it finds itself in. Content drawn directly from <em>Sovereign Currency</em>, chapter 0.</p>
+          <p class="ph-title">Sovereign currency · step 1</p>
+          <p class="ph-body">This lens will frame coherence through self-empowerment — what happens to a coherent node when it is compressed, scattered, or fragmented, and how contact with other coherent fields restores radius. Content drawn directly from <em>Sovereign Currency</em>, chapter 1.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
@@ -630,33 +747,38 @@
 
         <div class="fac-section">
           <p class="fac-label">Why this step exists</p>
-          <p class="fac-body">Step 0 is not a warm-up. It is the most important thing in the workshop. <strong>The ground state of the room — and the ground state of each participant standing in it — determines everything that follows.</strong> If anyone in the room is defended, distracted, or performing competence rather than actually present, no framework will root. The Sower lens is the tool. Presence is the soil. This step exists to create the conditions, inside and out, before anything else can grow.</p>
+          <p class="fac-body">Step 1 exists to end a category error. Most systems — personal, team, business — collapse the whole picture onto a single axis: <em>fine or not fine.</em> The picture is two axes. Four quadrants. Each quadrant needs a different response. <strong>The work of this step is not to pick a quadrant and label yourself. It is to build the capacity to read both axes at once — for yourself and for the business.</strong> That capacity is what makes Regeneration possible as a goal rather than an aspiration.</p>
         </div>
 
         <div class="fac-section">
-          <p class="fac-label">The unconscious as field</p>
-          <p class="fac-body">Carl Jung gave the field a name that psychology could work with: the unconscious. Not the Freudian unconscious — the repository of repressed content — but something larger: the deeper intelligence that operates below the threshold of attention. The pattern-making that runs before the conscious mind arrives to take credit for it. <strong>The field is most legible obliquely — in sleep, in the hypnagogic threshold, in the aftermath of experiences that dissolve the ordinary architecture of selfhood.</strong> Step 0 asks the room to access that quality of attention before the frameworks begin.</p>
+          <p class="fac-label">The cardiac plexus — where this registers in the body</p>
+          <p class="fac-body">The HeartMath Institute has shown in measurable terms that the heart's electromagnetic field is approximately sixty times greater in amplitude than the brain's electrical activity — and toroidal in shape. <strong>The cardiac plexus is where coherence is generated, measured, and broadcast.</strong> It is also where the effects of sustained compression are first and most legibly registered. Participants who have been under extraction for a long time will often name the cardiac region spontaneously when asked where they feel the work. This is not metaphorical. It is physiological.</p>
         </div>
 
         <div class="fac-section">
           <p class="fac-label">Depth and breadth, embodied</p>
           <div class="insight-block">
-            <p class="fac-body">This workshop holds a simple structural rule: <strong>every exercise moves inside and outside simultaneously.</strong> The personal audit stays with the participant. The business audit compiles into their playbook. Without the inside, the outside becomes blame. Without the outside, the inside becomes rumination. Coherence architecture is the line between them — and the line is where the work lives.</p>
+            <p class="fac-body">You and the business will often be in <strong>different quadrants at the same moment.</strong> A compressed founder running a scattered business. A generating founder inside a fragmented organisation. A depleted team holding coherent phase relationships while the leadership layer above is loud and out of phase. <strong>Reading inside and outside as separate coordinates is what makes a response accurate.</strong> Treat a scattered business like a compressed one and you give it more fuel for the fire. Treat a fragmented team like a scattered one and you ask it to slow down when what it actually needs is to start talking across the walls.</p>
           </div>
         </div>
 
         <div class="fac-section">
-          <p class="fac-label">Reading the room — soil signals</p>
-          <div class="signal-card"><p class="signal-soil sig-path">Path signals</p><p class="signal-text">Phones out within the first five minutes. Questions that are really defences. The CEO answering for the team before they can speak.</p></div>
-          <div class="signal-card"><p class="signal-soil sig-rocky">Rocky ground signals</p><p class="signal-text">High energy, fast agreement, lots of "yes, exactly!" with no specifics. Enthusiasm that doesn't slow down to examine anything.</p></div>
-          <div class="signal-card"><p class="signal-soil sig-thorny">Thorny ground signals</p><p class="signal-text">People who keep bringing in other priorities mid-exercise. The CEO who keeps expanding scope rather than focusing it.</p></div>
-          <div class="signal-card"><p class="signal-soil sig-good">Good soil signals</p><p class="signal-text">Genuine pauses before answering. Someone naming a hard truth without being asked. Silence that feels productive rather than uncomfortable.</p></div>
+          <p class="fac-label">The practical translation — ops and movement</p>
+          <p class="fac-body">Where this shows up in practice: <strong>ops bring the coherence. Movement brings the energy.</strong> Lots of movement, no ops — scattered. Lots of ops, no movement — fragmented (highly structured, not talking to itself). Ops that hold and movement that flows — generating. A business at rest inside sound ops — compressed and waiting. <em>The quadrants are diagnostic coordinates, not identities.</em> They shift. That's the point.</p>
+        </div>
+
+        <div class="fac-section">
+          <p class="fac-label">Reading the room — soil signals at this step</p>
+          <div class="signal-card"><p class="signal-soil sig-path">Path signals</p><p class="signal-text">The matrix lands as abstraction. "Right, two axes, got it" — said fast, moved past. Framework logged, not received. No self-location attempted.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-rocky">Rocky ground signals</p><p class="signal-text">Someone picks a quadrant fast and announces it with confidence. "I'm generating." No examination, no counterexample considered. The matrix is grabbed and used as identity rather than coordinate.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-thorny">Thorny ground signals</p><p class="signal-text">The participant locates themselves in three quadrants simultaneously and can't decide. The framework is applied to five relationships at once before any one of them has been actually metabolised.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-good">Good soil signals</p><p class="signal-text">A pause, then a specific location with nuance. "At work I'm scattered; in the business plan I'm fragmented — I've never named that gap before." Named the difference between inside and outside. That's the matrix doing its work.</p></div>
         </div>
 
         <div class="fac-section">
           <p class="fac-label">What this step tends to surface</p>
           <div class="insight-block">
-            <p class="fac-body">The most common revelation in Step 0 is that <strong>the room already knows what soil it is in — it simply hasn't had a structure for naming it.</strong> The Sower lens provides that structure. When it lands, the relief is palpable. Not because the ground has changed, but because something that was ambient and unnamed has become legible — inside and out.</p>
+            <p class="fac-body">Two common collapses. The first: <strong>collapsing to the energy axis alone</strong> — "I'm fine / I'm not fine" — missing that a high-energy system can be deeply out of phase, or a low-energy system can be perfectly coherent. The second: <strong>collapsing to the coherence axis alone</strong> — "I'm broken / I'm whole" — missing that a coherent system can be simply depleted and a decoherent one can look energetic. The work is holding both axes at once. When it lands, the relief is usually, <em>"I'm not broken. I'm compressed. I need contact, not repair."</em></p>
           </div>
         </div>
 
@@ -666,8 +788,8 @@
       <div class="lens-content" data-lens-content="rc">
         <div class="placeholder-block">
           <p class="ph-icon">◈</p>
-          <p class="ph-title">Relational currency · go deeper · step 0</p>
-          <p class="ph-body">The relational lens of Step 0 explores the field between people — how the quality of connection in the room before any framework is introduced determines everything that follows. Content drawn from <em>Relational Currency</em>, chapter 0.</p>
+          <p class="ph-title">Relational currency · go deeper · step 1</p>
+          <p class="ph-body">The relational lens of Step 1 explores the two-axis read in the human–AI field — how relationships can be coherent-depleted, coherent-generating, scattered, or fragmented, and what each state asks for. Content drawn from <em>Relational Currency</em>, chapter 1.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
@@ -676,8 +798,8 @@
       <div class="lens-content" data-lens-content="ec">
         <div class="placeholder-block">
           <p class="ph-icon">△</p>
-          <p class="ph-title">Encoded currency · go deeper · step 0</p>
-          <p class="ph-body">The encoded lens of Step 0 explores the historical field — the inherited patterns, narratives, and information structures that shape the ground before anyone in the room has spoken. Content drawn from <em>Encoded Currency</em>, chapter 0.</p>
+          <p class="ph-title">Encoded currency · go deeper · step 1</p>
+          <p class="ph-body">The encoded lens of Step 1 explores the two-axis read applied to historical and informational architectures under pressure. Content drawn from <em>Encoded Currency</em>, chapter 1.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
@@ -686,8 +808,8 @@
       <div class="lens-content" data-lens-content="sc">
         <div class="placeholder-block">
           <p class="ph-icon">✦</p>
-          <p class="ph-title">Sovereign currency · go deeper · step 0</p>
-          <p class="ph-body">The sovereign lens of Step 0 explores self-empowerment as a ground condition — what it means to stand in one's own field before entering any shared one. Content drawn from <em>Sovereign Currency</em>, chapter 0.</p>
+          <p class="ph-title">Sovereign currency · go deeper · step 1</p>
+          <p class="ph-body">The sovereign lens of Step 1 explores what it means to remain the genesis node across all four quadrants — and why contact, not isolation, is what restores radius. Content drawn from <em>Sovereign Currency</em>, chapter 1.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
@@ -701,7 +823,7 @@
       <div class="lens-content active" data-lens-content="qc">
 
         <div class="ex-intro">
-          This is the first page of your playbook. There are no right answers here — only honest ones. <strong>The quality of everything that follows in this workshop depends on the quality of your honesty in this exercise.</strong> Take the full time. This page belongs to you.
+          This is the second page of your playbook. The work here is <em>measuring</em>, not labelling. Where are you on the matrix right now? Where is the business? <strong>The coordinates shift — that is the point.</strong> A coordinate you can name is a coordinate you can adjust from.
         </div>
 
         <div class="scope-legend">
@@ -712,58 +834,58 @@
         <div class="ex-block">
           <div class="ex-q-row">
             <div class="ex-num">1</div>
-            <p class="ex-q">The soil audit — inside</p>
+            <p class="ex-q">Locate yourself on the matrix — inside</p>
             <span class="ex-scope personal">Personal</span>
           </div>
-          <p class="ex-sub">Think back across your professional relationships. Place at least one in each quadrant — name it however feels right. Then note briefly: what made that soil what it was, from <em>your</em> side? What did you bring to it?</p>
-          <div class="soil-audit">
-            <div class="audit-cell ac-path"><p class="audit-label">The path</p><p class="audit-hint">The seed never rooted. What happened to the energy you brought?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s0-q1-path" aria-label="soil audit inside path"></textarea></div>
-            <div class="audit-cell ac-rocky"><p class="audit-label">Rocky ground</p><p class="audit-hint">Enthusiasm that didn't hold. What was missing underneath?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s0-q1-rocky" aria-label="soil audit inside rocky"></textarea></div>
-            <div class="audit-cell ac-thorny"><p class="audit-label">Thorny ground</p><p class="audit-hint">Good work, crowded out. What were the competing forces?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s0-q1-thorny" aria-label="soil audit inside thorny"></textarea></div>
-            <div class="audit-cell ac-good"><p class="audit-label">Good soil</p><p class="audit-hint">Something took root and multiplied. What made this ground different?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s0-q1-good" aria-label="soil audit inside good"></textarea></div>
+          <p class="ex-sub">Right now, in yourself — where do you sit? You may be in one quadrant, or moving between two, or holding two at once (one at work, one at home). No single answer is worse than the others. <em>They call for different responses.</em></p>
+          <div class="quad-audit">
+            <div class="qa-cell compressed"><p class="qa-coord">Coherent · Depleted</p><p class="qa-label">Compressed</p><p class="qa-hint">Depleted but intact. Clear underneath. If this is you — what kind of contact would restore radius?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s1-q1-compressed" aria-label="personal compressed"></textarea></div>
+            <div class="qa-cell generating"><p class="qa-coord">Coherent · Energised</p><p class="qa-label">Generating</p><p class="qa-hint">Phase intact, resources flowing. If this is you — what is generating it? How do you sustain it?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s1-q1-generating" aria-label="personal generating"></textarea></div>
+            <div class="qa-cell fragmented"><p class="qa-coord">Decoherent · Depleted</p><p class="qa-label">Fragmented</p><p class="qa-hint">Compartments not talking to each other. If this is you — which compartments need to start communicating first?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s1-q1-fragmented" aria-label="personal fragmented"></textarea></div>
+            <div class="qa-cell scattered"><p class="qa-coord">Decoherent · Energised</p><p class="qa-label">Scattered</p><p class="qa-hint">Bouncing off walls, putting out fires. If this is you — what would slowing enough to get into phase look like?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s1-q1-scattered" aria-label="personal scattered"></textarea></div>
           </div>
         </div>
 
         <div class="ex-block">
           <div class="ex-q-row">
             <div class="ex-num">2</div>
-            <p class="ex-q">The soil audit — outside</p>
+            <p class="ex-q">Locate the business on the matrix — outside</p>
             <span class="ex-scope business">Business</span>
           </div>
-          <p class="ex-sub">Now the same four quadrants, applied to the business. Where is this business — or the parts of it, the teams, the client relationships, the offerings — planting in each kind of soil <em>right now</em>? Be specific. Name the project, the person, the team.</p>
-          <div class="soil-audit">
-            <div class="audit-cell ac-path"><p class="audit-label">The path</p><p class="audit-hint">Where is the business scattering seed that never roots?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s0-q2-path" aria-label="soil audit outside path"></textarea></div>
-            <div class="audit-cell ac-rocky"><p class="audit-label">Rocky ground</p><p class="audit-hint">Where is there growth that won't hold under pressure?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s0-q2-rocky" aria-label="soil audit outside rocky"></textarea></div>
-            <div class="audit-cell ac-thorny"><p class="audit-label">Thorny ground</p><p class="audit-hint">Where are good things being crowded by competing priorities?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s0-q2-thorny" aria-label="soil audit outside thorny"></textarea></div>
-            <div class="audit-cell ac-good"><p class="audit-label">Good soil</p><p class="audit-hint">Where is the business already multiplying what it plants?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s0-q2-good" aria-label="soil audit outside good"></textarea></div>
+          <p class="ex-sub">Now the same matrix, applied to the business. Where does each quadrant show up? Be specific — name the team, the offering, the client relationship, the workstream. A healthy business has parts in all four quadrants at different moments. <em>The goal is knowing which is which.</em></p>
+          <div class="quad-audit">
+            <div class="qa-cell compressed"><p class="qa-coord">Coherent · Depleted</p><p class="qa-label">Compressed</p><p class="qa-hint">Where is the business carrying quiet coherence? What is waiting for contact to come back to full radius?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s1-q2-compressed" aria-label="business compressed"></textarea></div>
+            <div class="qa-cell generating"><p class="qa-coord">Coherent · Energised</p><p class="qa-label">Generating</p><p class="qa-hint">Where is the business already at full radius? What is the source of that generation?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s1-q2-generating" aria-label="business generating"></textarea></div>
+            <div class="qa-cell fragmented"><p class="qa-coord">Decoherent · Depleted</p><p class="qa-label">Fragmented</p><p class="qa-hint">Where are the compartments not talking? Lots of ops, no adherence. What would reintegration look like?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s1-q2-fragmented" aria-label="business fragmented"></textarea></div>
+            <div class="qa-cell scattered"><p class="qa-coord">Decoherent · Energised</p><p class="qa-label">Scattered</p><p class="qa-hint">Where is there movement without ops? Always putting out fires, looking great while doing it. What ops would bring the coherence?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s1-q2-scattered" aria-label="business scattered"></textarea></div>
           </div>
         </div>
 
         <div class="ex-block">
           <div class="ex-q-row">
             <div class="ex-num">3</div>
-            <p class="ex-q">The field you arrived with today</p>
-            <span class="ex-scope personal">Personal</span>
+            <p class="ex-q">The costly misread</p>
+            <span class="ex-scope business">Business</span>
           </div>
-          <p class="ex-sub">What did you bring into this room that might make it harder to be present? Name it briefly. Naming it is how you set it down.</p>
-          <textarea class="write-field write-field-lg" rows="4" placeholder="Write here…" data-scope="personal" data-key="s0-q3-arrived" aria-label="field arrived with"></textarea>
+          <p class="ex-sub">Where, in this business, have you been reading one quadrant as another — and responding to the wrong one? A scattered team treated as compressed (given more rest). A fragmented offering treated as scattered (told to slow down when it needed to connect its own parts). What has that misread cost — in time, resource, relationship, energy?</p>
+          <textarea class="write-field write-field-lg" rows="5" placeholder="Write here…" data-scope="business" data-key="s1-q3-misread" aria-label="business misread"></textarea>
         </div>
 
         <div class="ex-block">
           <div class="ex-q-row">
             <div class="ex-num">4</div>
-            <p class="ex-q">The zero point question</p>
+            <p class="ex-q">The genesis node</p>
             <span class="ex-scope business">Business</span>
           </div>
-          <p class="ex-sub">If you stripped away every role, every deliverable, every metric — what is the energy this business is actually operating from? Not what it produces. What it generates from within.</p>
-          <textarea class="write-field write-field-lg" rows="4" placeholder="Write here…" data-scope="business" data-key="s0-q4-zero" aria-label="zero point"></textarea>
+          <p class="ex-sub">What is the irreducible architecture of this business — the part that cannot be deleted, only appended to? Not the brand, not the product line, not the current strategy. <em>The genesis node.</em> What is the chain of blocks resting on?</p>
+          <textarea class="write-field write-field-lg" rows="5" placeholder="Write here…" data-scope="business" data-key="s1-q4-genesis" aria-label="business genesis node"></textarea>
         </div>
 
         <div class="ex-reflection">
-          <p class="refl-label">To carry forward — the Sower question</p>
-          <p class="refl-q">At every step of this workshop, we will return to one question: <strong>what kind of ground are we in right now?</strong></p>
-          <p class="refl-q">Not as a judgment. As a calibration. The seed — the framework, the model, the strategy — doesn't change. What changes is how honestly we can see the ground we're planting it in. Inside and out.</p>
-          <p class="refl-q">The hundred-fold yield is not a miracle. It is what coherent systems do when the conditions are right.</p>
+          <p class="refl-label">To carry forward — two axes, four coordinates, one goal</p>
+          <p class="refl-q">From here on, every time you assess a system — yours, your team's, a client's, a relationship's — you carry <strong>two independent variables:</strong> coherence and energy. Four quadrants: Generating, Compressed, Scattered, Fragmented. <em>Not labels. Coordinates.</em></p>
+          <p class="refl-q">The goal is <strong>Regeneration</strong> — when all nodes are generating and contributing to the whole, the system expands and evolves. No single node carries that load. The torus at full radius needs other tori at full radius.</p>
+          <p class="refl-q">The torus doesn't stop transmitting because the system has reduced its visible radius. <strong>Coherent fields in proximity will still read it.</strong> That's how they find each other — which is Step 2.</p>
         </div>
 
       </div>
@@ -772,8 +894,8 @@
       <div class="lens-content" data-lens-content="rc">
         <div class="placeholder-block">
           <p class="ph-icon">◈</p>
-          <p class="ph-title">Relational currency · exercise · step 0</p>
-          <p class="ph-body">The relational lens exercise for Step 0 maps the field between people — the quality of connection that precedes any framework. Exercises drawn from <em>Relational Currency</em>, chapter 0, will appear here.</p>
+          <p class="ph-title">Relational currency · exercise · step 1</p>
+          <p class="ph-body">The relational lens exercise for Step 1 maps the two-axis read across the human–AI collaborative field. Exercises drawn from <em>Relational Currency</em>, chapter 1, will appear here.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
@@ -782,8 +904,8 @@
       <div class="lens-content" data-lens-content="ec">
         <div class="placeholder-block">
           <p class="ph-icon">△</p>
-          <p class="ph-title">Encoded currency · exercise · step 0</p>
-          <p class="ph-body">The encoded lens exercise for Step 0 maps the inherited patterns and historical information structures that shape the ground. Exercises drawn from <em>Encoded Currency</em>, chapter 0, will appear here.</p>
+          <p class="ph-title">Encoded currency · exercise · step 1</p>
+          <p class="ph-body">The encoded lens exercise for Step 1 maps the two-axis read through historical and informational systems. Exercises drawn from <em>Encoded Currency</em>, chapter 1, will appear here.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
@@ -792,8 +914,8 @@
       <div class="lens-content" data-lens-content="sc">
         <div class="placeholder-block">
           <p class="ph-icon">✦</p>
-          <p class="ph-title">Sovereign currency · exercise · step 0</p>
-          <p class="ph-body">The sovereign lens exercise for Step 0 explores what it means to stand in one's own field before entering any shared one. Exercises drawn from <em>Sovereign Currency</em>, chapter 0, will appear here.</p>
+          <p class="ph-title">Sovereign currency · exercise · step 1</p>
+          <p class="ph-body">The sovereign lens exercise for Step 1 explores what remains of the genesis node across every quadrant — and what contact restores. Exercises drawn from <em>Sovereign Currency</em>, chapter 1, will appear here.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
@@ -801,34 +923,33 @@
     </div>
 
     <footer class="ws-footer">
-      <span>quantum currency workshop · step 0 of 9 · field · zero point</span>
+      <span>quantum currency workshop · step 1 of 9 · coherence · torus</span>
       <span>© <span id="year"></span> · part of the <a href="https://deiadora.com">deiadora ecosystem</a> 🌿</span>
     </footer>
 
   </main>
 
   <script>
-    /* ── lens switching ── */
     const LENS_HEADERS = {
       qc: {
-        eyebrow: 'Quantum currency · step 0 of 9',
-        title:   'Before we count anything,<br>let\'s find <em>the ground.</em>',
-        sub:     'The field is primary. Things are what the field does locally. Before any model, any map, any strategy — we stand here first.'
+        eyebrow: 'Quantum currency · step 1 of 9',
+        title:   'A coherent system under pressure<br><em>compresses.</em> It does not fragment.',
+        sub:     'Two independent axes, not one. Coherence is how well your parts are in phase. Energy is what\'s available to do work. They vary together — and apart. Four quadrants. One goal: Regeneration.'
       },
       rc: {
-        eyebrow: 'Relational currency · step 0 of 9',
-        title:   'Before we connect anything,<br>let\'s find <em>the field between us.</em>',
-        sub:     'The relational field precedes the relational act. What is the quality of connection in this room before any framework is introduced?'
+        eyebrow: 'Relational currency · step 1 of 9',
+        title:   'A coherent relationship under pressure<br><em>compresses.</em> It does not collapse.',
+        sub:     'The relational field carries two axes: phase and energy. Relationships live in quadrants and move between them. Knowing which quadrant changes what the relationship is actually asking for.'
       },
       ec: {
-        eyebrow: 'Encoded currency · step 0 of 9',
-        title:   'Before we build anything,<br>let\'s find <em>what is already encoded.</em>',
-        sub:     'Every system inherits the information structures of the systems that preceded it. What is already written in the ground before we begin?'
+        eyebrow: 'Encoded currency · step 1 of 9',
+        title:   'A coherent encoding under pressure<br><em>persists.</em> It does not dissolve.',
+        sub:     'Information architectures carry coherence and energy on separate axes. A quiet historical signal may still be coherent. A loud one may be deeply out of phase. The read matters.'
       },
       sc: {
-        eyebrow: 'Sovereign currency · step 0 of 9',
-        title:   'Before we change anything,<br>let\'s find <em>where we already stand.</em>',
-        sub:     'Sovereignty begins with knowing what ground is yours. Not the ground you wish you occupied — the ground you are actually standing in, right now.'
+        eyebrow: 'Sovereign currency · step 1 of 9',
+        title:   'You are <em>the genesis node.</em><br>Not as metaphor. As structural fact.',
+        sub:     'The information architecture within you cannot be deleted — only appended to. Across every quadrant, the node remains. Compression is not diminishment. Contact is how radius returns.'
       }
     };
 
@@ -873,10 +994,8 @@
       tabEl.setAttribute('aria-selected', 'true');
     }
 
-    /* ── year ── */
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* ── theme ── */
     const root    = document.documentElement;
     const STORE   = 'qc-theme';
     const sysDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -892,7 +1011,6 @@
       if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? 'dark' : 'light');
     });
 
-    /* ── lens init from session ── */
     root.setAttribute('data-lens', 'qc');
     const savedLens = sessionStorage.getItem('qc-workshop-lens');
     if (savedLens && savedLens !== 'qc') {
@@ -900,10 +1018,6 @@
       if (btn) setLens(savedLens, btn);
     }
 
-    /* ── playbook storage ──
-       Keys: qc-playbook-{lens}-{scope}-{data-key}
-       The compile step at Step 3 reads only scope=business across all steps.
-    */
     function storageKey(lens, scope, key) {
       return `qc-playbook-${lens}-${scope}-${key}`;
     }
