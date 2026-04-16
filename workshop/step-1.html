@@ -1,0 +1,928 @@
+<!-- step-0.html (Cloudflare Pages — techtuition.ai/workshop/step-0) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Step 0 · Field · Zero point · quantum currency workshop · techtuition</title>
+  <meta name="description" content="Before we count anything, let's find the ground. Step 0 of the Quantum Currency Workshop — the field, the zero point, and the Sower lens carried through every step." />
+  <meta property="og:title" content="Step 0 · Field · Zero point · quantum currency workshop" />
+  <meta property="og:description" content="The field is primary. Before any model, any map, any strategy — we stand here first." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://techtuition.ai/workshop/step-0" />
+  <meta property="og:image" content="https://techtuition.ai/techtuition_banner.jpeg" />
+  <link rel="icon" href="/techtuition_favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       LOCKED COLOR SYSTEM — DO NOT INVENT NEW VALUES
+       ───────────────────────────────────────────────────────────────
+       SOIL (semantic, never changes across steps/lenses/pages):
+         path    → #a9292a  (node-1 family, deep red)
+         rocky   → #9d4418  (node-2 family, terracotta)
+         thorny  → #1a6b9e  (node-7 family, sky blue)
+         good    → #7a9e2a  (node-4 family, leaf green)
+
+       LENS (structural, one family — teal, four depths):
+         qc      → #0f6e56  (true teal — book you're in)
+         rc      → #1a9e7a  (brighter teal — outward-facing)
+         ec      → #085041  (deep teal — rooted/historical)
+         sc      → #0a3d33  (deepest teal — interior)
+       ═══════════════════════════════════════════════════════════════ */
+    :root {
+      --ink:        #ebe7dc;
+      --paper:      #0c1516;
+      --card:       #0e171a;
+      --card-lt:    #131f23;
+      --gold:       #ecb02f;
+      --muted:      #cbc6ba;
+      --line:       rgba(240,237,230,.1);
+      --line-solid: rgba(240,237,230,.18);
+      --r:          8px;
+      --serif:      'Exo 2', system-ui, sans-serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+      --display:    'Cormorant Garamond', Georgia, serif;
+
+      /* SOIL — locked, semantic */
+      --soil-path-ink:    #a9292a;
+      --soil-path-bg:     #fcebea;
+      --soil-path-dk:     #7a1d1e;
+      --soil-rocky-ink:   #9d4418;
+      --soil-rocky-bg:    #faece7;
+      --soil-rocky-dk:    #6b2d0f;
+      --soil-thorny-ink:  #1a6b9e;
+      --soil-thorny-bg:   #e6f1fb;
+      --soil-thorny-dk:   #0c447c;
+      --soil-good-ink:    #7a9e2a;
+      --soil-good-bg:     #eaf3de;
+      --soil-good-dk:     #4a6612;
+
+      /* LENS — teal family, four depths */
+      --qc:   #0f6e56;
+      --rc:   #1a9e7a;
+      --ec:   #085041;
+      --sc:   #0a3d33;
+
+      /* ACTIVE LENS — defaults to QC */
+      --accent:    var(--qc);
+      --accent-lt: #1a9e7a;
+      --accent-dk: #085041;
+      --lens-lt:   #e1f5ee;
+    }
+
+    [data-theme="light"] {
+      --ink:        #1a1814;
+      --paper:      #f4f2ec;
+      --card:       #fffff2;
+      --card-lt:    #e8e2d6;
+      --gold:       #8b5e2a;
+      --muted:      #7a7163;
+      --line:       rgba(26,24,20,.1);
+      --line-solid: rgba(26,24,20,.18);
+    }
+
+    /* per-lens overrides — only the accent varies, everything else stable */
+    [data-lens="qc"] { --accent: #0f6e56; --accent-lt: #1a9e7a; --accent-dk: #085041; --lens-lt: #e1f5ee; }
+    [data-lens="rc"] { --accent: #1a9e7a; --accent-lt: #2bbf94; --accent-dk: #0f6e56; --lens-lt: #e4f6ef; }
+    [data-lens="ec"] { --accent: #085041; --accent-lt: #0f6e56; --accent-dk: #053830; --lens-lt: #dcede7; }
+    [data-lens="sc"] { --accent: #0a3d33; --accent-lt: #085041; --accent-dk: #062821; --lens-lt: #d6e6e1; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--paper); color: var(--ink);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      transition: background .25s, color .25s;
+    }
+
+    /* ══ QC NAV ══ */
+    .qc-nav {
+      width: 100%; background: var(--card);
+      border-bottom: 1px solid var(--line-solid);
+      position: sticky; top: 0; z-index: 200;
+    }
+    .qc-nav-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 1.5rem;
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center; height: 52px; gap: 16px;
+    }
+    .qc-nav-prev {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: var(--muted);
+      font-size: 12px; font-weight: 400;
+      opacity: .3; pointer-events: none;
+    }
+    .qc-nav-centre {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 3px; text-decoration: none;
+    }
+    .qc-nav-step-row { display: flex; align-items: center; gap: 8px; }
+    .qc-nav-num {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--lens-lt); color: var(--accent-dk);
+      font-size: 11px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); transition: background .3s, color .3s;
+    }
+    .qc-nav-name {
+      font-size: 13px; font-weight: 500; color: var(--ink);
+      font-family: var(--serif); letter-spacing: -.01em;
+    }
+    .qc-nav-geo { font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+    .qc-nav-dots { display: flex; align-items: center; gap: 4px; }
+    .qc-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--line-solid); transition: all .2s;
+    }
+    .qc-dot.active { background: var(--accent); width: 16px; border-radius: 3px; }
+    .qc-nav-next {
+      display: flex; align-items: center; justify-content: flex-end;
+      gap: 8px; text-decoration: none; color: var(--accent);
+      font-size: 12px; font-weight: 500; transition: gap .2s, color .3s;
+    }
+    .qc-nav-next:hover { gap: 12px; }
+
+    .qc-home-link {
+      display: block; text-align: center; font-size: 11px;
+      color: var(--muted); letter-spacing: .06em; text-decoration: none;
+      padding: 5px 0; background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      font-family: var(--serif); font-style: italic; transition: color .2s;
+    }
+    .qc-home-link:hover { color: var(--gold); }
+
+    /* ══ LENS BAR ══ */
+    .lens-bar {
+      width: 100%;
+      background: var(--card);
+      border-bottom: 1px solid var(--line-solid);
+      position: sticky; top: 52px; z-index: 190;
+    }
+    .lens-bar-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center;
+      height: 44px; gap: 6px;
+    }
+    .lens-label {
+      font-size: 10px; font-weight: 500; font-family: var(--serif);
+      letter-spacing: .09em; text-transform: uppercase;
+      color: var(--muted); margin-right: 6px; white-space: nowrap;
+    }
+    .lens-pill {
+      padding: 5px 14px; border-radius: 100px;
+      font-size: 12px; font-weight: 500; font-family: var(--serif);
+      cursor: pointer; border: 1px solid transparent;
+      transition: all .2s; background: none; white-space: nowrap;
+      letter-spacing: .01em;
+    }
+    /* all four pills use the teal family, four depths */
+    .lp-qc { color: var(--qc); border-color: rgba(15,110,86,.3); }
+    .lp-qc:hover, .lp-qc.active { background: #e1f5ee; border-color: var(--qc); }
+    [data-theme="light"] .lp-qc:hover, [data-theme="light"] .lp-qc.active { background: #c8edd8; }
+
+    .lp-rc { color: var(--rc); border-color: rgba(26,158,122,.3); }
+    .lp-rc:hover, .lp-rc.active { background: #e4f6ef; border-color: var(--rc); }
+    [data-theme="light"] .lp-rc:hover, [data-theme="light"] .lp-rc.active { background: #c8eddd; }
+
+    .lp-ec { color: var(--ec); border-color: rgba(8,80,65,.3); }
+    .lp-ec:hover, .lp-ec.active { background: #dcede7; border-color: var(--ec); }
+    [data-theme="light"] .lp-ec:hover, [data-theme="light"] .lp-ec.active { background: #b8dacf; }
+
+    .lp-sc { color: var(--sc); border-color: rgba(10,61,51,.3); }
+    .lp-sc:hover, .lp-sc.active { background: #d6e6e1; border-color: var(--sc); }
+    [data-theme="light"] .lp-sc:hover, [data-theme="light"] .lp-sc.active { background: #b3ccc4; }
+
+    .lens-pill.active { font-weight: 600; }
+
+    @media (max-width: 600px) {
+      .lens-label { display: none; }
+      .lens-pill { padding: 5px 10px; font-size: 11px; }
+    }
+
+    .lens-pill .coming {
+      font-size: 9px; vertical-align: super;
+      opacity: .6; letter-spacing: .04em;
+    }
+
+    /* ══ PAGE ══ */
+    .page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+
+    .ws-header { padding: 3.5rem 0 2.5rem; border-bottom: 1px solid var(--line); }
+    .ws-eyebrow {
+      font-family: var(--serif); font-size: .78rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+      transition: color .3s;
+    }
+    .ws-title {
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 500; line-height: 1.1; letter-spacing: -.02em;
+      color: var(--ink); margin-bottom: .6rem;
+    }
+    .ws-title em { font-style: italic; font-weight: 400; color: var(--accent); transition: color .3s; }
+    .ws-sub {
+      font-size: 1rem; color: var(--muted);
+      max-width: 520px; line-height: 1.7; font-weight: 300;
+    }
+
+    .lens-content { display: none; }
+    .lens-content.active { display: block; }
+
+    /* placeholder */
+    .placeholder-block {
+      background: var(--card); border: 1px dashed var(--line-solid);
+      border-radius: var(--r); padding: 2rem 2.4rem;
+      text-align: center;
+    }
+    .ph-icon { font-size: 2rem; margin-bottom: .8rem; opacity: .4; }
+    .ph-title {
+      font-family: var(--display); font-size: 1.3rem; font-weight: 500;
+      color: var(--ink); margin-bottom: .6rem;
+    }
+    .ph-body {
+      font-size: .9rem; color: var(--muted);
+      line-height: 1.7; max-width: 380px; margin: 0 auto;
+    }
+    .ph-tag {
+      display: inline-block; margin-top: 1rem;
+      font-size: 11px; font-weight: 600; font-family: var(--serif);
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--accent); padding: 4px 12px;
+      border: 1px solid var(--accent); border-radius: 100px;
+      opacity: .7;
+    }
+
+    /* ── tabs ── */
+    .tabs {
+      display: flex; margin: 2rem 0 2rem;
+      border-bottom: 1px solid var(--line-solid);
+    }
+    .tab {
+      font-family: var(--serif); font-size: .88rem; font-weight: 500;
+      color: var(--muted); padding: 10px 20px; cursor: pointer;
+      border-bottom: 2px solid transparent; margin-bottom: -1px;
+      letter-spacing: .02em; transition: color .2s, border-color .2s;
+      background: none; border-top: none; border-left: none; border-right: none;
+    }
+    .tab:hover { color: var(--ink); }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* ══ SLIDE ══ */
+    .slide-frame {
+      background: var(--card); border: 1px solid var(--line-solid);
+      border-radius: 16px; padding: 3rem 3.5rem;
+      position: relative; overflow: hidden;
+    }
+    .slide-bg-glyph {
+      position: absolute; top: -20px; right: 10px;
+      font-size: 200px; color: var(--accent);
+      opacity: .05; line-height: 1; pointer-events: none;
+      transition: color .3s;
+    }
+    .slide-content { position: relative; z-index: 1; }
+    .slide-eyebrow {
+      font-family: var(--serif); font-size: .72rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1.2rem;
+    }
+    .slide-heading {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 500; line-height: 1.15;
+      color: var(--ink); margin-bottom: .8rem;
+    }
+    .slide-body {
+      font-size: .97rem; color: var(--muted);
+      line-height: 1.8; margin-bottom: 1.2rem;
+      font-weight: 300; max-width: 580px;
+    }
+    .slide-pull {
+      font-family: var(--display);
+      font-size: 1.3rem; font-weight: 400; font-style: italic;
+      color: var(--ink); border-left: 2px solid var(--accent);
+      padding: 6px 0 6px 20px; margin: 1.6rem 0; line-height: 1.5;
+      transition: border-color .3s;
+    }
+    .slide-divider { border: none; border-top: 1px solid var(--line); margin: 1.6rem 0; }
+
+    .four-soils {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 1.2rem 0 1.6rem;
+    }
+    .soil-chip { border-radius: var(--r); padding: 12px 14px; }
+    .soil-chip .s-name { font-family: var(--serif); font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+    .soil-chip .s-desc { font-size: 12px; line-height: 1.5; font-weight: 300; }
+    .soil-path   { background: var(--soil-path-bg);   } .soil-path .s-name   { color: var(--soil-path-ink);   } .soil-path .s-desc   { color: var(--soil-path-dk);   }
+    .soil-rocky  { background: var(--soil-rocky-bg);  } .soil-rocky .s-name  { color: var(--soil-rocky-ink);  } .soil-rocky .s-desc  { color: var(--soil-rocky-dk);  }
+    .soil-thorny { background: var(--soil-thorny-bg); } .soil-thorny .s-name { color: var(--soil-thorny-ink); } .soil-thorny .s-desc { color: var(--soil-thorny-dk); }
+    .soil-good   { background: var(--soil-good-bg);   } .soil-good .s-name   { color: var(--soil-good-ink);   } .soil-good .s-desc   { color: var(--soil-good-dk);   }
+
+    .slide-question {
+      font-family: var(--display); font-size: 1.2rem; font-weight: 500;
+      color: var(--ink); text-align: center; margin-bottom: 6px;
+    }
+    .slide-note { font-size: 12px; color: var(--muted); text-align: center; font-style: italic; }
+
+    /* depth & breadth note — inner/outer dual thread */
+    .db-note {
+      background: var(--lens-lt); border-radius: var(--r);
+      padding: 14px 18px; margin: 1.4rem 0 1.2rem;
+      font-size: .88rem; line-height: 1.65; color: var(--accent-dk);
+      transition: background .3s, color .3s;
+    }
+    .db-note strong { color: var(--accent-dk); font-weight: 600; }
+
+    /* ══ GO DEEPER / EXERCISE shared ══ */
+    .fac-section { margin-bottom: 2.5rem; }
+    .fac-label {
+      font-family: var(--serif); font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 10px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--line); transition: color .3s;
+    }
+    .fac-body {
+      font-size: .97rem; color: var(--muted);
+      line-height: 1.8; font-weight: 300;
+    }
+    .fac-body strong { color: var(--ink); font-weight: 500; }
+
+    .signal-card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--r); padding: 12px 14px; margin-bottom: 8px;
+    }
+    .signal-soil { font-family: var(--serif); font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+    .signal-text { font-size: .88rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+    .sig-path    { color: var(--soil-path-ink);   }
+    .sig-rocky   { color: var(--soil-rocky-ink);  }
+    .sig-thorny  { color: var(--soil-thorny-ink); }
+    .sig-good    { color: var(--soil-good-ink);   }
+
+    .insight-block {
+      background: var(--lens-lt); border-radius: var(--r); padding: 16px 20px;
+      transition: background .3s;
+    }
+    .insight-block .fac-body { color: var(--accent-dk); transition: color .3s; }
+    .insight-block .fac-body strong { color: var(--accent-dk); }
+
+    /* exercise */
+    .ex-intro {
+      font-size: .97rem; color: var(--muted); line-height: 1.8;
+      margin-bottom: 2rem; font-weight: 300;
+      padding: 1.4rem 1.8rem; background: var(--card);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 var(--r) var(--r) 0;
+      transition: border-color .3s;
+    }
+    .ex-intro strong { color: var(--ink); font-weight: 500; }
+
+    /* scope legend */
+    .scope-legend {
+      display: flex; gap: 1.4rem; flex-wrap: wrap;
+      padding: .9rem 1.2rem; margin-bottom: 2rem;
+      background: var(--card-lt); border-radius: var(--r);
+      font-size: 12px; color: var(--muted); line-height: 1.5;
+    }
+    .scope-legend strong { color: var(--ink); font-weight: 600; }
+    .scope-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--serif); font-weight: 600;
+      letter-spacing: .05em; text-transform: uppercase;
+      font-size: 10px;
+    }
+    .scope-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .scope-dot.personal { background: var(--muted); }
+    .scope-dot.business { background: var(--accent); transition: background .3s; }
+
+    /* per-question scope indicator */
+    .ex-scope {
+      display: inline-block; font-family: var(--serif);
+      font-size: 9px; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 100px;
+      margin-left: 8px; vertical-align: middle;
+    }
+    .ex-scope.personal { background: var(--card); color: var(--muted); border: 1px solid var(--line-solid); }
+    .ex-scope.business { background: var(--accent); color: #fff; transition: background .3s; }
+
+    .ex-block { margin-bottom: 2.5rem; }
+    .ex-q-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+    .ex-num {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--lens-lt); color: var(--accent-dk);
+      font-size: 11px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-family: var(--serif);
+      transition: background .3s, color .3s;
+    }
+    .ex-q { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+    .ex-sub { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 14px; padding-left: 36px; font-weight: 300; }
+
+    .soil-audit { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+    @media (max-width: 520px) { .soil-audit { grid-template-columns: 1fr; } }
+
+    .audit-cell {
+      background: var(--card); border: 1px solid var(--line-solid);
+      border-radius: var(--r); padding: 14px;
+    }
+    .audit-label { font-family: var(--serif); font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+    .audit-hint { font-size: 11px; color: var(--muted); font-style: italic; line-height: 1.5; margin-bottom: 10px; }
+    .ac-path .audit-label   { color: var(--soil-path-ink);   }
+    .ac-rocky .audit-label  { color: var(--soil-rocky-ink);  }
+    .ac-thorny .audit-label { color: var(--soil-thorny-ink); }
+    .ac-good .audit-label   { color: var(--soil-good-ink);   }
+
+    .write-field {
+      width: 100%; background: var(--paper);
+      border: 1px solid var(--line-solid); border-radius: 6px;
+      padding: 10px 12px; font-family: var(--sans); font-size: .88rem;
+      color: var(--ink); line-height: 1.6;
+      resize: vertical; min-height: 70px;
+      transition: border-color .2s; -webkit-appearance: none;
+    }
+    .write-field::placeholder { color: var(--muted); opacity: .6; font-style: italic; }
+    .write-field:focus { outline: none; border-color: var(--accent); }
+    .write-field-lg { min-height: 110px; margin-left: 36px; width: calc(100% - 36px); }
+
+    .ex-reflection {
+      background: var(--card); border-left: 2px solid var(--accent);
+      border-radius: 0 var(--r) var(--r) 0;
+      padding: 1.6rem 2rem; margin-top: 2rem;
+      transition: border-color .3s;
+    }
+    .refl-label {
+      font-family: var(--serif); font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 10px; transition: color .3s;
+    }
+    .refl-q { font-size: .95rem; color: var(--muted); line-height: 1.8; margin-bottom: 10px; font-weight: 300; }
+    .refl-q:last-child { margin: 0; }
+    .refl-q strong { color: var(--ink); font-weight: 500; }
+
+    /* ── footer ── */
+    .ws-footer {
+      margin-top: 5rem; padding-top: 2rem;
+      border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: .6rem;
+      font-size: .82rem; color: var(--muted);
+    }
+    .ws-footer a { color: var(--gold); text-decoration: none; }
+    .ws-footer a:hover { opacity: .75; }
+
+    /* ══ PRINT ══ */
+    @media print {
+      @page { margin: 2cm 2.5cm; }
+      .qc-nav, .lens-bar, .qc-home-link, .tabs { display: none !important; }
+      body { background: #fff !important; color: #1a1814 !important; }
+      .panel { display: block !important; }
+      .lens-content { display: block !important; }
+      .lens-content:not(.active) { display: none !important; }
+      .slide-frame { background: #f9f8f4 !important; border: 1pt solid #ccc !important; border-radius: 0 !important; }
+      .slide-bg-glyph { display: none; }
+      .write-field, .write-field-lg { border: 1pt solid #aaa !important; background: #fff !important; min-height: 2cm !important; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .ws-header .ws-eyebrow { animation: fadeUp .4s ease both .05s; }
+    .ws-header .ws-title   { animation: fadeUp .4s ease both .12s; }
+    .ws-header .ws-sub     { animation: fadeUp .4s ease both .18s; }
+    .panel.active, .lens-content.active { animation: fadeUp .25s ease both; }
+  </style>
+</head>
+<body>
+
+  <!-- ══ QC NAV ══ -->
+  <nav class="qc-nav" aria-label="Quantum Currency workshop navigation">
+    <div class="qc-nav-inner">
+      <span class="qc-nav-prev" aria-hidden="true">
+        <span class="arrow">←</span><span>begin here</span>
+      </span>
+      <a href="/workshop" class="qc-nav-centre" aria-label="Workshop home">
+        <div class="qc-nav-step-row">
+          <div class="qc-nav-num">0</div>
+          <span class="qc-nav-name">Field · Zero point</span>
+        </div>
+        <span class="qc-nav-geo">techtuition.ai · step 0 of 9</span>
+        <div class="qc-nav-dots">
+          <div class="qc-dot active"></div>
+          <div class="qc-dot"></div><div class="qc-dot"></div><div class="qc-dot"></div>
+          <div class="qc-dot"></div><div class="qc-dot"></div><div class="qc-dot"></div>
+          <div class="qc-dot"></div><div class="qc-dot"></div><div class="qc-dot"></div>
+        </div>
+      </a>
+      <a href="/workshop/step-1" class="qc-nav-next" aria-label="Next: Step 1 Coherence">
+        <span>Coherence</span><span class="arrow">→</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══ LENS BAR ══ -->
+  <div class="lens-bar" role="navigation" aria-label="Book lens selector">
+    <div class="lens-bar-inner">
+      <span class="lens-label">lens</span>
+      <button class="lens-pill lp-qc active" onclick="setLens('qc', this)" aria-pressed="true">
+        Quantum currency
+      </button>
+      <button class="lens-pill lp-rc" onclick="setLens('rc', this)" aria-pressed="false">
+        Relational currency <span class="coming">soon</span>
+      </button>
+      <button class="lens-pill lp-ec" onclick="setLens('ec', this)" aria-pressed="false">
+        Encoded currency <span class="coming">soon</span>
+      </button>
+      <button class="lens-pill lp-sc" onclick="setLens('sc', this)" aria-pressed="false">
+        Sovereign currency <span class="coming">soon</span>
+      </button>
+    </div>
+  </div>
+
+  <a class="qc-home-link" href="/workshop">↩ quantum currency workshop · return to workshop home</a>
+
+  <main class="page">
+
+    <!-- ── header (lens-aware) ── -->
+    <header class="ws-header">
+      <p class="ws-eyebrow" id="header-eyebrow">Quantum currency · step 0 of 9</p>
+      <h1 class="ws-title" id="header-title">Before we count anything,<br>let's find <em>the ground.</em></h1>
+      <p class="ws-sub" id="header-sub">The field is primary. Things are what the field does locally. Before any model, any map, any strategy — we stand here first.</p>
+    </header>
+
+    <!-- ── tabs ── -->
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" aria-selected="true"  onclick="showPanel('slide', this)">Slide</button>
+      <button class="tab"        role="tab" aria-selected="false" onclick="showPanel('deeper', this)">Go deeper</button>
+      <button class="tab"        role="tab" aria-selected="false" onclick="showPanel('exercise', this)">Playbook exercise</button>
+    </div>
+
+    <!-- ══════════════════════ SLIDE PANEL ══════════════════════ -->
+    <div id="panel-slide" class="panel active" role="tabpanel">
+
+      <!-- QC SLIDE -->
+      <div class="lens-content active" data-lens-content="qc">
+        <div class="slide-frame">
+          <div class="slide-bg-glyph">◎</div>
+          <div class="slide-content">
+            <p class="slide-eyebrow">Quantum currency · step 0 · field · zero point</p>
+            <h2 class="slide-heading">Two axes. Four states. The goal is <br>regeneration.</h2>
+            <p class="slide-body">Quantum field theory establishes that fields are more fundamental than particles — the primary reality is not objects moving through space but the field from which objects temporarily emerge. What the instruments revealed was not the billiard-ball universe of classical mechanics. It was something stranger: a field. Continuous, undivided, present everywhere simultaneously.</p>
+            <p class="slide-pull">"The field is not between things. The field is primary. Things are what the field does locally."</p>
+            <p class="slide-body">Zero point energy is the irreducible minimum that remains even at absolute zero — the ground that is never truly empty. Before we build any financial model, governance structure, or exit strategy, we stand here first. We ask: what kind of ground are we in?</p>
+            <hr class="slide-divider">
+            <p class="slide-eyebrow" style="margin-bottom:10px;">The Sower lens — a diagnostic carried through every step</p>
+            <div class="four-soils">
+              <div class="soil-chip soil-path"><p class="s-name">The path</p><p class="s-desc">Seed lands but never roots. Information exists; it doesn't travel.</p></div>
+              <div class="soil-chip soil-rocky"><p class="s-name">Rocky ground</p><p class="s-desc">Fast enthusiasm, no depth. Grows quickly, burns on friction.</p></div>
+              <div class="soil-chip soil-thorny"><p class="s-name">Thorny ground</p><p class="s-desc">Too many competing demands. Energy leaks in all directions.</p></div>
+              <div class="soil-chip soil-good"><p class="s-name">Good soil</p><p class="s-desc">Coherent, self-sustaining. The seed multiplies — ten-fold, hundred-fold.</p></div>
+            </div>
+            <div class="db-note">
+              <strong>Depth and breadth, always simultaneous.</strong> The soil is the ground <em>inside</em> you — what you carry, what you're metabolising, how present you are. And the soil is the ground <em>outside</em> you — the business, the team, the conditions you're planting in. Read only the inside and we stare at our navels. Read only the outside and we point fingers. Coherence architecture holds both — and works at the line where they meet.
+            </div>
+            <p class="slide-question">What soil have you been planting in — and what soil are you standing in right now?</p>
+            <p class="slide-note">This question is not rhetorical. We are going to answer it together — inside and out.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RC SLIDE (placeholder) -->
+      <div class="lens-content" data-lens-content="rc">
+        <div class="placeholder-block">
+          <p class="ph-icon">◈</p>
+          <p class="ph-title">Relational currency · step 0</p>
+          <p class="ph-body">This lens will frame Step 0 through the architecture of human–AI collaboration — how the field between people and systems either generates or depletes relational energy. Content drawn directly from <em>Relational Currency</em>, chapter 0.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- EC SLIDE (placeholder) -->
+      <div class="lens-content" data-lens-content="ec">
+        <div class="placeholder-block">
+          <p class="ph-icon">△</p>
+          <p class="ph-title">Encoded currency · step 0</p>
+          <p class="ph-body">This lens will frame Step 0 through the historical and informational architecture of the field — how currency has been encoded across cultures and epochs, and what that encoding reveals about the ground we stand in now. Content drawn directly from <em>Encoded Currency</em>, chapter 0.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- SC SLIDE (placeholder) -->
+      <div class="lens-content" data-lens-content="sc">
+        <div class="placeholder-block">
+          <p class="ph-icon">✦</p>
+          <p class="ph-title">Sovereign currency · step 0</p>
+          <p class="ph-body">This lens will frame Step 0 through the architecture of self-empowerment — how a system stands in its own ground regardless of the external conditions it finds itself in. Content drawn directly from <em>Sovereign Currency</em>, chapter 0.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════ GO DEEPER PANEL ══════════════════════ -->
+    <div id="panel-deeper" class="panel" role="tabpanel">
+
+      <!-- QC DEEPER -->
+      <div class="lens-content active" data-lens-content="qc">
+
+        <div class="fac-section">
+          <p class="fac-label">Why this step exists</p>
+          <p class="fac-body">Step 0 is not a warm-up. It is the most important thing in the workshop. <strong>The ground state of the room — and the ground state of each participant standing in it — determines everything that follows.</strong> If anyone in the room is defended, distracted, or performing competence rather than actually present, no framework will root. The Sower lens is the tool. Presence is the soil. This step exists to create the conditions, inside and out, before anything else can grow.</p>
+        </div>
+
+        <div class="fac-section">
+          <p class="fac-label">The unconscious as field</p>
+          <p class="fac-body">Carl Jung gave the field a name that psychology could work with: the unconscious. Not the Freudian unconscious — the repository of repressed content — but something larger: the deeper intelligence that operates below the threshold of attention. The pattern-making that runs before the conscious mind arrives to take credit for it. <strong>The field is most legible obliquely — in sleep, in the hypnagogic threshold, in the aftermath of experiences that dissolve the ordinary architecture of selfhood.</strong> Step 0 asks the room to access that quality of attention before the frameworks begin.</p>
+        </div>
+
+        <div class="fac-section">
+          <p class="fac-label">Depth and breadth, embodied</p>
+          <div class="insight-block">
+            <p class="fac-body">This workshop holds a simple structural rule: <strong>every exercise moves inside and outside simultaneously.</strong> The personal audit stays with the participant. The business audit compiles into their playbook. Without the inside, the outside becomes blame. Without the outside, the inside becomes rumination. Coherence architecture is the line between them — and the line is where the work lives.</p>
+          </div>
+        </div>
+
+        <div class="fac-section">
+          <p class="fac-label">Reading the room — soil signals</p>
+          <div class="signal-card"><p class="signal-soil sig-path">Path signals</p><p class="signal-text">Phones out within the first five minutes. Questions that are really defences. The CEO answering for the team before they can speak.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-rocky">Rocky ground signals</p><p class="signal-text">High energy, fast agreement, lots of "yes, exactly!" with no specifics. Enthusiasm that doesn't slow down to examine anything.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-thorny">Thorny ground signals</p><p class="signal-text">People who keep bringing in other priorities mid-exercise. The CEO who keeps expanding scope rather than focusing it.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-good">Good soil signals</p><p class="signal-text">Genuine pauses before answering. Someone naming a hard truth without being asked. Silence that feels productive rather than uncomfortable.</p></div>
+        </div>
+
+        <div class="fac-section">
+          <p class="fac-label">What this step tends to surface</p>
+          <div class="insight-block">
+            <p class="fac-body">The most common revelation in Step 0 is that <strong>the room already knows what soil it is in — it simply hasn't had a structure for naming it.</strong> The Sower lens provides that structure. When it lands, the relief is palpable. Not because the ground has changed, but because something that was ambient and unnamed has become legible — inside and out.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RC DEEPER (placeholder) -->
+      <div class="lens-content" data-lens-content="rc">
+        <div class="placeholder-block">
+          <p class="ph-icon">◈</p>
+          <p class="ph-title">Relational currency · go deeper · step 0</p>
+          <p class="ph-body">The relational lens of Step 0 explores the field between people — how the quality of connection in the room before any framework is introduced determines everything that follows. Content drawn from <em>Relational Currency</em>, chapter 0.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- EC DEEPER (placeholder) -->
+      <div class="lens-content" data-lens-content="ec">
+        <div class="placeholder-block">
+          <p class="ph-icon">△</p>
+          <p class="ph-title">Encoded currency · go deeper · step 0</p>
+          <p class="ph-body">The encoded lens of Step 0 explores the historical field — the inherited patterns, narratives, and information structures that shape the ground before anyone in the room has spoken. Content drawn from <em>Encoded Currency</em>, chapter 0.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- SC DEEPER (placeholder) -->
+      <div class="lens-content" data-lens-content="sc">
+        <div class="placeholder-block">
+          <p class="ph-icon">✦</p>
+          <p class="ph-title">Sovereign currency · go deeper · step 0</p>
+          <p class="ph-body">The sovereign lens of Step 0 explores self-empowerment as a ground condition — what it means to stand in one's own field before entering any shared one. Content drawn from <em>Sovereign Currency</em>, chapter 0.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════ EXERCISE PANEL ══════════════════════ -->
+    <div id="panel-exercise" class="panel" role="tabpanel">
+
+      <!-- QC EXERCISE -->
+      <div class="lens-content active" data-lens-content="qc">
+
+        <div class="ex-intro">
+          This is the first page of your playbook. There are no right answers here — only honest ones. <strong>The quality of everything that follows in this workshop depends on the quality of your honesty in this exercise.</strong> Take the full time. This page belongs to you.
+        </div>
+
+        <div class="scope-legend">
+          <span><span class="scope-chip"><span class="scope-dot personal"></span>Personal</span> — stays private to you. Not included in the compiled playbook.</span>
+          <span><span class="scope-chip"><span class="scope-dot business"></span>Business</span> — compiles into the playbook you take at the end of Step 3.</span>
+        </div>
+
+        <div class="ex-block">
+          <div class="ex-q-row">
+            <div class="ex-num">1</div>
+            <p class="ex-q">The soil audit — inside</p>
+            <span class="ex-scope personal">Personal</span>
+          </div>
+          <p class="ex-sub">Think back across your professional relationships. Place at least one in each quadrant — name it however feels right. Then note briefly: what made that soil what it was, from <em>your</em> side? What did you bring to it?</p>
+          <div class="soil-audit">
+            <div class="audit-cell ac-path"><p class="audit-label">The path</p><p class="audit-hint">The seed never rooted. What happened to the energy you brought?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s0-q1-path" aria-label="soil audit inside path"></textarea></div>
+            <div class="audit-cell ac-rocky"><p class="audit-label">Rocky ground</p><p class="audit-hint">Enthusiasm that didn't hold. What was missing underneath?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s0-q1-rocky" aria-label="soil audit inside rocky"></textarea></div>
+            <div class="audit-cell ac-thorny"><p class="audit-label">Thorny ground</p><p class="audit-hint">Good work, crowded out. What were the competing forces?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s0-q1-thorny" aria-label="soil audit inside thorny"></textarea></div>
+            <div class="audit-cell ac-good"><p class="audit-label">Good soil</p><p class="audit-hint">Something took root and multiplied. What made this ground different?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s0-q1-good" aria-label="soil audit inside good"></textarea></div>
+          </div>
+        </div>
+
+        <div class="ex-block">
+          <div class="ex-q-row">
+            <div class="ex-num">2</div>
+            <p class="ex-q">The soil audit — outside</p>
+            <span class="ex-scope business">Business</span>
+          </div>
+          <p class="ex-sub">Now the same four quadrants, applied to the business. Where is this business — or the parts of it, the teams, the client relationships, the offerings — planting in each kind of soil <em>right now</em>? Be specific. Name the project, the person, the team.</p>
+          <div class="soil-audit">
+            <div class="audit-cell ac-path"><p class="audit-label">The path</p><p class="audit-hint">Where is the business scattering seed that never roots?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s0-q2-path" aria-label="soil audit outside path"></textarea></div>
+            <div class="audit-cell ac-rocky"><p class="audit-label">Rocky ground</p><p class="audit-hint">Where is there growth that won't hold under pressure?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s0-q2-rocky" aria-label="soil audit outside rocky"></textarea></div>
+            <div class="audit-cell ac-thorny"><p class="audit-label">Thorny ground</p><p class="audit-hint">Where are good things being crowded by competing priorities?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s0-q2-thorny" aria-label="soil audit outside thorny"></textarea></div>
+            <div class="audit-cell ac-good"><p class="audit-label">Good soil</p><p class="audit-hint">Where is the business already multiplying what it plants?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s0-q2-good" aria-label="soil audit outside good"></textarea></div>
+          </div>
+        </div>
+
+        <div class="ex-block">
+          <div class="ex-q-row">
+            <div class="ex-num">3</div>
+            <p class="ex-q">The field you arrived with today</p>
+            <span class="ex-scope personal">Personal</span>
+          </div>
+          <p class="ex-sub">What did you bring into this room that might make it harder to be present? Name it briefly. Naming it is how you set it down.</p>
+          <textarea class="write-field write-field-lg" rows="4" placeholder="Write here…" data-scope="personal" data-key="s0-q3-arrived" aria-label="field arrived with"></textarea>
+        </div>
+
+        <div class="ex-block">
+          <div class="ex-q-row">
+            <div class="ex-num">4</div>
+            <p class="ex-q">The zero point question</p>
+            <span class="ex-scope business">Business</span>
+          </div>
+          <p class="ex-sub">If you stripped away every role, every deliverable, every metric — what is the energy this business is actually operating from? Not what it produces. What it generates from within.</p>
+          <textarea class="write-field write-field-lg" rows="4" placeholder="Write here…" data-scope="business" data-key="s0-q4-zero" aria-label="zero point"></textarea>
+        </div>
+
+        <div class="ex-reflection">
+          <p class="refl-label">To carry forward — the Sower question</p>
+          <p class="refl-q">At every step of this workshop, we will return to one question: <strong>what kind of ground are we in right now?</strong></p>
+          <p class="refl-q">Not as a judgment. As a calibration. The seed — the framework, the model, the strategy — doesn't change. What changes is how honestly we can see the ground we're planting it in. Inside and out.</p>
+          <p class="refl-q">The hundred-fold yield is not a miracle. It is what coherent systems do when the conditions are right.</p>
+        </div>
+
+      </div>
+
+      <!-- RC EXERCISE (placeholder) -->
+      <div class="lens-content" data-lens-content="rc">
+        <div class="placeholder-block">
+          <p class="ph-icon">◈</p>
+          <p class="ph-title">Relational currency · exercise · step 0</p>
+          <p class="ph-body">The relational lens exercise for Step 0 maps the field between people — the quality of connection that precedes any framework. Exercises drawn from <em>Relational Currency</em>, chapter 0, will appear here.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- EC EXERCISE (placeholder) -->
+      <div class="lens-content" data-lens-content="ec">
+        <div class="placeholder-block">
+          <p class="ph-icon">△</p>
+          <p class="ph-title">Encoded currency · exercise · step 0</p>
+          <p class="ph-body">The encoded lens exercise for Step 0 maps the inherited patterns and historical information structures that shape the ground. Exercises drawn from <em>Encoded Currency</em>, chapter 0, will appear here.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+      <!-- SC EXERCISE (placeholder) -->
+      <div class="lens-content" data-lens-content="sc">
+        <div class="placeholder-block">
+          <p class="ph-icon">✦</p>
+          <p class="ph-title">Sovereign currency · exercise · step 0</p>
+          <p class="ph-body">The sovereign lens exercise for Step 0 explores what it means to stand in one's own field before entering any shared one. Exercises drawn from <em>Sovereign Currency</em>, chapter 0, will appear here.</p>
+          <span class="ph-tag">content in progress</span>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="ws-footer">
+      <span>quantum currency workshop · step 0 of 9 · field · zero point</span>
+      <span>© <span id="year"></span> · part of the <a href="https://deiadora.com">deiadora ecosystem</a> 🌿</span>
+    </footer>
+
+  </main>
+
+  <script>
+    /* ── lens switching ── */
+    const LENS_HEADERS = {
+      qc: {
+        eyebrow: 'Quantum currency · step 0 of 9',
+        title:   'Before we count anything,<br>let\'s find <em>the ground.</em>',
+        sub:     'The field is primary. Things are what the field does locally. Before any model, any map, any strategy — we stand here first.'
+      },
+      rc: {
+        eyebrow: 'Relational currency · step 0 of 9',
+        title:   'Before we connect anything,<br>let\'s find <em>the field between us.</em>',
+        sub:     'The relational field precedes the relational act. What is the quality of connection in this room before any framework is introduced?'
+      },
+      ec: {
+        eyebrow: 'Encoded currency · step 0 of 9',
+        title:   'Before we build anything,<br>let\'s find <em>what is already encoded.</em>',
+        sub:     'Every system inherits the information structures of the systems that preceded it. What is already written in the ground before we begin?'
+      },
+      sc: {
+        eyebrow: 'Sovereign currency · step 0 of 9',
+        title:   'Before we change anything,<br>let\'s find <em>where we already stand.</em>',
+        sub:     'Sovereignty begins with knowing what ground is yours. Not the ground you wish you occupied — the ground you are actually standing in, right now.'
+      }
+    };
+
+    let currentLens = 'qc';
+    let currentPanel = 'slide';
+
+    function setLens(lens, btn) {
+      if (lens === currentLens) return;
+      currentLens = lens;
+
+      document.querySelectorAll('.lens-pill').forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      document.documentElement.setAttribute('data-lens', lens);
+
+      const h = LENS_HEADERS[lens];
+      document.getElementById('header-eyebrow').textContent = h.eyebrow;
+      document.getElementById('header-title').innerHTML = h.title;
+      document.getElementById('header-sub').textContent = h.sub;
+
+      document.querySelectorAll('.lens-content').forEach(el => {
+        el.classList.toggle('active', el.getAttribute('data-lens-content') === lens);
+      });
+
+      sessionStorage.setItem('qc-workshop-lens', lens);
+      restoreAnswers(lens);
+    }
+
+    function showPanel(name, tabEl) {
+      currentPanel = name;
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      document.getElementById('panel-' + name).classList.add('active');
+      tabEl.classList.add('active');
+      tabEl.setAttribute('aria-selected', 'true');
+    }
+
+    /* ── year ── */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ── theme ── */
+    const root    = document.documentElement;
+    const STORE   = 'qc-theme';
+    const sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function resolveTheme() {
+      const saved = localStorage.getItem(STORE);
+      return saved || (sysDark.matches ? 'dark' : 'light');
+    }
+    function applyTheme(t) { root.setAttribute('data-theme', t); }
+
+    applyTheme(resolveTheme());
+    sysDark.addEventListener('change', () => {
+      if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? 'dark' : 'light');
+    });
+
+    /* ── lens init from session ── */
+    root.setAttribute('data-lens', 'qc');
+    const savedLens = sessionStorage.getItem('qc-workshop-lens');
+    if (savedLens && savedLens !== 'qc') {
+      const btn = document.querySelector(`.lp-${savedLens}`);
+      if (btn) setLens(savedLens, btn);
+    }
+
+    /* ── playbook storage ──
+       Keys: qc-playbook-{lens}-{scope}-{data-key}
+       The compile step at Step 3 reads only scope=business across all steps.
+    */
+    function storageKey(lens, scope, key) {
+      return `qc-playbook-${lens}-${scope}-${key}`;
+    }
+
+    document.querySelectorAll('textarea[data-key]').forEach(ta => {
+      ta.addEventListener('input', () => {
+        const key = storageKey(currentLens, ta.dataset.scope, ta.dataset.key);
+        sessionStorage.setItem(key, ta.value);
+      });
+    });
+
+    function restoreAnswers(lens) {
+      document.querySelectorAll(`[data-lens-content="${lens}"] textarea[data-key]`).forEach(ta => {
+        const key = storageKey(lens, ta.dataset.scope, ta.dataset.key);
+        const saved = sessionStorage.getItem(key);
+        if (saved !== null) ta.value = saved;
+      });
+    }
+    restoreAnswers('qc');
+  </script>
+</body>
+</html>
