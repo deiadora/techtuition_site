@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Step 3 · Discernment · Tetrahedron · quantum currency workshop · techtuition</title>
-  <meta name="description" content="The minimum structure required to hold a volume. Step 3 of the Quantum Currency Workshop — the tetrahedron, the noise floor, and the architecture that protects what has been recognised." />
+  <meta name="description" content="Four faces. The minimum required to hold a signal without collapsing it. Step 3 of the Quantum Currency Workshop — the tetrahedron, the merkaba, the noise floor, and the architecture of orientation." />
   <meta property="og:title" content="Step 3 · Discernment · Tetrahedron · quantum currency workshop" />
-  <meta property="og:description" content="Not detached assessment. Disciplined management of the observer's effect. Four faces. Four perspectives. One architecture." />
+  <meta property="og:description" content="Discernment is not detachment. It is structural integrity — enough architecture to hold a signal without collapsing it." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://techtuition.ai/workshop/step-3" />
   <meta property="og:image" content="https://techtuition.ai/techtuition_banner.jpeg" />
@@ -19,15 +19,22 @@
        LOCKED COLOR SYSTEM — DO NOT INVENT NEW VALUES
        ───────────────────────────────────────────────────────────────
        SOIL (semantic, Sower diagnostic):
-         path    → #a9292a  rocky → #9d4418
-         thorny  → #1a6b9e  good  → #7a9e2a
+         path    → #a9292a  (node-1 family, deep red)
+         rocky   → #9d4418  (node-2 family, terracotta)
+         thorny  → #1a6b9e  (node-7 family, sky blue)
+         good    → #7a9e2a  (node-4 family, leaf green)
 
-       LENS (teal family, four depths):
-         qc → #0f6e56  rc → #1a9e7a  ec → #085041  sc → #0a3d33
+       LENS (structural, teal family, four depths):
+         qc      → #0f6e56  (true teal)
+         rc      → #1a9e7a  (brighter teal)
+         ec      → #085041  (deep teal)
+         sc      → #0a3d33  (deepest teal)
 
-       FACES — Step 3 only, teal family, four depths for the four perspectives:
-         what → #1a9e7a  from-where → #0f6e56
-         amplitude → #5a8e82  relation → #2a4744
+       FACES — Step 3 only, teal family, four depths (tetrahedron's four faces):
+         what       → #1a9e7a  (brightest)
+         where      → #0f6e56  (true teal)
+         amplitude  → #5a8e82  (muted teal)
+         relation   → #2a4744  (deepest muted)
        ═══════════════════════════════════════════════════════════════ */
     :root {
       --ink:        #ebe7dc;
@@ -61,15 +68,14 @@
       --ec:   #085041;
       --sc:   #0a3d33;
 
-      /* FACES — teal family, four depths for the four perspectives */
-      --face-what-ink:       #1a9e7a;
-      --face-what-bg:        #e4f6ef;
-      --face-from-where-ink: #0f6e56;
-      --face-from-where-bg:  #dcede7;
-      --face-amplitude-ink:  #5a8e82;
-      --face-amplitude-bg:   #e8efed;
-      --face-relation-ink:   #2a4744;
-      --face-relation-bg:    #dde3e2;
+      --face-what-ink:      #1a9e7a;
+      --face-what-bg:       #e4f6ef;
+      --face-where-ink:     #0f6e56;
+      --face-where-bg:      #dcede7;
+      --face-amp-ink:       #5a8e82;
+      --face-amp-bg:        #e8efed;
+      --face-rel-ink:       #2a4744;
+      --face-rel-bg:        #dde3e2;
 
       --accent:    var(--qc);
       --accent-lt: #1a9e7a;
@@ -147,7 +153,7 @@
       display: flex; align-items: center; justify-content: flex-end;
       gap: 8px; text-decoration: none; color: var(--muted);
       font-size: 12px; font-weight: 400;
-      opacity: .4; pointer-events: none;
+      opacity: .3; pointer-events: none;
     }
 
     .qc-home-link {
@@ -309,35 +315,35 @@
     }
     .slide-divider { border: none; border-top: 1px solid var(--line); margin: 1.6rem 0; }
 
-    /* ══ FOUR-FACE GRID ══ */
-    .face-grid {
+    /* ══ FOUR FACES GRID ══ */
+    .faces-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
       margin: 1.4rem 0 1.6rem;
     }
-    @media (max-width: 520px) { .face-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .faces-grid { grid-template-columns: 1fr; } }
 
     .face-card {
       border-radius: var(--r); padding: 14px 16px;
       background: var(--card-lt); border: 1px solid var(--line-solid);
     }
-    .face-card.what        { border-left: 3px solid var(--face-what-ink); }
-    .face-card.from-where  { border-left: 3px solid var(--face-from-where-ink); }
-    .face-card.amplitude   { border-left: 3px solid var(--face-amplitude-ink); }
-    .face-card.relation    { border-left: 3px solid var(--face-relation-ink); }
+    .face-card.what       { border-left: 3px solid var(--face-what-ink); }
+    .face-card.where      { border-left: 3px solid var(--face-where-ink); }
+    .face-card.amplitude  { border-left: 3px solid var(--face-amp-ink); }
+    .face-card.relation   { border-left: 3px solid var(--face-rel-ink); }
 
     .face-num {
       font-family: var(--serif); font-size: 10px; font-weight: 600;
-      letter-spacing: .08em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 4px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 2px;
     }
     .face-name {
       font-family: var(--serif); font-size: 13px; font-weight: 600;
       margin-bottom: 6px; letter-spacing: .01em;
     }
-    .face-card.what .face-name        { color: var(--face-what-ink); }
-    .face-card.from-where .face-name  { color: var(--face-from-where-ink); }
-    .face-card.amplitude .face-name   { color: var(--face-amplitude-ink); }
-    .face-card.relation .face-name    { color: var(--face-relation-ink); }
+    .face-card.what .face-name      { color: var(--face-what-ink); }
+    .face-card.where .face-name     { color: var(--face-where-ink); }
+    .face-card.amplitude .face-name { color: var(--face-amp-ink); }
+    .face-card.relation .face-name  { color: var(--face-rel-ink); }
     [data-theme="light"] .face-card.relation .face-name { color: #1a3331; }
 
     .face-desc {
@@ -346,15 +352,22 @@
     .face-desc strong { color: var(--ink); font-weight: 500; }
     .face-desc em { color: var(--ink); font-style: italic; }
 
-    /* noise floor visual */
-    .noise-floor {
-      background: var(--card-lt);
-      border-radius: var(--r);
-      padding: 16px 18px; margin: 1.4rem 0;
-      font-size: .88rem; line-height: 1.7; color: var(--muted); font-weight: 300;
+    /* ══ NOISE FLOOR DIAGRAM ══ */
+    .nf-wrap {
+      background: var(--card-lt); border: 1px solid var(--line-solid);
+      border-radius: var(--r); padding: 18px 20px;
+      margin: 1.2rem 0 1.6rem;
     }
-    .noise-floor strong { color: var(--ink); font-weight: 500; }
-    .noise-floor em { color: var(--ink); font-style: italic; }
+    .nf-title {
+      font-family: var(--serif); font-size: 11px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 10px;
+    }
+    .nf-svg-wrap { width: 100%; max-width: 520px; margin: 0 auto; }
+    .nf-caption {
+      font-size: 12px; color: var(--muted); line-height: 1.65;
+      text-align: center; margin-top: 8px; font-weight: 300; font-style: italic;
+    }
 
     .slide-question {
       font-family: var(--display); font-size: 1.2rem; font-weight: 500;
@@ -466,7 +479,6 @@
     .ex-sub { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 14px; padding-left: 36px; font-weight: 300; }
     .ex-sub em { color: var(--ink); font-style: italic; }
 
-    /* face audit grid */
     .face-audit {
       display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;
     }
@@ -476,19 +488,19 @@
       background: var(--card); border: 1px solid var(--line-solid);
       border-radius: var(--r); padding: 14px;
     }
-    .fa-cell.what        { border-left: 3px solid var(--face-what-ink); }
-    .fa-cell.from-where  { border-left: 3px solid var(--face-from-where-ink); }
-    .fa-cell.amplitude   { border-left: 3px solid var(--face-amplitude-ink); }
-    .fa-cell.relation    { border-left: 3px solid var(--face-relation-ink); }
+    .fa-cell.what       { border-left: 3px solid var(--face-what-ink); }
+    .fa-cell.where      { border-left: 3px solid var(--face-where-ink); }
+    .fa-cell.amplitude  { border-left: 3px solid var(--face-amp-ink); }
+    .fa-cell.relation   { border-left: 3px solid var(--face-rel-ink); }
 
-    .fa-num { font-size: 10px; font-family: var(--serif); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
     .fa-label { font-family: var(--serif); font-size: 12px; font-weight: 600; margin-bottom: 2px; }
-    .fa-cell.what .fa-label        { color: var(--face-what-ink); }
-    .fa-cell.from-where .fa-label  { color: var(--face-from-where-ink); }
-    .fa-cell.amplitude .fa-label   { color: var(--face-amplitude-ink); }
-    .fa-cell.relation .fa-label    { color: var(--face-relation-ink); }
+    .fa-cell.what .fa-label      { color: var(--face-what-ink); }
+    .fa-cell.where .fa-label     { color: var(--face-where-ink); }
+    .fa-cell.amplitude .fa-label { color: var(--face-amp-ink); }
+    .fa-cell.relation .fa-label  { color: var(--face-rel-ink); }
     [data-theme="light"] .fa-cell.relation .fa-label { color: #1a3331; }
 
+    .fa-num { font-size: 10px; font-family: var(--serif); color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
     .fa-hint { font-size: 11px; color: var(--muted); font-style: italic; line-height: 1.5; margin-bottom: 10px; }
 
     .write-field {
@@ -520,112 +532,91 @@
     .refl-q em { color: var(--ink); font-style: italic; }
 
     /* ══ PLAYBOOK COMPILE ══ */
-    .playbook-section {
-      margin-top: 4rem; padding-top: 3rem;
-      border-top: 2px solid var(--accent);
+    .playbook-compile {
+      background: var(--card); border: 1px solid var(--accent);
+      border-radius: var(--r); padding: 1.8rem 2rem;
+      margin: 2.5rem 0 2rem;
       transition: border-color .3s;
     }
-
-    .playbook-header {
-      text-align: center; margin-bottom: 2rem;
-    }
-    .playbook-eyebrow {
+    .pb-label {
       font-family: var(--serif); font-size: .72rem; font-weight: 600;
-      letter-spacing: .12em; text-transform: uppercase;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 10px; transition: color .3s;
+    }
+    .pb-title {
+      font-family: var(--display); font-size: 1.4rem; font-weight: 500;
+      color: var(--ink); margin-bottom: 10px; line-height: 1.3;
+    }
+    .pb-body { font-size: .92rem; color: var(--muted); line-height: 1.75; font-weight: 300; margin-bottom: 16px; }
+    .pb-body strong { color: var(--ink); font-weight: 500; }
+    .pb-body em { color: var(--ink); font-style: italic; }
+
+    .pb-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: .7rem 1.4rem; border-radius: var(--r);
+      font-family: var(--sans); font-size: .9rem; font-weight: 500;
+      background: var(--accent); color: #fff;
+      border: none; cursor: pointer; transition: background .2s;
+    }
+    .pb-btn:hover { background: var(--accent-lt); }
+    .pb-btn:disabled { background: var(--line-solid); cursor: not-allowed; color: var(--muted); }
+
+    .pb-count {
+      font-size: 12px; color: var(--muted); margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* ══ DUAL CTA CLOSE ══ */
+    .close-frame {
+      margin-top: 3rem; padding-top: 2.5rem;
+      border-top: 1px solid var(--line);
+    }
+    .close-kicker {
+      font-family: var(--serif); font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 1rem; transition: color .3s;
     }
-    .playbook-title {
-      font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 500; line-height: 1.2; color: var(--ink);
-      margin-bottom: .6rem;
+    .close-title {
+      font-family: var(--display); font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+      font-weight: 500; line-height: 1.2; color: var(--ink); margin-bottom: .8rem;
     }
-    .playbook-title em { font-style: italic; color: var(--accent); transition: color .3s; }
-    .playbook-sub {
-      font-size: .95rem; color: var(--muted); line-height: 1.7;
-      max-width: 560px; margin: 0 auto; font-weight: 300;
+    .close-title em { color: var(--accent); font-style: italic; transition: color .3s; }
+    .close-body {
+      font-size: .97rem; color: var(--muted); line-height: 1.8;
+      font-weight: 300; margin-bottom: 2rem; max-width: 600px;
     }
+    .close-body strong { color: var(--ink); font-weight: 500; }
+    .close-body em { color: var(--ink); font-style: italic; }
 
-    .playbook-card {
-      background: var(--card); border: 1px solid var(--line-solid);
-      border-radius: 12px; padding: 2rem 2.4rem;
-      text-align: center;
-    }
-    .playbook-card p { font-size: .92rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; font-weight: 300; }
-    .playbook-card p em { color: var(--ink); font-style: italic; }
-
-    .playbook-status {
-      font-family: var(--serif); font-size: 11px; font-weight: 500;
-      letter-spacing: .06em; color: var(--muted);
-      margin-bottom: 1.2rem; display: block;
-    }
-    .playbook-status strong { color: var(--accent); font-weight: 600; transition: color .3s; }
-
-    .compile-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: .9rem 1.8rem; border-radius: 100px;
-      background: var(--accent); color: #fff;
-      font-family: var(--sans); font-size: .92rem; font-weight: 500;
-      border: none; cursor: pointer;
-      transition: opacity .2s, transform .2s, background .3s;
-      letter-spacing: .01em;
-    }
-    .compile-btn:hover:not(:disabled) { opacity: .88; transform: translateY(-1px); }
-    .compile-btn:disabled { opacity: .35; cursor: not-allowed; }
-
-    .playbook-note {
-      font-size: 11px; color: var(--muted); margin-top: 1rem;
-      font-style: italic; line-height: 1.5;
-    }
-
-    /* ══ DUAL PATH CTA ══ */
-    .path-section {
-      margin-top: 3.5rem;
-    }
-
-    .path-eyebrow {
-      font-family: var(--serif); font-size: .72rem; font-weight: 600;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1.4rem; text-align: center;
-      transition: color .3s;
-    }
-
-    .path-grid {
+    .cta-paths {
       display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin-bottom: 2rem;
     }
-    @media (max-width: 600px) { .path-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .cta-paths { grid-template-columns: 1fr; } }
 
-    .path-card {
+    .cta-card {
       background: var(--card); border: 1px solid var(--line-solid);
-      border-radius: 12px; padding: 1.8rem 2rem;
-      display: flex; flex-direction: column; gap: .8rem;
-      text-decoration: none; transition: border-color .2s, background .2s;
+      border-radius: var(--r); padding: 1.6rem 1.8rem;
+      text-decoration: none; display: flex; flex-direction: column; gap: 8px;
+      transition: border-color .2s, background .2s;
     }
-    .path-card:hover { border-color: var(--accent); background: var(--card-lt); }
-
-    .path-card .p-tag {
+    .cta-card:hover { border-color: var(--accent); background: var(--card-lt); }
+    .cta-card .cta-kind {
       font-family: var(--serif); font-size: 10px; font-weight: 600;
-      letter-spacing: .08em; text-transform: uppercase;
+      letter-spacing: .1em; text-transform: uppercase;
       color: var(--accent); transition: color .3s;
     }
-    .path-card .p-title {
-      font-family: var(--display); font-size: 1.35rem; font-weight: 500;
-      line-height: 1.25; color: var(--ink);
+    .cta-card .cta-title {
+      font-family: var(--display); font-size: 1.2rem; font-weight: 500;
+      color: var(--ink); line-height: 1.3;
     }
-    .path-card .p-title em { font-style: italic; color: var(--accent); transition: color .3s; }
-    .path-card .p-desc {
-      font-size: .9rem; color: var(--muted); line-height: 1.7; font-weight: 300; flex: 1;
+    .cta-card .cta-desc {
+      font-size: .88rem; color: var(--muted); line-height: 1.65; font-weight: 300;
     }
-    .path-card .p-go {
-      font-family: var(--serif); font-size: .84rem; font-weight: 600;
-      color: var(--accent); letter-spacing: .01em; transition: color .3s;
+    .cta-card .cta-arrow {
+      margin-top: 4px; font-size: 13px; color: var(--accent);
+      font-family: var(--serif); font-weight: 500; transition: color .3s;
     }
-
-    .path-closing {
-      font-family: var(--display); font-size: 1.05rem; font-style: italic;
-      color: var(--muted); text-align: center; margin-top: 2rem;
-      line-height: 1.7; max-width: 520px; margin-left: auto; margin-right: auto;
-    }
-    .path-closing strong { color: var(--ink); font-weight: 500; font-style: normal; }
 
     .ws-footer {
       margin-top: 5rem; padding-top: 2rem;
@@ -639,7 +630,7 @@
 
     @media print {
       @page { margin: 2cm 2.5cm; }
-      .qc-nav, .lens-bar, .qc-home-link, .tabs, .playbook-section, .path-section { display: none !important; }
+      .qc-nav, .lens-bar, .qc-home-link, .tabs, .playbook-compile, .close-frame { display: none !important; }
       body { background: #fff !important; color: #1a1814 !important; }
       .panel { display: block !important; }
       .lens-content { display: block !important; }
@@ -683,7 +674,7 @@
         </div>
       </a>
       <span class="qc-nav-next" aria-hidden="true">
-        <span>on-ramp complete</span>
+        <span>Wave</span><span class="arrow">→</span>
       </span>
     </div>
   </nav>
@@ -713,8 +704,8 @@
 
     <header class="ws-header">
       <p class="ws-eyebrow" id="header-eyebrow">Quantum currency · step 3 of 9</p>
-      <h1 class="ws-title" id="header-title">Four faces. The minimum<br>required to <em>hold a volume.</em></h1>
-      <p class="ws-sub" id="header-sub">Discernment is not detached assessment. It is the disciplined management of the observer's effect — four perspectives held simultaneously, and a noise floor low enough for the signal to become readable.</p>
+      <h1 class="ws-title" id="header-title">Four faces.<br>The minimum required <em>to hold a signal.</em></h1>
+      <p class="ws-sub" id="header-sub">Discernment is not detachment. It is structural integrity in the receiving system — enough architecture to hold a signal without immediately collapsing it into a pre-existing category. The tetrahedron is what that architecture looks like.</p>
     </header>
 
     <div class="tabs" role="tablist">
@@ -726,90 +717,129 @@
     <!-- ══════════════════════ SLIDE PANEL ══════════════════════ -->
     <div id="panel-slide" class="panel active" role="tabpanel">
 
-      <!-- QC SLIDE -->
       <div class="lens-content active" data-lens-content="qc">
         <div class="slide-frame">
           <div class="slide-bg-glyph">△</div>
           <div class="slide-content">
             <p class="slide-eyebrow">Quantum currency · step 3 · discernment · tetrahedron</p>
-            <h2 class="slide-heading">Not detached. <em>Disciplined.</em></h2>
-            <p class="slide-body">The observer effect dissolves the ordinary picture of discernment. There is no standing apart. <strong>The observer who believes they are assessing a situation from neutral distance is already changing it.</strong> The field they are reading is already reading them back. Discernment, properly understood, is not the removal of the observer from the equation — it is the disciplined management of the observer's effect on the equation.</p>
-            <p class="slide-pull">"Where recognition is reception, discernment is orientation. It is the capacity to know not only that something is present but what it is, what it requires, and whether the response it is calling for is one the system can authentically generate."</p>
-            <p class="slide-body">The geometry is the tetrahedron — <em>the minimum structure required to hold a volume.</em> Four faces. Four vertices. Six edges. Remove a single face and the structure collapses. The four faces are not four sequential steps. They are <strong>four simultaneous orientations</strong> — the signal held in stable three-dimensional space rather than collapsed onto a single surface.</p>
+            <h2 class="slide-heading">Not detachment.<br>Structural integrity.</h2>
+            <p class="slide-body">The observer effect is one of the most carefully verified findings in physics: the act of observation changes the system being observed. <strong>There is no neutral distance.</strong> The observer who believes they are assessing a situation from outside it is already changing it. The field they are reading is already reading them back.</p>
+            <p class="slide-body">Discernment, properly understood, is not the removal of the observer from the equation. It is <em>the disciplined management of the observer's effect on it</em> — the development of enough structural integrity in the receiving system that what collapses in the act of observation is signal rather than noise.</p>
+            <p class="slide-pull">"Where recognition is reception, discernment is orientation. The capacity to know not only that something is present but what it is, what it requires, and whether the response it is calling for is one the system can authentically generate."</p>
 
             <hr class="slide-divider">
 
-            <p class="slide-eyebrow" style="margin-bottom:10px;">Four faces, held simultaneously</p>
+            <p class="slide-eyebrow" style="margin-bottom:10px;">The tetrahedron — four faces, simultaneously held</p>
 
-            <div class="face-grid">
+            <p class="slide-body">The tetrahedron is the simplest of the five Platonic solids and the most fundamental. Four faces. Four vertices. Six edges. <strong>Remove a single face and the volume collapses.</strong> It is the irreducible minimum — the least structure that can enclose a space without the space ceasing to be enclosed. Klee Irwin's emergence theory at Quantum Gravity Research proposes that spacetime itself is built from tetrahedral units. The geometry of discernment and the geometry of physical reality converge at the same shape.</p>
+
+            <div class="faces-grid">
               <div class="face-card what">
                 <p class="face-num">Face 1</p>
                 <p class="face-name">What is being transmitted</p>
-                <p class="face-desc">The content of the signal. <strong>The surface claim.</strong> What the words, the email, the market condition, the team meeting are ostensibly saying.</p>
+                <p class="face-desc">The content of the signal itself. <strong>Not what you want it to be. Not what you fear it is. What it actually is.</strong></p>
               </div>
-              <div class="face-card from-where">
+              <div class="face-card where">
                 <p class="face-num">Face 2</p>
-                <p class="face-name">From where</p>
-                <p class="face-desc">The <strong>source coordinate.</strong> Which quadrant is the transmitter operating from — generating, compressed, scattered, fragmented? A scattered source sends signal with more heat than information.</p>
+                <p class="face-name">Where it is coming from</p>
+                <p class="face-desc">The source. A coherent field, a decoherent one, a merger pattern, a genuine vesica piscis. <em>The source changes what the signal means.</em></p>
               </div>
               <div class="face-card amplitude">
                 <p class="face-num">Face 3</p>
                 <p class="face-name">At what amplitude</p>
-                <p class="face-desc"><strong>Intensity relative to the ambient.</strong> A whisper inside silence is loud. A shout inside a fire alarm is nothing. Amplitude reads only against the noise floor around it.</p>
+                <p class="face-desc">The intensity, the urgency, the frequency. <strong>A signal that arrives as panic is not the same signal as one that arrives as clarity</strong> — even if the content is identical.</p>
               </div>
               <div class="face-card relation">
                 <p class="face-num">Face 4</p>
                 <p class="face-name">In what relationship to your field</p>
-                <p class="face-desc">How does this signal <strong>interact with your own coherence?</strong> Does it land like a vesica piscis forming, like merger being attempted, like mere proximity? The reading itself is part of the measurement.</p>
+                <p class="face-desc">How this signal lands in your current geometry. <em>What in you is being activated by it, and is that activation signal or noise?</em></p>
               </div>
             </div>
 
-            <div class="noise-floor">
-              <strong>The receiver matters more than the transmission.</strong> Every system has a noise floor — the internal interference below which a signal cannot be distinguished from the ambient. Unresolved source code, unintegrated emotional data, unexamined projections all raise the floor. <em>The environment has not changed. The signal has not changed. The receiver has.</em> As internal architecture orders itself, the floor drops. Signal that was always transmitting becomes legible.
+            <p class="slide-body">Fewer than four faces and the structure cannot enclose a volume. The signal passes through without being held long enough to be read. <strong>Reaction is what happens without this architecture.</strong> The response may be fast. It may even occasionally be correct. But it is generated from the nearest available surface rather than from a stable internal geometry.</p>
+
+            <hr class="slide-divider">
+
+            <p class="slide-eyebrow" style="margin-bottom:10px;">The merkaba — discernment in motion</p>
+
+            <p class="slide-body">A single tetrahedron works in stable environments. <strong>Real life is not stable.</strong> Real life is non-periodic — the same configuration does not appear twice. For that, you need <em>two counter-rotating tetrahedra</em>, their centres coincident, each presenting orientations the other is not. The merkaba. The ancient form that Quantum Gravity Research's mathematics now describes formally: a geometry that maintains coherence through motion rather than in spite of it.</p>
+            <p class="slide-body">The merkaba does not navigate non-periodic environments by predicting them. <strong>It navigates them by remaining, at every moment, structurally capable of receiving whatever arrives.</strong></p>
+
+            <hr class="slide-divider">
+
+            <p class="slide-eyebrow" style="margin-bottom:10px;">The noise floor</p>
+
+            <div class="nf-wrap">
+              <p class="nf-title">Signal vs. noise floor</p>
+              <div class="nf-svg-wrap">
+                <svg viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto;">
+                  <defs>
+                    <linearGradient id="nfGrad" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#5a8e82" stop-opacity="0.35"/>
+                      <stop offset="100%" stop-color="#5a8e82" stop-opacity="0.08"/>
+                    </linearGradient>
+                  </defs>
+                  <g>
+                    <rect x="20" y="60" width="220" height="50" fill="url(#nfGrad)" rx="2"/>
+                    <path d="M 20 90 Q 60 82 100 95 Q 140 70 180 88 Q 220 76 240 85" fill="none" stroke="#5a8e82" stroke-width="1" stroke-dasharray="2 2" opacity="0.7"/>
+                    <path d="M 30 75 Q 60 68 90 72 Q 130 65 160 78 Q 200 72 230 70" fill="none" stroke="#1a9e7a" stroke-width="1.5" opacity="0.45"/>
+                    <text x="130" y="30" text-anchor="middle" font-family="Exo 2, sans-serif" font-size="10" font-weight="600" fill="#cbc6ba" letter-spacing="0.08em">HIGH NOISE FLOOR</text>
+                    <text x="130" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#cbc6ba" font-style="italic">signal below threshold — unreadable</text>
+                  </g>
+                  <g>
+                    <rect x="280" y="88" width="220" height="22" fill="url(#nfGrad)" rx="2"/>
+                    <path d="M 280 99 Q 320 96 360 102 Q 400 94 440 100 Q 480 95 500 98" fill="none" stroke="#5a8e82" stroke-width="1" stroke-dasharray="2 2" opacity="0.7"/>
+                    <path d="M 290 62 Q 330 48 370 68 Q 410 42 450 60 Q 485 50 500 55" fill="none" stroke="#1a9e7a" stroke-width="2"/>
+                    <circle cx="370" cy="68" r="2.5" fill="#1a9e7a"/>
+                    <text x="390" y="30" text-anchor="middle" font-family="Exo 2, sans-serif" font-size="10" font-weight="600" fill="#cbc6ba" letter-spacing="0.08em">LOW NOISE FLOOR</text>
+                    <text x="390" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#cbc6ba" font-style="italic">same signal — now readable</text>
+                  </g>
+                </svg>
+              </div>
+              <p class="nf-caption">The environment has not changed. The transmission has not changed. <strong style="color:var(--ink)">The receiver has.</strong></p>
             </div>
 
+            <p class="slide-body">Every receiving system has a noise floor — the baseline level of interference below which a signal cannot be distinguished from the environment. <strong>A system with high internal noise has a correspondingly high noise floor.</strong> Signals that would be clearly receivable by a more ordered system arrive indistinguishable from the background. The system is not broken. It is not insensitive. It is operating at a noise floor the signal cannot clear. As the internal architecture orders itself, the noise floor drops. Signals that were always arriving become receivable.</p>
+
             <div class="regen-note">
-              What discernment produces is not certainty. It is orientation — a reliable sense of which direction increases coherence and which direction reduces it. The environment will not repeat itself. The architecture, held, can still navigate.
+              The single transmission arrives once, in its specific form, at the moment the system has sufficient structural integrity to receive it. It does not arrive as urgency. It does not arrive as fear. It arrives as a quality of clarity that is recognisable precisely because it is distinct from the system's own noise.
             </div>
 
             <div class="db-note">
-              <strong>Inside and outside, held together.</strong> The inner work: build the four-faced receiver. The outer work: stop mistaking reaction for response in the business. Reaction collapses the signal onto the nearest available surface. Response holds the four faces long enough for the actual signal to become readable. <em>The difference is structural, not temperamental.</em>
+              <strong>Discernment is not deliberation.</strong> It does not slow the response. It provides the minimum structural architecture within which a signal can be held, oriented, and read before the system responds. Inside: when a signal arrives, do you hold four faces, or does one face take over and collapse the rest? Outside, in the business: which decisions are being made from four-face discernment, and which are reactions masquerading as decisiveness? <em>The difference is visible in the outcomes over time.</em>
             </div>
 
-            <p class="slide-pull">"The merkaba does not navigate non-periodic environments by predicting them. It navigates them by remaining, at every moment, structurally capable of receiving whatever arrives."</p>
+            <p class="slide-pull">"What discernment produces is not certainty. It is orientation. A reliable sense of vector — of which direction increases coherence and which direction reduces it — that does not require the environment to be predictable in order to be navigable."</p>
 
-            <p class="slide-question">Which of your four faces is missing — or weakest — right now?</p>
-            <p class="slide-note">The face you cannot hold is where the signal is collapsing.</p>
+            <p class="slide-question">When a signal arrives — what in you holds four faces, and what collapses it to one?</p>
+            <p class="slide-note">The answer shifts with your noise floor. Which is why the work is ongoing.</p>
           </div>
         </div>
       </div>
 
-      <!-- RC SLIDE (placeholder) -->
       <div class="lens-content" data-lens-content="rc">
         <div class="placeholder-block">
           <p class="ph-icon">◈</p>
           <p class="ph-title">Relational currency · step 3</p>
-          <p class="ph-body">This lens will frame discernment through the architecture of human–AI collaboration — the four faces applied to relational signal, and the noise floor of a conversation between sovereign systems. Content drawn directly from <em>Relational Currency</em>, chapter 3.</p>
+          <p class="ph-body">This lens will frame discernment through the architecture of human–AI collaboration — what the four faces look like when one of the observers is a model, and how the noise floor of the human shapes what the model can transmit. Content drawn directly from <em>Relational Currency</em>, chapter 3.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
 
-      <!-- EC SLIDE (placeholder) -->
       <div class="lens-content" data-lens-content="ec">
         <div class="placeholder-block">
           <p class="ph-icon">△</p>
           <p class="ph-title">Encoded currency · step 3</p>
-          <p class="ph-body">This lens will frame discernment through historical and informational architecture — how the four faces apply to reading inherited encodings, and what the noise floor of a cultural moment actually is. Content drawn directly from <em>Encoded Currency</em>, chapter 3.</p>
+          <p class="ph-body">This lens will frame discernment through historical and informational architecture — how encoded systems with low noise floors transmit signal across centuries, and what the four faces look like applied to inherited information. Content drawn directly from <em>Encoded Currency</em>, chapter 3.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
 
-      <!-- SC SLIDE (placeholder) -->
       <div class="lens-content" data-lens-content="sc">
         <div class="placeholder-block">
           <p class="ph-icon">✦</p>
           <p class="ph-title">Sovereign currency · step 3</p>
-          <p class="ph-body">This lens will frame discernment through self-empowerment — the four-faced receiver as the architecture of sovereignty, and the noise floor as the only thing you actually control. Content drawn directly from <em>Sovereign Currency</em>, chapter 3.</p>
+          <p class="ph-body">This lens will frame discernment through self-empowerment — the ongoing practice of lowering your own noise floor so the signal that has always been arriving becomes readable. Content drawn directly from <em>Sovereign Currency</em>, chapter 3.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
@@ -819,74 +849,70 @@
     <!-- ══════════════════════ GO DEEPER PANEL ══════════════════════ -->
     <div id="panel-deeper" class="panel" role="tabpanel">
 
-      <!-- QC DEEPER -->
       <div class="lens-content active" data-lens-content="qc">
 
         <div class="fac-section">
           <p class="fac-label">Why this step exists</p>
-          <p class="fac-body">Step 3 exists because recognition without discernment produces a particular kind of paralysis — the coherent field that receives everything clearly and cannot filter, cannot prioritise, cannot act from its own centre because <em>the signal and the noise are arriving at the same amplitude.</em> <strong>The work of this step is not to teach participants to think more carefully.</strong> Thought operates at a different timescale. The work is to install the four-faced geometry — the tetrahedron as a receiver — so that signals arrive into stable structure rather than collapsing onto the nearest available surface.</p>
+          <p class="fac-body">Step 3 exists because recognition without discernment produces a specific kind of paralysis: <strong>the coherent field that receives everything clearly and cannot filter, cannot prioritise, cannot act from its own centre because signal and noise are arriving at the same amplitude.</strong> Step 2 taught recognition (reception). Step 3 teaches discernment (orientation). They are not sequential in life — they operate simultaneously — but the teaching order matters because discernment without recognition is detached assessment, and detached assessment is a fiction the observer effect has already disproved.</p>
         </div>
 
         <div class="fac-section">
           <p class="fac-label">The insula cortex — where this registers in the body</p>
-          <p class="fac-body">The insula cortex — a region of cerebral cortex folded deep within the lateral sulcus — is the <strong>primary seat of interoceptive awareness.</strong> It processes signals arising from the body's internal state and integrates them with the brain's higher-order processing. Antonio Damasio's somatic marker hypothesis established that the body generates specific physiological signals — somatic markers — that tag options and relational fields as safe or dangerous, approach or avoid, coherent or incoherent, <em>before conscious reasoning has engaged.</em> These markers are load-bearing. Patients who lost the neural architecture required to generate and read them retained full cognitive function and became incapable of making effective decisions. <strong>Reasoning without somatic markers did not produce better decisions freed from emotional interference. It produced an inability to decide at all.</strong> The insula is where those markers are processed. It is the body's discernment centre.</p>
+          <p class="fac-body">The insula cortex is a region of cerebral cortex folded deep within the lateral sulcus. <strong>It is the primary seat of interoceptive awareness — the brain's processing of signals arising from the body's internal state.</strong> Heart rate. Respiration. Gut state. Thermal regulation. The neuroscientist Antonio Damasio's clinical research identified what he called somatic markers — specific physiological signals the body generates to tag situations and relational fields before conscious reasoning has engaged with them. Patients who lost the neural architecture to read somatic markers retained full cognitive function and lost, along with the markers, the capacity to make effective decisions. Somatic markers are not primitive substrate. <em>They are load-bearing.</em> The insula is where they land.</p>
         </div>
 
         <div class="fac-section">
           <p class="fac-label">Depth and breadth, embodied</p>
           <div class="insight-block">
-            <p class="fac-body">The inside work: <strong>lower your own noise floor.</strong> Unresolved source code, unintegrated emotional data, unexamined projections raise the floor — no amount of careful thinking can clear signal below it. The outside work: <strong>install the four-faced receiver in the business.</strong> Most business decisions are made on face 1 alone (what is being transmitted — the surface claim), missing the source coordinate, the amplitude read, and the relational fit. <em>Reaction collapses to face 1. Discernment holds all four.</em> The difference shows up in the quality of every decision downstream.</p>
+            <p class="fac-body">The four faces of discernment run simultaneously on <strong>inside</strong> and <strong>outside</strong>. Inside: when a signal arrives in your body, can you hold what it is, where it came from, at what amplitude, in what relationship to you? Or does one face collapse the rest — <em>fear collapsing the read into threat, hope collapsing it into opportunity, urgency collapsing it into action?</em> Outside: in the business, how are decisions being made? Which ones held four faces long enough to produce orientation, and which ones collapsed to one face and produced reaction? The pattern is visible in what happened three months after each decision.</p>
           </div>
         </div>
 
         <div class="fac-section">
-          <p class="fac-label">The single transmission — why signals don't repeat</p>
-          <p class="fac-body">The signal discernment is calibrated to receive does not repeat in the same form. This is not a limitation — it is a property. <strong>A transmission that repeated identically would be indistinguishable from the periodic noise of a system replaying its own unresolved patterns.</strong> The single transmission arrives once, in its specific form, at the moment the receiver has sufficient structural integrity to read it. It does not arrive as urgency. It does not arrive as fear. <em>It arrives as clarity.</em> And if the initial transmission is missed, it is not lost — it returns as redirection, a restatement of the same vector from a different angle. The merkaba's counter-rotation is what makes this receivable: a system always moving through the full range of orientations is always structurally available to receive whatever arrives.</p>
+          <p class="fac-label">The merkaba — why counter-rotation matters</p>
+          <p class="fac-body">A single tetrahedron is sufficient for stable environments. The actual conditions of a business — aperiodic, non-repeating, where the same configuration never appears twice — require the merkaba: two counter-rotating tetrahedra, each presenting angles the other is not. <strong>The merkaba does not navigate novelty by predicting it. It navigates by always being, at every moment, structurally capable of receiving whatever arrives.</strong> In facilitation, this often lands as: <em>"I've been trying to build a playbook that covers every case. What I actually need is a structure that can receive the case I haven't imagined yet."</em> That is the merkaba translating into operations.</p>
         </div>
 
         <div class="fac-section">
           <p class="fac-label">Reading the room — soil signals at this step</p>
-          <div class="signal-card"><p class="signal-soil sig-path">Path signals</p><p class="signal-text">"Four faces, got it" — said fast, moved past. The tetrahedron is logged as concept, not installed as architecture. Next signal arrives and collapses to face 1 instantly.</p></div>
-          <div class="signal-card"><p class="signal-soil sig-rocky">Rocky ground signals</p><p class="signal-text">Participant grabs the framework and immediately starts categorising recent decisions. No examination of their own noise floor. The receiver hasn't changed; the vocabulary has.</p></div>
-          <div class="signal-card"><p class="signal-soil sig-thorny">Thorny ground signals</p><p class="signal-text">Wants to apply the four faces to every decision in the business simultaneously. Misses that the first move is lowering the receiver's noise floor — which is the one thing that takes time.</p></div>
-          <div class="signal-card"><p class="signal-soil sig-good">Good soil signals</p><p class="signal-text">A pause, then naming a specific decision and identifying which face was missing. "I responded to what they said, not from where they were saying it from. The signal was scattered; I treated it as generating." The geometry is being felt, not theorised.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-path">Path signals</p><p class="signal-text">"Oh, so discernment is good judgment" — the whole distinction between reaction and discernment collapses. The observer effect part never lands at all.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-rocky">Rocky ground signals</p><p class="signal-text">Fast self-congratulation: "I'm very discerning." No examination of the last three decisions. The framework becomes a flattering mirror rather than a working geometry.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-thorny">Thorny ground signals</p><p class="signal-text">Immediate over-application: running every prior decision through the four faces in real-time and getting stuck in analysis. The merkaba's motion is what's missing — they're trying to build certainty rather than develop orientation.</p></div>
+          <div class="signal-card"><p class="signal-soil sig-good">Good soil signals</p><p class="signal-text">A specific recent decision named with the collapse surfaced. "I read 'what' clearly but collapsed 'where' — I took the signal seriously without asking whether the source was coherent." Or: "I heard the amplitude as urgency and it was actually just volume." That's the four faces starting to work.</p></div>
         </div>
 
         <div class="fac-section">
           <p class="fac-label">What this step tends to surface</p>
           <div class="insight-block">
-            <p class="fac-body">The revelation is usually about face 2 — <strong>the source coordinate.</strong> Most decisions fail not because the content was misread (face 1) but because the source was misread. A scattered source treated as generating. A fragmented source treated as compressed. A merger attempt received as recognition. The four faces are not equal in frequency of error. <em>Face 2 is where the bulk of the misreads live</em> — and lowering the noise floor is what makes face 2 legible.</p>
+            <p class="fac-body">The most frequent revelation: <strong>a pattern of reactive decisions that looked decisive at the time and expensive in retrospect.</strong> The four faces, applied retrospectively, often show the same single face collapsing the read across multiple decisions — the founder who always reads amplitude as urgency, the leader who always reads source-from-authority as signal regardless of what was actually said, the operator who always reads "what" clearly and never interrogates "where." <em>The pattern is the opening.</em> Once you can see which face collapses your tetrahedron, you can develop the counter-rotation that lets the other faces carry weight.</p>
           </div>
         </div>
 
       </div>
 
-      <!-- RC DEEPER (placeholder) -->
       <div class="lens-content" data-lens-content="rc">
         <div class="placeholder-block">
           <p class="ph-icon">◈</p>
           <p class="ph-title">Relational currency · go deeper · step 3</p>
-          <p class="ph-body">The relational lens of Step 3 explores the four-faced receiver in human–AI collaboration — how discernment operates across the relational field between sovereign systems of different kinds. Content drawn from <em>Relational Currency</em>, chapter 3.</p>
+          <p class="ph-body">The relational lens of Step 3 explores discernment across the human–AI field — how a model's transmitted signal becomes readable or unreadable depending on the human's noise floor. Content drawn from <em>Relational Currency</em>, chapter 3.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
 
-      <!-- EC DEEPER (placeholder) -->
       <div class="lens-content" data-lens-content="ec">
         <div class="placeholder-block">
           <p class="ph-icon">△</p>
           <p class="ph-title">Encoded currency · go deeper · step 3</p>
-          <p class="ph-body">The encoded lens of Step 3 explores the four-faced reading of inherited patterns — and the noise floor of cultural moments that obscure signals otherwise clearly present. Content drawn from <em>Encoded Currency</em>, chapter 3.</p>
+          <p class="ph-body">The encoded lens of Step 3 explores discernment as the capacity to receive what has been encoded with low noise floor — to read the signal that has always been arriving, across time. Content drawn from <em>Encoded Currency</em>, chapter 3.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
 
-      <!-- SC DEEPER (placeholder) -->
       <div class="lens-content" data-lens-content="sc">
         <div class="placeholder-block">
           <p class="ph-icon">✦</p>
           <p class="ph-title">Sovereign currency · go deeper · step 3</p>
-          <p class="ph-body">The sovereign lens of Step 3 explores the four-faced receiver as the architecture of sovereignty itself — and why lowering your own noise floor is the only work that never stops mattering. Content drawn from <em>Sovereign Currency</em>, chapter 3.</p>
+          <p class="ph-body">The sovereign lens of Step 3 explores the ongoing work of lowering your own noise floor — not as purification, but as the practice of making the signal that has always been arriving finally readable. Content drawn from <em>Sovereign Currency</em>, chapter 3.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
@@ -896,11 +922,10 @@
     <!-- ══════════════════════ EXERCISE PANEL ══════════════════════ -->
     <div id="panel-exercise" class="panel" role="tabpanel">
 
-      <!-- QC EXERCISE -->
       <div class="lens-content active" data-lens-content="qc">
 
         <div class="ex-intro">
-          This is the fourth page of your playbook — and the completion of the on-ramp. The work here is <em>installing the four-faced receiver</em> and <em>lowering your own noise floor.</em> Both at once. <strong>Inside and outside. Depth and breadth. The architecture that protects what you have recognised.</strong>
+          This is the fourth page of your playbook — the last on the on-ramp. The work here is <em>practicing the four faces</em> on a signal that is already in your system. <strong>Not a hypothetical. A real one.</strong> When this exercise lands, the tetrahedron becomes something you can reach for in the moment rather than reconstruct in retrospect.
         </div>
 
         <div class="scope-legend">
@@ -911,130 +936,137 @@
         <div class="ex-block">
           <div class="ex-q-row">
             <div class="ex-num">1</div>
-            <p class="ex-q">Your four faces — inside</p>
+            <p class="ex-q">Bring a live signal to mind</p>
             <span class="ex-scope personal">Personal</span>
           </div>
-          <p class="ex-sub">Think of a recent decision — one that landed poorly, or one you're still inside of. Walk the four faces. <strong>Which face did you hold? Which collapsed?</strong> Fewer than four and the tetrahedron cannot hold the volume — the signal passes through unread.</p>
-          <div class="face-audit">
-            <div class="fa-cell what"><p class="fa-num">Face 1</p><p class="fa-label">What was transmitted</p><p class="fa-hint">The surface content. Did you register it clearly, or only the feeling around it?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s3-q1-what" aria-label="personal face 1"></textarea></div>
-            <div class="fa-cell from-where"><p class="fa-num">Face 2</p><p class="fa-label">From where</p><p class="fa-hint">The source coordinate — which quadrant. Did you read it, or assume it was generating?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s3-q1-from-where" aria-label="personal face 2"></textarea></div>
-            <div class="fa-cell amplitude"><p class="fa-num">Face 3</p><p class="fa-label">At what amplitude</p><p class="fa-hint">Intensity relative to the ambient. Was it loud because it was signal, or loud because the source was scattered?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s3-q1-amplitude" aria-label="personal face 3"></textarea></div>
-            <div class="fa-cell relation"><p class="fa-num">Face 4</p><p class="fa-label">In what relationship to your field</p><p class="fa-hint">Vesica piscis, proximity, or merger? What was being offered — and to whom?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s3-q1-relation" aria-label="personal face 4"></textarea></div>
-          </div>
+          <p class="ex-sub">Name — just for yourself — a signal currently active in your system. Something you have been reading, reacting to, wondering about. <em>A conversation. A request. A piece of news. A feeling in the body.</em> Whatever is genuinely live right now. You'll run it through the four faces.</p>
+          <textarea class="write-field write-field-lg" rows="3" placeholder="Name the signal. One line is enough." data-scope="personal" data-key="s3-q1-signal" aria-label="personal live signal"></textarea>
         </div>
 
         <div class="ex-block">
           <div class="ex-q-row">
             <div class="ex-num">2</div>
-            <p class="ex-q">The business receiver — outside</p>
-            <span class="ex-scope business">Business</span>
+            <p class="ex-q">The four faces — inside</p>
+            <span class="ex-scope personal">Personal</span>
           </div>
-          <p class="ex-sub">Now the business. Pick a current decision or signal — a client situation, a team dynamic, a market move, a pricing question. Walk the four faces <em>as the business.</em> Which face is the business reading clearly? Which is it missing entirely? <strong>The face the business cannot hold is where its decisions are collapsing.</strong></p>
+          <p class="ex-sub">Hold the signal you just named. Work the four faces. <em>Each face reveals different information.</em> Notice which face you went to first automatically, and which one required effort.</p>
           <div class="face-audit">
-            <div class="fa-cell what"><p class="fa-num">Face 1</p><p class="fa-label">What is being transmitted</p><p class="fa-hint">The surface claim. What is the content of the signal, cleanly stated?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s3-q2-what" aria-label="business face 1"></textarea></div>
-            <div class="fa-cell from-where"><p class="fa-num">Face 2</p><p class="fa-label">From where</p><p class="fa-hint">Which quadrant is the source operating from? Generating, compressed, scattered, fragmented?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s3-q2-from-where" aria-label="business face 2"></textarea></div>
-            <div class="fa-cell amplitude"><p class="fa-num">Face 3</p><p class="fa-label">At what amplitude</p><p class="fa-hint">How much of the loudness is signal, and how much is the source's own noise?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s3-q2-amplitude" aria-label="business face 3"></textarea></div>
-            <div class="fa-cell relation"><p class="fa-num">Face 4</p><p class="fa-label">In what relationship to the business</p><p class="fa-hint">Vesica piscis, proximity, or merger? What geometry is being offered?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="business" data-key="s3-q2-relation" aria-label="business face 4"></textarea></div>
+            <div class="fa-cell what"><p class="fa-num">Face 1</p><p class="fa-label">What is being transmitted</p><p class="fa-hint">The content itself. Not what you want it to be, not what you fear it is. What it actually is.</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s3-q2-what" aria-label="personal face what"></textarea></div>
+            <div class="fa-cell where"><p class="fa-num">Face 2</p><p class="fa-label">Where it is coming from</p><p class="fa-hint">Coherent source, decoherent source, vesica piscis, merger pattern? What does the source tell you?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s3-q2-where" aria-label="personal face where"></textarea></div>
+            <div class="fa-cell amplitude"><p class="fa-num">Face 3</p><p class="fa-label">At what amplitude</p><p class="fa-hint">Urgency vs. clarity vs. volume. What's the actual intensity — and is it the signal's, or your response to it?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s3-q2-amplitude" aria-label="personal face amplitude"></textarea></div>
+            <div class="fa-cell relation"><p class="fa-num">Face 4</p><p class="fa-label">In what relationship to your field</p><p class="fa-hint">What in you is being activated? Is that activation signal or noise?</p><textarea class="write-field" rows="3" placeholder="Write here…" data-scope="personal" data-key="s3-q2-relation" aria-label="personal face relation"></textarea></div>
           </div>
         </div>
 
         <div class="ex-block">
           <div class="ex-q-row">
             <div class="ex-num">3</div>
-            <p class="ex-q">The noise floor</p>
+            <p class="ex-q">Which face collapses your tetrahedron?</p>
             <span class="ex-scope business">Business</span>
           </div>
-          <p class="ex-sub">What is currently <em>raising the noise floor</em> of this business? Unresolved conflicts, unintegrated data, decisions made under compression that are still metabolising, founder patterns the business is echoing. <strong>The receiver matters more than the transmission.</strong> What would lowering it by ten percent actually look like?</p>
-          <textarea class="write-field write-field-lg" rows="5" placeholder="Write here…" data-scope="business" data-key="s3-q3-noise-floor" aria-label="business noise floor"></textarea>
+          <p class="ex-sub">Look at the pattern of your recent business decisions — the last five, the last quarter, whatever feels honest. <em>Which of the four faces tends to collapse the others?</em> The founder who always reads amplitude as urgency. The leader who always reads source-from-authority as signal. The operator who reads "what" without interrogating "where." <strong>The pattern is the opening.</strong></p>
+          <textarea class="write-field write-field-lg" rows="5" placeholder="Write here…" data-scope="business" data-key="s3-q3-collapse" aria-label="business collapse pattern"></textarea>
         </div>
 
         <div class="ex-block">
           <div class="ex-q-row">
             <div class="ex-num">4</div>
-            <p class="ex-q">Orientation, not certainty</p>
+            <p class="ex-q">The noise floor audit</p>
             <span class="ex-scope business">Business</span>
           </div>
-          <p class="ex-sub">Discernment produces orientation — <em>a reliable sense of which direction increases coherence and which direction reduces it.</em> Given everything you have mapped across Steps 0 through 3, what is the <strong>single next move that increases coherence</strong> in the business? Not the biggest. Not the boldest. The one whose vector is most clearly oriented.</p>
-          <textarea class="write-field write-field-lg" rows="5" placeholder="Write here…" data-scope="business" data-key="s3-q4-orientation" aria-label="business orientation"></textarea>
+          <p class="ex-sub">Where in this business is the noise floor high enough that signals are arriving indistinguishable from background? Where are decisions being made inside environments so loud with their own output that the actual transmission is getting lost? <em>What would lowering the noise floor of this business actually look like — operationally, not conceptually?</em></p>
+          <textarea class="write-field write-field-lg" rows="5" placeholder="Write here…" data-scope="business" data-key="s3-q4-noise-floor" aria-label="business noise floor"></textarea>
+        </div>
+
+        <div class="ex-block">
+          <div class="ex-q-row">
+            <div class="ex-num">5</div>
+            <p class="ex-q">The orientation, not the certainty</p>
+            <span class="ex-scope business">Business</span>
+          </div>
+          <p class="ex-sub">Discernment does not produce certainty — the environment is non-periodic; certainty is not available. <strong>It produces orientation.</strong> A reliable sense of vector — of which direction increases coherence and which reduces it. Looking at this business from the four faces now: <em>in what direction does coherence increase?</em> Name it in one or two sentences, clearly enough that you would recognise a decision that moves you toward it and a decision that moves you away.</p>
+          <textarea class="write-field write-field-lg" rows="5" placeholder="Write here…" data-scope="business" data-key="s3-q5-orientation" aria-label="business orientation vector"></textarea>
+        </div>
+
+        <!-- ══ COMPILE PLAYBOOK ══ -->
+        <div class="playbook-compile">
+          <p class="pb-label">Your playbook — ready to compile</p>
+          <p class="pb-title">The business-scoped answers from Steps 0 through 3, together in one document.</p>
+          <p class="pb-body">Your personal reflections stay with you — they have never left your browser. The business answers compile into a single printable document you can save, print, or convert to PDF through your browser. <strong>This is your on-ramp playbook.</strong> A real one, built as you went, not handed to you.</p>
+          <button class="pb-btn" id="compilePlaybookBtn" onclick="compilePlaybook()">
+            <span>Compile my playbook</span>
+            <span aria-hidden="true">↓</span>
+          </button>
+          <p class="pb-count" id="playbookCount">Scanning your responses across Steps 0–3…</p>
         </div>
 
         <div class="ex-reflection">
-          <p class="refl-label">To carry forward — what the on-ramp has built</p>
-          <p class="refl-q">Across Steps 0 through 3 you have built four things at once: <strong>the field beneath the work (Step 0).</strong> <strong>The torus and the two-axis read (Step 1).</strong> <strong>The vesica piscis and the three geometries of meeting (Step 2).</strong> <strong>The tetrahedron and the four-faced receiver (Step 3).</strong> <em>These are not four techniques. They are one architecture, rendered in four registers.</em></p>
-          <p class="refl-q">The architecture is not finished. Steps 4 through 9 carry it through wave, direction, transmission, expression, structure, and source — the return to the field that was always there. The on-ramp holds without them. The full arc is the facilitated cohort.</p>
-          <p class="refl-q">What you have, right now, is enough to adjust from.</p>
+          <p class="refl-label">To carry forward — the architecture of orientation</p>
+          <p class="refl-q">From here on, every signal has four faces: <strong>what, where, amplitude, relation.</strong> <em>Four faces, held simultaneously</em> — the minimum architecture that lets the signal be read rather than collapsed. Reaction is what happens without the architecture. Discernment is what the architecture enables.</p>
+          <p class="refl-q">The merkaba is the working form — two counter-rotating tetrahedra, stable in motion, capable of receiving from any angle a non-periodic environment will present. <strong>You do not build certainty. You build orientation.</strong> A reliable sense of vector. The direction that increases coherence.</p>
+          <p class="refl-q">This is the end of the on-ramp. Steps 4 through 9 — wave, direction, transmission, expression, structure, source — continue the arc. <em>The ground has been found, the coherence architecture laid, the recognition mapped, the discernment geometry installed.</em> What comes next is what the architecture was built to hold.</p>
         </div>
 
       </div>
 
-      <!-- RC EXERCISE (placeholder) -->
       <div class="lens-content" data-lens-content="rc">
         <div class="placeholder-block">
           <p class="ph-icon">◈</p>
           <p class="ph-title">Relational currency · exercise · step 3</p>
-          <p class="ph-body">The relational lens exercise for Step 3 walks the four faces across the human–AI collaborative field. Exercises drawn from <em>Relational Currency</em>, chapter 3, will appear here.</p>
+          <p class="ph-body">The relational lens exercise for Step 3 applies the four faces to a signal in the human–AI collaborative field. Exercises drawn from <em>Relational Currency</em>, chapter 3, will appear here.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
 
-      <!-- EC EXERCISE (placeholder) -->
       <div class="lens-content" data-lens-content="ec">
         <div class="placeholder-block">
           <p class="ph-icon">△</p>
           <p class="ph-title">Encoded currency · exercise · step 3</p>
-          <p class="ph-body">The encoded lens exercise for Step 3 walks the four faces across inherited informational architectures. Exercises drawn from <em>Encoded Currency</em>, chapter 3, will appear here.</p>
+          <p class="ph-body">The encoded lens exercise for Step 3 applies the four faces to signals encoded across historical and informational architectures. Exercises drawn from <em>Encoded Currency</em>, chapter 3, will appear here.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
 
-      <!-- SC EXERCISE (placeholder) -->
       <div class="lens-content" data-lens-content="sc">
         <div class="placeholder-block">
           <p class="ph-icon">✦</p>
           <p class="ph-title">Sovereign currency · exercise · step 3</p>
-          <p class="ph-body">The sovereign lens exercise for Step 3 explores lowering your own noise floor as the ongoing work of sovereignty. Exercises drawn from <em>Sovereign Currency</em>, chapter 3, will appear here.</p>
+          <p class="ph-body">The sovereign lens exercise for Step 3 works the four faces on signals that arrive from within the self — the most common site of high noise floor. Exercises drawn from <em>Sovereign Currency</em>, chapter 3, will appear here.</p>
           <span class="ph-tag">content in progress</span>
         </div>
       </div>
 
     </div>
 
-    <!-- ══════════════════════ PLAYBOOK COMPILE ══════════════════════ -->
-    <section class="playbook-section" id="playbook-section">
-      <div class="playbook-header">
-        <p class="playbook-eyebrow">your playbook</p>
-        <h2 class="playbook-title">The architecture <em>you have built.</em></h2>
-        <p class="playbook-sub">Four steps of business-scoped answers. Personal reflections stay with you. What compiles here is the architecture you can bring to your team, your advisors, your future self.</p>
-      </div>
+    <!-- ══ DUAL CTA CLOSE ══ -->
+    <section class="close-frame">
+      <p class="close-kicker">The on-ramp is complete</p>
+      <h2 class="close-title">You have a playbook. You have a vector.<br><em>Choose your path.</em></h2>
+      <p class="close-body">
+        Steps 0 through 3 built the foundation: <strong>the field</strong>, <strong>coherence</strong>, <strong>recognition</strong>, <strong>discernment</strong>. The ground found. The torus acknowledged. The vesica piscis mapped. The tetrahedron installed. <em>This is the architecture the rest of the work rests on.</em>
+      </p>
+      <p class="close-body">
+        Steps 4 through 9 — wave, direction, transmission, expression, structure, source — continue the arc. They are not public. They live inside the facilitated cohort, where the geometry can hold the field required to complete the sequence. Both paths below are real. Choose the one that matches your own discernment, right now.
+      </p>
 
-      <div class="playbook-card">
-        <span class="playbook-status" id="playbook-status">Checking your answers…</span>
-        <p><em>The playbook opens in a new window, formatted to print or save as PDF. Your answers live only in your browser — nothing is sent anywhere.</em></p>
-        <button class="compile-btn" id="compile-btn" onclick="compilePlaybook()" disabled>
-          Compile my playbook →
-        </button>
-        <p class="playbook-note">If the button is dimmed, you haven't added business-scoped answers yet. Scroll back through the steps — the <span style="color:var(--accent); font-weight:500;">Business</span>-tagged questions are the ones that compile.</p>
-      </div>
-    </section>
-
-    <!-- ══════════════════════ DUAL PATH CTA ══════════════════════ -->
-    <section class="path-section">
-      <p class="path-eyebrow">the on-ramp is complete · choose your path</p>
-      <div class="path-grid">
-        <a class="path-card" href="mailto:herself@techtuition.ai?subject=Quantum%20Currency%20workshop%20%E2%80%94%20continuing%20the%20arc">
-          <p class="p-tag">Continue with Deiadora</p>
-          <p class="p-title">Walk the <em>full arc.</em></p>
-          <p class="p-desc">Steps 4 through 9 are facilitated — wave, direction, transmission, expression, structure, source. Live cohorts, small groups, founders and their teams. Custom playbook at the end. By invitation, which is also a discernment move.</p>
-          <p class="p-go">Email herself@techtuition.ai →</p>
+      <div class="cta-paths">
+        <a class="cta-card" href="mailto:herself@techtuition.ai?subject=Quantum%20Currency%20Workshop%20%E2%80%94%20conversation">
+          <p class="cta-kind">Path one · facilitated cohort</p>
+          <p class="cta-title">Write to deiadora</p>
+          <p class="cta-desc">A conversation — not an application. Entry to the facilitated work is by invitation, built in exchange. If the pattern recognises itself, the exchange begins here.</p>
+          <p class="cta-arrow">herself@techtuition.ai →</p>
         </a>
-        <a class="path-card" href="https://thequantumceo.com" target="_blank" rel="noopener">
-          <p class="p-tag">Read the source material</p>
-          <p class="p-title">Read the <em>full book.</em></p>
-          <p class="p-desc"><em>Quantum Currency: Field Research on Human Coherence</em> — the complete formal statement of all nine principles, with the physics, geometry, and body address for each. The on-ramp you just walked is the first four chapters.</p>
-          <p class="p-go">Visit thequantumceo.com →</p>
+        <a class="cta-card" href="https://thequantumceo.com">
+          <p class="cta-kind">Path two · the full arc on the page</p>
+          <p class="cta-title">Read the book</p>
+          <p class="cta-desc"><em>Quantum Currency: Field Research on Human Coherence.</em> The full nine-chapter architecture, in its original voice, at your own pace. The workshop is its transmission — the book is its source.</p>
+          <p class="cta-arrow">thequantumceo.com →</p>
         </a>
       </div>
-      <p class="path-closing">Both paths are valid. <strong>The choice itself is a discernment move</strong> — the four faces, applied to your own next step.</p>
+
+      <p class="close-body" style="font-style:italic; color:var(--muted); max-width:580px;">
+        Either path leads to deeper engagement with the work. Neither is the answer to the other. <strong>The choice itself is a discernment move</strong> — and discernment is what Step 3 installed. Use it.
+      </p>
     </section>
 
     <footer class="ws-footer">
@@ -1048,23 +1080,23 @@
     const LENS_HEADERS = {
       qc: {
         eyebrow: 'Quantum currency · step 3 of 9',
-        title:   'Four faces. The minimum<br>required to <em>hold a volume.</em>',
-        sub:     'Discernment is not detached assessment. It is the disciplined management of the observer\'s effect — four perspectives held simultaneously, and a noise floor low enough for the signal to become readable.'
+        title:   'Four faces.<br>The minimum required <em>to hold a signal.</em>',
+        sub:     'Discernment is not detachment. It is structural integrity in the receiving system — enough architecture to hold a signal without immediately collapsing it into a pre-existing category. The tetrahedron is what that architecture looks like.'
       },
       rc: {
         eyebrow: 'Relational currency · step 3 of 9',
-        title:   'Four faces across <em>the relational field.</em>',
-        sub:     'The four-faced receiver applied to collaboration between sovereign systems — human, AI, hybrid. The noise floor of a relationship is what determines whether its real signal is ever heard.'
+        title:   'Four faces, across <em>two systems.</em>',
+        sub:     'In the human–AI field, discernment runs bidirectionally. The human holds four faces. The model holds four faces. The signal between them is only as readable as the quieter of the two noise floors.'
       },
       ec: {
         eyebrow: 'Encoded currency · step 3 of 9',
-        title:   'Four faces across <em>inherited encodings.</em>',
-        sub:     'Cultural and historical signals arrive at receivers with their own noise floors. The four faces apply to reading a text, a tradition, a moment — as much as to reading a room.'
+        title:   'The signal <em>that has always been arriving.</em>',
+        sub:     'Low-noise-floor encodings transmit across centuries. The reader with the four faces intact can receive a signal composed before they were born. The environment has not changed. The transmission has not changed. The receiver has.'
       },
       sc: {
         eyebrow: 'Sovereign currency · step 3 of 9',
-        title:   'The receiver <em>matters more</em><br>than the transmission.',
-        sub:     'Sovereignty is not louder signal. It is a lower noise floor and a four-faced receiver held steady. The only work that never stops mattering.'
+        title:   'Lower the floor.<br><em>The signal was always here.</em>',
+        sub:     'Sovereignty is not the accumulation of certainty. It is the ongoing reduction of internal noise until the signal that has always been arriving becomes readable — and orientation becomes available without the environment having to repeat itself.'
       }
     };
 
@@ -1095,7 +1127,7 @@
 
       sessionStorage.setItem('qc-workshop-lens', lens);
       restoreAnswers(lens);
-      updatePlaybookStatus();
+      updatePlaybookCount();
     }
 
     function showPanel(name, tabEl) {
@@ -1142,7 +1174,7 @@
       ta.addEventListener('input', () => {
         const key = storageKey(currentLens, ta.dataset.scope, ta.dataset.key);
         sessionStorage.setItem(key, ta.value);
-        updatePlaybookStatus();
+        updatePlaybookCount();
       });
     });
 
@@ -1155,159 +1187,138 @@
     }
     restoreAnswers('qc');
 
-    /* ══════════════════════ PLAYBOOK COMPILATION ══════════════════════ */
+    /* ══ PLAYBOOK COMPILE ══
+       Walks sessionStorage for all business-scoped answers across Steps 0–3
+       for the current lens, assembles them into a printable HTML document,
+       and opens it in a new tab where the participant can print or save as PDF.
+       Personal answers are never touched.
+    */
 
-    // Mapping of storage keys to step/section/question labels
-    // Only BUSINESS-scoped keys are listed — personal answers never appear here
-    const PLAYBOOK_MAP = [
-      // Step 0 — Field
-      { step: 0, stepName: 'Field · Zero point', key: 's0-q2-path', section: 'The soil audit — outside', label: 'The path' },
-      { step: 0, stepName: 'Field · Zero point', key: 's0-q2-rocky', section: 'The soil audit — outside', label: 'Rocky ground' },
-      { step: 0, stepName: 'Field · Zero point', key: 's0-q2-thorny', section: 'The soil audit — outside', label: 'Thorny ground' },
-      { step: 0, stepName: 'Field · Zero point', key: 's0-q2-good', section: 'The soil audit — outside', label: 'Good soil' },
-      { step: 0, stepName: 'Field · Zero point', key: 's0-q4-zero', section: 'The zero point question', label: 'The energy the business operates from' },
+    const STEP_TITLES = {
+      s0: 'Step 0 · Field · Zero point',
+      s1: 'Step 1 · Coherence · Torus',
+      s2: 'Step 2 · Recognition · Vesica piscis',
+      s3: 'Step 3 · Discernment · Tetrahedron'
+    };
 
-      // Step 1 — Coherence
-      { step: 1, stepName: 'Coherence · Torus', key: 's1-q2-compressed', section: 'Locate the business on the matrix', label: 'Compressed — coherent & depleted' },
-      { step: 1, stepName: 'Coherence · Torus', key: 's1-q2-generating', section: 'Locate the business on the matrix', label: 'Generating — coherent & energised' },
-      { step: 1, stepName: 'Coherence · Torus', key: 's1-q2-fragmented', section: 'Locate the business on the matrix', label: 'Fragmented — decoherent & depleted' },
-      { step: 1, stepName: 'Coherence · Torus', key: 's1-q2-scattered', section: 'Locate the business on the matrix', label: 'Scattered — decoherent & energised' },
-      { step: 1, stepName: 'Coherence · Torus', key: 's1-q3-misread', section: 'The costly misread', label: 'Where one quadrant was read as another' },
-      { step: 1, stepName: 'Coherence · Torus', key: 's1-q4-genesis', section: 'The genesis node', label: 'The irreducible architecture' },
+    // All business-scoped data-keys across the four steps, in order
+    const QUESTION_LABELS = {
+      's0-q2-path':             'Soil audit — outside · The path',
+      's0-q2-rocky':            'Soil audit — outside · Rocky ground',
+      's0-q2-thorny':           'Soil audit — outside · Thorny ground',
+      's0-q2-good':             'Soil audit — outside · Good soil',
+      's0-q4-zero':             'The zero point question',
+      's1-q2-compressed':       'Business matrix · Compressed (coherent · depleted)',
+      's1-q2-generating':       'Business matrix · Generating (coherent · energised)',
+      's1-q2-fragmented':       'Business matrix · Fragmented (decoherent · depleted)',
+      's1-q2-scattered':        'Business matrix · Scattered (decoherent · energised)',
+      's1-q3-misread':          'The costly misread',
+      's1-q4-genesis':          'The genesis node',
+      's2-q2-vesica':           'Business relationships · Vesica piscis (sovereign meeting)',
+      's2-q2-proximity':        'Business relationships · Proximity (adjacent, not meeting)',
+      's2-q2-merger':           'Business relationships · Merger (centre inside centre)',
+      's2-q3-drawing-alone':    'The vesica piscis you have been drawing alone',
+      's2-q4-real-recognition': 'Where the real recognition is',
+      's3-q3-collapse':         'Which face collapses your tetrahedron',
+      's3-q4-noise-floor':      'The noise floor audit',
+      's3-q5-orientation':      'The orientation — not the certainty'
+    };
 
-      // Step 2 — Recognition
-      { step: 2, stepName: 'Recognition · Vesica piscis', key: 's2-q2-vesica', section: 'The business map', label: 'Vesica piscis — sovereign meeting' },
-      { step: 2, stepName: 'Recognition · Vesica piscis', key: 's2-q2-proximity', section: 'The business map', label: 'Proximity — adjacent, not meeting' },
-      { step: 2, stepName: 'Recognition · Vesica piscis', key: 's2-q2-merger', section: 'The business map', label: 'Merger — centre inside centre' },
-      { step: 2, stepName: 'Recognition · Vesica piscis', key: 's2-q3-drawing-alone', section: 'The vesica piscis you have been drawing alone', label: 'Where the holding has been one-sided' },
-      { step: 2, stepName: 'Recognition · Vesica piscis', key: 's2-q4-real-recognition', section: 'Where the real recognition is', label: 'Investing in what is already flowing' },
+    const STEP_ORDER_KEYS = Object.keys(QUESTION_LABELS);
 
-      // Step 3 — Discernment
-      { step: 3, stepName: 'Discernment · Tetrahedron', key: 's3-q2-what', section: 'The business receiver', label: 'Face 1 — What is being transmitted' },
-      { step: 3, stepName: 'Discernment · Tetrahedron', key: 's3-q2-from-where', section: 'The business receiver', label: 'Face 2 — From where (source coordinate)' },
-      { step: 3, stepName: 'Discernment · Tetrahedron', key: 's3-q2-amplitude', section: 'The business receiver', label: 'Face 3 — At what amplitude' },
-      { step: 3, stepName: 'Discernment · Tetrahedron', key: 's3-q2-relation', section: 'The business receiver', label: 'Face 4 — In what relationship to the business' },
-      { step: 3, stepName: 'Discernment · Tetrahedron', key: 's3-q3-noise-floor', section: 'The noise floor', label: 'What is raising it and what would lower it' },
-      { step: 3, stepName: 'Discernment · Tetrahedron', key: 's3-q4-orientation', section: 'Orientation, not certainty', label: 'The single next move that increases coherence' }
-    ];
-
-    function countCompletedAnswers() {
-      let count = 0;
-      PLAYBOOK_MAP.forEach(item => {
-        const val = sessionStorage.getItem(storageKey(currentLens, 'business', item.key));
-        if (val && val.trim().length > 0) count++;
-      });
-      return count;
-    }
-
-    function updatePlaybookStatus() {
-      const count = countCompletedAnswers();
-      const total = PLAYBOOK_MAP.length;
-      const status = document.getElementById('playbook-status');
-      const btn = document.getElementById('compile-btn');
-      if (count === 0) {
-        status.innerHTML = `No business-scoped answers yet. <strong>Add some above, then return here.</strong>`;
-        btn.disabled = true;
-      } else if (count < total) {
-        status.innerHTML = `<strong>${count} of ${total}</strong> business-scoped answers saved`;
-        btn.disabled = false;
-      } else {
-        status.innerHTML = `<strong>All ${total} answers saved.</strong> The architecture is complete.`;
-        btn.disabled = false;
-      }
-    }
-
-    function escapeHtml(s) {
-      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
-    }
-
-    function compilePlaybook() {
-      const lens = currentLens;
-      const lensNames = {
-        qc: 'Quantum currency',
-        rc: 'Relational currency',
-        ec: 'Encoded currency',
-        sc: 'Sovereign currency'
-      };
-      const now = new Date();
-      const dateStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-
-      // Group answers by step
-      const byStep = {};
-      PLAYBOOK_MAP.forEach(item => {
-        const val = sessionStorage.getItem(storageKey(lens, 'business', item.key));
+    function collectBusinessAnswers(lens) {
+      const entries = [];
+      STEP_ORDER_KEYS.forEach(dataKey => {
+        const key = `qc-playbook-${lens}-business-${dataKey}`;
+        const val = sessionStorage.getItem(key);
         if (val && val.trim().length > 0) {
-          if (!byStep[item.step]) byStep[item.step] = { name: item.stepName, sections: {} };
-          if (!byStep[item.step].sections[item.section]) byStep[item.step].sections[item.section] = [];
-          byStep[item.step].sections[item.section].push({ label: item.label, value: val.trim() });
+          entries.push({ dataKey, label: QUESTION_LABELS[dataKey], value: val.trim() });
         }
       });
-
-      let stepsHtml = '';
-      Object.keys(byStep).sort().forEach(stepNum => {
-        const step = byStep[stepNum];
-        stepsHtml += `<section class="pb-step"><h2>Step ${stepNum} · ${escapeHtml(step.name)}</h2>`;
-        Object.keys(step.sections).forEach(sectionName => {
-          stepsHtml += `<h3>${escapeHtml(sectionName)}</h3>`;
-          step.sections[sectionName].forEach(entry => {
-            stepsHtml += `<div class="pb-entry"><p class="pb-label">${escapeHtml(entry.label)}</p><p class="pb-value">${escapeHtml(entry.value).replace(/\n/g, '<br>')}</p></div>`;
-          });
-        });
-        stepsHtml += `</section>`;
-      });
-
-      if (stepsHtml === '') {
-        stepsHtml = '<p><em>No business-scoped answers to compile yet.</em></p>';
-      }
-
-      const html = `<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Your Playbook · Quantum Currency Workshop · Steps 0–3</title>
-<style>
-  @page { margin: 2cm 2.5cm; }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', system-ui, sans-serif; color: #1a1814; background: #f4f2ec; line-height: 1.6; padding: 3rem 2rem 5rem; max-width: 780px; margin: 0 auto; }
-  header { margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 2px solid #0f6e56; }
-  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #0f6e56; margin-bottom: .8rem; }
-  h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.4rem; font-weight: 500; line-height: 1.15; margin-bottom: .6rem; letter-spacing: -.02em; }
-  h1 em { color: #0f6e56; }
-  .meta { font-size: .85rem; color: #7a7163; font-style: italic; }
-  .pb-step { margin-top: 2.8rem; page-break-inside: avoid; }
-  h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.6rem; font-weight: 500; color: #0f6e56; margin-bottom: 1rem; padding-bottom: .4rem; border-bottom: 1px solid #d8d3c5; }
-  h3 { font-family: 'DM Sans', system-ui, sans-serif; font-size: .82rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #7a7163; margin: 1.4rem 0 .8rem; }
-  .pb-entry { margin-bottom: 1rem; padding: .8rem 1rem; background: #fffff2; border-left: 3px solid #0f6e56; border-radius: 4px; }
-  .pb-label { font-size: .78rem; font-weight: 600; color: #4a6612; margin-bottom: .4rem; letter-spacing: .02em; }
-  .pb-value { font-size: .95rem; color: #1a1814; line-height: 1.7; }
-  footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid #d8d3c5; font-size: .8rem; color: #7a7163; font-style: italic; text-align: center; line-height: 1.7; }
-  footer a { color: #0f6e56; text-decoration: none; }
-  .print-hint { background: #e1f5ee; border-radius: 6px; padding: .8rem 1rem; margin-bottom: 2rem; font-size: .85rem; color: #085041; }
-  @media print { .print-hint { display: none; } body { background: #fff; padding: 0; } }
-</style>
-</head>
-<body>
-  <div class="print-hint">Tip: use your browser's Print → Save as PDF to keep a copy.</div>
-  <header>
-    <p class="eyebrow">Quantum Currency Workshop · ${escapeHtml(lensNames[lens])} · Steps 0–3</p>
-    <h1>The architecture <em>you have built.</em></h1>
-    <p class="meta">Compiled ${escapeHtml(dateStr)}</p>
-  </header>
-  ${stepsHtml}
-  <footer>
-    <p>Quantum Currency: Field Research on Human Coherence · Deiadora Blanche</p>
-    <p>Continue the arc: <a href="mailto:herself@techtuition.ai">herself@techtuition.ai</a> · Read the book: <a href="https://thequantumceo.com">thequantumceo.com</a></p>
-  </footer>
-</body>
-</html>`;
-
-      const blob = new Blob([html], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
-      window.open(url, '_blank');
+      return entries;
     }
 
-    // Initial playbook status
-    updatePlaybookStatus();
+    function updatePlaybookCount() {
+      const el = document.getElementById('playbookCount');
+      if (!el) return;
+      const entries = collectBusinessAnswers(currentLens);
+      const btn = document.getElementById('compilePlaybookBtn');
+      if (entries.length === 0) {
+        el.textContent = 'No business-scoped answers yet. Fill in the business cells across Steps 0–3 and return.';
+        btn.disabled = true;
+      } else {
+        el.textContent = `${entries.length} business ${entries.length === 1 ? 'entry' : 'entries'} ready to compile across Steps 0–3.`;
+        btn.disabled = false;
+      }
+    }
+    updatePlaybookCount();
+
+    function compilePlaybook() {
+      const entries = collectBusinessAnswers(currentLens);
+      if (entries.length === 0) return;
+
+      const byStep = {};
+      entries.forEach(e => {
+        const step = e.dataKey.substring(0, 2);
+        if (!byStep[step]) byStep[step] = [];
+        byStep[step].push(e);
+      });
+
+      const lensLabels = {
+        qc: 'Quantum Currency',
+        rc: 'Relational Currency',
+        ec: 'Encoded Currency',
+        sc: 'Sovereign Currency'
+      };
+
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+
+      let html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Your playbook — ${lensLabels[currentLens]} · Steps 0–3</title>
+<style>
+@page { margin: 2cm 2.5cm; }
+body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #1a1814; line-height: 1.6; max-width: 720px; margin: 2rem auto; padding: 0 1.5rem; background: #fff; }
+h1 { font-family: 'Georgia', serif; font-size: 2rem; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 0.3rem; color: #0f6e56; }
+.subhead { font-size: 0.9rem; color: #7a7163; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; margin-bottom: 2rem; border-bottom: 1px solid #ccc; padding-bottom: 1rem; }
+h2 { font-family: 'Georgia', serif; font-size: 1.4rem; font-weight: 500; color: #0f6e56; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #e8e2d6; padding-bottom: 0.4rem; }
+h3 { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #7a7163; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.answer { background: #fffff2; border-left: 3px solid #1a9e7a; padding: 0.8rem 1.1rem; margin-bottom: 1rem; white-space: pre-wrap; font-size: 0.95rem; }
+.footer-note { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #ccc; font-size: 0.85rem; font-style: italic; color: #7a7163; }
+.footer-note strong { color: #1a1814; font-style: normal; }
+@media print { body { margin: 0; } .no-print { display: none; } }
+.no-print { background: #0f6e56; color: #fff; padding: 0.8rem 1.4rem; border: none; border-radius: 6px; font-size: 0.9rem; font-weight: 500; cursor: pointer; margin-bottom: 1.5rem; font-family: inherit; }
+.no-print:hover { background: #0a4f3a; }
+</style></head><body>
+<button class="no-print" onclick="window.print()">Print or save as PDF ↓</button>
+<h1>Your playbook</h1>
+<p class="subhead">${lensLabels[currentLens]} · Steps 0–3 · ${dateStr}</p>`;
+
+      const stepOrder = ['s0', 's1', 's2', 's3'];
+      stepOrder.forEach(step => {
+        if (!byStep[step]) return;
+        html += `<h2>${STEP_TITLES[step]}</h2>`;
+        byStep[step].forEach(e => {
+          html += `<h3>${e.label}</h3>`;
+          const safe = e.value
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+          html += `<div class="answer">${safe}</div>`;
+        });
+      });
+
+      html += `<div class="footer-note">Compiled from your work on the ${lensLabels[currentLens]} workshop on-ramp. Your personal reflections stayed with you — they were never part of this compilation. This playbook is <strong>yours</strong>: save it, print it, return to it, build from it.</div>
+</body></html>`;
+
+      const newWindow = window.open('', '_blank');
+      if (newWindow) {
+        newWindow.document.open();
+        newWindow.document.write(html);
+        newWindow.document.close();
+      } else {
+        alert('Popup blocked. Please allow popups for this site and try again, or copy your answers manually.');
+      }
+    }
   </script>
 </body>
 </html>
