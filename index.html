@@ -1,4 +1,3 @@
-<!-- index.html (Cloudflare Pages — techtuition.ai) -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,7 +13,7 @@
   <link rel="icon" href="/techtuition_favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --ink:        #1a1814;
@@ -23,7 +22,6 @@
       --card-lt:    #e8e2d6;
       --gold:       #8a6418;
 
-      /* ── spectrum variables ── */
       --node-0:     #0c1516;
       --node-1:     #6b2d1a;
       --node-2:     #9d4418;
@@ -35,7 +33,7 @@
       --node-8:     #3c3489;
       --node-9:     #2d1a4e;
 
-      --accent:     #1a6b9e;  /* node-7 · expression · egg of life · open sky */
+      --accent:     #1a6b9e;
       --accent-lt:  #32849d;
 
       --muted:      #7a7163;
@@ -43,6 +41,7 @@
       --r:          8px;
       --serif:      'Exo 2', system-ui, sans-serif;
       --sans:       'DM Sans', system-ui, sans-serif;
+      --display:    'Cormorant Garamond', Georgia, serif;
     }
 
     [data-theme="dark"] {
@@ -78,9 +77,14 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background .25s, color .25s; }
+    body {
+      font-family: var(--sans);
+      background: var(--paper); color: var(--ink);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      transition: background .25s, color .25s;
+    }
 
-    /* ─── nav ─── */
+    /* nav */
     .nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -92,37 +96,25 @@
 
     .brand {
       font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--ink);
-      text-decoration: none;
-      letter-spacing: -.02em;
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--ink); text-decoration: none; letter-spacing: -.02em;
     }
-
     .brand span { color: var(--accent); }
 
     .navlinks { display: flex; align-items: center; gap: 1.6rem; }
 
     .navlinks a {
-      font-size: .85rem;
-      font-weight: 400;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: .02em;
-      transition: color .2s;
+      font-size: .85rem; font-weight: 400;
+      color: var(--muted); text-decoration: none;
+      letter-spacing: .02em; transition: color .2s;
     }
-
     .navlinks a:hover { color: var(--accent); }
 
     .navlinks .pill {
-      background: var(--accent);
-      color: var(--paper);
-      padding: .42rem 1rem;
-      border-radius: 100px;
-      font-weight: 500;
-      transition: background .2s;
+      background: var(--accent); color: var(--paper);
+      padding: .42rem 1rem; border-radius: 100px;
+      font-weight: 500; transition: background .2s;
     }
-
     .navlinks .pill:hover {
       background: var(--accent-lt);
       outline: 1.5px solid var(--gold);
@@ -130,210 +122,155 @@
     }
 
     .theme-toggle {
-      background: none;
-      border: 1.5px solid var(--line);
-      border-radius: 100px;
-      cursor: pointer;
-      padding: .35rem .6rem;
-      font-size: 1rem;
-      line-height: 1;
-      color: var(--muted);
-      transition: border-color .2s, color .2s;
+      background: none; border: 1.5px solid var(--line);
+      border-radius: 100px; cursor: pointer;
+      padding: .35rem .6rem; font-size: 1rem; line-height: 1;
+      color: var(--muted); transition: border-color .2s, color .2s;
     }
-
     .theme-toggle:hover { border-color: var(--gold); color: var(--ink); }
 
-    /* ─── page ─── */
+    /* page */
     .page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 5rem; }
 
-    /* ─── hero ─── */
+    /* hero */
     .hero {
       padding: 7rem 0 5rem;
       border-bottom: 1px solid var(--line);
     }
 
     .kicker {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: .88rem;
-      font-weight: 300;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
-      letter-spacing: .06em;
+      font-family: var(--serif); font-style: italic;
+      font-size: .88rem; font-weight: 300;
+      color: var(--accent); margin-bottom: 1.2rem; letter-spacing: .06em;
     }
 
     .hero h1 {
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: clamp(2.2rem, 5vw, 3.4rem);
-      line-height: 1.12;
-      letter-spacing: -.03em;
-      font-weight: 700;
-      color: var(--ink);
-      max-width: 680px;
-      margin-bottom: 1.4rem;
+      line-height: 1.12; letter-spacing: -.02em;
+      font-weight: 500; color: var(--ink);
+      max-width: 680px; margin-bottom: 1.4rem;
     }
-
-    .hero h1 em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--accent);
-    }
+    .hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
 
     .subhead {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 560px;
-      line-height: 1.75;
-      margin-bottom: 1.4rem;
-      font-weight: 300;
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 560px; line-height: 1.75;
+      margin-bottom: 1.4rem; font-weight: 300;
     }
-
     .subhead strong { color: var(--ink); font-weight: 500; }
 
     .hero-note {
-      font-size: .82rem;
-      color: var(--muted);
-      letter-spacing: .03em;
-      margin-top: 2rem;
-      font-style: italic;
+      font-size: .82rem; color: var(--muted);
+      letter-spacing: .03em; margin-top: 2rem; font-style: italic;
     }
 
     .ctaRow { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
 
-    /* ─── buttons ─── */
+    /* buttons */
     .btn {
       display: inline-flex; align-items: center;
-      padding: .65rem 1.4rem;
-      border-radius: var(--r);
-      font-family: var(--sans);
-      font-size: .88rem;
-      font-weight: 500;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all .2s;
-      border: 1.5px solid transparent;
+      padding: .65rem 1.4rem; border-radius: var(--r);
+      font-family: var(--sans); font-size: .88rem; font-weight: 500;
+      text-decoration: none; cursor: pointer;
+      transition: all .2s; border: 1.5px solid transparent;
     }
-
     .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
     .btn.primary:hover { background: var(--accent-lt); border-color: var(--accent-lt); }
     .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
     .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ─── sections ─── */
+    /* sections */
     section { margin-top: 5rem; }
 
     .section-label {
-      font-family: var(--serif);
-      font-size: .78rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.6rem;
+      font-family: var(--serif); font-size: .78rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.6rem;
     }
 
-    /* ─── cards ─── */
+    /* cards */
     .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--r);
-      padding: 2.2rem 2.4rem;
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--r); padding: 2.2rem 2.4rem;
     }
 
     .card h2 {
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      font-weight: 600;
-      letter-spacing: -.02em;
-      margin-bottom: 1rem;
-      color: var(--ink);
+      font-family: var(--display);
+      font-size: 1.5rem; font-weight: 500;
+      letter-spacing: -.01em; margin-bottom: 1rem; color: var(--ink);
     }
+    .card h2 em { font-style: italic; color: var(--accent); }
 
     .card p {
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: .97rem;
-      margin-bottom: .8rem;
+      color: var(--muted); line-height: 1.75;
+      font-size: .97rem; margin-bottom: .8rem;
     }
+    .card p:last-of-type { margin-bottom: 0; }
+    .card p strong { color: var(--ink); font-weight: 500; }
+    .card p em { color: var(--ink); font-style: italic; }
 
-    .card p:last-child { margin-bottom: 0; }
-
-    /* ─── work items ─── */
+    /* work items */
     .item {
-      margin-top: 1.6rem;
-      padding-top: 1.4rem;
+      margin-top: 1.6rem; padding-top: 1.4rem;
       border-top: 1px solid var(--line);
     }
-
     .item h3 {
-      font-family: var(--sans);
-      font-size: .92rem;
-      font-weight: 500;
-      letter-spacing: .01em;
-      margin-bottom: .45rem;
-      color: var(--ink);
+      font-family: var(--sans); font-size: .92rem; font-weight: 500;
+      letter-spacing: .01em; margin-bottom: .45rem; color: var(--ink);
     }
-
     .item p { font-size: .9rem; color: var(--muted); margin-bottom: .7rem; }
 
     .textLink {
-      font-size: .85rem;
-      font-weight: 500;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: .01em;
-      transition: color .2s;
+      font-size: .85rem; font-weight: 500;
+      color: var(--accent); text-decoration: none;
+      letter-spacing: .01em; transition: color .2s;
     }
-
     .textLink:hover { color: var(--gold); }
 
-    /* ─── contact ─── */
+    /* contact */
     .contactRow { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.4rem; }
 
-    /* ─── footer ─── */
+    /* footer */
     .footer {
-      margin-top: 5rem;
-      padding-top: 2rem;
+      margin-top: 5rem; padding-top: 2rem;
       border-top: 1px solid var(--line);
       display: flex; justify-content: space-between; align-items: center;
       flex-wrap: wrap; gap: .6rem;
-      font-size: .82rem;
-      color: var(--muted);
+      font-size: .82rem; color: var(--muted);
     }
-
     .footer a { color: var(--accent); text-decoration: none; }
     .footer a:hover { color: var(--gold); }
-
     .muted { color: var(--muted); }
 
-    /* ─── animations ─── */
+    /* animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
-    .hero .kicker    { animation: fadeUp .5s ease both; animation-delay: .05s; }
-    .hero h1         { animation: fadeUp .5s ease both; animation-delay: .12s; }
-    .hero .subhead   { animation: fadeUp .5s ease both; animation-delay: .2s; }
-    .hero .ctaRow    { animation: fadeUp .5s ease both; animation-delay: .28s; }
-    .hero .hero-note { animation: fadeUp .5s ease both; animation-delay: .34s; }
+    .hero .kicker    { animation: fadeUp .5s ease both .05s; }
+    .hero h1         { animation: fadeUp .5s ease both .12s; }
+    .hero .subhead   { animation: fadeUp .5s ease both .2s; }
+    .hero .ctaRow    { animation: fadeUp .5s ease both .28s; }
+    .hero .hero-note { animation: fadeUp .5s ease both .34s; }
   </style>
 </head>
 <body>
+
   <header class="nav">
     <a class="brand" href="/">tech<span>tuition</span></a>
     <nav class="navlinks">
       <a href="#about">about</a>
       <a href="#work">work</a>
-      <!-- future anchor: pending — replace waitlist link with workshop booking link on launch -->
-      <a href="https://techtuition.getform.com/v0p8m" target="_blank" rel="noopener" class="pill">join waitlist</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌙</button>
+      <a href="/workshop">workshop</a>
+      <a href="/workshop/step-0" class="pill">begin at step 0</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌗</button>
     </nav>
   </header>
 
   <main class="page">
 
-    <!-- ─── hero ─── -->
+    <!-- hero -->
     <section class="hero">
       <p class="kicker">techtuition · fractal awareness for the next era of work</p>
       <h1>The framework underneath <em>the framework.</em></h1>
@@ -345,20 +282,20 @@
       <p class="subhead">
         A multiscalar, quantum-sequenced approach to how individuals, teams, and organisations
         actually cohere — with practical implications for operations, collaboration, and governance.
+        <strong>The on-ramp workshop is live.</strong>
       </p>
       <div class="ctaRow">
-        <!-- future anchor: pending — replace waitlist link with workshop booking link on launch -->
-        <a class="btn primary" href="https://techtuition.getform.com/v0p8m" target="_blank" rel="noopener">join the workshop waitlist</a>
-        <a class="btn ghost" href="#work">see the work</a>
+        <a class="btn primary" href="/workshop/step-0">begin at step 0</a>
+        <a class="btn ghost" href="/workshop">see the workshop</a>
       </div>
-      <p class="hero-note">finite yet boundless slides · it lands every time</p>
+      <p class="hero-note">finite yet boundless · it lands every time</p>
     </section>
 
-    <!-- ─── about ─── -->
+    <!-- about -->
     <section id="about">
       <p class="section-label">what this is</p>
       <div class="card">
-        <h2>The teaching that was always the framework.</h2>
+        <h2>The teaching that was always <em>the framework.</em></h2>
         <p>
           Techtuition is built on a multiscalar framework — individual, team, organisation —
           and a quantum sequence (0–9) that maps to the body, the group, and the collective.
@@ -373,24 +310,23 @@
         <p>
           The foundational book — <em>Quantum Currency: Field Research on Human Coherence</em> —
           is the formal statement of what four years of workshops and thirteen years of field research produced.
-          The workshops are where it becomes operational.
+          The workshop is where it becomes operational.
         </p>
       </div>
     </section>
 
-    <!-- ─── work ─── -->
+    <!-- work -->
     <section id="work">
       <p class="section-label">work with techtuition</p>
       <div class="card">
-        <h2>Three ways in.</h2>
+        <h2>Three ways <em>in.</em></h2>
 
         <div class="item">
-          <h3>Beta workshop (paid)</h3>
-          <p>A live, hands-on session on the geometry of complexity, coordination, and collaboration —
-            the fractal framework in practice. Leave with the mental model, the templates, and a playbook
-            you can use immediately.</p>
-          <!-- future anchor: pending — replace waitlist link with booking link on launch -->
-          <a class="textLink" href="https://techtuition.getform.com/v0p8m" target="_blank" rel="noopener">join the waitlist →</a>
+          <h3>Quantum Currency workshop</h3>
+          <p>Steps 0 through 3 are live and self-paced — the on-ramp into the full nine-step arc.
+            Work through field, coherence, recognition, and discernment at your own pace.
+            A real playbook at the end. Steps 4 through 9 are facilitated, by conversation.</p>
+          <a class="textLink" href="/workshop">go to the workshop →</a>
         </div>
 
         <div class="item">
@@ -411,14 +347,15 @@
       </div>
     </section>
 
-    <!-- ─── contact ─── -->
+    <!-- contact -->
     <section id="contact">
       <div class="card">
-        <h2>Get in touch</h2>
-        <p>For embedded education, mentorship, or bringing the beta workshop to your organisation.</p>
+        <h2>Get in touch.</h2>
+        <p>For embedded education, mentorship, or bringing the workshop to your organisation.
+          Email is the primary path — a conversation, not a form.</p>
         <div class="contactRow">
           <a class="btn primary" href="/cdn-cgi/l/email-protection#8ee6ebe2e2e1cefaebede6fafbe7fae7e1e0a0efe7b1fdfbece4ebedfab3faebede6fafbe7fae7e1e0abbcbee7e0fffbe7fcf7">email deiadora</a>
-          <a class="btn ghost" href="https://techtuition.getform.com/v0p8m" target="_blank" rel="noopener">join waitlist</a>
+          <a class="btn ghost" href="/workshop/step-0">begin at step 0</a>
         </div>
       </div>
     </section>
@@ -432,50 +369,36 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    const toggle  = document.getElementById("themeToggle");
+    const toggle  = document.getElementById('themeToggle');
     const root    = document.documentElement;
-    const STORE   = "qc-theme"; // shared key across all ecosystem sites
-
-    // Detect system preference
-    const sysDark = window.matchMedia("(prefers-color-scheme: dark)");
+    const STORE   = 'qc-theme';
+    const sysDark = window.matchMedia('(prefers-color-scheme: dark)');
 
     function resolveTheme() {
       const saved = localStorage.getItem(STORE);
-      if (saved) return saved;                     // explicit user override
-      return sysDark.matches ? "dark" : "light";   // follow system
+      return saved || (sysDark.matches ? 'dark' : 'light');
     }
 
-    function applyTheme(theme) {
-      root.setAttribute("data-theme", theme);
-      toggle.textContent = theme === "dark" ? "🌙" : "☀️";
-      toggle.setAttribute("aria-label", theme === "dark" ? "switch to light mode" : "switch to dark mode");
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      toggle.textContent = t === 'dark' ? '🌙' : '🌗';
+      toggle.setAttribute('aria-label', t === 'dark' ? 'switch to light mode' : 'switch to dark mode');
     }
 
-    // Initial paint
     applyTheme(resolveTheme());
 
-    // Toggle click — cycle: override opposite → clear override (return to system)
-    toggle.addEventListener("click", () => {
-      const current = root.getAttribute("data-theme");
-      const sysTheme = sysDark.matches ? "dark" : "light";
-      const next = current === "dark" ? "light" : "dark";
-
-      if (next === sysTheme) {
-        // Returning to system default — clear the override
-        localStorage.removeItem(STORE);
-      } else {
-        localStorage.setItem(STORE, next);
-      }
+    toggle.addEventListener('click', () => {
+      const cur  = root.getAttribute('data-theme');
+      const next = cur === 'dark' ? 'light' : 'dark';
+      const sys  = sysDark.matches ? 'dark' : 'light';
+      next === sys ? localStorage.removeItem(STORE) : localStorage.setItem(STORE, next);
       applyTheme(next);
     });
 
-    // Follow OS schedule changes if no manual override is set
-    sysDark.addEventListener("change", () => {
-      if (!localStorage.getItem(STORE)) {
-        applyTheme(sysDark.matches ? "dark" : "light");
-      }
+    sysDark.addEventListener('change', () => {
+      if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? 'dark' : 'light');
     });
   </script>
 </body>
