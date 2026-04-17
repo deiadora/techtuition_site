@@ -260,9 +260,8 @@
   <header class="nav">
     <a class="brand" href="/">tech<span>tuition</span></a>
     <nav class="navlinks">
-      <a href="#about">about</a>
-      <a href="#work">work</a>
       <a href="/workshop">workshop</a>
+      <a href="#contact">contact</a>
       <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌗</button>
     </nav>
   </header>
@@ -368,36 +367,44 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const toggle  = document.getElementById('themeToggle');
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const toggle  = document.getElementById("themeToggle");
     const root    = document.documentElement;
-    const STORE   = 'qc-theme';
-    const sysDark = window.matchMedia('(prefers-color-scheme: dark)');
-
+    const STORE   = "qc-theme"; // shared key across all ecosystem sites
+    // Detect system preference
+    const sysDark = window.matchMedia("(prefers-color-scheme: dark)");
     function resolveTheme() {
       const saved = localStorage.getItem(STORE);
-      return saved || (sysDark.matches ? 'dark' : 'light');
+      if (saved) return saved;                    // explicit user override
+      return sysDark.matches ? "dark" : "light";  // follow system
     }
-
-    function applyTheme(t) {
-      root.setAttribute('data-theme', t);
-      toggle.textContent = t === 'dark' ? '🌙' : '🌗';
-      toggle.setAttribute('aria-label', t === 'dark' ? 'switch to light mode' : 'switch to dark mode');
+    function applyTheme(theme) {
+      root.setAttribute("data-theme", theme);
+      const isSystem = !localStorage.getItem(STORE);
+      toggle.textContent = isSystem ? "🌗" : (theme === "dark" ? "🌙" : "☀️");
+      toggle.setAttribute("aria-label", theme === "dark" ? "switch to light mode" : "switch to dark mode");
     }
-
+    // Initial paint
     applyTheme(resolveTheme());
-
-    toggle.addEventListener('click', () => {
-      const cur  = root.getAttribute('data-theme');
-      const next = cur === 'dark' ? 'light' : 'dark';
-      const sys  = sysDark.matches ? 'dark' : 'light';
-      next === sys ? localStorage.removeItem(STORE) : localStorage.setItem(STORE, next);
+    // Toggle click — cycle: override opposite → clear override (return to system)
+    toggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const sysTheme = sysDark.matches ? "dark" : "light";
+      const next = current === "dark" ? "light" : "dark";
+      if (next === sysTheme) {
+        // Returning to system default — clear the override
+        localStorage.removeItem(STORE);
+      } else {
+        localStorage.setItem(STORE, next);
+      }
       applyTheme(next);
     });
-
-    sysDark.addEventListener('change', () => {
-      if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? 'dark' : 'light');
+    // If the system preference changes while the page is open (e.g. OS schedule),
+    // and the user hasn't set an explicit override, follow it automatically.
+    sysDark.addEventListener("change", () => {
+      if (!localStorage.getItem(STORE)) {
+        applyTheme(sysDark.matches ? "dark" : "light");
+      }
     });
   </script>
 </body>
