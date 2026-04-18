@@ -29,11 +29,9 @@
       --sans:       'DM Sans', system-ui, sans-serif;
       --display:    'Cormorant Garamond', Georgia, serif;
 
-      /* node-7 · techtuition sky blue */
       --node7:      #1a6b9e;
       --node7-lt:   #32849d;
 
-      /* qc workshop teal — the world they're entering */
       --teal:       #0f6e56;
       --teal-lt:    #1a9e7a;
       --teal-dk:    #085041;
@@ -44,18 +42,25 @@
 
     [data-theme="dark"] {
       --ink:        #ebe7dc;
-      --paper:      #0b0f10;
-      --card:       #0e1618;
-      --card-lt:    #131f23;
+      --paper:      #010003;
+      --card:       #151515;
+      --card-lt:    #20211e;
       --gold:       #ecb02f;
       --muted:      #cbc6ba;
       --line:       rgba(240,237,230,.1);
       --line-s:     rgba(240,237,230,.18);
     }
 
+    [data-theme="dark"] .nav          { background: #010003; }
+    [data-theme="dark"] .playbook-card { background: #151515; }
+    [data-theme="dark"] .for-card     { background: #151515; }
+    [data-theme="dark"] .lens-card    { background: #151515; }
+
+    [data-theme="light"] .nav { background: #f4f2ec; }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      html { scrollbar-gutter: stable; }
-      body {
+    html { scrollbar-gutter: stable; }
+    body {
       font-family: var(--sans);
       background: var(--paper); color: var(--ink);
       line-height: 1.6; -webkit-font-smoothing: antialiased;
@@ -70,6 +75,7 @@
       background: var(--paper);
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(8px);
+      transition: background .25s;
     }
     .brand {
       font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
@@ -102,7 +108,6 @@
       position: relative;
     }
 
-    /* gradient wash — sky blue fading to teal, very subtle */
     .hero::before {
       content: '';
       position: absolute; top: 0; left: -1.5rem; right: -1.5rem; bottom: 0;
@@ -215,7 +220,6 @@
     .step-row:nth-child(4) .step-num { background: rgba(10,61,51,.12);  color: #0a3d33; }
     [data-theme="dark"] .step-row:nth-child(4) .step-num { color: #7ab8a6; }
 
-    .step-body {}
     .step-title {
       font-family: var(--display); font-size: 1.4rem; font-weight: 500;
       color: var(--ink); margin-bottom: .3rem; line-height: 1.2;
@@ -500,42 +504,43 @@
     const sysDark = window.matchMedia('(prefers-color-scheme: dark)');
 
     function resolveTheme() {
-      const saved = localStorage.getItem(STORE);
-      return saved || (sysDark.matches ? 'dark' : 'light');
+      return localStorage.getItem(STORE) || (sysDark.matches ? 'dark' : 'light');
     }
-    function applyTheme(t) {
-      root.setAttribute('data-theme', t);
-      toggle.textContent = t === 'dark' ? '🌙' : '🌗';
+
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      const isSystem = !localStorage.getItem(STORE);
+      toggle.textContent = isSystem ? '🌗' : (theme === 'dark' ? '🌙' : '☀️');
+      toggle.setAttribute('aria-label', theme === 'dark' ? 'switch to light mode' : 'switch to dark mode');
     }
+
     applyTheme(resolveTheme());
-    sysDark.addEventListener('change', () => {
-      if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? 'dark' : 'light');
-    });
+
     toggle.addEventListener('click', () => {
-      const cur = root.getAttribute('data-theme');
+      const cur  = root.getAttribute('data-theme');
       const next = cur === 'dark' ? 'light' : 'dark';
-      const sys = sysDark.matches ? 'dark' : 'light';
+      const sys  = sysDark.matches ? 'dark' : 'light';
       next === sys ? localStorage.removeItem(STORE) : localStorage.setItem(STORE, next);
       applyTheme(next);
     });
 
-    /* ── STEPS REVEAL — sequential scroll-triggered fade-up ── */
+    sysDark.addEventListener('change', () => {
+      if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? 'dark' : 'light');
+    });
+
+    /* ── STEPS REVEAL ── */
     const stepRows = document.querySelectorAll('.step-row');
 
     if ('IntersectionObserver' in window) {
       const obs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // stagger each step by its index
             const idx = Array.from(stepRows).indexOf(entry.target);
-            setTimeout(() => {
-              entry.target.classList.add('visible');
-            }, idx * 140);
+            setTimeout(() => entry.target.classList.add('visible'), idx * 140);
             obs.unobserve(entry.target);
           }
         });
       }, { threshold: 0.12 });
-
       stepRows.forEach(row => obs.observe(row));
     } else {
       stepRows.forEach(row => row.classList.add('visible'));
