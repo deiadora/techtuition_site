@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>quantum currency workshop · techtuition</title>
-  <meta name="description" content="A four-branch on-ramp into Quantum Currency: Field Research on Human Coherence. Field, coherence, recognition, discernment — the architecture of orientation for founders and their teams." />
+  <meta name="description" content="A four-dimension on-ramp into Quantum Currency: Field Research on Human Coherence. Field, coherence, recognition, discernment — the architecture of orientation for founders and their teams." />
   <meta property="og:title" content="quantum currency workshop · techtuition" />
-  <meta property="og:description" content="branches 0 through 3. The ground, the torus, the vesica piscis, the tetrahedron. A real playbook at the end." />
+  <meta property="og:description" content="The field and dimensiones 1 through 3. The ground, the torus, the vesica piscis, the tetrahedron. A real playbook at the end." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://techtuition.ai/workshop" />
   <meta property="og:image" content="https://techtuition.ai/techtuition_banner.jpeg" />
@@ -185,17 +185,17 @@
       color: var(--teal); margin-bottom: 1.6rem;
     }
 
-    /* ── FOUR branchES ── */
-    .branchs-intro {
+    /* ── FOUR dimensionES ── */
+    .dimensions-intro {
       font-size: 1rem; color: var(--muted); line-height: 1.8;
       max-width: 600px; font-weight: 300; margin-bottom: 2.8rem;
     }
-    .branchs-intro strong { color: var(--ink); font-weight: 500; }
-    .branchs-intro em { color: var(--ink); font-style: italic; }
+    .dimensions-intro strong { color: var(--ink); font-weight: 500; }
+    .dimensions-intro em { color: var(--ink); font-style: italic; }
 
-    .branchs-list { display: flex; flex-direction: column; gap: 0; }
+    .dimensions-list { display: flex; flex-direction: column; gap: 0; }
 
-    .branch-row {
+    .dimension-row {
       display: grid; grid-template-columns: 56px 1fr;
       gap: 0 1.6rem; align-items: start;
       padding: 1.8rem 0;
@@ -204,48 +204,48 @@
       transform: translateY(16px);
       transition: opacity .5s ease, transform .5s ease;
     }
-    .branch-row:first-child { border-top: 1px solid var(--line); }
-    .branch-row.visible { opacity: 1; transform: none; }
+    .dimension-row:first-child { border-top: 1px solid var(--line); }
+    .dimension-row.visible { opacity: 1; transform: none; }
 
-    .branch-num {
+    .dimension-num {
       width: 44px; height: 44px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
       flex-shrink: 0; margin-top: 2px;
       transition: background .3s, color .3s;
     }
-    .branch-row:nth-child(1) .branch-num { background: rgba(15,110,86,.1);  color: #0f6e56; }
-    .branch-row:nth-child(2) .branch-num { background: rgba(26,158,122,.1); color: #1a9e7a; }
-    .branch-row:nth-child(3) .branch-num { background: rgba(8,80,65,.12);   color: #085041; }
-    .branch-row:nth-child(4) .branch-num { background: rgba(10,61,51,.12);  color: #0a3d33; }
-    [data-theme="dark"] .branch-row:nth-child(4) .branch-num { color: #7ab8a6; }
+    .dimension-row:nth-child(1) .dimension-num { background: rgba(15,110,86,.1);  color: #0f6e56; }
+    .dimension-row:nth-child(2) .dimension-num { background: rgba(26,158,122,.1); color: #1a9e7a; }
+    .dimension-row:nth-child(3) .dimension-num { background: rgba(8,80,65,.12);   color: #085041; }
+    .dimension-row:nth-child(4) .dimension-num { background: rgba(10,61,51,.12);  color: #0a3d33; }
+    [data-theme="dark"] .dimension-row:nth-child(4) .dimension-num { color: #7ab8a6; }
 
-    .branch-title {
+    .dimension-title {
       font-family: var(--display); font-size: 1.4rem; font-weight: 500;
       color: var(--ink); margin-bottom: .3rem; line-height: 1.2;
     }
-    .branch-geo {
+    .dimension-geo {
       font-family: var(--serif); font-size: .72rem; font-weight: 500;
       letter-spacing: .1em; text-transform: uppercase;
       color: var(--teal); margin-bottom: .7rem;
     }
-    .branch-desc {
+    .dimension-desc {
       font-size: .95rem; color: var(--muted); line-height: 1.75;
       font-weight: 300; max-width: 540px;
     }
-    .branch-desc strong { color: var(--ink); font-weight: 500; }
-    .branch-desc em { color: var(--ink); font-style: italic; }
+    .dimension-desc strong { color: var(--ink); font-weight: 500; }
+    .dimension-desc em { color: var(--ink); font-style: italic; }
 
-    .branch-link {
+    .dimension-link {
       display: inline-flex; align-items: center; gap: 6px;
       margin-top: .9rem; font-size: .85rem; font-weight: 500;
       color: var(--teal); text-decoration: none;
       font-family: var(--serif); letter-spacing: .01em;
       transition: gap .2s, color .2s;
     }
-    .branch-link:hover { gap: 10px; color: var(--teal-lt); }
-    .branch-link.locked { color: var(--muted); cursor: default; pointer-events: none; }
-    .branch-lock {
+    .dimension-link:hover { gap: 10px; color: var(--teal-lt); }
+    .dimension-link.locked { color: var(--muted); cursor: default; pointer-events: none; }
+    .dimension-lock {
       font-size: 10px; font-family: var(--serif); font-weight: 600;
       letter-spacing: .06em; text-transform: uppercase;
       background: var(--card-lt); color: var(--muted);
@@ -387,7 +387,7 @@
 
     @media (max-width: 600px) {
       .hero { padding: 4rem 0 3rem; }
-      .branch-row { grid-template-columns: 44px 1fr; gap: 0 1.2rem; }
+      .dimension-row { grid-template-columns: 44px 1fr; gap: 0 1.2rem; }
     }
   </style>
 </head>
@@ -406,7 +406,7 @@
     <!-- ── HERO ── -->
     <section class="hero">
       <p class="hero-eyebrow">quantum currency workshop · techtuition</p>
-      <h1>Nine branches. One trunk.<br><em> Four ways in.</em></h1>
+      <h1>Nine dimensiones. One field.<br><em> A fourfold foundation in currency.</em></h1>
       <p class="hero-sub">
         <em>Quantum Currency: Field Research on Human Coherence</em> maps a geometric architecture for how coherent systems actually work. <strong>This is the on-ramp.</strong> They are live, self-paced, and free to work through. A real playbook at the end.
       </p>
@@ -421,8 +421,8 @@
       <p class="section-label">what you build</p>
       <div class="playbook-card">
         <h2>A playbook that is <em>actually yours.</em></h2>
-        <p>The field and each branch has a playbook exercise — two layers running simultaneously. One is personal: it stays private, never leaves your browser, never compiles anywhere. The other is business-scoped: specific to the organisation you're building.</p>
-        <p>At the end of branch 3, a compile button assembles your business answers from all four branches into a single printable document. <strong>Not a template filled in from the outside. A playbook built from the inside out, one signal at a time.</strong></p>
+        <p>The field and each dimension has a playbook exercise — two layers running simultaneously. One is personal: it stays private, never leaves your browser, never compiles anywhere. The other is business-scoped: specific to the organisation you're building.</p>
+        <p>At the end of dimension 3, a compile button assembles your business answers from all four exercises into a single printable document. <strong>Not a template filled in from the outside. A playbook built from the inside out, one signal at a time.</strong></p>
         <div class="scope-row">
           <div class="scope-item">
             <span class="scope-chip"><span class="scope-dot personal"></span>Personal</span>
@@ -430,17 +430,17 @@
           </div>
           <div class="scope-item">
             <span class="scope-chip"><span class="scope-dot business"></span>Business</span>
-            <span class="scope-note">Organisation-specific answers.<br>Compiles at branch 3.</span>
+            <span class="scope-note">Organisation-specific answers.<br>Compiles at dimension 3.</span>
           </div>
         </div>
-        <p>The personal and business threads run together through every branch because <em>depth and breadth are not separate</em> — inner coherence and outer architecture are the same work at different scales.</p>
+        <p>The personal and business threads run together through every dimension because <em>depth and breadth are not separate</em> — inner coherence and outer architecture are the same work at different scales.</p>
       </div>
     </section>
 
     <!-- ── THE LENS SYSTEM ── -->
     <section class="section" id="lenses">
       <p class="section-label">the lens system</p>
-      <p class="branchs-intro">Each branch contains the same content read through four different books — four different lenses on the same architecture. The Quantum Currency lens is live. The other three arrive as the books do.</p>
+      <p class="dimensions-intro">Each dimension contains the same content read through four different volumes — four lenses on the same architecture. The Quantum Currency lens is live. The other three arrive as the books do.</p>
       <div class="lens-row">
         <div class="lens-card active">
           <p class="lc-num">Vol. 1</p>
@@ -451,7 +451,7 @@
         <div class="lens-card">
           <p class="lc-num">Vol. 2</p>
           <p class="lc-name">Relational Currency</p>
-          <p class="lc-desc">The multiscalar read. Human systems (including human-AI collaboration), branches 0–9 across all scales.</p>
+          <p class="lc-desc">The multiscalar read. Human systems (including human-AI collaboration), the field and dimensions 1–9 across all scales.</p>
           <span class="lc-tag">coming</span>
         </div>
         <div class="lens-card">
@@ -475,8 +475,8 @@
       <div class="for-card">
         <h2>Founders. And their <em>teams.</em></h2>
         <p>The on-ramp is for founders who recognise something in these field notes — who have sensed the fractal architecture underneath the work but haven't had language or geometry for it yet. It is for the people building in the field, not studying it from outside.</p>
-        <p><strong>Branches 0 through 3 are self-paced.</strong> No cohort required, no application, no discovery call. You work through them when you're ready, at your own pace, and the playbook you build is yours to keep and use regardless of what comes next.</p>
-        <p>Branches 4 through 9 — wave, direction, transmission, expression, structure, source — live inside the facilitated cohort. They require the field that live, held group work generates. Entry is by conversation, not application. If the pattern recognises itself after branch 3, <em>the next move is to write.</em></p>
+        <p><strong>The field and dimensions 1 through 3 are self-paced.</strong> No cohort required, no application, no discovery call. You work through them when you're ready, at your own pace, and the playbook you build is yours to keep and use regardless of what comes next.</p>
+        <p>Dimensiones 4 through 9 — wave, direction, transmission, expression, structure, source — live inside the facilitated cohort. They require the field that live, held group work generates. Entry is by conversation, not application. If the pattern recognises itself after dimension 3, <em>the next move is to write.</em></p>
       </div>
     </section>
 
@@ -484,8 +484,8 @@
     <div class="arc-close">
       <p class="ac-eyebrow">ready</p>
       <h2>The ground is<br><em>already here.</em></h2>
-      <p>Branches 0-3 take about twenty minutes or so to complete. Longer if you want to be thorough and contemplative. Any notes input into the playbook exercises will be saved during your session. It does not require any prior knowledge of the book, the framework, or the geometry. It requires only <strong>a willingness to be honest about where you actually are.</strong></p>
-      <a class="btn-primary" href="/workshop/branch-0" style="margin: 0 auto; display:inline-flex;">begin at branch 0 →</a>
+      <p>The field and dimensiones 1-3 take about twenty minutes or so to complete. Longer if you want to be thorough and contemplative. Any notes input into the playbook exercises will be saved during your session. It does not require any prior knowledge of the book, the framework, or the geometry. It requires only <strong>a willingness to be honest about where you actually are.</strong></p>
+      <a class="btn-primary" href="/workshop/the-field" style="margin: 0 auto; display:inline-flex;">begin at the field →</a>
     </div>
 
     <footer class="footer">
@@ -528,22 +528,22 @@
       if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? 'dark' : 'light');
     });
 
-    /* ── branchS REVEAL ── */
-    const branchRows = document.querySelectorAll('.branch-row');
+    /* ── dimensionS REVEAL ── */
+    const dimensionRows = document.querySelectorAll('.dimension-row');
 
     if ('IntersectionObserver' in window) {
       const obs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const idx = Array.from(branchRows).indexOf(entry.target);
+            const idx = Array.from(dimensionRows).indexOf(entry.target);
             setTimeout(() => entry.target.classList.add('visible'), idx * 140);
             obs.unobserve(entry.target);
           }
         });
       }, { threshold: 0.12 });
-      branchRows.forEach(row => obs.observe(row));
+      dimensionRows.forEach(row => obs.observe(row));
     } else {
-      branchRows.forEach(row => row.classList.add('visible'));
+      dimensionRows.forEach(row => row.classList.add('visible'));
     }
   </script>
 </body>
