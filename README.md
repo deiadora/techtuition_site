@@ -1,7 +1,7 @@
 # techtuition.ai · dimension 7 · expression · egg of life
  
 Seven spheres. Each complete. Each expressing fully.
-Home of The Currency Workshop — one field, nine dimensions,
+Home of The Currency Playbook workshop — one field, nine dimensions,
 fourfold currency. The architecture you already sense.
 
 ### part of the deiadora ecosystem
