@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>techtuition — the architecture you already sense</title>
-  <meta name="description" content="One field. Nine dimensions. Four currencies that create the foundation. A workshop that names what you already know and builds the structure that makes it operational." />
-  <meta property="og:title" content="techtuition — the architecture you already sense" />
-  <meta property="og:description" content="The field and the first three dimensions are open and free. A real playbook at the end. No discovery call required." />
+  <title>techtuition — the currency workshop · one field · nine dimensions</title>
+  <meta name="description" content="The entry point into the DEIADORA relational architecture. Nine dimensions from one field. The field and first three dimensions are open and free. A playbook specific to your system at the end." />
+  <meta property="og:title" content="techtuition — the currency workshop" />
+  <meta property="og:description" content="Where the relational layer becomes yours. One field. Nine dimensions. Open and free at the field and dimensions 1–3. No discovery call. No waitlist." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://techtuition.ai" />
   <meta property="og:image" content="https://techtuition.ai/techtuition_banner.jpeg" />
@@ -35,6 +35,8 @@
 
       --accent:     #1a6b9e;
       --accent-lt:  #32849d;
+      --teal:       #0f6e56;
+      --teal-lt:    #1a9e7a;
 
       --muted:      #7a7163;
       --line:       rgba(26,24,20,.12);
@@ -57,29 +59,19 @@
       --line:       rgba(240,237,230,.1);
       --line-s:     rgba(240,237,230,.18);
     }
+    [data-theme="dark"] .nav          { background: #010003; }
+    [data-theme="dark"] .card         { background: #151515; }
+    [data-theme="dark"] .what-card    { background: #151515; }
+    [data-theme="dark"] .open-card    { background: #151515; }
+    [data-theme="dark"] .dim-intro    { background: #151515; }
+    [data-theme="dark"] .contact-card { background: #151515; }
+    [data-theme="dark"] .fac-list     { background: #151515; }
 
-    [data-theme="dark"] .nav  { background: #010003; }
-    [data-theme="dark"] .card { background: #151515; }
-
-    [data-theme="light"] {
-      --ink:        #1a1814;
-      --paper:      #f4f2ec;
-      --card:       #fffff2;
-      --card-lt:    #e8e2d6;
-      --muted:      #7a7163;
-      --gold:       #8a6418;
-      --accent:     #1a6b9e;
-      --accent-lt:  #32849d;
-      --line:       rgba(26,24,20,.12);
-      --line-s:     rgba(26,24,20,.18);
-    }
-
-    [data-theme="light"] .nav   { background: #f4f2ec; }
-    [data-theme="light"] .card  { background: #fffff2; }
-    [data-theme="light"] .brand { color: #1a1814; }
+    [data-theme="light"] .nav         { background: #f4f2ec; }
+    [data-theme="light"] .brand       { color: #1a1814; }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scrollbar-gutter: stable; scroll-behavior: smooth; font-size: 16px; }
+    html { scrollbar-gutter: stable; scroll-behavior: smooth; }
     body {
       font-family: var(--sans);
       background: var(--paper); color: var(--ink);
@@ -87,7 +79,7 @@
       transition: background .25s, color .25s;
     }
 
-    /* nav */
+    /* ── nav ── */
     .nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -96,34 +88,26 @@
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(8px);
     }
-
     .brand {
       font-family: var(--serif);
       font-size: 1.1rem; font-weight: 600;
       color: var(--ink); text-decoration: none; letter-spacing: -.02em;
     }
     .brand span { color: var(--accent); }
-
     .navlinks { display: flex; align-items: center; gap: 1.6rem; }
-
     .navlinks a {
       font-size: .85rem; font-weight: 400;
       color: var(--muted); text-decoration: none;
       letter-spacing: .02em; transition: color .2s;
     }
     .navlinks a:hover { color: var(--accent); }
-
-    .navlinks .pill {
-      background: var(--accent); color: var(--paper);
-      padding: .42rem 1rem; border-radius: 100px;
-      font-weight: 500; transition: background .2s;
+    .navlinks .ecosystem-link {
+      font-size: .78rem; font-weight: 500;
+      color: var(--muted); letter-spacing: .04em;
+      border: 1px solid var(--line-s); border-radius: 100px;
+      padding: .3rem .8rem; transition: border-color .2s, color .2s;
     }
-    .navlinks .pill:hover {
-      background: var(--accent-lt);
-      outline: 1.5px solid var(--gold);
-      outline-offset: 1px;
-    }
-
+    .navlinks .ecosystem-link:hover { border-color: var(--accent); color: var(--accent); }
     .theme-toggle {
       background: none; border: 1.5px solid var(--line);
       border-radius: 100px; cursor: pointer;
@@ -132,45 +116,39 @@
     }
     .theme-toggle:hover { border-color: var(--gold); color: var(--ink); }
 
-    /* page */
-    .page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+    /* ── page ── */
+    .page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 6rem; }
 
-    /* hero */
-    .hero {
-      padding: 7rem 0 5rem;
-      border-bottom: 1px solid var(--line);
-    }
-
+    /* ── hero ── */
+    .hero { padding: 7rem 0 5rem; border-bottom: 1px solid var(--line); }
     .kicker {
       font-family: var(--serif); font-style: italic;
       font-size: .88rem; font-weight: 300;
       color: var(--accent); margin-bottom: 1.2rem; letter-spacing: .06em;
     }
-
     .hero h1 {
       font-family: var(--display);
       font-size: clamp(2.2rem, 5vw, 3.4rem);
-      line-height: 1.12; letter-spacing: -.02em;
-      font-weight: 500; color: var(--ink);
+      line-height: 1.1; letter-spacing: -.02em;
+      font-weight: 400; color: var(--ink);
       max-width: 680px; margin-bottom: 1.4rem;
     }
     .hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
-
     .subhead {
       font-size: 1.05rem; color: var(--muted);
       max-width: 560px; line-height: 1.75;
       margin-bottom: 1.4rem; font-weight: 300;
     }
     .subhead strong { color: var(--ink); font-weight: 500; }
-
-    .hero-note {
-      font-size: .82rem; color: var(--muted);
-      letter-spacing: .03em; margin-top: 2rem; font-style: italic;
+    .method-note {
+      border-left: 2px solid var(--accent);
+      padding-left: 1.2rem;
+      font-size: .95rem; color: var(--muted);
+      margin-top: .2rem; margin-bottom: 2rem;
     }
+    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
 
-    .ctaRow { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
-
-    /* buttons */
+    /* ── buttons ── */
     .btn {
       display: inline-flex; align-items: center;
       padding: .65rem 1.4rem; border-radius: var(--r);
@@ -183,58 +161,170 @@
     .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-s); }
     .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* sections */
+    /* ── sections ── */
     section { margin-top: 5rem; }
-
     .section-label {
       font-family: var(--serif); font-size: .78rem; font-weight: 500;
       letter-spacing: .1em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 1.6rem;
     }
 
-    /* cards */
-    .card {
+    /* ── what card ── */
+    .what-card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--r); padding: 2.2rem 2.4rem;
+      position: relative; overflow: hidden;
+    }
+    .what-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--teal), var(--gold));
+    }
+    .what-card h2 {
+      font-family: var(--display);
+      font-size: 1.6rem; font-weight: 400; font-style: italic;
+      letter-spacing: -.01em; margin-bottom: 1rem; color: var(--ink);
+      line-height: 1.2;
+    }
+    .what-card h2 em { color: var(--accent); }
+    .what-card p {
+      color: var(--muted); line-height: 1.8;
+      font-size: .97rem; margin-bottom: .9rem;
+    }
+    .what-card p:last-of-type { margin-bottom: 0; }
+    .what-card p strong { color: var(--ink); font-weight: 500; }
+    .what-card p em { color: var(--ink); font-style: italic; }
+
+    /* ── dimension section intro ── */
+    .dim-intro {
+      font-size: .95rem; color: var(--muted);
+      line-height: 1.75; max-width: 620px;
+      margin-bottom: 2rem;
+    }
+    .dim-intro strong { color: var(--ink); font-weight: 500; }
+
+    /* ── open cards — 2x2 grid ── */
+    .open-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 560px) { .open-grid { grid-template-columns: 1fr; } }
+
+    .open-card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--r); padding: 1.5rem 1.7rem;
+      display: flex; flex-direction: column; gap: .5rem;
+      text-decoration: none;
+      position: relative; overflow: hidden;
+      transition: border-color .2s;
+    }
+    .open-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--oc-accent); opacity: .8;
+      transition: opacity .2s;
+    }
+    .open-card:hover { border-color: var(--oc-accent); }
+    .open-card:hover::before { opacity: 1; }
+
+    .open-card .oc-label {
+      font-family: var(--serif); font-size: .68rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--oc-accent);
+    }
+    .open-card h3 {
+      font-family: var(--serif); font-size: 1.05rem; font-weight: 600;
+      color: var(--ink); letter-spacing: -.01em; line-height: 1.3;
+    }
+    .open-card .oc-geo {
+      font-size: .82rem; color: var(--muted); line-height: 1.5; flex: 1;
+    }
+    .open-card .oc-link {
+      font-size: .8rem; font-weight: 500;
+      color: var(--oc-accent); margin-top: .3rem;
+    }
+
+    /* ── open badge ── */
+    .open-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-family: var(--serif); font-size: .7rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 1rem;
+    }
+    .open-badge::before {
+      content: ''; display: block;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--teal);
+    }
+
+    /* ── facilitated list ── */
+    .fac-header {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .fac-header .fac-label {
+      font-family: var(--serif); font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); white-space: nowrap;
+    }
+    .fac-header .fac-rule {
+      flex: 1; height: 1px; background: var(--line);
+    }
+
+    .fac-list {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--r); overflow: hidden;
+      margin-bottom: 1.2rem;
+    }
+    .fac-row {
+      display: flex; align-items: center;
+      padding: .9rem 1.4rem; gap: 1rem;
+      border-bottom: 1px solid var(--line);
+      transition: background .15s;
+    }
+    .fac-row:last-child { border-bottom: none; }
+    .fac-row:hover { background: var(--card-lt); }
+
+    .fac-num {
+      font-family: var(--serif); font-size: .72rem; font-weight: 600;
+      letter-spacing: .06em; color: var(--muted);
+      flex-shrink: 0; width: 2.2rem;
+    }
+    .fac-name {
+      font-family: var(--serif); font-size: .92rem; font-weight: 600;
+      color: var(--ink); flex: 1;
+    }
+    .fac-geo {
+      font-size: .8rem; color: var(--muted);
+    }
+    .fac-status {
+      font-size: .72rem; font-weight: 500; font-family: var(--serif);
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--gold); white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .fac-cta {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      padding: .2rem 0;
+    }
+    .fac-cta p {
+      font-size: .88rem; color: var(--muted); line-height: 1.6;
+    }
+
+    /* ── contact card ── */
+    .contact-card {
       background: var(--card); border: 1px solid var(--line);
       border-radius: var(--r); padding: 2.2rem 2.4rem;
     }
-
-    .card h2 {
-      font-family: var(--display);
-      font-size: 1.5rem; font-weight: 500;
-      letter-spacing: -.01em; margin-bottom: 1rem; color: var(--ink);
+    .contact-card h2 {
+      font-family: var(--display); font-size: 1.8rem; font-weight: 400;
+      letter-spacing: -.02em; margin-bottom: .8rem; color: var(--ink);
     }
-    .card h2 em { font-style: italic; color: var(--accent); }
+    .contact-card p { color: var(--muted); line-height: 1.75; font-size: .97rem; }
+    .contact-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.6rem; }
 
-    .card p {
-      color: var(--muted); line-height: 1.75;
-      font-size: .97rem; margin-bottom: .8rem;
-    }
-    .card p:last-of-type { margin-bottom: 0; }
-    .card p strong { color: var(--ink); font-weight: 500; }
-    .card p em { color: var(--ink); font-style: italic; }
-
-    /* work items */
-    .item {
-      margin-top: 1.6rem; padding-top: 1.4rem;
-      border-top: 1px solid var(--line);
-    }
-    .item h3 {
-      font-family: var(--sans); font-size: .92rem; font-weight: 500;
-      letter-spacing: .01em; margin-bottom: .45rem; color: var(--ink);
-    }
-    .item p { font-size: .9rem; color: var(--muted); margin-bottom: .7rem; }
-
-    .textLink {
-      font-size: .85rem; font-weight: 500;
-      color: var(--accent); text-decoration: none;
-      letter-spacing: .01em; transition: color .2s;
-    }
-    .textLink:hover { color: var(--gold); }
-
-    /* contact */
-    .contactRow { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.4rem; }
-
-    /* footer */
+    /* ── footer ── */
     .footer {
       margin-top: 5rem; padding-top: 2rem;
       border-top: 1px solid var(--line);
@@ -244,18 +334,16 @@
     }
     .footer a { color: var(--accent); text-decoration: none; }
     .footer a:hover { color: var(--gold); }
-    .muted { color: var(--muted); }
 
-    /* animations */
+    /* ── animations ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .hero .kicker    { animation: fadeUp .5s ease both .05s; }
-    .hero h1         { animation: fadeUp .5s ease both .12s; }
-    .hero .subhead   { animation: fadeUp .5s ease both .2s; }
-    .hero .ctaRow    { animation: fadeUp .5s ease both .28s; }
-    .hero .hero-note { animation: fadeUp .5s ease both .34s; }
+    .hero .kicker   { animation: fadeUp .5s ease both .05s; }
+    .hero h1        { animation: fadeUp .5s ease both .12s; }
+    .hero .subhead  { animation: fadeUp .5s ease both .2s; }
+    .hero .cta-row  { animation: fadeUp .5s ease both .28s; }
   </style>
 </head>
 <body>
@@ -264,120 +352,180 @@
     <a class="brand" href="/">tech<span>tuition</span></a>
     <nav class="navlinks">
       <a href="/workshop">workshop</a>
+      <a class="ecosystem-link" href="https://deiadora.com">deiadora.com ↗</a>
       <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌗</button>
     </nav>
   </header>
 
   <main class="page">
 
-    <!-- hero -->
+    <!-- ── hero ── -->
     <section class="hero">
-      <p class="kicker">techtuition · one field · nine dimensions</p>
-      <h1>The architecture<br>you already <em>sense.</em></h1>
+      <p class="kicker">techtuition · the currency workshop · one field, nine dimensions</p>
+      <h1>Where the relational layer<br>becomes <em>yours.</em></h1>
       <p class="subhead">
-        Thirteen years of field research formalised into nine dimensions from one field —
-        for founders who are <strong>building in the field</strong>, not studying it from outside.
+        The Currency Workshop is the entry point into the DEIADORA architecture —
+        nine dimensions from one field, applied to your specific system.
+        <strong>Wherever you are building, the field is the ground.</strong>
       </p>
-      <p class="subhead">
+      <p class="subhead method-note">
         The field and the first three dimensions are open, self-paced, and free.
-        A real playbook at the end.
-        <strong>No discovery call. No waitlist. Begin when you're ready.</strong>
+        A playbook specific to your system at the end — not a template filled in from the outside,
+        but an architecture built from the inside out, one signal at a time.
       </p>
-      <div class="ctaRow">
-        <a class="btn primary" href="/workshop/">enter the workshop</a>
-        <a class="btn ghost" href="/cdn-cgi/l/email-protection#8ee6ebe2e2e1cefaebede6fafbe7fae7e1e0a0efe7b1fdfbece4ebedfab3faebede6fafbe7fae7e1e0abbcbee7e0fffbe7fcf7">email deiadora</a>
+      <div class="cta-row">
+        <a class="btn primary" href="/workshop/">begin at the field</a>
+        <a class="btn ghost" href="mailto:herself@deiadora.com?subject=currency workshop · techtuition.ai">email deiadora</a>
       </div>
-      <p class="hero-note">good soil · the yield is always more than you predicted</p>
     </section>
 
-    <!-- about -->
+    <!-- ── what the workshop is ── -->
     <section id="about">
-      <p class="section-label">what this is</p>
-      <div class="card">
-        <h2>The workshop is where the research <em>becomes yours.</em></h2>
+      <p class="section-label">what the workshop is</p>
+      <div class="what-card">
+        <h2>The research, applied<br>to your <em>actual system.</em></h2>
         <p>
-          The workshop runs on a quantum framework — nine dimensions from one field, each one a geometry,
-          each geometry a physiological anchor. Each dimension is a chapter of the research made operational:
-          a slide, a deeper read, and a playbook exercise that builds your specific architecture as you go.
+          The workshop runs on the same framework as the Field Research series — nine dimensions from one field,
+          each mapped to a specific geometry and a specific physiological anchor in the human system.
+          Each dimension is a chapter of the research made operational: a frame, a deeper read,
+          and a playbook exercise that builds your specific architecture as you go.
         </p>
         <p>
-          The field is the zero point, the ground state before anything is built.
-          The nine dimensions that blossom from it map how any coherent system thinks, moves, creates,
-          and completes itself. They apply to a everything — from a founder's business model and a team's governance to
-          a creative practice and a life.
+          The field is the zero point — the ground state before anything is built.
+          The nine dimensions that emerge from it map how any coherent system thinks, moves, creates,
+          and completes itself. They apply to a business model, a team's governance,
+          a creative practice, an AI system, and a life. <em>The geometry is the same at every scale.</em>
         </p>
         <p>
-          The research behind the workshop exists in four volumes —
-          <em>Quantum Currency</em>, <em>Relational Currency</em>,
-          <em>Encoded Currency</em>, and <em>Sovereign Currency</em>.
-          Each volume is a different lens of the same sequence.
-          The dimension you begin from depends on where you are and what the live question is.
-          One field. Four cornerstones to ground it into being.
-        </p>
-        <p>
-          The field and the first three dimensions — coherence, recognition, discernment — are the on-ramp.
-          They are live now, self-paced and free. By the end, you'll arrive at dimension 3 with a compiled document
-          <strong>specific to your intention</strong>, not a template filled from the outside.
-          Dimensions 4 through 9 are facilitated, by conversation.
-          Entry is relationship, not application.
-          If the pattern recognises itself, <em>the next move is to write.</em>
+          The field and the first three dimensions — coherence, recognition, discernment —
+          are the on-ramp. They are live now, self-paced and free. By dimension 3,
+          you will have a compiled playbook <strong>specific to your intention</strong>.
+          Dimensions 4 through 9 are facilitated — entered by conversation, not application.
+          If the pattern recognises itself, the next move is to write.
         </p>
       </div>
     </section>
 
-    <!-- work -->
-    <section id="work">
-      <p class="section-label">work with deiadora</p>
-      <div class="card">
-        <h2>How to work <em>together.</em></h2>
+    <!-- ── dimension sequence ── -->
+    <section id="dimensions">
+      <p class="section-label">the nine dimensions</p>
 
-        <div class="item">
-          <h3>Begin at the field</h3>
-          <p>The workshop is the proposal. The field and the first three dimensions are open, self-paced, and free —
-            the on-ramp into the full arc. Work at your own pace and arrive at dimension 3
-            with a playbook specific to your business. No discovery call required to begin.</p>
-          <a class="textLink" href="/workshop/">workshop →</a>
+      <p class="dim-intro">
+        Nine geometries. Nine principles. One field.
+        The sequence runs from zero-point through to source —
+        each dimension a different face of the same architecture.
+      </p>
+
+      <!-- open dimensions 0–3 -->
+      <div class="open-badge">open and free · begin now</div>
+
+      <div class="open-grid">
+
+        <a class="open-card" href="/workshop/the-field" style="--oc-accent: var(--node-6)">
+          <p class="oc-label">0 · Ground state</p>
+          <h3>The field</h3>
+          <p class="oc-geo">Zero point. The field that precedes everything built from it. Begin here.</p>
+          <p class="oc-link">enter the field →</p>
+        </a>
+
+        <a class="open-card" href="/workshop/dimension-1" style="--oc-accent: var(--node-1)">
+          <p class="oc-label">1 · Torus</p>
+          <h3>Coherence</h3>
+          <p class="oc-geo">The self-sustaining fold. A system that generates rather than depletes the energy it needs.</p>
+          <p class="oc-link">dimension 1 →</p>
+        </a>
+
+        <a class="open-card" href="/workshop/dimension-2" style="--oc-accent: var(--node-2)">
+          <p class="oc-label">2 · Vesica piscis</p>
+          <h3>Recognition</h3>
+          <p class="oc-geo">The shared field between two systems. Where genuine recognition creates something neither generates alone.</p>
+          <p class="oc-link">dimension 2 →</p>
+        </a>
+
+        <a class="open-card" href="/workshop/dimension-3" style="--oc-accent: var(--node-3)">
+          <p class="oc-label">3 · Tetrahedron</p>
+          <h3>Discernment</h3>
+          <p class="oc-geo">The first stable structure. Playbook compiles here — specific to your intention, built from the inside out.</p>
+          <p class="oc-link">dimension 3 →</p>
+        </a>
+
+      </div>
+
+      <!-- facilitated dimensions 4–9 -->
+      <div class="fac-header">
+        <span class="fac-label">dimensions 4–9 · by conversation</span>
+        <div class="fac-rule"></div>
+      </div>
+
+      <div class="fac-list">
+        <div class="fac-row">
+          <span class="fac-num">4</span>
+          <span class="fac-name">Wave</span>
+          <span class="fac-geo">Hexahedron</span>
+          <span class="fac-status">by conversation</span>
         </div>
-
-        <div class="item">
-          <h3>Experience the currency workshop</h3>
-          <p>The Currency Workshop is where the architecture becomes operational at team scale.
-            Live, facilitated, for founders and the people they build with.
-            A conversation is how it begins.</p>
-          <a class="textLink" href="#contact">contact →</a>
+        <div class="fac-row">
+          <span class="fac-num">5</span>
+          <span class="fac-name">Direction</span>
+          <span class="fac-geo">Tesseract</span>
+          <span class="fac-status">by conversation</span>
         </div>
-
-        <div class="item">
-          <h3>Continue the engagement</h3>
-          <p>If the workshop resonated and you want to discuss what a direct engagement looks like —
-            a speaking invitation, embedded education, or a coherence architecture retainer —
-            the conversation continues here. Peer-to-peer. No application process.</p>
-          <a class="textLink" href="#contact">contact →</a>
+        <div class="fac-row">
+          <span class="fac-num">6</span>
+          <span class="fac-name">Transmission</span>
+          <span class="fac-geo">Dodecahedron</span>
+          <span class="fac-status">by conversation</span>
+        </div>
+        <div class="fac-row">
+          <span class="fac-num">7</span>
+          <span class="fac-name">Expression</span>
+          <span class="fac-geo">Egg of life</span>
+          <span class="fac-status">by conversation</span>
+        </div>
+        <div class="fac-row">
+          <span class="fac-num">8</span>
+          <span class="fac-name">Structure</span>
+          <span class="fac-geo">Octagon</span>
+          <span class="fac-status">by conversation</span>
+        </div>
+        <div class="fac-row">
+          <span class="fac-num">9</span>
+          <span class="fac-name">Source</span>
+          <span class="fac-geo">Nonagon</span>
+          <span class="fac-status">by conversation</span>
         </div>
       </div>
+
+      <div class="fac-cta">
+        <p>Dimensions 4–9 are facilitated — for founders, teams, and organisations. Entry is relationship, not application.</p>
+        <a class="btn ghost" href="mailto:herself@deiadora.com?subject=dimensions 4–9 · techtuition.ai">write to continue →</a>
+      </div>
+
     </section>
 
-    <!-- contact -->
+    <!-- ── contact ── -->
     <section id="contact">
-      <div class="card">
-        <h2>Get in touch.</h2>
-        <p>For embedded education, mentorship, or bringing the workshop to your organisation.
-          Email is the primary path — a conversation, not a form.</p>
-        <div class="contactRow">
-          <a class="btn primary" href="/workshop/">begin at dimension 0</a>
-          <a class="btn ghost" href="/cdn-cgi/l/email-protection#8ee6ebe2e2e1cefaebede6fafbe7fae7e1e0a0efe7b1fdfbece4ebedfab3faebede6fafbe7fae7e1e0abbcbee7e0fffbe7fcf7">email deiadora</a>
+      <div class="contact-card">
+        <h2>Ready to go deeper.</h2>
+        <p>
+          For the facilitated dimensions 4–9, team workshops, speaking engagements,
+          and organisations looking to integrate the relational architecture at scale.
+          The conversation begins the same way the work does — peer-to-peer.
+        </p>
+        <div class="contact-row">
+          <a class="btn primary" href="/workshop/">begin at the field</a>
+          <a class="btn ghost" href="mailto:herself@deiadora.com?subject=currency workshop · techtuition.ai">email deiadora</a>
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <p>techtuition · expression · egg of life</p>
-      <p class="muted">© <span id="year"></span> · part of the <a href="https://deiadora.com">deiadora ecosystem</a> 🌿</p>
+      <p>techtuition · expression · egg of life </p>
+      <p>© <span id="year"></span> · part of the <a href="https://deiadora.com">deiadora ecosystem</a> 🌿</p>
     </footer>
 
   </main>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
     const toggle  = document.getElementById("themeToggle");
