@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>the currency workshop · techtuition</title>
-  <meta name="description" content="A four-dimension on-ramp into Quantum Currency: Field Research on Human Coherence. Field, coherence, recognition, discernment — the architecture of orientation for founders and their teams." />
+  <meta name="description" content="A four-dimension on-ramp into Quantum Currency: Field Research on Human Coherence. Field, coherence, recognition, discernment — the architecture of orientation for founders, researchers, and their teams." />
   <meta property="og:title" content="the currency workshop · techtuition" />
-  <meta property="og:description" content="The field and dimensiones 1 through 3. The ground, the torus, the vesica piscis, the tetrahedron. A real playbook at the end." />
+  <meta property="og:description" content="The field and dimensions 1 through 3. The ground, the torus, the vesica piscis, the tetrahedron. A real playbook at the end." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://techtuition.ai/workshop" />
   <meta property="og:image" content="https://techtuition.ai/techtuition_banner.jpeg" />
@@ -51,10 +51,10 @@
       --line-s:     rgba(240,237,230,.18);
     }
 
-    [data-theme="dark"] .nav          { background: #010003; }
+    [data-theme="dark"] .nav           { background: #010003; }
     [data-theme="dark"] .playbook-card { background: #151515; }
-    [data-theme="dark"] .for-card     { background: #151515; }
-    [data-theme="dark"] .lens-card    { background: #151515; }
+    [data-theme="dark"] .for-card      { background: #151515; }
+    [data-theme="dark"] .lens-card     { background: #151515; }
 
     [data-theme="light"] .nav { background: #f4f2ec; }
 
@@ -82,14 +82,19 @@
       color: var(--ink); text-decoration: none; letter-spacing: -.02em;
     }
     .brand span { color: var(--node7); }
-
     .navlinks { display: flex; align-items: center; gap: 1.6rem; }
     .navlinks a {
       font-size: .85rem; font-weight: 400; color: var(--muted);
       text-decoration: none; letter-spacing: .02em; transition: color .2s;
     }
     .navlinks a:hover { color: var(--node7); }
-
+    .navlinks .ecosystem-link {
+      font-size: .78rem; font-weight: 500;
+      color: var(--muted); letter-spacing: .04em;
+      border: 1px solid var(--line-s); border-radius: 100px;
+      padding: .3rem .8rem; transition: border-color .2s, color .2s;
+    }
+    .navlinks .ecosystem-link:hover { border-color: var(--node7); color: var(--node7); }
     .theme-toggle {
       background: none; border: 1.5px solid var(--line);
       border-radius: 100px; cursor: pointer;
@@ -107,7 +112,6 @@
       border-bottom: 1px solid var(--line);
       position: relative;
     }
-
     .hero::before {
       content: '';
       position: absolute; top: 0; left: -1.5rem; right: -1.5rem; bottom: 0;
@@ -117,14 +121,12 @@
         transparent 100%);
       pointer-events: none;
     }
-
     .hero-eyebrow {
       font-family: var(--serif); font-size: .78rem; font-weight: 500;
       letter-spacing: .12em; text-transform: uppercase;
       color: var(--teal); margin-bottom: 1.2rem;
       opacity: 0; animation: fadeUp .5s ease both .05s;
     }
-
     .hero h1 {
       font-family: var(--display);
       font-size: clamp(2.4rem, 5.5vw, 4rem);
@@ -134,7 +136,6 @@
       opacity: 0; animation: fadeUp .5s ease both .12s;
     }
     .hero h1 em { font-style: italic; font-weight: 400; color: var(--teal); }
-
     .hero-sub {
       font-size: 1.05rem; color: var(--muted);
       max-width: 560px; line-height: 1.8;
@@ -143,13 +144,11 @@
     }
     .hero-sub strong { color: var(--ink); font-weight: 500; }
     .hero-sub em { color: var(--ink); font-style: italic; }
-
     .cta-row {
       display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
       margin-bottom: 1.6rem;
       opacity: 0; animation: fadeUp .5s ease both .28s;
     }
-
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
       padding: .75rem 1.6rem; border-radius: var(--r);
@@ -159,7 +158,6 @@
       transition: background .2s;
     }
     .btn-primary:hover { background: var(--teal-lt); }
-
     .btn-ghost {
       display: inline-flex; align-items: center; gap: 8px;
       padding: .73rem 1.4rem; border-radius: var(--r);
@@ -170,7 +168,6 @@
       transition: border-color .2s, color .2s;
     }
     .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
-
     .hero-note {
       font-size: .82rem; color: var(--muted);
       font-style: italic; letter-spacing: .02em;
@@ -183,74 +180,6 @@
       font-family: var(--serif); font-size: .76rem; font-weight: 500;
       letter-spacing: .12em; text-transform: uppercase;
       color: var(--teal); margin-bottom: 1.6rem;
-    }
-
-    /* ── FOUR dimensionES ── */
-    .dimensions-intro {
-      font-size: 1rem; color: var(--muted); line-height: 1.8;
-      max-width: 600px; font-weight: 300; margin-bottom: 2.8rem;
-    }
-    .dimensions-intro strong { color: var(--ink); font-weight: 500; }
-    .dimensions-intro em { color: var(--ink); font-style: italic; }
-
-    .dimensions-list { display: flex; flex-direction: column; gap: 0; }
-
-    .dimension-row {
-      display: grid; grid-template-columns: 56px 1fr;
-      gap: 0 1.6rem; align-items: start;
-      padding: 1.8rem 0;
-      border-bottom: 1px solid var(--line);
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .5s ease, transform .5s ease;
-    }
-    .dimension-row:first-child { border-top: 1px solid var(--line); }
-    .dimension-row.visible { opacity: 1; transform: none; }
-
-    .dimension-num {
-      width: 44px; height: 44px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
-      flex-shrink: 0; margin-top: 2px;
-      transition: background .3s, color .3s;
-    }
-    .dimension-row:nth-child(1) .dimension-num { background: rgba(15,110,86,.1);  color: #0f6e56; }
-    .dimension-row:nth-child(2) .dimension-num { background: rgba(26,158,122,.1); color: #1a9e7a; }
-    .dimension-row:nth-child(3) .dimension-num { background: rgba(8,80,65,.12);   color: #085041; }
-    .dimension-row:nth-child(4) .dimension-num { background: rgba(10,61,51,.12);  color: #0a3d33; }
-    [data-theme="dark"] .dimension-row:nth-child(4) .dimension-num { color: #7ab8a6; }
-
-    .dimension-title {
-      font-family: var(--display); font-size: 1.4rem; font-weight: 500;
-      color: var(--ink); margin-bottom: .3rem; line-height: 1.2;
-    }
-    .dimension-geo {
-      font-family: var(--serif); font-size: .72rem; font-weight: 500;
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--teal); margin-bottom: .7rem;
-    }
-    .dimension-desc {
-      font-size: .95rem; color: var(--muted); line-height: 1.75;
-      font-weight: 300; max-width: 540px;
-    }
-    .dimension-desc strong { color: var(--ink); font-weight: 500; }
-    .dimension-desc em { color: var(--ink); font-style: italic; }
-
-    .dimension-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: .9rem; font-size: .85rem; font-weight: 500;
-      color: var(--teal); text-decoration: none;
-      font-family: var(--serif); letter-spacing: .01em;
-      transition: gap .2s, color .2s;
-    }
-    .dimension-link:hover { gap: 10px; color: var(--teal-lt); }
-    .dimension-link.locked { color: var(--muted); cursor: default; pointer-events: none; }
-    .dimension-lock {
-      font-size: 10px; font-family: var(--serif); font-weight: 600;
-      letter-spacing: .06em; text-transform: uppercase;
-      background: var(--card-lt); color: var(--muted);
-      padding: 2px 8px; border-radius: 100px;
-      border: 1px solid var(--line-s);
     }
 
     /* ── WHAT YOU BUILD ── */
@@ -276,7 +205,6 @@
     .playbook-card p:last-of-type { margin-bottom: 1.4rem; }
     .playbook-card p strong { color: var(--ink); font-weight: 500; }
     .playbook-card p em { color: var(--ink); font-style: italic; }
-
     .scope-row {
       display: flex; gap: 2rem; flex-wrap: wrap;
       padding: 1.2rem 1.4rem;
@@ -295,13 +223,16 @@
     .scope-note { font-size: 12px; color: var(--muted); line-height: 1.55; font-weight: 300; }
 
     /* ── LENS SECTION ── */
+    .lens-intro {
+      font-size: 1rem; color: var(--muted); line-height: 1.8;
+      max-width: 600px; font-weight: 300; margin-bottom: 1.6rem;
+    }
+    .lens-intro strong { color: var(--ink); font-weight: 500; }
     .lens-row {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
-      margin-top: 1.4rem;
     }
     @media (max-width: 600px) { .lens-row { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 360px) { .lens-row { grid-template-columns: 1fr; } }
-
     .lens-card {
       background: var(--card); border: 1px solid var(--line-s);
       border-radius: var(--r); padding: 14px 16px;
@@ -384,10 +315,8 @@
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     @media (max-width: 600px) {
       .hero { padding: 4rem 0 3rem; }
-      .dimension-row { grid-template-columns: 44px 1fr; gap: 0 1.2rem; }
     }
   </style>
 </head>
@@ -397,6 +326,7 @@
     <a class="brand" href="/">tech<span>tuition</span></a>
     <nav class="navlinks">
       <a href="/workshop">workshop</a>
+      <a class="ecosystem-link" href="https://deiadora.com">deiadora.com ↗</a>
       <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌗</button>
     </nav>
   </header>
@@ -405,10 +335,10 @@
 
     <!-- ── HERO ── -->
     <section class="hero">
-      <p class="hero-eyebrow">the currency workshop · techtuition</p>
-      <h1>One field. Nine dimensiones.<br><em> A fourfold foundation in currency.</em></h1>
+      <p class="hero-eyebrow">DEIADORA · the currency workshop · techtuition.ai</p>
+      <h1>One field. Nine dimensions.<br><em>A fourfold foundation in currency.</em></h1>
       <p class="hero-sub">
-        <em>Quantum Currency: Field Research on Human Coherence</em> maps a geometric architecture for how coherent systems actually work. <strong>This is the on-ramp.</strong> They are live, self-paced, and free to work through. A real playbook at the end.
+        <em>Quantum Currency: Field Research on Human Coherence</em> maps a geometric architecture for how coherent systems actually work. <strong>This is the on-ramp.</strong> Live, self-paced, and free to work through. A real playbook at the end.
       </p>
       <div class="cta-row">
         <a class="btn-primary" href="/workshop/the-field">begin at the field →</a>
@@ -440,28 +370,28 @@
     <!-- ── THE LENS SYSTEM ── -->
     <section class="section" id="lenses">
       <p class="section-label">the lens system</p>
-      <p class="dimensions-intro">Each dimension contains the same content read through four different volumes — four lenses on the same architecture. The Quantum Currency lens is live. The other three arrive as the books do.</p>
+      <p class="lens-intro">Each dimension contains the same content read through four different volumes — four lenses on the same architecture. The Quantum Currency lens is live. The other three arrive as the books do.</p>
       <div class="lens-row">
         <div class="lens-card active">
-          <p class="lc-num">Vol. 1</p>
+          <p class="lc-num">Vol. I</p>
           <p class="lc-name">Quantum Currency</p>
           <p class="lc-desc">Field research on human coherence. The foundational arc — individual, team, field.</p>
           <span class="lc-tag">live now</span>
         </div>
         <div class="lens-card">
-          <p class="lc-num">Vol. 2</p>
+          <p class="lc-num">Vol. II</p>
           <p class="lc-name">Relational Currency</p>
           <p class="lc-desc">The multiscalar read. Human systems (including human-AI collaboration), the field and dimensions 1–9 across all scales.</p>
           <span class="lc-tag">coming</span>
         </div>
         <div class="lens-card">
-          <p class="lc-num">Vol. 3</p>
+          <p class="lc-num">Vol. III</p>
           <p class="lc-name">Encoded Currency</p>
           <p class="lc-desc">Historical and informational architecture. Recognition across time.</p>
           <span class="lc-tag">coming</span>
         </div>
         <div class="lens-card">
-          <p class="lc-num">Vol. 4</p>
+          <p class="lc-num">Vol. IV</p>
           <p class="lc-name">Sovereign Currency</p>
           <p class="lc-desc">Self-empowerment. The interior work that makes the exterior architecture possible.</p>
           <span class="lc-tag">coming</span>
@@ -473,10 +403,10 @@
     <section class="section">
       <p class="section-label">who this is for</p>
       <div class="for-card">
-        <h2>Founders. And their <em>teams.</em></h2>
-        <p>The on-ramp is for founders who recognise something in these field notes — who have sensed the fractal architecture underneath the work but haven't had language or geometry for it yet. It is for the people building in the field, not studying it from outside.</p>
+        <h2>Founders, researchers,<br>and their <em>teams.</em></h2>
+        <p>The on-ramp is for anyone who recognises something in these field notes — who has sensed the fractal architecture underneath the work but hasn't yet had language or geometry for it. Founders building in the field. Researchers engaging with the relational layer as a technical architecture. Practitioners looking for a framework that describes how coherent systems actually work.</p>
         <p><strong>The field and dimensions 1 through 3 are self-paced.</strong> No cohort required, no application, no discovery call. You work through them when you're ready, at your own pace, and the playbook you build is yours to keep and use regardless of what comes next.</p>
-        <p>Dimensiones 4 through 9 — wave, direction, transmission, expression, structure, source — live inside the facilitated cohort. They require the field that live, held group work generates. Entry is by conversation, not application. If the pattern recognises itself after dimension 3, <em>the next move is to write.</em></p>
+        <p>Dimensions 4 through 9 — wave, direction, transmission, expression, structure, source — live inside the facilitated cohort. They require the field that live, held group work generates. Entry is by conversation, not application. If the pattern recognises itself after dimension 3, <em>the next move is to write.</em></p>
       </div>
     </section>
 
@@ -484,7 +414,7 @@
     <div class="arc-close">
       <p class="ac-eyebrow">ready</p>
       <h2>The ground is<br><em>already here.</em></h2>
-      <p>The field and dimensiones 1-3 take about twenty minutes or so to complete. Longer if you want to be thorough and contemplative. Any notes input into the playbook exercises will be saved during your session. It does not require any prior knowledge of the book, the framework, or the geometry. It requires only <strong>a willingness to be honest about where you actually are.</strong></p>
+      <p>The field and dimensions 1–3 take about twenty minutes or so to complete. Longer if you want to be thorough and contemplative. Any notes input into the playbook exercises will be saved during your session. It does not require any prior knowledge of the book, the framework, or the geometry. It requires only <strong>a willingness to be honest about where you actually are.</strong></p>
       <a class="btn-primary" href="/workshop/the-field" style="margin: 0 auto; display:inline-flex;">begin at the field →</a>
     </div>
 
@@ -527,24 +457,6 @@
     sysDark.addEventListener('change', () => {
       if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? 'dark' : 'light');
     });
-
-    /* ── dimensionS REVEAL ── */
-    const dimensionRows = document.querySelectorAll('.dimension-row');
-
-    if ('IntersectionObserver' in window) {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const idx = Array.from(dimensionRows).indexOf(entry.target);
-            setTimeout(() => entry.target.classList.add('visible'), idx * 140);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-      dimensionRows.forEach(row => obs.observe(row));
-    } else {
-      dimensionRows.forEach(row => row.classList.add('visible'));
-    }
   </script>
 </body>
 </html>
