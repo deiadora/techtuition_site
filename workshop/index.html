@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>the currency workshop · techtuition</title>
-  <meta name="description" content="A four-dimension on-ramp into Quantum Currency: Field Research on Human Coherence. Field, coherence, recognition, discernment — the architecture of orientation for founders, researchers, and their teams." />
+  <meta name="description" content="Don't duplicate dysfunction. The Currency Workshop teaches you how to define your coherence, align your energy, and create from a conscious foundation." />
   <meta property="og:title" content="the currency workshop · techtuition" />
   <meta property="og:description" content="The field and dimensions 1 through 3. The ground, the torus, the vesica piscis, the tetrahedron. A real playbook at the end." />
   <meta property="og:type" content="website" />
@@ -28,15 +28,12 @@
       --serif:      'Exo 2', system-ui, sans-serif;
       --sans:       'DM Sans', system-ui, sans-serif;
       --display:    'Cormorant Garamond', Georgia, serif;
-
       --node7:      #1a6b9e;
       --node7-lt:   #32849d;
-
       --teal:       #0f6e56;
       --teal-lt:    #1a9e7a;
       --teal-dk:    #085041;
       --teal-bg:    #e1f5ee;
-
       --accent:     var(--node7);
     }
 
@@ -50,75 +47,48 @@
       --line:       rgba(240,237,230,.1);
       --line-s:     rgba(240,237,230,.18);
     }
-
     [data-theme="dark"] .nav           { background: #010003; }
     [data-theme="dark"] .playbook-card { background: #151515; }
     [data-theme="dark"] .for-card      { background: #151515; }
     [data-theme="dark"] .lens-card     { background: #151515; }
-
     [data-theme="light"] .nav { background: #f4f2ec; }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scrollbar-gutter: stable; }
-    body {
-      font-family: var(--sans);
-      background: var(--paper); color: var(--ink);
-      line-height: 1.6; -webkit-font-smoothing: antialiased;
-      transition: background .25s, color .25s;
-    }
+    body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background .25s, color .25s; }
 
-    /* ── NAV ── */
+    /* nav */
     .nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: .9rem 2rem;
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(8px);
+      padding: .9rem 2rem; background: var(--paper);
+      border-bottom: 1px solid var(--line); backdrop-filter: blur(8px);
       transition: background .25s;
     }
-    .brand {
-      font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
-      color: var(--ink); text-decoration: none; letter-spacing: -.02em;
-    }
+    .brand { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -.02em; }
     .brand span { color: var(--node7); }
     .navlinks { display: flex; align-items: center; gap: 1.6rem; }
-    .navlinks a {
-      font-size: .85rem; font-weight: 400; color: var(--muted);
-      text-decoration: none; letter-spacing: .02em; transition: color .2s;
-    }
+    .navlinks a { font-size: .85rem; font-weight: 400; color: var(--muted); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
     .navlinks a:hover { color: var(--node7); }
     .navlinks .ecosystem-link {
-      font-size: .78rem; font-weight: 500;
-      color: var(--muted); letter-spacing: .04em;
+      font-size: .78rem; font-weight: 500; color: var(--muted); letter-spacing: .04em;
       border: 1px solid var(--line-s); border-radius: 100px;
       padding: .3rem .8rem; transition: border-color .2s, color .2s;
     }
     .navlinks .ecosystem-link:hover { border-color: var(--node7); color: var(--node7); }
-    .theme-toggle {
-      background: none; border: 1.5px solid var(--line);
-      border-radius: 100px; cursor: pointer;
-      padding: .35rem .6rem; font-size: 1rem; line-height: 1;
-      color: var(--muted); transition: border-color .2s, color .2s;
-    }
+    .theme-toggle { background: none; border: 1.5px solid var(--line); border-radius: 100px; cursor: pointer; padding: .35rem .6rem; font-size: 1rem; line-height: 1; color: var(--muted); transition: border-color .2s, color .2s; }
     .theme-toggle:hover { border-color: var(--gold); color: var(--ink); }
 
-    /* ── PAGE ── */
+    /* page */
     .page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 6rem; }
 
-    /* ── HERO ── */
+    /* hero */
     .hero {
-      padding: 6rem 0 4rem;
-      border-bottom: 1px solid var(--line);
-      position: relative;
+      padding: 6rem 0 4rem; border-bottom: 1px solid var(--line); position: relative;
     }
     .hero::before {
-      content: '';
-      position: absolute; top: 0; left: -1.5rem; right: -1.5rem; bottom: 0;
-      background: linear-gradient(160deg,
-        rgba(26,107,158,.04) 0%,
-        rgba(15,110,86,.03) 60%,
-        transparent 100%);
+      content: ''; position: absolute; top: 0; left: -1.5rem; right: -1.5rem; bottom: 0;
+      background: linear-gradient(160deg, rgba(26,107,158,.04) 0%, rgba(15,110,86,.03) 60%, transparent 100%);
       pointer-events: none;
     }
     .hero-eyebrow {
@@ -128,53 +98,68 @@
       opacity: 0; animation: fadeUp .5s ease both .05s;
     }
     .hero h1 {
-      font-family: var(--display);
-      font-size: clamp(2.4rem, 5.5vw, 4rem);
-      line-height: 1.08; letter-spacing: -.02em;
-      font-weight: 500; color: var(--ink);
+      font-family: var(--display); font-size: clamp(2.4rem, 5.5vw, 4rem);
+      line-height: 1.08; letter-spacing: -.02em; font-weight: 500; color: var(--ink);
       max-width: 680px; margin-bottom: 1.4rem;
       opacity: 0; animation: fadeUp .5s ease both .12s;
     }
     .hero h1 em { font-style: italic; font-weight: 400; color: var(--teal); }
     .hero-sub {
-      font-size: 1.05rem; color: var(--muted);
-      max-width: 560px; line-height: 1.8;
-      margin-bottom: 2rem; font-weight: 300;
+      font-size: 1.05rem; color: var(--muted); max-width: 560px; line-height: 1.8;
+      margin-bottom: 1.4rem; font-weight: 300;
       opacity: 0; animation: fadeUp .5s ease both .2s;
     }
     .hero-sub strong { color: var(--ink); font-weight: 500; }
     .hero-sub em { color: var(--ink); font-style: italic; }
+
+    /* the don't duplicate dysfunction pull quote */
+    .hero-thesis {
+      border-left: 2px solid var(--teal);
+      padding-left: 1.2rem;
+      margin: 0 0 2rem;
+      font-family: var(--display);
+      font-size: 1.12rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.65;
+      max-width: 540px;
+      opacity: 0;
+      animation: fadeUp .5s ease both .26s;
+    }
+    .hero-thesis strong {
+      font-style: normal;
+      color: var(--teal);
+      font-weight: 600;
+    }
+
     .cta-row {
       display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
       margin-bottom: 1.6rem;
-      opacity: 0; animation: fadeUp .5s ease both .28s;
+      opacity: 0; animation: fadeUp .5s ease both .32s;
     }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
       padding: .75rem 1.6rem; border-radius: var(--r);
       font-family: var(--sans); font-size: .92rem; font-weight: 500;
       background: var(--teal); color: #fff;
-      text-decoration: none; border: none; cursor: pointer;
-      transition: background .2s;
+      text-decoration: none; border: none; cursor: pointer; transition: background .2s;
     }
     .btn-primary:hover { background: var(--teal-lt); }
     .btn-ghost {
       display: inline-flex; align-items: center; gap: 8px;
       padding: .73rem 1.4rem; border-radius: var(--r);
       font-family: var(--sans); font-size: .88rem; font-weight: 400;
-      color: var(--ink); background: transparent;
-      text-decoration: none;
-      border: 1.5px solid var(--line-s);
-      transition: border-color .2s, color .2s;
+      color: var(--ink); background: transparent; text-decoration: none;
+      border: 1.5px solid var(--line-s); transition: border-color .2s, color .2s;
     }
     .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
     .hero-note {
-      font-size: .82rem; color: var(--muted);
-      font-style: italic; letter-spacing: .02em;
-      opacity: 0; animation: fadeUp .5s ease both .34s;
+      font-size: .82rem; color: var(--muted); font-style: italic; letter-spacing: .02em;
+      opacity: 0; animation: fadeUp .5s ease both .38s;
     }
 
-    /* ── SECTION COMMON ── */
+    /* sections */
     .section { margin-top: 5rem; }
     .section-label {
       font-family: var(--serif); font-size: .76rem; font-weight: 500;
@@ -182,15 +167,13 @@
       color: var(--teal); margin-bottom: 1.6rem;
     }
 
-    /* ── WHAT YOU BUILD ── */
+    /* playbook card */
     .playbook-card {
       background: var(--card); border: 1px solid var(--line-s);
-      border-radius: 12px; padding: 2.2rem 2.4rem;
-      position: relative; overflow: hidden;
+      border-radius: 12px; padding: 2.2rem 2.4rem; position: relative; overflow: hidden;
     }
     .playbook-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
       background: linear-gradient(90deg, var(--teal), var(--teal-lt), var(--node7));
     }
     .playbook-card h2 {
@@ -205,10 +188,10 @@
     .playbook-card p:last-of-type { margin-bottom: 1.4rem; }
     .playbook-card p strong { color: var(--ink); font-weight: 500; }
     .playbook-card p em { color: var(--ink); font-style: italic; }
+
     .scope-row {
       display: flex; gap: 2rem; flex-wrap: wrap;
-      padding: 1.2rem 1.4rem;
-      background: var(--card-lt); border-radius: var(--r);
+      padding: 1.2rem 1.4rem; background: var(--card-lt); border-radius: var(--r);
       margin-bottom: 1.4rem;
     }
     .scope-item { display: flex; flex-direction: column; gap: 4px; }
@@ -218,95 +201,59 @@
       letter-spacing: .07em; text-transform: uppercase;
     }
     .scope-dot { width: 9px; height: 9px; border-radius: 50%; }
-    .scope-dot.personal { background: var(--muted); }
-    .scope-dot.business { background: var(--teal); }
+    .scope-dot.inner { background: var(--muted); }
+    .scope-dot.outer { background: var(--teal); }
     .scope-note { font-size: 12px; color: var(--muted); line-height: 1.55; font-weight: 300; }
 
-    /* ── LENS SECTION ── */
+    /* lens section */
     .lens-intro {
       font-size: 1rem; color: var(--muted); line-height: 1.8;
       max-width: 600px; font-weight: 300; margin-bottom: 1.6rem;
     }
     .lens-intro strong { color: var(--ink); font-weight: 500; }
-    .lens-row {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
-    }
+    .lens-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
     @media (max-width: 600px) { .lens-row { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 360px) { .lens-row { grid-template-columns: 1fr; } }
-    .lens-card {
-      background: var(--card); border: 1px solid var(--line-s);
-      border-radius: var(--r); padding: 14px 16px;
-    }
+    .lens-card { background: var(--card); border: 1px solid var(--line-s); border-radius: var(--r); padding: 14px 16px; }
     .lens-card.active { border-color: var(--teal); }
-    .lens-card .lc-num {
-      font-family: var(--serif); font-size: 10px; font-weight: 600;
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 3px;
-    }
-    .lens-card .lc-name {
-      font-family: var(--serif); font-size: 13px; font-weight: 600;
-      color: var(--ink); margin-bottom: 5px;
-    }
+    .lens-card .lc-num { font-family: var(--serif); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .lens-card .lc-name { font-family: var(--serif); font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
     .lens-card.active .lc-name { color: var(--teal); }
     .lens-card .lc-desc { font-size: 11px; color: var(--muted); line-height: 1.6; font-weight: 300; }
-    .lens-card .lc-tag {
-      display: inline-block; margin-top: 8px;
-      font-size: 9px; font-weight: 600; font-family: var(--serif);
-      letter-spacing: .07em; text-transform: uppercase;
-      padding: 2px 8px; border-radius: 100px;
-    }
+    .lens-card .lc-tag { display: inline-block; margin-top: 8px; font-size: 9px; font-weight: 600; font-family: var(--serif); letter-spacing: .07em; text-transform: uppercase; padding: 2px 8px; border-radius: 100px; }
     .lens-card.active .lc-tag { background: var(--teal-bg); color: var(--teal-dk); }
     .lens-card:not(.active) .lc-tag { background: var(--card-lt); color: var(--muted); border: 1px solid var(--line-s); }
 
-    /* ── WHO THIS IS FOR ── */
+    /* who this is for */
     .for-card {
       background: var(--card); border: 1px solid var(--line-s);
       border-radius: 12px; padding: 2.2rem 2.4rem;
     }
-    .for-card h2 {
-      font-family: var(--display); font-size: 1.6rem; font-weight: 500;
-      color: var(--ink); margin-bottom: 1rem;
-    }
+    .for-card h2 { font-family: var(--display); font-size: 1.6rem; font-weight: 500; color: var(--ink); margin-bottom: 1rem; }
     .for-card h2 em { font-style: italic; color: var(--teal); }
-    .for-card p {
-      font-size: .97rem; color: var(--muted); line-height: 1.8;
-      font-weight: 300; margin-bottom: .8rem; max-width: 580px;
-    }
+    .for-card p { font-size: .97rem; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: .9rem; max-width: 580px; }
     .for-card p strong { color: var(--ink); font-weight: 500; }
     .for-card p em { color: var(--ink); font-style: italic; }
     .for-card p:last-of-type { margin: 0; }
 
-    /* ── ARC CLOSE ── */
+    /* arc close */
     .arc-close {
-      margin-top: 5rem;
-      padding: 3rem 0;
-      border-top: 1px solid var(--line);
-      text-align: center;
+      margin-top: 5rem; padding: 3rem 0; border-top: 1px solid var(--line); text-align: center;
     }
     .arc-close .ac-eyebrow {
       font-family: var(--serif); font-size: .76rem; font-weight: 500;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--teal); margin-bottom: 1rem;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem;
     }
-    .arc-close h2 {
-      font-family: var(--display); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 500; line-height: 1.2; color: var(--ink);
-      margin-bottom: .8rem;
-    }
+    .arc-close h2 { font-family: var(--display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 500; line-height: 1.2; color: var(--ink); margin-bottom: .8rem; }
     .arc-close h2 em { font-style: italic; color: var(--teal); }
-    .arc-close p {
-      font-size: .97rem; color: var(--muted); line-height: 1.8;
-      font-weight: 300; max-width: 520px; margin: 0 auto 2rem;
-    }
+    .arc-close p { font-size: .97rem; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 520px; margin: 0 auto 2rem; }
     .arc-close p strong { color: var(--ink); font-weight: 500; }
 
-    /* ── FOOTER ── */
+    /* footer */
     .footer {
-      margin-top: 5rem; padding-top: 2rem;
-      border-top: 1px solid var(--line);
+      margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--line);
       display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: .6rem;
-      font-size: .82rem; color: var(--muted);
+      flex-wrap: wrap; gap: .6rem; font-size: .82rem; color: var(--muted);
     }
     .footer a { color: var(--node7); text-decoration: none; }
     .footer a:hover { color: var(--gold); }
@@ -315,9 +262,7 @@
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    @media (max-width: 600px) {
-      .hero { padding: 4rem 0 3rem; }
-    }
+    @media (max-width: 600px) { .hero { padding: 4rem 0 3rem; } }
   </style>
 </head>
 <body>
@@ -333,41 +278,45 @@
 
   <main class="page">
 
-    <!-- ── HERO ── -->
+    <!-- hero -->
     <section class="hero">
-      <p class="hero-eyebrow">deiadora · the currency workshop · techtuition.ai</p>
+      <p class="hero-eyebrow">DeIADORA · the currency workshop · techtuition.ai</p>
       <h1>One field. Nine dimensions.<br><em>A fourfold foundation in currency.</em></h1>
       <p class="hero-sub">
         <em>Quantum Currency: Field Research on Human Coherence</em> maps a geometric architecture for how coherent systems actually work. <strong>This is the on-ramp.</strong> Live, self-paced, and free to work through. A real playbook at the end.
       </p>
+      <blockquote class="hero-thesis">
+        <strong>Don't duplicate dysfunction.</strong> The Currency Workshop teaches you how to define your coherence, align your energy, and create from a conscious foundation.
+      </blockquote>
       <div class="cta-row">
         <a class="btn-primary" href="/workshop/the-field">begin at the field →</a>
       </div>
       <p class="hero-note">no discovery call · no waitlist · begin when you're ready</p>
     </section>
 
-    <!-- ── WHAT YOU BUILD ── -->
+    <!-- what you build -->
     <section class="section" id="playbook">
       <p class="section-label">what you build</p>
       <div class="playbook-card">
         <h2>A playbook that is <em>actually yours.</em></h2>
-        <p>The field and each dimension has a playbook exercise — two layers running simultaneously. One is personal: it stays private, never leaves your browser, never compiles anywhere. The other is business-scoped: specific to the organisation you're building.</p>
-        <p>At the end of dimension 3, a compile button assembles your business answers from all four exercises into a single printable document. <strong>Not a template filled in from the outside. A playbook built from the inside out, one signal at a time.</strong></p>
+        <p>The field and each dimension has a playbook exercise — two threads running simultaneously. One is inner: it stays private, never leaves your browser, never compiles anywhere. The other is outer: specific to the system, organisation, or AI product you're building.</p>
+        <p>At the end of dimension 3, a compile button assembles your outer answers from all four exercises into a single printable document. <strong>Not a template filled in from the outside. A relational architecture map built from the inside out, one signal at a time.</strong></p>
         <div class="scope-row">
           <div class="scope-item">
-            <span class="scope-chip"><span class="scope-dot personal"></span>Personal</span>
-            <span class="scope-note">Private reflections. Stays with you.<br>Never compiled.</span>
+            <span class="scope-chip"><span class="scope-dot inner"></span>Inner</span>
+            <span class="scope-note">The reflective thread. Stays private.<br>Never compiled.</span>
           </div>
           <div class="scope-item">
-            <span class="scope-chip"><span class="scope-dot business"></span>Business</span>
-            <span class="scope-note">Organisation-specific answers.<br>Compiles at dimension 3.</span>
+            <span class="scope-chip"><span class="scope-dot outer"></span>Outer</span>
+            <span class="scope-note">Your system, organisation, or AI product.<br>Compiles at dimension 3.</span>
           </div>
         </div>
-        <p>The personal and business threads run together through every dimension because <em>depth and breadth are not separate</em> — inner coherence and outer architecture are the same work at different scales.</p>
+        <p>The inner and outer threads run together through every dimension because <em>depth and breadth are not separate</em> — what you carry inside is what gets built outside. The Currency Workshop holds both.
+        </p>
       </div>
     </section>
 
-    <!-- ── THE LENS SYSTEM ── -->
+    <!-- lens system -->
     <section class="section" id="lenses">
       <p class="section-label">the lens system</p>
       <p class="lens-intro">Each dimension contains the same content read through four different volumes — four lenses on the same architecture. The Quantum Currency lens is live. The other three arrive as the books do.</p>
@@ -399,18 +348,19 @@
       </div>
     </section>
 
-    <!-- ── WHO THIS IS FOR ── -->
+    <!-- who this is for -->
     <section class="section">
       <p class="section-label">who this is for</p>
       <div class="for-card">
-        <h2>Founders, researchers,<br>and their <em>teams.</em></h2>
-        <p>The on-ramp is for anyone who recognises something in these field notes — who has sensed the fractal architecture underneath the work but hasn't yet had language or geometry for it. Founders building in the field. Researchers engaging with the relational layer as a technical architecture. Practitioners looking for a framework that describes how coherent systems actually work.</p>
-        <p><strong>The field and dimensions 1 through 3 are self-paced.</strong> No cohort required, no application, no discovery call. You work through them when you're ready, at your own pace, and the playbook you build is yours to keep and use regardless of what comes next.</p>
-        <p>Dimensions 4 through 9 — wave, direction, transmission, expression, structure, source — live inside the facilitated cohort. They require the field that live, held group work generates. Entry is by conversation, not application. If the pattern recognises itself after dimension 3, <em>the next move is to write.</em></p>
+        <h2>AI practitioners, researchers,<br>and <em>founders.</em></h2>
+        <p><strong>For AI practitioners building systems:</strong> The systems you build reflect what you bring to them — including what you haven't examined. Before you can design a relational layer for AI that doesn't amplify dysfunction, you need to understand your own coherence field. The Currency Workshop is where that examination happens. The playbook you build is a relational architecture map for your system — what it holds, what it reflects, what it generates, where it currently extracts instead.</p>
+        <p><strong>For researchers engaging with the relational layer:</strong> The 264 arcs and 880 protocols are documented across the Field Research series. The workshop is the applied entry point — where the research becomes operational and you can work through the architecture from the inside.</p>
+        <p><strong>For founders building from coherent ground:</strong> The on-ramp names what you already sense but haven't had language for. The playbook you build is yours to keep — specific to your system, your organisation, your next move.</p>
+        <p><strong>The field and dimensions 1 through 3 are self-paced.</strong> No cohort required, no application, no discovery call. Dimensions 4 through 9 are facilitated — entered by conversation, not application. If the pattern recognises itself after dimension 3, <em>the next move is to write.</em></p>
       </div>
     </section>
 
-    <!-- ── ARC CLOSE ── -->
+    <!-- arc close -->
     <div class="arc-close">
       <p class="ac-eyebrow">ready</p>
       <h2>The ground is<br><em>already here.</em></h2>
@@ -427,33 +377,25 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
     const toggle  = document.getElementById('themeToggle');
     const root    = document.documentElement;
     const STORE   = 'qc-theme';
     const sysDark = window.matchMedia('(prefers-color-scheme: dark)');
-
-    function resolveTheme() {
-      return localStorage.getItem(STORE) || (sysDark.matches ? 'dark' : 'light');
-    }
-
+    function resolveTheme() { return localStorage.getItem(STORE) || (sysDark.matches ? 'dark' : 'light'); }
     function applyTheme(theme) {
       root.setAttribute('data-theme', theme);
       const isSystem = !localStorage.getItem(STORE);
       toggle.textContent = isSystem ? '🌗' : (theme === 'dark' ? '🌙' : '☀️');
       toggle.setAttribute('aria-label', theme === 'dark' ? 'switch to light mode' : 'switch to dark mode');
     }
-
     applyTheme(resolveTheme());
-
     toggle.addEventListener('click', () => {
-      const cur  = root.getAttribute('data-theme');
+      const cur = root.getAttribute('data-theme');
       const next = cur === 'dark' ? 'light' : 'dark';
-      const sys  = sysDark.matches ? 'dark' : 'light';
+      const sys = sysDark.matches ? 'dark' : 'light';
       next === sys ? localStorage.removeItem(STORE) : localStorage.setItem(STORE, next);
       applyTheme(next);
     });
-
     sysDark.addEventListener('change', () => {
       if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? 'dark' : 'light');
     });
