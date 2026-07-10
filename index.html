@@ -3,524 +3,365 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>techtuition — the currency workshop · one field · nine dimensions</title>
-  <meta name="description" content="The entry point into the DeIADORA relational architecture. Nine dimensions from one field. The field and first three dimensions are open and free. A playbook specific to your system at the end." />
-  <meta property="og:title" content="techtuition — the currency workshop" />
-  <meta property="og:description" content="Where the relational layer becomes yours. One field. Nine dimensions. Open and free at the field and dimensions 1–3. No discovery call. No waitlist." />
+  <title>techtuition — consulting &amp; training for content teams in the AI era</title>
+  <meta name="description" content="Advisory, hands-on builds, and team training for content design leaders navigating AI — from the person who built Airbnb's first internal Help Center AI and trained hundreds of practitioners." />
+  <meta property="og:title" content="techtuition — consulting &amp; training for content teams" />
+  <meta property="og:description" content="The AI mandate just landed on your content team. Now what? Advisory, builds, and training from someone who has done it from the inside." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://techtuition.ai" />
-  <meta property="og:image" content="https://techtuition.ai/techtuition_banner.jpeg" />
-  <link rel="icon" href="/techtuition_favicon.png" type="image/png" />
+  <meta property="og:image" content="https://techtuition.ai/techtuition_banner_sm.jpeg" />
+  <link rel="icon" href="/favicon.png" type="techtuition_favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --ink:        #1a1814;
-      --paper:      #f4f2ec;
-      --card:       #fffff2;
-      --card-lt:    #e8e2d6;
-      --gold:       #8a6418;
+:root {
+  --ink:        #f0ede3;
+  --paper:      #0c1516;
+  --card:       #0e171a;
+  --card-lt:    #131f23;
+  --accent:     #7a9e2a;   /* true node-4 lime — AA on dark paper (5.95:1) */
+  --crown:      var(--accent);
+  --muted:      #d8d3c7;
+  --line:       rgba(240,237,230,.1);
+  --line-s:     rgba(240,237,230,.18);
+  --r:          8px;
+  --serif:      'Exo 2', system-ui, sans-serif;
+  --sans:       'DM Sans', system-ui, sans-serif;
+  --display:    'Cormorant Garamond', Georgia, serif;
+}
+[data-theme="dark"] {
+  --ink:        #f7f5ef;
+  --paper:      #010003;
+  --card:       #151515;
+  --card-lt:    #20211e;
+  --accent:     #7a9e2a;   /* true node-4, 6.7:1 on pure black */
+  --muted:      #cfc9bc;
+  --line:       rgba(240,237,230,.1);
+  --line-s:     rgba(240,237,230,.18);
+}
+[data-theme="dark"] .nav          { background: #010003; }
+[data-theme="dark"] .contact-card { background: #151515; }
+[data-theme="dark"] .case-card    { background: #151515; }
 
-      --node-0:     #0c1516;
-      --node-1:     #6b2d1a;
-      --node-2:     #9d4418;
-      --node-3:     #c49a3c;
-      --node-4:     #7a9e2a;
-      --node-5:     #2d6a1f;
-      --node-6:     #0f6e56;
-      --node-7:     #1a6b9e;
-      --node-8:     #3c3489;
-      --node-9:     #2d1a4e;
+[data-theme="light"] {
+  --ink:      #1a1814;
+  --paper:    #f4f2ec;
+  --card:     #fffff2;
+  --card-lt:  #e8e2d6;
+  --accent:   #546d1d;   /* node-4 darkened for light paper — AA (5.2:1) */
+  --muted:    #57503f;
+  --line:     rgba(26,24,20,.1);
+  --line-s:   rgba(26,24,20,.18);
+}
+[data-theme="light"] .nav          { background: #f4f2ec; }
+[data-theme="light"] .brand        { color: #1a1814; }
+[data-theme="light"] .contact-card { background: var(--card); }
 
-      --accent:     #1a6b9e;
-      --accent-lt:  #32849d;
-      --teal:       #0f6e56;
-      --teal-lt:    #1a9e7a;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scrollbar-gutter: stable; scroll-behavior: smooth; transition: font-size .25s ease; }
+html[data-textsize="large"] { font-size: 115%; }
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background .25s, color .25s;
+}
 
-      --muted:      #7a7163;
-      --line:       rgba(26,24,20,.12);
-      --line-s:     rgba(26,24,20,.18);
-      --r:          8px;
-      --serif:      'Exo 2', system-ui, sans-serif;
-      --sans:       'DM Sans', system-ui, sans-serif;
-      --display:    'Cormorant Garamond', Georgia, serif;
-    }
+/* ─── skip link ─── */
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--accent); color: var(--paper);
+  padding: .6rem 1.2rem; border-radius: 0 0 var(--r) 0;
+  font-size: .95rem; z-index: 200; text-decoration: none;
+}
+.skip:focus { left: 0; }
 
-    [data-theme="dark"] {
-      --ink:        #f4f2ec;
-      --paper:      #010003;
-      --card:       #151515;
-      --card-lt:    #20211e;
-      --gold:       #e6c47d;
-      --accent:     #1a6b9e;
-      --accent-lt:  #32849d;
-      --muted:      #b5ad9e;
-      --line:       rgba(240,237,230,.1);
-      --line-s:     rgba(240,237,230,.18);
-    }
-    [data-theme="dark"] .nav          { background: #010003; }
-    [data-theme="dark"] .card         { background: #151515; }
-    [data-theme="dark"] .what-card    { background: #151515; }
-    [data-theme="dark"] .open-card    { background: #151515; }
-    [data-theme="dark"] .dim-intro    { background: #151515; }
-    [data-theme="dark"] .contact-card { background: #151515; }
-    [data-theme="dark"] .fac-list     { background: #151515; }
+/* ─── nav ─── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .9rem 2rem;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 1.15rem; font-weight: 600;
+  color: var(--ink); text-decoration: none; letter-spacing: -.02em;
+}
+.brand span { color: var(--crown); }
+.navlinks { display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
+.navlinks a {
+  font-size: .95rem; font-weight: 400;
+  color: var(--muted); text-decoration: none;
+  letter-spacing: .02em; transition: color .2s;
+}
+.navlinks a:hover { color: var(--accent); }
+.theme-toggle, .text-toggle {
+  background: none; border: 1.5px solid var(--line);
+  border-radius: 100px; cursor: pointer;
+  padding: .35rem .6rem; font-size: 1rem; line-height: 1;
+  color: var(--muted); transition: border-color .2s, color .2s;
+}
+.theme-toggle:hover, .text-toggle:hover { border-color: var(--accent); color: var(--ink); }
+.text-toggle { display: inline-flex; align-items: baseline; gap: .1rem; font-family: var(--serif); }
+.text-toggle .a-sm { font-size: .72rem; font-weight: 500; }
+.text-toggle .a-lg { font-size: 1.02rem; font-weight: 600; }
+.text-toggle[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 
-    [data-theme="light"] .nav         { background: #f4f2ec; }
-    [data-theme="light"] .brand       { color: #1a1814; }
+/* ─── page ─── */
+.page { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 6rem; }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scrollbar-gutter: stable; scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      background: var(--paper); color: var(--ink);
-      line-height: 1.6; -webkit-font-smoothing: antialiased;
-      transition: background .25s, color .25s;
-    }
+/* ─── hero ─── */
+.hero { padding: 7rem 0 5rem; border-bottom: 1px solid var(--line); }
+.kicker {
+  font-family: var(--serif); font-style: italic;
+  font-size: .95rem; font-weight: 300;
+  color: var(--crown); margin-bottom: 1.2rem; letter-spacing: .06em;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.1; letter-spacing: -.02em;
+  font-weight: 400; color: var(--ink);
+  max-width: 700px; margin-bottom: 1.4rem;
+}
+.hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+.subhead {
+  font-size: 1.15rem; color: var(--muted);
+  max-width: 620px; line-height: 1.75;
+  margin-bottom: 1.4rem; font-weight: 300;
+}
+.subhead strong { color: var(--ink); font-weight: 500; }
+.subhead em { color: var(--ink); font-style: italic; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.8rem; }
+.hero-note {
+  font-size: .9rem; color: var(--muted);
+  letter-spacing: .03em; margin-top: 2rem; font-style: italic;
+}
 
-    /* ── nav ── */
-    .nav {
-      position: sticky; top: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: .9rem 2rem;
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(8px);
-    }
-    .brand {
-      font-family: var(--serif);
-      font-size: 1.1rem; font-weight: 600;
-      color: var(--ink); text-decoration: none; letter-spacing: -.02em;
-    }
-    .brand span { color: var(--accent); }
-    .navlinks { display: flex; align-items: center; gap: 1.6rem; }
-    .navlinks a {
-      font-size: .85rem; font-weight: 400;
-      color: var(--muted); text-decoration: none;
-      letter-spacing: .02em; transition: color .2s;
-    }
-    .navlinks a:hover { color: var(--accent); }
-    .navlinks .ecosystem-link {
-      font-size: .78rem; font-weight: 500;
-      color: var(--muted); letter-spacing: .04em;
-      border: 1px solid var(--line-s); border-radius: 100px;
-      padding: .3rem .8rem; transition: border-color .2s, color .2s;
-    }
-    .navlinks .ecosystem-link:hover { border-color: var(--accent); color: var(--accent); }
-    .theme-toggle {
-      background: none; border: 1.5px solid var(--line);
-      border-radius: 100px; cursor: pointer;
-      padding: .35rem .6rem; font-size: 1rem; line-height: 1;
-      color: var(--muted); transition: border-color .2s, color .2s;
-    }
-    .theme-toggle:hover { border-color: var(--gold); color: var(--ink); }
+/* ─── section titles ─── */
+.section-label {
+  font-family: var(--serif); font-size: .85rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--crown); margin-bottom: 1.6rem;
+}
+section { margin-top: 5rem; }
+.section-heading {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 400; font-style: italic;
+  color: var(--ink); line-height: 1.25;
+  margin-bottom: 1.4rem; max-width: 640px;
+}
+.section-heading em { color: var(--accent); }
+.section-intro {
+  font-size: 1.05rem; color: var(--muted);
+  line-height: 1.75; max-width: 640px;
+  margin-bottom: 2rem; font-weight: 300;
+}
+.section-intro strong { color: var(--ink); font-weight: 500; }
+.section-intro em { color: var(--ink); font-style: italic; }
+.section-intro a { color: var(--accent); text-decoration: none; }
+.section-intro a:hover { opacity: .75; }
 
-    /* ── page ── */
-    .page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+/* ─── engagement cards ─── */
+.case-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.2rem; }
+@media (max-width: 700px) { .case-grid { grid-template-columns: 1fr; } }
+.case-card {
+  background: var(--card); border: 1px solid var(--line-s);
+  border-radius: var(--r); padding: 2rem 2.2rem;
+  display: flex; flex-direction: column; gap: 1rem;
+  transition: border-color .2s;
+}
+.case-card:hover { border-color: var(--accent); }
+.case-card .co {
+  font-family: var(--serif); font-size: .84rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
+}
+.case-card h3 {
+  font-family: var(--serif); font-size: 1.2rem; font-weight: 600;
+  letter-spacing: -.02em; color: var(--ink); line-height: 1.3;
+}
+.case-card p { font-size: 1rem; color: var(--muted); line-height: 1.7; flex: 1; }
+.case-card .impact {
+  font-size: .9rem; color: var(--accent); font-style: italic;
+  border-top: 1px solid var(--line); padding-top: .8rem; margin-top: auto;
+}
+.card-coming { border-style: dashed; }
+.card-coming:hover { border-style: solid; }
 
-    /* ── hero ── */
-    .hero { padding: 7rem 0 5rem; border-bottom: 1px solid var(--line); }
-    .kicker {
-      font-family: var(--serif); font-style: italic;
-      font-size: .88rem; font-weight: 300;
-      color: var(--accent); margin-bottom: 1.2rem; letter-spacing: .06em;
-    }
-    .hero h1 {
-      font-family: var(--display);
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      line-height: 1.1; letter-spacing: -.02em;
-      font-weight: 400; color: var(--ink);
-      max-width: 680px; margin-bottom: 1.4rem;
-    }
-    .hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
-    .subhead {
-      font-size: 1.05rem; color: var(--muted);
-      max-width: 560px; line-height: 1.75;
-      margin-bottom: 1.4rem; font-weight: 300;
-    }
-    .subhead strong { color: var(--ink); font-weight: 500; }
-    .method-note {
-      border-left: 2px solid var(--accent);
-      padding-left: 1.2rem;
-      font-size: .95rem; color: var(--muted);
-      margin-top: .2rem; margin-bottom: 2rem;
-    }
-    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+/* ─── experience prose ─── */
+.bio {
+  font-size: 1.1rem; color: var(--muted); line-height: 1.8;
+  max-width: 680px; margin-bottom: 1.6rem; font-weight: 300;
+}
+.bio strong { color: var(--ink); font-weight: 500; }
+.bio a { color: var(--accent); text-decoration: none; }
+.bio a:hover { opacity: .75; }
 
-    /* ── buttons ── */
-    .btn {
-      display: inline-flex; align-items: center;
-      padding: .65rem 1.4rem; border-radius: var(--r);
-      font-family: var(--sans); font-size: .88rem; font-weight: 500;
-      text-decoration: none; cursor: pointer;
-      transition: all .2s; border: 1.5px solid transparent;
-    }
-    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .btn.primary:hover { background: var(--accent-lt); border-color: var(--accent-lt); }
-    .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-s); }
-    .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+/* ─── contact ─── */
+.contact-card {
+  background: var(--card); border: 1px solid var(--line-s);
+  border-radius: var(--r); padding: 2.2rem 2.4rem;
+}
+.contact-card h2 {
+  font-family: var(--display); font-size: 1.8rem; font-weight: 400;
+  letter-spacing: -.02em; margin-bottom: .8rem; color: var(--ink);
+}
+.contact-card p { color: var(--muted); line-height: 1.75; font-size: 1.05rem; }
+.contact-card p strong { color: var(--ink); font-weight: 500; }
+.contact-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.6rem; }
+.btn {
+  display: inline-flex; align-items: center;
+  padding: .65rem 1.4rem; border-radius: var(--r);
+  font-family: var(--sans); font-size: .95rem; font-weight: 500;
+  text-decoration: none; cursor: pointer; transition: all .2s;
+  border: 1.5px solid transparent;
+}
+.btn.primary { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+.btn.primary:hover { opacity: .85; }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-s); }
+.btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn.sm { padding: .5rem 1.1rem; font-size: .88rem; }
 
-    /* ── sections ── */
-    section { margin-top: 5rem; }
-    .section-label {
-      font-family: var(--serif); font-size: .78rem; font-weight: 500;
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1.6rem;
-    }
+/* ─── footer ─── */
+.footer {
+  margin-top: 5rem; padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: .6rem; font-size: .9rem; color: var(--muted);
+}
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { opacity: .75; }
 
-    /* ── what card ── */
-    .what-card {
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: var(--r); padding: 2.2rem 2.4rem;
-      position: relative; overflow: hidden;
-    }
-    .what-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--teal), var(--gold));
-    }
-    .what-card h2 {
-      font-family: var(--display);
-      font-size: 1.6rem; font-weight: 400; font-style: italic;
-      letter-spacing: -.01em; margin-bottom: 1rem; color: var(--ink);
-      line-height: 1.2;
-    }
-    .what-card h2 em { color: var(--accent); }
-    .what-card p {
-      color: var(--muted); line-height: 1.8;
-      font-size: .97rem; margin-bottom: .9rem;
-    }
-    .what-card p:last-of-type { margin-bottom: 0; }
-    .what-card p strong { color: var(--ink); font-weight: 500; }
-    .what-card p em { color: var(--ink); font-style: italic; }
-
-    /* ── dimension section intro ── */
-    .dim-intro {
-      font-size: .95rem; color: var(--muted);
-      line-height: 1.75; max-width: 620px;
-      margin-bottom: 2rem;
-    }
-    .dim-intro strong { color: var(--ink); font-weight: 500; }
-
-    /* ── open cards — 2x2 grid ── */
-    .open-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    @media (max-width: 560px) { .open-grid { grid-template-columns: 1fr; } }
-
-    .open-card {
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: var(--r); padding: 1.5rem 1.7rem;
-      display: flex; flex-direction: column; gap: .5rem;
-      text-decoration: none;
-      position: relative; overflow: hidden;
-      transition: border-color .2s;
-    }
-    .open-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 2px; background: var(--oc-accent); opacity: .8;
-      transition: opacity .2s;
-    }
-    .open-card:hover { border-color: var(--oc-accent); }
-    .open-card:hover::before { opacity: 1; }
-
-    .open-card .oc-label {
-      font-family: var(--serif); font-size: .68rem; font-weight: 600;
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--oc-accent);
-    }
-    .open-card h3 {
-      font-family: var(--serif); font-size: 1.05rem; font-weight: 600;
-      color: var(--ink); letter-spacing: -.01em; line-height: 1.3;
-    }
-    .open-card .oc-geo {
-      font-size: .82rem; color: var(--muted); line-height: 1.5; flex: 1;
-    }
-    .open-card .oc-link {
-      font-size: .8rem; font-weight: 500;
-      color: var(--oc-accent); margin-top: .3rem;
-    }
-
-    /* ── open badge ── */
-    .open-badge {
-      display: inline-flex; align-items: center; gap: .35rem;
-      font-family: var(--serif); font-size: .7rem; font-weight: 600;
-      letter-spacing: .08em; text-transform: uppercase;
-      color: var(--teal); margin-bottom: 1rem;
-    }
-    .open-badge::before {
-      content: ''; display: block;
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--teal);
-    }
-
-    /* ── facilitated list ── */
-    .fac-header {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .fac-header .fac-label {
-      font-family: var(--serif); font-size: .72rem; font-weight: 600;
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--muted); white-space: nowrap;
-    }
-    .fac-header .fac-rule {
-      flex: 1; height: 1px; background: var(--line);
-    }
-
-    .fac-list {
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: var(--r); overflow: hidden;
-      margin-bottom: 1.2rem;
-    }
-    .fac-row {
-      display: flex; align-items: center;
-      padding: .9rem 1.4rem; gap: 1rem;
-      border-bottom: 1px solid var(--line);
-      transition: background .15s;
-    }
-    .fac-row:last-child { border-bottom: none; }
-    .fac-row:hover { background: var(--card-lt); }
-
-    .fac-num {
-      font-family: var(--serif); font-size: .72rem; font-weight: 600;
-      letter-spacing: .06em; color: var(--muted);
-      flex-shrink: 0; width: 2.2rem;
-    }
-    .fac-name {
-      font-family: var(--serif); font-size: .92rem; font-weight: 600;
-      color: var(--ink); flex: 1;
-    }
-    .fac-geo {
-      font-size: .8rem; color: var(--muted);
-    }
-    .fac-status {
-      font-size: .72rem; font-weight: 500; font-family: var(--serif);
-      letter-spacing: .06em; text-transform: uppercase;
-      color: var(--gold); white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .fac-cta {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem;
-      padding: .2rem 0;
-    }
-    .fac-cta p {
-      font-size: .88rem; color: var(--muted); line-height: 1.6;
-    }
-
-    /* ── contact card ── */
-    .contact-card {
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: var(--r); padding: 2.2rem 2.4rem;
-    }
-    .contact-card h2 {
-      font-family: var(--display); font-size: 1.8rem; font-weight: 400;
-      letter-spacing: -.02em; margin-bottom: .8rem; color: var(--ink);
-    }
-    .contact-card p { color: var(--muted); line-height: 1.75; font-size: .97rem; }
-    .contact-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.6rem; }
-
-    /* ── footer ── */
-    .footer {
-      margin-top: 5rem; padding-top: 2rem;
-      border-top: 1px solid var(--line);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: .6rem;
-      font-size: .82rem; color: var(--muted);
-    }
-    .footer a { color: var(--accent); text-decoration: none; }
-    .footer a:hover { color: var(--gold); }
-
-    /* ── animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero .kicker   { animation: fadeUp .5s ease both .05s; }
-    .hero h1        { animation: fadeUp .5s ease both .12s; }
-    .hero .subhead  { animation: fadeUp .5s ease both .2s; }
-    .hero .cta-row  { animation: fadeUp .5s ease both .28s; }
+/* ─── animations ─── */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero .kicker    { animation: fadeUp .5s ease both; animation-delay: .05s; }
+  .hero h1         { animation: fadeUp .5s ease both; animation-delay: .12s; }
+  .hero .subhead   { animation: fadeUp .5s ease both; animation-delay: .2s; }
+  .hero .hero-cta  { animation: fadeUp .5s ease both; animation-delay: .26s; }
+  .hero .hero-note { animation: fadeUp .5s ease both; animation-delay: .32s; }
+}
   </style>
 </head>
 <body>
 
+  <a class="skip" href="#main">skip to content</a>
+
   <header class="nav">
-    <a class="brand" href="/">tech<span>tuition</span></a>
-    <nav class="navlinks">
-      <a href="/workshop">workshop</a>
-      <a class="ecosystem-link" href="https://deiadora.com">deiadora.com ↗</a>
+    <a class="brand" href="/"><span>tech</span>tuition</a>
+    <nav class="navlinks" aria-label="primary">
+      <a href="#engagements">engagements</a>
+      <a href="#experience">experience</a>
+      <a href="#workshop">the workshop</a>
+      <a href="#contact">contact</a>
+      <a href="https://deiadora.com">deiadora.com ↗</a>
+      <button class="text-toggle" id="textToggle" aria-label="toggle larger text" aria-pressed="false"><span class="a-sm">A</span><span class="a-lg">A</span></button>
       <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌗</button>
     </nav>
   </header>
 
-  <main class="page">
+  <main class="page" id="main">
 
-    <!-- ── hero ── -->
-    <section class="hero">
-      <p class="kicker">techtuition · the currency workshop · one field, nine dimensions</p>
-      <h1>Where the relational layer<br>becomes <em>yours.</em></h1>
+    <!-- ─── 1 · hero ─── -->
+    <section class="hero" aria-labelledby="hero-h">
+      <p class="kicker">techtuition · consulting &amp; training for content teams</p>
+      <h1 id="hero-h">The AI mandate just landed on your content team. <em>Now what?</em></h1>
       <p class="subhead">
-        The Currency Workshop is the entry point into the DeIADORA architecture —
-        nine dimensions from one field, applied to your specific system.
-        <strong>Wherever you are building, the field is the ground.</strong>
+        You lead content design, UX writing, or content strategy — and sometime in the last year the job changed underneath you. You're being asked to ship AI-mediated content without evaluation criteria, govern systems nobody has written rules for, and re-skill a team mid-flight.
       </p>
-      <p class="subhead method-note">
-        The field and the first three dimensions are open, self-paced, and free.
-        A playbook specific to your system at the end — not a template filled in from the outside,
-        but an architecture built from the inside out, one signal at a time.
+      <p class="subhead">
+        <strong>I've done this from the inside.</strong> Techtuition is that work, available to yours.
       </p>
-      <div class="cta-row">
-        <a class="btn primary" href="/workshop/">begin at the field</a>
-        <a class="btn ghost" href="mailto:herself@deiadora.com?subject=currency workshop · techtuition.ai">email deiadora</a>
+      <div class="hero-cta">
+        <a class="btn primary" href="mailto:herself@deiadora.com?subject=working together · techtuition">email deiadora →</a>
+        <a class="btn ghost" href="#engagements">how we can work ↓</a>
+      </div>
+      <p class="hero-note">independent · remote · engagements begin with a conversation, not a pitch</p>
+    </section>
+
+    <!-- ─── 2 · engagements ─── -->
+    <section id="engagements" aria-labelledby="eng-label">
+      <p class="section-label" id="eng-label">three ways to work together</p>
+      <div class="case-grid">
+        <div class="case-card">
+          <p class="co">advisory</p>
+          <h3>A senior thinking partner</h3>
+          <p>For the decisions you can't delegate: where AI actually belongs in your workflow, what governance you need before legal comes asking, how to restructure without losing the craft.</p>
+          <p class="impact">retainer · or by the question</p>
+        </div>
+        <div class="case-card">
+          <p class="co">hands-on builds</p>
+          <h3>Systems your team keeps</h3>
+          <p>Evaluation rubrics, governance frameworks, content systems — built in production with your team. You keep the system and the skills; the work is designed to outlive me.</p>
+          <p class="impact">scoped engagements</p>
+        </div>
+        <div class="case-card">
+          <p class="co">team training</p>
+          <h3>The curriculum, in-house</h3>
+          <p>What I taught for four years at UX Content Collective and beyond — tailored to your stack, your governance reality, and your team's actual work.</p>
+          <p class="impact">half-day to multi-week</p>
+        </div>
       </div>
     </section>
 
-    <!-- ── what the workshop is ── -->
-    <section id="about">
-      <p class="section-label">what the workshop is</p>
-      <div class="what-card">
-        <h2>The research, applied<br>to your <em>actual system.</em></h2>
-        <p>
-          The workshop runs on the same framework as the Field Research series — nine dimensions from one field,
-          each mapped to a specific geometry and a specific physiological anchor in the human system.
-          Each dimension is a chapter of the research made operational: a frame, a deeper read,
-          and a playbook exercise that builds your specific architecture as you go.
-        </p>
-        <p>
-          The field is the zero point — the ground state before anything is built.
-          The nine dimensions that emerge from it map how any coherent system thinks, moves, creates,
-          and completes itself. They apply to a business model, a team's governance,
-          a creative practice, an AI system, and a life. <em>The geometry is the same at every scale.</em>
-        </p>
-        <p>
-          The field and the first three dimensions — coherence, recognition, discernment —
-          are the on-ramp. They are live now, self-paced and free. By dimension 3,
-          you will have a compiled playbook <strong>specific to your intention</strong>.
-          Dimensions 4 through 9 are facilitated — entered by conversation, not application.
-          If the pattern recognises itself, the next move is to write.
-        </p>
-      </div>
-    </section>
-
-    <!-- ── dimension sequence ── -->
-    <section id="dimensions">
-      <p class="section-label">the nine dimensions</p>
-
-      <p class="dim-intro">
-        Nine geometries. Nine principles. One field.
-        The sequence runs from zero-point through to source —
-        each dimension a different face of the same architecture.
+    <!-- ─── 3 · experience ─── -->
+    <section id="experience" aria-labelledby="exp-label">
+      <p class="section-label" id="exp-label">experience</p>
+      <p class="bio">
+        A career of content systems work, the last several at the AI seam. At <strong>Airbnb</strong> I managed the UX writing team through the shift to LLM-integrated workflows, and authored the content operations playbook their content teams adopted. At <strong>Coursera</strong> I trained roughly two hundred practitioners across a fifteen-hundred-person organization to write to one design system — weekly office hours, workshops, mentorship — which is how I know adoption is a teaching problem, not a documentation problem. Earlier, I wrote plain-language standards for palliative-care patients and their families, and for hospitality audiences — regulated, high-stakes content where getting a sentence wrong has a high cost.
       </p>
-
-      <!-- open dimensions 0–3 -->
-      <div class="open-badge">open and free · begin now</div>
-
-      <div class="open-grid">
-
-        <a class="open-card" href="/workshop/the-field" style="--oc-accent: var(--node-6)">
-          <p class="oc-label">0 · Ground state</p>
-          <h3>The field</h3>
-          <p class="oc-geo">Zero point. The field that precedes everything built from it. Begin here.</p>
-          <p class="oc-link">enter the field →</p>
-        </a>
-
-        <a class="open-card" href="/workshop/dimension-1" style="--oc-accent: var(--node-1)">
-          <p class="oc-label">1 · Torus</p>
-          <h3>Coherence</h3>
-          <p class="oc-geo">The self-sustaining fold. A system that generates rather than depletes the energy it needs.</p>
-          <p class="oc-link">dimension 1 →</p>
-        </a>
-
-        <a class="open-card" href="/workshop/dimension-2" style="--oc-accent: var(--node-2)">
-          <p class="oc-label">2 · Vesica piscis</p>
-          <h3>Recognition</h3>
-          <p class="oc-geo">The shared field between two systems. Where genuine recognition creates something neither generates alone.</p>
-          <p class="oc-link">dimension 2 →</p>
-        </a>
-
-        <a class="open-card" href="/workshop/dimension-3" style="--oc-accent: var(--node-3)">
-          <p class="oc-label">3 · Tetrahedron</p>
-          <h3>Discernment</h3>
-          <p class="oc-geo">The first stable structure. Playbook compiles here — specific to your intention, built from the inside out.</p>
-          <p class="oc-link">dimension 3 →</p>
-        </a>
-
-      </div>
-
-      <!-- facilitated dimensions 4–9 -->
-      <div class="fac-header">
-        <span class="fac-label">dimensions 4–9 · by conversation</span>
-        <div class="fac-rule"></div>
-      </div>
-
-      <div class="fac-list">
-        <div class="fac-row">
-          <span class="fac-num">4</span>
-          <span class="fac-name">Wave</span>
-          <span class="fac-geo">Hexahedron</span>
-          <span class="fac-status">by conversation</span>
-        </div>
-        <div class="fac-row">
-          <span class="fac-num">5</span>
-          <span class="fac-name">Direction</span>
-          <span class="fac-geo">Tesseract</span>
-          <span class="fac-status">by conversation</span>
-        </div>
-        <div class="fac-row">
-          <span class="fac-num">6</span>
-          <span class="fac-name">Transmission</span>
-          <span class="fac-geo">Dodecahedron</span>
-          <span class="fac-status">by conversation</span>
-        </div>
-        <div class="fac-row">
-          <span class="fac-num">7</span>
-          <span class="fac-name">Expression</span>
-          <span class="fac-geo">Egg of life</span>
-          <span class="fac-status">by conversation</span>
-        </div>
-        <div class="fac-row">
-          <span class="fac-num">8</span>
-          <span class="fac-name">Structure</span>
-          <span class="fac-geo">Octagon</span>
-          <span class="fac-status">by conversation</span>
-        </div>
-        <div class="fac-row">
-          <span class="fac-num">9</span>
-          <span class="fac-name">Source</span>
-          <span class="fac-geo">Nonagon</span>
-          <span class="fac-status">by conversation</span>
-        </div>
-      </div>
-
-      <div class="fac-cta">
-        <p>Dimensions 4–9 are facilitated — for founders, teams, and organisations. Entry is relationship, not application.</p>
-        <a class="btn ghost" href="mailto:herself@deiadora.com?subject=dimensions 4–9 · techtuition.ai">write to continue →</a>
-      </div>
-
+      <p class="bio">
+        Alongside the client work, I publish research: LLM evaluation (<em>Apart Research, 2026</em>) and an ongoing taxonomy of how constructive conversations progress — 264 documented pathways, becoming an API at <a href="https://quantummagic.ai">quantummagic.ai</a>. You don't need the research to hire me. It's just why my evaluation rubrics ask questions other people's don't.
+      </p>
     </section>
 
-    <!-- ── contact ── -->
-    <section id="contact">
+    <!-- ─── 4 · how it starts ─── -->
+    <section id="start" aria-labelledby="start-label">
+      <p class="section-label" id="start-label">how engagements start</p>
+      <p class="section-intro">
+        One email. We talk about what's actually happening on your team — thirty minutes, no deck. If the fit is right, I'll propose the smallest engagement that solves the real problem. If it isn't, I'll say so and point you somewhere better.
+      </p>
+    </section>
+
+    <!-- ─── 5 · the workshop ─── -->
+    <section id="workshop" aria-labelledby="ws-label">
+      <p class="section-label" id="ws-label">in development</p>
+      <div class="case-grid" style="grid-template-columns: 1fr;">
+        <div class="case-card card-coming" style="max-width: 680px;">
+          <p class="co">the workshop · you shape it</p>
+          <h3>A self-paced version of this work</h3>
+          <p>The consulting is live today. A self-paced workshop — for teams who'd rather learn it than buy it — is being designed around what content leaders say they actually need. What should it teach you first? One email, one question. You'll shape what gets built.</p>
+          <div class="impact" style="border-top:none; padding-top:0;">
+            <a class="btn ghost sm" href="mailto:herself@deiadora.com?subject=the workshop · what it should teach">tell me what you'd want →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 6 · contact ─── -->
+    <section id="contact" aria-labelledby="contact-h">
       <div class="contact-card">
-        <h2>Ready to go deeper.</h2>
-        <p>
-          For the facilitated dimensions 4–9, team workshops, speaking engagements,
-          and organisations looking to integrate the relational architecture at scale.
-          The conversation begins the same way the work does — peer-to-peer.
-        </p>
+        <h2 id="contact-h">Bring the real problem.</h2>
+        <p>Advisory, builds, team training — or the thing you can't quite name yet that's making this year harder than last year. <strong>Peer-to-peer from the first message.</strong></p>
         <div class="contact-row">
-          <a class="btn primary" href="/workshop/">begin at the field</a>
-          <a class="btn ghost" href="mailto:herself@deiadora.com?subject=currency workshop · techtuition.ai">email deiadora</a>
+          <a class="btn primary" href="mailto:herself@deiadora.com?subject=working together · techtuition">email deiadora</a>
+          <a class="btn ghost" href="https://deiadora.com">deiadora.com</a>
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <p>techtuition · expression · egg of life </p>
+      <p>techtuition · consulting &amp; training for content teams</p>
       <p>© <span id="year"></span> · part of the <a href="https://deiadora.com">deiadora ecosystem</a> 🌿</p>
     </footer>
 
@@ -528,6 +369,8 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* ── colour theme ── */
     const toggle  = document.getElementById("themeToggle");
     const root    = document.documentElement;
     const STORE   = "qc-theme";
@@ -548,12 +391,36 @@
       const current = root.getAttribute("data-theme");
       const sysTheme = sysDark.matches ? "dark" : "light";
       const next = current === "dark" ? "light" : "dark";
-      if (next === sysTheme) localStorage.removeItem(STORE);
-      else localStorage.setItem(STORE, next);
+      if (next === sysTheme) { localStorage.removeItem(STORE); }
+      else { localStorage.setItem(STORE, next); }
       applyTheme(next);
     });
     sysDark.addEventListener("change", () => {
-      if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? "dark" : "light");
+      if (!localStorage.getItem(STORE)) {
+        applyTheme(sysDark.matches ? "dark" : "light");
+      }
+    });
+
+    /* ── text size ── */
+    const textToggle = document.getElementById("textToggle");
+    const TEXT_STORE = "qc-textsize";
+    function applyTextSize(size) {
+      if (size === "large") {
+        root.setAttribute("data-textsize", "large");
+        textToggle.setAttribute("aria-pressed", "true");
+        textToggle.setAttribute("aria-label", "switch to normal text size");
+      } else {
+        root.removeAttribute("data-textsize");
+        textToggle.setAttribute("aria-pressed", "false");
+        textToggle.setAttribute("aria-label", "switch to larger text size");
+      }
+    }
+    applyTextSize(localStorage.getItem(TEXT_STORE) || "normal");
+    textToggle.addEventListener("click", () => {
+      const next = root.hasAttribute("data-textsize") ? "normal" : "large";
+      if (next === "large") { localStorage.setItem(TEXT_STORE, "large"); }
+      else { localStorage.removeItem(TEXT_STORE); }
+      applyTextSize(next);
     });
   </script>
 </body>
