@@ -18,10 +18,6 @@ Shared deiadora ecosystem design system:
 - Skip link, semantic sections, active-page nav state, `prefers-reduced-motion` support
 - New components in the shared token system: stat blocks, numbered method steps, offer cards, six-beat case cards
 
-## Deploy
-
-Cloudflare Pages. No build command; root directory as output. One publish blocker noted in an HTML comment: `method.html` carries a TODO to list the eight framework part names from the actual curriculum before launch. Mail-subject links and ecosystem URLs are live; verify `techtuition_banner_sm.jpeg` and favicon remain at root.
-
 ## Ecosystem
 
 Part of the deiadora ecosystem — ten sites, one design system, one author. Front door: [deiadora.com](https://deiadora.com).
