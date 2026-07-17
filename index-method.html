@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>the method — techtuition</title>
+  <meta name="description" content="Diagnose → Redesign → Build → Enable → Leave. The five-move capability-building method behind Techtuition's AI enablement work, and the eight-part framework taught to hundreds of practitioners." />
+  <meta property="og:title" content="the method — techtuition" />
+  <meta property="og:description" content="Diagnose → Redesign → Build → Enable → Leave. The five-move capability-building method behind Techtuition's AI enablement work, and the eight-part framework taught to hundreds of practitioners." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://techtuition.ai/method.html" />
+  <meta property="og:image" content="https://techtuition.ai/techtuition_banner_sm.jpeg" />
+  <link rel="icon" href="/techtuition_favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+
+:root {
+  --ink:        #f0ede3;
+  --paper:      #0c1516;
+  --card:       #0e171a;
+  --card-lt:    #131f23;
+  --accent:     #7a9e2a;
+  --crown:      var(--accent);
+  --muted:      #d8d3c7;
+  --line:       rgba(240,237,230,.1);
+  --line-s:     rgba(240,237,230,.18);
+  --r:          8px;
+  --serif:      'Exo 2', system-ui, sans-serif;
+  --sans:       'DM Sans', system-ui, sans-serif;
+  --display:    'Cormorant Garamond', Georgia, serif;
+}
+[data-theme="dark"] {
+  --ink:        #f7f5ef;
+  --paper:      #010003;
+  --card:       #151515;
+  --card-lt:    #20211e;
+  --accent:     #7a9e2a;
+  --muted:      #cfc9bc;
+  --line:       rgba(240,237,230,.1);
+  --line-s:     rgba(240,237,230,.18);
+}
+[data-theme="dark"] .nav          { background: #010003; }
+[data-theme="dark"] .contact-card { background: #151515; }
+[data-theme="dark"] .case-card    { background: #151515; }
+[data-theme="dark"] .case         { background: #151515; }
+[data-theme="dark"] .offer        { background: #151515; }
+[data-theme="dark"] .stat         { background: #151515; }
+
+[data-theme="light"] {
+  --ink:      #1a1814;
+  --paper:    #f4f2ec;
+  --card:     #fffff2;
+  --card-lt:  #e8e2d6;
+  --accent:   #546d1d;
+  --muted:    #57503f;
+  --line:     rgba(26,24,20,.1);
+  --line-s:   rgba(26,24,20,.18);
+}
+[data-theme="light"] .nav          { background: #f4f2ec; }
+[data-theme="light"] .brand        { color: #1a1814; }
+[data-theme="light"] .contact-card { background: var(--card); }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scrollbar-gutter: stable; scroll-behavior: smooth; transition: font-size .25s ease; }
+html[data-textsize="large"] { font-size: 115%; }
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background .25s, color .25s;
+}
+
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--accent); color: var(--paper);
+  padding: .6rem 1.2rem; border-radius: 0 0 var(--r) 0;
+  font-size: .95rem; z-index: 200; text-decoration: none;
+}
+.skip:focus { left: 0; }
+
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .9rem 2rem;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 1.15rem; font-weight: 600;
+  color: var(--ink); text-decoration: none; letter-spacing: -.02em;
+}
+.brand span { color: var(--crown); }
+.navlinks { display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
+.navlinks a {
+  font-size: .95rem; font-weight: 400;
+  color: var(--muted); text-decoration: none;
+  letter-spacing: .02em; transition: color .2s;
+}
+.navlinks a:hover { color: var(--accent); }
+.theme-toggle, .text-toggle {
+  background: none; border: 1.5px solid var(--line);
+  border-radius: 100px; cursor: pointer;
+  padding: .35rem .6rem; font-size: 1rem; line-height: 1;
+  color: var(--muted); transition: border-color .2s, color .2s;
+}
+.theme-toggle:hover, .text-toggle:hover { border-color: var(--accent); color: var(--ink); }
+.text-toggle { display: inline-flex; align-items: baseline; gap: .1rem; font-family: var(--serif); }
+.text-toggle .a-sm { font-size: .72rem; font-weight: 500; }
+.text-toggle .a-lg { font-size: 1.02rem; font-weight: 600; }
+.text-toggle[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+
+.page { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+
+.hero { padding: 6rem 0 4.5rem; border-bottom: 1px solid var(--line); }
+.kicker {
+  font-family: var(--serif); font-style: italic;
+  font-size: .95rem; font-weight: 300;
+  color: var(--crown); margin-bottom: 1.2rem; letter-spacing: .06em;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.1; letter-spacing: -.02em;
+  font-weight: 400; color: var(--ink);
+  max-width: 700px; margin-bottom: 1.4rem;
+}
+.hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+.subhead {
+  font-size: 1.15rem; color: var(--muted);
+  max-width: 640px; line-height: 1.75;
+  margin-bottom: 1.4rem; font-weight: 300;
+}
+.subhead strong { color: var(--ink); font-weight: 500; }
+.subhead em { color: var(--ink); font-style: italic; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.8rem; }
+.hero-note {
+  font-size: .9rem; color: var(--muted);
+  letter-spacing: .03em; margin-top: 2rem; font-style: italic;
+}
+
+.section-label {
+  font-family: var(--serif); font-size: .85rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--crown); margin-bottom: 1.6rem;
+}
+section { margin-top: 5rem; }
+.section-heading {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 400; font-style: italic;
+  color: var(--ink); line-height: 1.25;
+  margin-bottom: 1.4rem; max-width: 640px;
+}
+.section-heading em { color: var(--accent); }
+.section-intro {
+  font-size: 1.05rem; color: var(--muted);
+  line-height: 1.75; max-width: 680px;
+  margin-bottom: 2rem; font-weight: 300;
+}
+.section-intro strong { color: var(--ink); font-weight: 500; }
+.section-intro em { color: var(--ink); font-style: italic; }
+.section-intro a { color: var(--accent); text-decoration: none; }
+.section-intro a:hover { opacity: .75; }
+
+.case-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.2rem; }
+@media (max-width: 700px) { .case-grid { grid-template-columns: 1fr; } }
+.case-card {
+  background: var(--card); border: 1px solid var(--line-s);
+  border-radius: var(--r); padding: 2rem 2.2rem;
+  display: flex; flex-direction: column; gap: 1rem;
+  transition: border-color .2s;
+}
+.case-card:hover { border-color: var(--accent); }
+.case-card .co {
+  font-family: var(--serif); font-size: .84rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
+}
+.case-card h3 {
+  font-family: var(--serif); font-size: 1.2rem; font-weight: 600;
+  letter-spacing: -.02em; color: var(--ink); line-height: 1.3;
+}
+.case-card p { font-size: 1rem; color: var(--muted); line-height: 1.7; flex: 1; }
+.case-card .impact {
+  font-size: .9rem; color: var(--accent); font-style: italic;
+  border-top: 1px solid var(--line); padding-top: .8rem; margin-top: auto;
+}
+.case-card a { color: var(--accent); text-decoration: none; }
+
+.bio {
+  font-size: 1.1rem; color: var(--muted); line-height: 1.8;
+  max-width: 680px; margin-bottom: 1.6rem; font-weight: 300;
+}
+.bio strong { color: var(--ink); font-weight: 500; }
+.bio em { color: var(--ink); }
+.bio a { color: var(--accent); text-decoration: none; }
+.bio a:hover { opacity: .75; }
+
+.contact-card {
+  background: var(--card); border: 1px solid var(--line-s);
+  border-radius: var(--r); padding: 2.2rem 2.4rem;
+}
+.contact-card h2 {
+  font-family: var(--display); font-size: 1.8rem; font-weight: 400;
+  letter-spacing: -.02em; margin-bottom: .8rem; color: var(--ink);
+}
+.contact-card p { color: var(--muted); line-height: 1.75; font-size: 1.05rem; margin-bottom: .6rem; }
+.contact-card p strong { color: var(--ink); font-weight: 500; }
+.contact-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.6rem; }
+.btn {
+  display: inline-flex; align-items: center;
+  padding: .65rem 1.4rem; border-radius: var(--r);
+  font-family: var(--sans); font-size: .95rem; font-weight: 500;
+  text-decoration: none; cursor: pointer; transition: all .2s;
+  border: 1.5px solid transparent;
+}
+.btn.primary { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+.btn.primary:hover { opacity: .85; }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-s); }
+.btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn.sm { padding: .5rem 1.1rem; font-size: .88rem; }
+
+.footer {
+  margin-top: 5rem; padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: .6rem; font-size: .9rem; color: var(--muted);
+}
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { opacity: .75; }
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero .kicker    { animation: fadeUp .5s ease both; animation-delay: .05s; }
+  .hero h1         { animation: fadeUp .5s ease both; animation-delay: .12s; }
+  .hero .subhead   { animation: fadeUp .5s ease both; animation-delay: .2s; }
+  .hero .hero-cta  { animation: fadeUp .5s ease both; animation-delay: .26s; }
+  .hero .hero-note { animation: fadeUp .5s ease both; animation-delay: .32s; }
+}
+
+
+/* ─── stats ─── */
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+@media (max-width: 800px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+.stat { background: var(--card); border: 1px solid var(--line-s); border-radius: var(--r); padding: 1.6rem 1.5rem; }
+.stat .num { font-family: var(--display); font-size: 2.1rem; color: var(--accent); line-height: 1.1; }
+.stat p { font-size: .95rem; color: var(--muted); line-height: 1.55; margin-top: .55rem; font-weight: 300; }
+
+/* ─── method steps ─── */
+.step { border-left: 2px solid var(--line-s); padding-left: 1.6rem; margin-bottom: 2.4rem; max-width: 680px; }
+.step h3 { font-family: var(--serif); font-size: 1.18rem; font-weight: 600; color: var(--ink); margin-bottom: .6rem; letter-spacing: -.01em; }
+.step h3 .n { color: var(--accent); margin-right: .55rem; font-weight: 700; }
+.step p { color: var(--muted); line-height: 1.75; font-weight: 300; margin-bottom: .6rem; font-size: 1.02rem; }
+.step .you-get { font-style: italic; color: var(--accent); font-size: .95rem; }
+
+/* ─── offers ─── */
+.offer { background: var(--card); border: 1px solid var(--line-s); border-radius: var(--r); padding: 2.2rem 2.4rem; margin-bottom: 1.6rem; max-width: 780px; transition: border-color .2s; }
+.offer:hover { border-color: var(--accent); }
+.offer .co { font-family: var(--serif); font-size: .84rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
+.offer h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; letter-spacing: -.02em; color: var(--ink); margin-bottom: .3rem; }
+.offer .meta { font-size: .9rem; color: var(--muted); font-style: italic; margin-bottom: 1rem; }
+.offer h4 { font-family: var(--serif); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin: 1.2rem 0 .35rem; }
+.offer p { color: var(--muted); line-height: 1.7; font-weight: 300; font-size: 1rem; }
+.offer p strong { color: var(--ink); font-weight: 500; }
+
+/* ─── case studies ─── */
+.case { background: var(--card); border: 1px solid var(--line-s); border-radius: var(--r); padding: 2.2rem 2.4rem; margin-bottom: 2rem; max-width: 780px; }
+.case .co { font-family: var(--serif); font-size: .84rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+.case h4 { font-family: var(--serif); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin: 1.3rem 0 .3rem; }
+.case h4.final { color: var(--accent); }
+.case p { color: var(--muted); line-height: 1.75; font-weight: 300; font-size: 1rem; }
+.case p strong { color: var(--ink); font-weight: 500; }
+
+.navlinks a.active { color: var(--accent); }
+
+  </style>
+</head>
+<body>
+
+  <a class="skip" href="#main">skip to content</a>
+
+  <header class="nav">
+    <a class="brand" href="index.html"><span>tech</span>tuition</a>
+    <nav class="navlinks" aria-label="primary">
+      <a href="method.html" class="active">method</a>
+      <a href="engagements.html">engagements</a>
+      <a href="proof.html">proof</a>
+      <a href="about.html">about</a>
+      <a href="#contact">contact</a>
+      <a href="https://deiadora.com">deiadora.com ↗</a>
+      <button class="text-toggle" id="textToggle" aria-label="toggle larger text" aria-pressed="false"><span class="a-sm">A</span><span class="a-lg">A</span></button>
+      <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌗</button>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+
+    <section class="hero" aria-labelledby="hero-h">
+      <p class="kicker">the method</p>
+      <h1 id="hero-h">Adoption is a teaching problem, <em>not a documentation problem.</em></h1>
+      <p class="subhead">
+        Every failed AI rollout I've ever audited had documentation. Guidelines existed. The wiki page was written. What was missing was capability — people who understood the system well enough to run it, improve it, and defend it when things got busy. This page is the method I use to build that capability, refined across nearly two decades and every engagement on the <a href="proof.html" style="color:var(--accent);text-decoration:none;">proof page</a>.
+      </p>
+    </section>
+
+    <section id="moves" aria-labelledby="moves-label">
+      <p class="section-label" id="moves-label">five moves, one arc</p>
+
+      <div class="step">
+        <h3><span class="n">1</span>Diagnose</h3>
+        <p>Before anything gets built, I audit the business ecosystem: how work actually flows (versus how the org chart says it flows), where knowledge lives and where it dies, what governance exists and what's merely assumed, and where the friction genuinely comes from. The presenting problem is rarely the real one — “we need AI training” usually turns out to mean “our workflow can't absorb a new tool.”</p>
+        <p class="you-get">You get: a precise map of the problem, not a restatement of your request.</p>
+      </div>
+
+      <div class="step">
+        <h3><span class="n">2</span>Redesign</h3>
+        <p>Workflows get reshaped around how the work actually happens — where AI earns a place in the process and, just as deliberately, where it doesn't. Operating models, decision rights, and hand-offs are designed on paper before anything is configured, because a bad process automated is a bad process accelerated.</p>
+        <p class="you-get">You get: a future-state design your teams recognize as their real work, improved — not a theoretical workflow imported from a slide.</p>
+      </div>
+
+      <div class="step">
+        <h3><span class="n">3</span>Build</h3>
+        <p>This is where Techtuition differs from most transformation consulting: I build what I design. Governance frameworks, evaluation criteria, standards, playbooks — and the technical infrastructure itself: agentic AI workflows, MCP-based integrations, RAG architectures, evaluation systems, workflow automation. Not as a software agency delivering to a spec, but as the same person who diagnosed the friction, building in production with your team so the system fits the organization it has to live in.</p>
+        <p class="you-get">You get: a working system, not a recommendation to go build one.</p>
+      </div>
+
+      <div class="step">
+        <h3><span class="n">4</span>Enable</h3>
+        <p>People learn the system by running it — workshops inside real work, office hours, train-the-trainer pathways, and materials tiered from individual contributor to executive. This is the move most engagements treat as an afterthought and I treat as the point: the ~200 practitioners I trained at Coursera are why that system survived my departure.</p>
+        <p class="you-get">You get: teams that can operate, improve, and teach the system themselves.</p>
+      </div>
+
+      <div class="step">
+        <h3><span class="n">5</span>Leave</h3>
+        <p>Independence is the exit criterion, planned from the first week. Ownership transfers to named people, measurement stays behind to prove the change held, and the engagement ends. A system that still depends on the consultant is a system that failed.</p>
+        <p class="you-get">You get: your organization, more capable than I found it — and no ongoing dependency to pay for.</p>
+      </div>
+    </section>
+
+    <section id="framework" aria-labelledby="fw-label">
+      <p class="section-label" id="fw-label">the framework</p>
+      <h2 class="section-heading">Eight parts, taught for four years, <em>before it had a market category.</em></h2>
+      <p class="section-intro">
+        The diagnostic backbone of this method is an eight-part AI Enablement framework I created and taught across a four-year engagement with the UX Content Collective — training hundreds of practitioners supporting Fortune 100/500 organizations. It teaches teams to assess organizational design, business functions, governance, and knowledge ecosystems as the foundation for AI adoption — because adoption succeeds or fails on the organization, not the tool. Alongside it sits a companion eight-part Content Operations framework covering operating models, governance, workflows, decision rights, and collaboration practices. Both predate the current wave of “AI enablement” as a job title. The market caught up to the method; the method didn't chase the market.
+      </p>
+      <!-- TODO (Deiadora): list the eight part names here from the actual curriculum before publishing. -->
+    </section>
+
+    <section id="not" aria-labelledby="not-label">
+      <p class="section-label" id="not-label">what this isn't</p>
+      <div class="case-grid">
+        <div class="case-card">
+          <p class="co">not ai training</p>
+          <p>Trainers leave after the workshop, and nothing changes Monday. Training here is one move of five — the delivery mechanism of capability, never the product.</p>
+        </div>
+        <div class="case-card">
+          <p class="co">not an automation agency</p>
+          <p>Agencies build automations; organizations quietly stop using them. My method exists because adoption is the hard part — behavior change is the deliverable, and the technical build serves it.</p>
+        </div>
+        <div class="case-card">
+          <p class="co">not traditional consulting</p>
+          <p>The deck-then-depart model ends exactly where the difficulty begins. I stay through implementation, and my proof points are systems still running years later — a claim the slide-deck model structurally cannot make.</p>
+        </div>
+      </div>
+      <p class="section-intro" style="margin-top:2rem;">
+        Unlike transformation consultants, I can move from strategy into implementation. Unlike technical vendors, I build the organizational system around the technology — governance, training, ownership — that determines whether it gets used at all.
+      </p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-h">
+      <div class="contact-card">
+        <h2 id="contact-h">See the method against your problem.</h2>
+        
+        <p>Thirty minutes, no deck. Bring the workflow that's stuck or the mandate that's stalling, and I'll tell you honestly which move it needs first.</p>
+        <div class="contact-row">
+          <a class="btn primary" href="mailto:herself@deiadora.com?subject=working together · techtuition">email deiadora</a>
+          <a class="btn ghost" href="https://deiadora.com">deiadora.com</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>techtuition · ai enablement &amp; organizational capability</p>
+      <p>© <span id="year"></span> · part of the <a href="https://deiadora.com">deiadora ecosystem</a> 🌿</p>
+    </footer>
+
+  </main>
+
+  <script>
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const toggle  = document.getElementById("themeToggle");
+    const root    = document.documentElement;
+    const STORE   = "qc-theme";
+    const sysDark = window.matchMedia("(prefers-color-scheme: dark)");
+    function resolveTheme() {
+      const saved = localStorage.getItem(STORE);
+      if (saved) return saved;
+      return sysDark.matches ? "dark" : "light";
+    }
+    function applyTheme(theme) {
+      root.setAttribute("data-theme", theme);
+      const isSystem = !localStorage.getItem(STORE);
+      toggle.textContent = isSystem ? "\u{1F317}" : (theme === "dark" ? "\u{1F319}" : "\u2600\uFE0F");
+      toggle.setAttribute("aria-label", theme === "dark" ? "switch to light mode" : "switch to dark mode");
+    }
+    applyTheme(resolveTheme());
+    toggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const sysTheme = sysDark.matches ? "dark" : "light";
+      const next = current === "dark" ? "light" : "dark";
+      if (next === sysTheme) { localStorage.removeItem(STORE); }
+      else { localStorage.setItem(STORE, next); }
+      applyTheme(next);
+    });
+    sysDark.addEventListener("change", () => {
+      if (!localStorage.getItem(STORE)) {
+        applyTheme(sysDark.matches ? "dark" : "light");
+      }
+    });
+
+    const textToggle = document.getElementById("textToggle");
+    const TEXT_STORE = "qc-textsize";
+    function applyTextSize(size) {
+      if (size === "large") {
+        root.setAttribute("data-textsize", "large");
+        textToggle.setAttribute("aria-pressed", "true");
+        textToggle.setAttribute("aria-label", "switch to normal text size");
+      } else {
+        root.removeAttribute("data-textsize");
+        textToggle.setAttribute("aria-pressed", "false");
+        textToggle.setAttribute("aria-label", "switch to larger text size");
+      }
+    }
+    applyTextSize(localStorage.getItem(TEXT_STORE) || "normal");
+    textToggle.addEventListener("click", () => {
+      const next = root.hasAttribute("data-textsize") ? "normal" : "large";
+      if (next === "large") { localStorage.setItem(TEXT_STORE, "large"); }
+      else { localStorage.removeItem(TEXT_STORE); }
+      applyTextSize(next);
+    });
+
+  </script>
+</body>
+</html>
