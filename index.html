@@ -3,24 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>techtuition — consulting &amp; training for content teams in the AI era</title>
-  <meta name="description" content="Advisory, hands-on builds, and team training for content design leaders navigating AI — from the person who built Airbnb's first internal Help Center AI and trained hundreds of practitioners." />
-  <meta property="og:title" content="techtuition — consulting &amp; training for content teams" />
-  <meta property="og:description" content="The AI mandate just landed on your content team. Now what? Advisory, builds, and training from someone who has done it from the inside." />
+  <title>techtuition — AI enablement & organizational capability consulting</title>
+  <meta name="description" content="The AI mandate landed. The tools showed up. The work didn't change. Techtuition builds the capability underneath AI adoption — redesigned workflows, working governance, and teams trained to run the system independently." />
+  <meta property="og:title" content="techtuition — AI enablement & organizational capability consulting" />
+  <meta property="og:description" content="The AI mandate landed. The tools showed up. The work didn't change. Techtuition builds the capability underneath AI adoption — redesigned workflows, working governance, and teams trained to run the system independently." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://techtuition.ai" />
+  <meta property="og:url" content="https://techtuition.ai/" />
   <meta property="og:image" content="https://techtuition.ai/techtuition_banner_sm.jpeg" />
   <link rel="icon" href="/techtuition_favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
+
 :root {
   --ink:        #f0ede3;
   --paper:      #0c1516;
   --card:       #0e171a;
   --card-lt:    #131f23;
-  --accent:     #7a9e2a;   /* true node-4 lime — AA on dark paper (5.95:1) */
+  --accent:     #7a9e2a;
   --crown:      var(--accent);
   --muted:      #d8d3c7;
   --line:       rgba(240,237,230,.1);
@@ -35,7 +36,7 @@
   --paper:      #010003;
   --card:       #151515;
   --card-lt:    #20211e;
-  --accent:     #7a9e2a;   /* true node-4, 6.7:1 on pure black */
+  --accent:     #7a9e2a;
   --muted:      #cfc9bc;
   --line:       rgba(240,237,230,.1);
   --line-s:     rgba(240,237,230,.18);
@@ -43,13 +44,16 @@
 [data-theme="dark"] .nav          { background: #010003; }
 [data-theme="dark"] .contact-card { background: #151515; }
 [data-theme="dark"] .case-card    { background: #151515; }
+[data-theme="dark"] .case         { background: #151515; }
+[data-theme="dark"] .offer        { background: #151515; }
+[data-theme="dark"] .stat         { background: #151515; }
 
 [data-theme="light"] {
   --ink:      #1a1814;
   --paper:    #f4f2ec;
   --card:     #fffff2;
   --card-lt:  #e8e2d6;
-  --accent:   #546d1d;   /* node-4 darkened for light paper — AA (5.2:1) */
+  --accent:   #546d1d;
   --muted:    #57503f;
   --line:     rgba(26,24,20,.1);
   --line-s:   rgba(26,24,20,.18);
@@ -70,7 +74,6 @@ body {
   transition: background .25s, color .25s;
 }
 
-/* ─── skip link ─── */
 .skip {
   position: absolute; left: -9999px; top: 0;
   background: var(--accent); color: var(--paper);
@@ -79,7 +82,6 @@ body {
 }
 .skip:focus { left: 0; }
 
-/* ─── nav ─── */
 .nav {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -113,11 +115,9 @@ body {
 .text-toggle .a-lg { font-size: 1.02rem; font-weight: 600; }
 .text-toggle[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 
-/* ─── page ─── */
 .page { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 6rem; }
 
-/* ─── hero ─── */
-.hero { padding: 7rem 0 5rem; border-bottom: 1px solid var(--line); }
+.hero { padding: 6rem 0 4.5rem; border-bottom: 1px solid var(--line); }
 .kicker {
   font-family: var(--serif); font-style: italic;
   font-size: .95rem; font-weight: 300;
@@ -133,7 +133,7 @@ body {
 .hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
 .subhead {
   font-size: 1.15rem; color: var(--muted);
-  max-width: 620px; line-height: 1.75;
+  max-width: 640px; line-height: 1.75;
   margin-bottom: 1.4rem; font-weight: 300;
 }
 .subhead strong { color: var(--ink); font-weight: 500; }
@@ -144,7 +144,6 @@ body {
   letter-spacing: .03em; margin-top: 2rem; font-style: italic;
 }
 
-/* ─── section titles ─── */
 .section-label {
   font-family: var(--serif); font-size: .85rem; font-weight: 500;
   letter-spacing: .1em; text-transform: uppercase;
@@ -161,7 +160,7 @@ section { margin-top: 5rem; }
 .section-heading em { color: var(--accent); }
 .section-intro {
   font-size: 1.05rem; color: var(--muted);
-  line-height: 1.75; max-width: 640px;
+  line-height: 1.75; max-width: 680px;
   margin-bottom: 2rem; font-weight: 300;
 }
 .section-intro strong { color: var(--ink); font-weight: 500; }
@@ -169,7 +168,6 @@ section { margin-top: 5rem; }
 .section-intro a { color: var(--accent); text-decoration: none; }
 .section-intro a:hover { opacity: .75; }
 
-/* ─── engagement cards ─── */
 .case-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.2rem; }
 @media (max-width: 700px) { .case-grid { grid-template-columns: 1fr; } }
 .case-card {
@@ -192,19 +190,17 @@ section { margin-top: 5rem; }
   font-size: .9rem; color: var(--accent); font-style: italic;
   border-top: 1px solid var(--line); padding-top: .8rem; margin-top: auto;
 }
-.card-coming { border-style: dashed; }
-.card-coming:hover { border-style: solid; }
+.case-card a { color: var(--accent); text-decoration: none; }
 
-/* ─── experience prose ─── */
 .bio {
   font-size: 1.1rem; color: var(--muted); line-height: 1.8;
   max-width: 680px; margin-bottom: 1.6rem; font-weight: 300;
 }
 .bio strong { color: var(--ink); font-weight: 500; }
+.bio em { color: var(--ink); }
 .bio a { color: var(--accent); text-decoration: none; }
 .bio a:hover { opacity: .75; }
 
-/* ─── contact ─── */
 .contact-card {
   background: var(--card); border: 1px solid var(--line-s);
   border-radius: var(--r); padding: 2.2rem 2.4rem;
@@ -213,7 +209,7 @@ section { margin-top: 5rem; }
   font-family: var(--display); font-size: 1.8rem; font-weight: 400;
   letter-spacing: -.02em; margin-bottom: .8rem; color: var(--ink);
 }
-.contact-card p { color: var(--muted); line-height: 1.75; font-size: 1.05rem; }
+.contact-card p { color: var(--muted); line-height: 1.75; font-size: 1.05rem; margin-bottom: .6rem; }
 .contact-card p strong { color: var(--ink); font-weight: 500; }
 .contact-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.6rem; }
 .btn {
@@ -229,7 +225,6 @@ section { margin-top: 5rem; }
 .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
 .btn.sm { padding: .5rem 1.1rem; font-size: .88rem; }
 
-/* ─── footer ─── */
 .footer {
   margin-top: 5rem; padding-top: 2rem;
   border-top: 1px solid var(--line);
@@ -239,7 +234,6 @@ section { margin-top: 5rem; }
 .footer a { color: var(--accent); text-decoration: none; }
 .footer a:hover { opacity: .75; }
 
-/* ─── animations ─── */
 @media (prefers-reduced-motion: no-preference) {
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
@@ -251,6 +245,42 @@ section { margin-top: 5rem; }
   .hero .hero-cta  { animation: fadeUp .5s ease both; animation-delay: .26s; }
   .hero .hero-note { animation: fadeUp .5s ease both; animation-delay: .32s; }
 }
+
+
+/* ─── stats ─── */
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+@media (max-width: 800px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+.stat { background: var(--card); border: 1px solid var(--line-s); border-radius: var(--r); padding: 1.6rem 1.5rem; }
+.stat .num { font-family: var(--display); font-size: 2.1rem; color: var(--accent); line-height: 1.1; }
+.stat p { font-size: .95rem; color: var(--muted); line-height: 1.55; margin-top: .55rem; font-weight: 300; }
+
+/* ─── method steps ─── */
+.step { border-left: 2px solid var(--line-s); padding-left: 1.6rem; margin-bottom: 2.4rem; max-width: 680px; }
+.step h3 { font-family: var(--serif); font-size: 1.18rem; font-weight: 600; color: var(--ink); margin-bottom: .6rem; letter-spacing: -.01em; }
+.step h3 .n { color: var(--accent); margin-right: .55rem; font-weight: 700; }
+.step p { color: var(--muted); line-height: 1.75; font-weight: 300; margin-bottom: .6rem; font-size: 1.02rem; }
+.step .you-get { font-style: italic; color: var(--accent); font-size: .95rem; }
+
+/* ─── offers ─── */
+.offer { background: var(--card); border: 1px solid var(--line-s); border-radius: var(--r); padding: 2.2rem 2.4rem; margin-bottom: 1.6rem; max-width: 780px; transition: border-color .2s; }
+.offer:hover { border-color: var(--accent); }
+.offer .co { font-family: var(--serif); font-size: .84rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
+.offer h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; letter-spacing: -.02em; color: var(--ink); margin-bottom: .3rem; }
+.offer .meta { font-size: .9rem; color: var(--muted); font-style: italic; margin-bottom: 1rem; }
+.offer h4 { font-family: var(--serif); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin: 1.2rem 0 .35rem; }
+.offer p { color: var(--muted); line-height: 1.7; font-weight: 300; font-size: 1rem; }
+.offer p strong { color: var(--ink); font-weight: 500; }
+
+/* ─── case studies ─── */
+.case { background: var(--card); border: 1px solid var(--line-s); border-radius: var(--r); padding: 2.2rem 2.4rem; margin-bottom: 2rem; max-width: 780px; }
+.case .co { font-family: var(--serif); font-size: .84rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+.case h4 { font-family: var(--serif); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin: 1.3rem 0 .3rem; }
+.case h4.final { color: var(--accent); }
+.case p { color: var(--muted); line-height: 1.75; font-weight: 300; font-size: 1rem; }
+.case p strong { color: var(--ink); font-weight: 500; }
+
+.navlinks a.active { color: var(--accent); }
+
   </style>
 </head>
 <body>
@@ -258,11 +288,12 @@ section { margin-top: 5rem; }
   <a class="skip" href="#main">skip to content</a>
 
   <header class="nav">
-    <a class="brand" href="/"><span>tech</span>tuition</a>
+    <a class="brand" href="index.html"><span>tech</span>tuition</a>
     <nav class="navlinks" aria-label="primary">
-      <a href="#engagements">engagements</a>
-      <a href="#experience">experience</a>
-      <a href="#workshop">the workshop</a>
+      <a href="method.html">method</a>
+      <a href="engagements.html">engagements</a>
+      <a href="proof.html">proof</a>
+      <a href="about.html">about</a>
       <a href="#contact">contact</a>
       <a href="https://deiadora.com">deiadora.com ↗</a>
       <button class="text-toggle" id="textToggle" aria-label="toggle larger text" aria-pressed="false"><span class="a-sm">A</span><span class="a-lg">A</span></button>
@@ -272,87 +303,102 @@ section { margin-top: 5rem; }
 
   <main class="page" id="main">
 
-    <!-- ─── 1 · hero ─── -->
     <section class="hero" aria-labelledby="hero-h">
-      <p class="kicker">techtuition · consulting &amp; training for content teams</p>
-      <h1 id="hero-h">The AI mandate just landed on your content team. <em>Now what?</em></h1>
+      <p class="kicker">techtuition · ai enablement &amp; organizational capability</p>
+      <h1 id="hero-h">The AI mandate landed. The tools showed up. <em>The work didn't change.</em></h1>
       <p class="subhead">
-        You lead content design, UX writing, or content strategy — and sometime in the last year the job changed underneath you. You're being asked to ship AI-mediated content without evaluation criteria, govern systems nobody has written rules for, and re-skill a team mid-flight.
+        Somewhere between the announcement and Monday morning, adoption stalled. The licenses are paid for. The pilot went fine. And the actual work — the workflows, the decisions, the daily habits of your teams — looks the way it did last year. You're being asked to make AI real: measurable, governed, part of how work happens. Without new headcount, and without breaking what already works.
       </p>
       <p class="subhead">
-        <strong>I've done this from the inside.</strong> Techtuition is that work, available to yours.
+        <strong>The tools were never the hard part.</strong> I build the organizational capability underneath adoption — redesigned workflows, working governance, and teams trained to run the system without me.
       </p>
       <div class="hero-cta">
         <a class="btn primary" href="mailto:herself@deiadora.com?subject=working together · techtuition">email deiadora →</a>
-        <a class="btn ghost" href="#engagements">how we can work ↓</a>
+        <a class="btn ghost" href="#method">how this works ↓</a>
       </div>
       <p class="hero-note">independent · remote · engagements begin with a conversation, not a pitch</p>
     </section>
 
-    <!-- ─── 2 · engagements ─── -->
-    <section id="engagements" aria-labelledby="eng-label">
-      <p class="section-label" id="eng-label">three ways to work together</p>
+    <section id="stalls" aria-labelledby="stalls-label">
+      <p class="section-label" id="stalls-label">why adoption stalls</p>
+      <h2 class="section-heading">Organizations don't fail to try AI. <em>They fail to make it stick.</em></h2>
       <div class="case-grid">
         <div class="case-card">
-          <p class="co">advisory</p>
-          <h3>A senior thinking partner</h3>
-          <p>For the decisions you can't delegate: where AI actually belongs in your workflow, what governance you need before legal comes asking, how to restructure without losing the craft.</p>
-          <p class="impact">retainer · or by the question</p>
+          <p class="co">tools without systems</p>
+          <p>A license is not a workflow. When AI arrives without evaluation criteria, governance, or a defined place in the process, every team member is left to improvise — and improvisation quietly reverts to the old way of working.</p>
         </div>
         <div class="case-card">
-          <p class="co">hands-on builds</p>
-          <h3>Systems your team keeps</h3>
-          <p>Evaluation rubrics, governance frameworks, content systems — built in production with your team. You keep the system and the skills; the work is designed to outlive me.</p>
-          <p class="impact">scoped engagements</p>
+          <p class="co">training without practice</p>
+          <p>A workshop creates enthusiasm; it doesn't create capability. If nothing about the daily work changes by Friday, the training evaporates by the following Monday. Adoption is a teaching problem — and teaching is repetition inside real work, not a slide deck beside it.</p>
         </div>
         <div class="case-card">
-          <p class="co">team training</p>
-          <h3>The curriculum, in-house</h3>
-          <p>What I taught for four years at UX Content Collective and beyond — tailored to your stack, your governance reality, and your team's actual work.</p>
-          <p class="impact">half-day to multi-week</p>
+          <p class="co">pilots without operations</p>
+          <p>The pilot succeeded, then stayed a pilot. Moving from “it worked once” to “it's how we work” requires SOPs, standards, measurement, and an owner — the operational layer most AI initiatives never build.</p>
         </div>
       </div>
     </section>
 
-    <!-- ─── 3 · experience ─── -->
-    <section id="experience" aria-labelledby="exp-label">
-      <p class="section-label" id="exp-label">experience</p>
-      <p class="bio">
-        A career of content systems work, the last several at the AI seam. At <strong>Airbnb</strong> I managed the UX writing team through the shift to LLM-integrated workflows, and authored the content operations playbook their content teams adopted. At <strong>Coursera</strong> I trained roughly two hundred practitioners across a fifteen-hundred-person organization to write to one design system — weekly office hours, workshops, mentorship — which is how I know adoption is a teaching problem, not a documentation problem. Earlier, I wrote plain-language standards for palliative-care patients and their families, and for hospitality audiences — regulated, high-stakes content where getting a sentence wrong has a high cost.
+    <section id="method" aria-labelledby="method-label">
+      <p class="section-label" id="method-label">the method</p>
+      <h2 class="section-heading"><em>Diagnose → Redesign → Build → Enable → Leave.</em></h2>
+      <p class="section-intro">
+        I've run the same five-move arc for nearly two decades — through content systems, knowledge architecture, and now AI-enabled work. <strong>Diagnose</strong> the friction where it actually lives. <strong>Redesign</strong> the workflow around how work really happens. <strong>Build</strong> the system — governance, standards, evaluation criteria, and the technical infrastructure itself; I implement what I design, from agentic workflows to evaluation systems, so strategy doesn't die in the gap between the deck and the daily work. <strong>Enable</strong> the people who will run it, at every level. Then <strong>leave</strong> — because a system that still depends on the consultant is a system that failed.
       </p>
+      <a class="btn ghost sm" href="method.html">the full method →</a>
+    </section>
+
+    <section id="proof" aria-labelledby="proof-label">
+      <p class="section-label" id="proof-label">proof</p>
+      <h2 class="section-heading">Measured in outcomes. <em>Verified by what's still running.</em></h2>
+      <div class="stat-grid">
+        <div class="stat"><p class="num">~$3M</p><p>saved through one workflow redesign at Airbnb</p></div>
+        <div class="stat"><p class="num">1,500</p><p>people across one organization adopted one operating model at Coursera</p></div>
+        <div class="stat"><p class="num">100s</p><p>of practitioners trained, from Fortune 100/500 teams to four-person client crews</p></div>
+        <div class="stat"><p class="num">Still running</p><p>the systems I've built continue operating years after hand-off</p></div>
+      </div>
+      <p class="section-intro" style="margin-top:2rem;"><a href="proof.html">read the case studies →</a></p>
+    </section>
+
+    <section id="doors" aria-labelledby="doors-label">
+      <p class="section-label" id="doors-label">three ways in</p>
+      <div class="case-grid">
+        <div class="case-card">
+          <p class="co">diagnose</p>
+          <h3>Know exactly where you stand</h3>
+          <p>A fixed-fee diagnostic that maps your workflows, adoption barriers, and governance gaps — and hands you a prioritized roadmap with the first intervention scoped. Two to four weeks.</p>
+          <p class="impact"><a href="engagements.html#diagnostic">the AI Capability Diagnostic →</a></p>
+        </div>
+        <div class="case-card">
+          <p class="co">build</p>
+          <h3>Turn one pilot into permanent practice</h3>
+          <p>Workflow redesign, governance, and implementation — or a fractional enablement lead who stands up the whole function and then helps you hire her replacement. Scoped engagements to multi-quarter.</p>
+          <p class="impact"><a href="engagements.html#pilot">Pilot-to-Practice</a> · <a href="engagements.html#fractional">Fractional Lead →</a></p>
+        </div>
+        <div class="case-card">
+          <p class="co">train</p>
+          <h3>The curriculum, in-house</h3>
+          <p>The capability-building curriculum I taught for four years at UX Content Collective and beyond — tailored to your stack, your governance reality, and your teams' actual work. Half-day to multi-week.</p>
+          <p class="impact"><a href="engagements.html#curriculum">the In-House Curriculum →</a></p>
+        </div>
+      </div>
+      <p class="section-intro" style="margin-top:2rem;">
+        Not sure which door? That's normal — most real problems arrive unlabeled. Start with the conversation; I'll propose the smallest engagement that solves the real problem.
+      </p>
+    </section>
+
+    <section id="research" aria-labelledby="research-label">
+      <p class="section-label" id="research-label">the research underneath</p>
       <p class="bio">
         Alongside the client work, I publish research: LLM evaluation (<em>Apart Research, 2026</em>) and an ongoing taxonomy of how constructive conversations progress — 264 documented pathways, becoming an API at <a href="https://quantummagic.ai">quantummagic.ai</a>. You don't need the research to hire me. It's just why my evaluation rubrics ask questions other people's don't.
       </p>
     </section>
 
-    <!-- ─── 4 · how it starts ─── -->
-    <section id="start" aria-labelledby="start-label">
-      <p class="section-label" id="start-label">how engagements start</p>
-      <p class="section-intro">
-        One email. We talk about what's actually happening on your team — thirty minutes, no deck. If the fit is right, I'll propose the smallest engagement that solves the real problem. If it isn't, I'll say so and point you somewhere better.
-      </p>
-    </section>
-
-    <!-- ─── 5 · the workshop ─── -->
-    <section id="workshop" aria-labelledby="ws-label">
-      <p class="section-label" id="ws-label">in development</p>
-      <div class="case-grid" style="grid-template-columns: 1fr;">
-        <div class="case-card card-coming" style="max-width: 680px;">
-          <p class="co">the workshop · you shape it</p>
-          <h3>A self-paced version of this work</h3>
-          <p>The consulting is live today. A self-paced workshop — for teams who'd rather learn it than buy it — is being designed around what content leaders say they actually need. What should it teach you first? One email, one question. You'll shape what gets built.</p>
-          <div class="impact" style="border-top:none; padding-top:0;">
-            <a class="btn ghost sm" href="mailto:herself@deiadora.com?subject=the workshop · what it should teach">tell me what you'd want →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── 6 · contact ─── -->
     <section id="contact" aria-labelledby="contact-h">
       <div class="contact-card">
         <h2 id="contact-h">Bring the real problem.</h2>
-        <p>Advisory, builds, team training — or the thing you can't quite name yet that's making this year harder than last year. <strong>Peer-to-peer from the first message.</strong></p>
+        
+        <p>A stalled mandate, a pilot that won't scale, a team that needs to become capable of more than it was hired for — or the thing you can't quite name yet that's making this year harder than last year. <strong>Peer-to-peer from the first message.</strong></p>
+        <p>One email. We talk about what's actually happening — thirty minutes, no deck. If the fit is right, I'll propose the smallest engagement that solves the real problem. If it isn't, I'll say so and point you somewhere better.</p>
         <div class="contact-row">
           <a class="btn primary" href="mailto:herself@deiadora.com?subject=working together · techtuition">email deiadora</a>
           <a class="btn ghost" href="https://deiadora.com">deiadora.com</a>
@@ -361,16 +407,16 @@ section { margin-top: 5rem; }
     </section>
 
     <footer class="footer">
-      <p>techtuition · consulting &amp; training for content teams</p>
+      <p>techtuition · ai enablement &amp; organizational capability</p>
       <p>© <span id="year"></span> · part of the <a href="https://deiadora.com">deiadora ecosystem</a> 🌿</p>
     </footer>
 
   </main>
 
   <script>
+
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    /* ── colour theme ── */
     const toggle  = document.getElementById("themeToggle");
     const root    = document.documentElement;
     const STORE   = "qc-theme";
@@ -383,7 +429,7 @@ section { margin-top: 5rem; }
     function applyTheme(theme) {
       root.setAttribute("data-theme", theme);
       const isSystem = !localStorage.getItem(STORE);
-      toggle.textContent = isSystem ? "🌗" : (theme === "dark" ? "🌙" : "☀️");
+      toggle.textContent = isSystem ? "\u{1F317}" : (theme === "dark" ? "\u{1F319}" : "\u2600\uFE0F");
       toggle.setAttribute("aria-label", theme === "dark" ? "switch to light mode" : "switch to dark mode");
     }
     applyTheme(resolveTheme());
@@ -401,7 +447,6 @@ section { margin-top: 5rem; }
       }
     });
 
-    /* ── text size ── */
     const textToggle = document.getElementById("textToggle");
     const TEXT_STORE = "qc-textsize";
     function applyTextSize(size) {
@@ -422,6 +467,7 @@ section { margin-top: 5rem; }
       else { localStorage.removeItem(TEXT_STORE); }
       applyTextSize(next);
     });
+
   </script>
 </body>
 </html>
