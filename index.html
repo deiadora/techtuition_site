@@ -255,6 +255,21 @@ section { margin-top: 5rem; }
 .stat p { font-size: .95rem; color: var(--muted); line-height: 1.55; margin-top: .55rem; font-weight: 300; }
 .stat .src { display: block; font-size: .8rem; font-style: italic; color: var(--muted); opacity: .8; margin-top: .4rem; }
 
+/* ─── logo / wordmark strips ─── */
+.logos { margin-top: 2.6rem; max-width: 780px; }
+.logos + .logos { margin-top: 2.2rem; }
+.logos .lbl {
+  font-family: var(--serif); font-size: .8rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1.1rem;
+}
+.logo-row { display: flex; flex-wrap: wrap; gap: 1rem 2.2rem; align-items: baseline; }
+.logo-row span {
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+  letter-spacing: -.01em; color: var(--ink); opacity: .82;
+}
+.logos.trained .logo-row span { font-size: 1.02rem; font-weight: 500; opacity: .7; }
+
 /* ─── method steps ─── */
 .step { border-left: 2px solid var(--line-s); padding-left: 1.6rem; margin-bottom: 2.4rem; max-width: 680px; }
 .step h3 { font-family: var(--serif); font-size: 1.18rem; font-weight: 600; color: var(--ink); margin-bottom: .6rem; letter-spacing: -.01em; }
@@ -292,6 +307,7 @@ section { margin-top: 5rem; }
     <a class="brand" href="index.html"><span>tech</span>tuition</a>
     <nav class="navlinks" aria-label="primary">
       <a href="method.html">method</a>
+      <a href="#fractional">fractional lead</a>
       <a href="engagements.html">engagements</a>
       <a href="proof.html">proof</a>
       <a href="about.html">about</a>
@@ -357,7 +373,28 @@ section { margin-top: 5rem; }
         <div class="stat"><p class="num">100s</p><p>of practitioners trained, from Fortune 100/500 teams to four-person client crews</p></div>
         <div class="stat"><p class="num">Still running</p><p>the systems I've built continue operating years after hand-off</p></div>
       </div>
-      <p class="section-intro" style="margin-top:2rem;"><a href="proof.html">read the case studies →</a></p>
+      <div class="logos">
+        <p class="lbl">selected clients</p>
+        <div class="logo-row">
+          <span>Airbnb</span>
+          <span>Coursera</span>
+          <span>Navy Federal Credit Union</span>
+          <span>Luxe Incentives</span>
+          <span>Welk Resorts</span>
+        </div>
+      </div>
+      <div class="logos trained">
+        <p class="lbl">practitioners trained from</p>
+        <div class="logo-row">
+          <span>Meta</span>
+          <span>Google</span>
+          <span>Netflix</span>
+          <span>Atlassian</span>
+          <span>LATAM Airlines</span>
+          <span>&amp; hundreds more</span>
+        </div>
+      </div>
+      <p class="section-intro" style="margin-top:2.4rem;"><a href="proof.html">read the case studies →</a></p>
     </section>
 
     <section id="doors" aria-labelledby="doors-label">
@@ -388,6 +425,25 @@ section { margin-top: 5rem; }
       <p class="section-intro" style="margin-top:1rem;">
         Facing the decision <em>before</em> the mandate — what to adopt, what to skip, what to tell the board? That's advisory, and it lives at <a href="https://rebelevolve.com">rebelevolve.com</a>. Same research, different chair.
       </p>
+    </section>
+
+    <section id="fractional" aria-labelledby="fractional-label">
+      <p class="section-label" id="fractional-label">the flagship engagement</p>
+      <h2 class="section-heading">When you need the whole function built — <em>and then owned in-house.</em></h2>
+      <div class="offer">
+        <p class="co">fractional enablement lead</p>
+        <h3>Someone accountable for AI adoption, until your team is.</h3>
+        <p class="meta">part-time · embedded · multi-quarter · priced by scope</p>
+        <p>Some organizations don't need a diagnostic or a single workshop — they need someone to own the whole thing: the strategy, the governance, the workflows, the training, and the uncomfortable job of making it all actually land. For a defined stretch, that's me. I embed with your team, stand up the enablement function end to end, and carry the accountability a stalled mandate has usually been missing.</p>
+        <h4>what I own</h4>
+        <p>The operating model and where AI fits it. Governance and evaluation standards that hold up. Redesigned workflows your team runs daily. The capability-building so people can actually work the new system — not just admire it. And the measurement that proves it's working.</p>
+        <h4>how it ends</h4>
+        <p><strong>By design, with me gone.</strong> The whole engagement points toward a function your team runs without me — including helping you define, hire, and onboard the permanent owner who takes the seat. A fractional lead who makes herself unnecessary is the point, not a risk.</p>
+        <div class="contact-row" style="margin-top:1.4rem;">
+          <a class="btn primary sm" href="https://cal.com/deiadora/30min">talk through fit →</a>
+          <a class="btn ghost sm" href="engagements.html#fractional">engagement details</a>
+        </div>
+      </div>
     </section>
 
     <section id="research" aria-labelledby="research-label">
