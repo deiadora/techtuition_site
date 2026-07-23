@@ -253,6 +253,7 @@ section { margin-top: 5rem; }
 .stat { background: var(--card); border: 1px solid var(--line-s); border-radius: var(--r); padding: 1.6rem 1.5rem; }
 .stat .num { font-family: var(--display); font-size: 2.1rem; color: var(--accent); line-height: 1.1; }
 .stat p { font-size: .95rem; color: var(--muted); line-height: 1.55; margin-top: .55rem; font-weight: 300; }
+.stat .src { display: block; font-size: .8rem; font-style: italic; color: var(--muted); opacity: .8; margin-top: .4rem; }
 
 /* ─── method steps ─── */
 .step { border-left: 2px solid var(--line-s); padding-left: 1.6rem; margin-bottom: 2.4rem; max-width: 680px; }
@@ -307,7 +308,7 @@ section { margin-top: 5rem; }
       <p class="kicker">techtuition · ai enablement &amp; organizational capability</p>
       <h1 id="hero-h">The AI mandate landed. The tools showed up. <em>The work didn't change.</em></h1>
       <p class="subhead">
-        Somewhere between the announcement and Monday morning, adoption stalled. The licenses are paid for. The pilot went fine. And the actual work — the workflows, the decisions, the daily habits of your teams — looks the way it did last year. You're being asked to make AI real: measurable, governed, part of how work happens. Without new headcount, and without breaking what already works.
+        Somewhere between the announcement and Monday morning, adoption stalled. If you lead a team — content, ops, support, product — the licenses are paid for, the pilot went fine, and the actual work looks the way it did last year. You're being asked to make AI real: measurable, governed, part of how work happens. Without new headcount, and without breaking what already works.
       </p>
       <p class="subhead">
         <strong>The tools were never the hard part.</strong> I build the organizational capability underneath adoption — redesigned workflows, working governance, and teams trained to run the system without me.
@@ -351,7 +352,7 @@ section { margin-top: 5rem; }
       <p class="section-label" id="proof-label">proof</p>
       <h2 class="section-heading">Measured in outcomes. <em>Verified by what's still running.</em></h2>
       <div class="stat-grid">
-        <div class="stat"><p class="num">~$3M</p><p>saved through one workflow redesign at Airbnb</p></div>
+        <div class="stat"><p class="num">~$3M</p><p>saved through one workflow redesign at Airbnb<span class="src">internal analysis</span></p></div>
         <div class="stat"><p class="num">1,500</p><p>people across one organization adopted one operating model at Coursera</p></div>
         <div class="stat"><p class="num">100s</p><p>of practitioners trained, from Fortune 100/500 teams to four-person client crews</p></div>
         <div class="stat"><p class="num">Still running</p><p>the systems I've built continue operating years after hand-off</p></div>
@@ -365,7 +366,7 @@ section { margin-top: 5rem; }
         <div class="case-card">
           <p class="co">diagnose</p>
           <h3>Know exactly where you stand</h3>
-          <p>A fixed-fee diagnostic that maps your workflows, adoption barriers, and governance gaps — and hands you a prioritized roadmap with the first intervention scoped. Two to four weeks.</p>
+          <p>A fixed-fee diagnostic that maps your workflows, adoption barriers, and governance gaps — and hands you a prioritized roadmap with the first intervention scoped. From $7,500 · two to four weeks.</p>
           <p class="impact"><a href="engagements.html#diagnostic">the AI Capability Diagnostic →</a></p>
         </div>
         <div class="case-card">
@@ -384,6 +385,9 @@ section { margin-top: 5rem; }
       <p class="section-intro" style="margin-top:2rem;">
         Not sure which door? That's normal — most real problems arrive unlabeled. Start with the conversation; I'll propose the smallest engagement that solves the real problem.
       </p>
+      <p class="section-intro" style="margin-top:1rem;">
+        Facing the decision <em>before</em> the mandate — what to adopt, what to skip, what to tell the board? That's advisory, and it lives at <a href="https://rebelevolve.com">rebelevolve.com</a>. Same research, different chair.
+      </p>
     </section>
 
     <section id="research" aria-labelledby="research-label">
@@ -396,8 +400,8 @@ section { margin-top: 5rem; }
     <section id="contact" aria-labelledby="contact-h">
       <div class="contact-card">
         <h2 id="contact-h">Bring the real problem.</h2>
-        
-        <p>A stalled mandate, a pilot that won't scale, a team that needs to become capable of more than it was hired for — or the thing you can't quite name yet that's making this year harder than last year. <strong>Peer-to-peer from the first message.</strong></p>
+
+        <p>A stalled mandate, a pilot that won't scale, a team that needs to become capable of more than it was hired for — or the thing you can't quite name yet that's making this year harder than last year. <strong>Peer-to-peer from the first interaction.</strong></p>
         <p>One 30-minute discovery call. We talk about what's actually happening — thirty minutes, no deck. If the fit is right, we'll schedule a follow up with a proposal review. If it isn't, I'll say so and point you somewhere better.</p>
         <div class="contact-row">
           <a class="btn primary" href="https://cal.com/deiadora/30min">book a 30</a>
@@ -429,7 +433,7 @@ section { margin-top: 5rem; }
     function applyTheme(theme) {
       root.setAttribute("data-theme", theme);
       const isSystem = !localStorage.getItem(STORE);
-      toggle.textContent = isSystem ? "\u{1F317}" : (theme === "dark" ? "\u{1F319}" : "\u2600\uFE0F");
+      toggle.textContent = isSystem ? "\u{1F317}" : (theme === "dark" ? "\u{1F319}" : "☀️");
       toggle.setAttribute("aria-label", theme === "dark" ? "switch to light mode" : "switch to dark mode");
     }
     applyTheme(resolveTheme());
