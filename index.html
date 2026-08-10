@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>techtuition — AI enablement & organizational capability consulting</title>
-  <meta name="description" content="The AI mandate landed. The tools showed up. The work didn't change. Techtuition builds the capability underneath AI adoption — redesigned workflows, working governance, and teams trained to run the system independently." />
-  <meta property="og:title" content="techtuition — AI enablement & organizational capability consulting" />
-  <meta property="og:description" content="The AI mandate landed. The tools showed up. The work didn't change. Techtuition builds the capability underneath AI adoption — redesigned workflows, working governance, and teams trained to run the system independently." />
+  <title>techtuition — Content Operations &amp; AI Readiness Audits</title>
+  <meta name="description" content="A fixed-scope assessment of the content system behind your customer communication: what you say, how it gets produced and maintained, who owns it, and where AI belongs. From $6,500, delivered in three weeks." />
+  <meta property="og:title" content="techtuition — Content Operations &amp; AI Readiness Audits" />
+  <meta property="og:description" content="A fixed-scope assessment of the content system behind your customer communication: what you say, how it gets produced and maintained, who owns it, and where AI belongs. From $6,500, delivered in three weeks." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://techtuition.ai/" />
   <meta property="og:image" content="https://techtuition.ai/techtuition_banner_sm.jpeg" />
@@ -15,12 +15,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
-
 :root {
   --ink:        #f0ede3;
   --paper:      #0c1516;
   --card:       #0e171a;
-  --card-lt:    #131f23;
   --accent:     #7a9e2a;
   --crown:      var(--accent);
   --muted:      #d8d3c7;
@@ -35,33 +33,25 @@
   --ink:        #f7f5ef;
   --paper:      #010003;
   --card:       #151515;
-  --card-lt:    #20211e;
   --accent:     #7a9e2a;
   --muted:      #cfc9bc;
   --line:       rgba(240,237,230,.1);
   --line-s:     rgba(240,237,230,.18);
 }
 [data-theme="dark"] .nav          { background: #010003; }
-[data-theme="dark"] .contact-card { background: #151515; }
-[data-theme="dark"] .case-card    { background: #151515; }
-[data-theme="dark"] .case         { background: #151515; }
-[data-theme="dark"] .offer        { background: #151515; }
-[data-theme="dark"] .stat         { background: #151515; }
-
+[data-theme="dark"] .panel        { background: #151515; }
 [data-theme="light"] {
   --ink:      #1a1814;
   --paper:    #f4f2ec;
   --card:     #fffff2;
-  --card-lt:  #e8e2d6;
   --accent:   #546d1d;
   --muted:    #57503f;
   --line:     rgba(26,24,20,.1);
   --line-s:   rgba(26,24,20,.18);
 }
-[data-theme="light"] .nav          { background: #f4f2ec; }
-[data-theme="light"] .brand        { color: #1a1814; }
-[data-theme="light"] .contact-card { background: var(--card); }
-
+[data-theme="light"] .nav   { background: #f4f2ec; }
+[data-theme="light"] .brand { color: #1a1814; }
+[data-theme="light"] .panel { background: var(--card); }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scrollbar-gutter: stable; scroll-behavior: smooth; transition: font-size .25s ease; }
 html[data-textsize="large"] { font-size: 115%; }
@@ -73,7 +63,6 @@ body {
   -webkit-font-smoothing: antialiased;
   transition: background .25s, color .25s;
 }
-
 .skip {
   position: absolute; left: -9999px; top: 0;
   background: var(--accent); color: var(--paper);
@@ -81,7 +70,6 @@ body {
   font-size: .95rem; z-index: 200; text-decoration: none;
 }
 .skip:focus { left: 0; }
-
 .nav {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -89,6 +77,7 @@ body {
   background: var(--paper);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(8px);
+  gap: 1rem; flex-wrap: wrap;
 }
 .brand {
   font-family: var(--serif);
@@ -96,13 +85,14 @@ body {
   color: var(--ink); text-decoration: none; letter-spacing: -.02em;
 }
 .brand span { color: var(--crown); }
-.navlinks { display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
+.navlinks { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
 .navlinks a {
   font-size: .95rem; font-weight: 400;
   color: var(--muted); text-decoration: none;
   letter-spacing: .02em; transition: color .2s;
 }
 .navlinks a:hover { color: var(--accent); }
+.navlinks a.navcta { color: var(--accent); font-weight: 500; }
 .theme-toggle, .text-toggle {
   background: none; border: 1.5px solid var(--line);
   border-radius: 100px; cursor: pointer;
@@ -114,10 +104,9 @@ body {
 .text-toggle .a-sm { font-size: .72rem; font-weight: 500; }
 .text-toggle .a-lg { font-size: 1.02rem; font-weight: 600; }
 .text-toggle[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
-
-.page { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 6rem; }
-
-.hero { padding: 6rem 0 4.5rem; border-bottom: 1px solid var(--line); }
+.page { max-width: 820px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+section { margin-top: 4.5rem; }
+.hero { padding: 5.5rem 0 4rem; border-bottom: 1px solid var(--line); margin-top: 0; }
 .kicker {
   font-family: var(--serif); font-style: italic;
   font-size: .95rem; font-weight: 300;
@@ -125,96 +114,97 @@ body {
 }
 .hero h1 {
   font-family: var(--display);
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
-  line-height: 1.1; letter-spacing: -.02em;
+  font-size: clamp(2.3rem, 5vw, 3.4rem);
+  line-height: 1.12; letter-spacing: -.02em;
   font-weight: 400; color: var(--ink);
-  max-width: 700px; margin-bottom: 1.4rem;
+  max-width: 720px; margin-bottom: 1.4rem;
 }
 .hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
 .subhead {
-  font-size: 1.15rem; color: var(--muted);
-  max-width: 640px; line-height: 1.75;
+  font-size: 1.12rem; color: var(--muted);
+  max-width: 660px; line-height: 1.75;
   margin-bottom: 1.4rem; font-weight: 300;
 }
 .subhead strong { color: var(--ink); font-weight: 500; }
-.subhead em { color: var(--ink); font-style: italic; }
-.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.8rem; }
-.hero-note {
-  font-size: .9rem; color: var(--muted);
-  letter-spacing: .03em; margin-top: 2rem; font-style: italic;
+.price-line {
+  font-family: var(--serif); font-size: 1.05rem; font-weight: 600;
+  color: var(--ink); letter-spacing: .01em; margin: 1.8rem 0 0;
 }
-
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.4rem; }
+.hero-note { font-size: .9rem; color: var(--muted); margin-top: 1.8rem; font-style: italic; }
 .section-label {
   font-family: var(--serif); font-size: .85rem; font-weight: 500;
   letter-spacing: .1em; text-transform: uppercase;
-  color: var(--crown); margin-bottom: 1.6rem;
+  color: var(--crown); margin-bottom: 1.2rem;
 }
-section { margin-top: 5rem; }
-.section-heading {
+h2.section-heading {
   font-family: var(--display);
-  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-  font-weight: 400; font-style: italic;
-  color: var(--ink); line-height: 1.25;
-  margin-bottom: 1.4rem; max-width: 640px;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 400; color: var(--ink); line-height: 1.25;
+  margin-bottom: 1.4rem; max-width: 660px; letter-spacing: -.01em;
 }
-.section-heading em { color: var(--accent); }
-.section-intro {
+.prose p {
   font-size: 1.05rem; color: var(--muted);
-  line-height: 1.75; max-width: 680px;
-  margin-bottom: 2rem; font-weight: 300;
+  line-height: 1.8; max-width: 680px;
+  margin-bottom: 1.1rem; font-weight: 300;
 }
-.section-intro strong { color: var(--ink); font-weight: 500; }
-.section-intro em { color: var(--ink); font-style: italic; }
-.section-intro a { color: var(--accent); text-decoration: none; }
-.section-intro a:hover { opacity: .75; }
-
-.case-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.2rem; }
-@media (max-width: 700px) { .case-grid { grid-template-columns: 1fr; } }
-.case-card {
-  background: var(--card); border: 1px solid var(--line-s);
-  border-radius: var(--r); padding: 2rem 2.2rem;
-  display: flex; flex-direction: column; gap: 1rem;
-  transition: border-color .2s;
+.prose p strong { color: var(--ink); font-weight: 500; }
+.prose p:last-child { margin-bottom: 0; }
+.note { font-size: .98rem !important; opacity: .9; }
+.deliverables { list-style: none; max-width: 700px; }
+.deliverables li {
+  border-left: 2px solid var(--line-s);
+  padding: 0 0 0 1.4rem; margin-bottom: 1.5rem;
 }
-.case-card:hover { border-color: var(--accent); }
-.case-card .co {
+.deliverables b {
+  display: block; font-family: var(--serif);
+  font-size: 1.08rem; font-weight: 600; color: var(--ink);
+  margin-bottom: .3rem; letter-spacing: -.01em;
+}
+.deliverables span { color: var(--muted); font-weight: 300; line-height: 1.75; font-size: 1.02rem; }
+.ev { max-width: 700px; margin-bottom: 2rem; }
+.ev .co {
   font-family: var(--serif); font-size: .84rem; font-weight: 600;
-  letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: .5rem;
 }
-.case-card h3 {
-  font-family: var(--serif); font-size: 1.2rem; font-weight: 600;
-  letter-spacing: -.02em; color: var(--ink); line-height: 1.3;
+.ev p { font-size: 1.03rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
+.steps { list-style: none; counter-reset: s; max-width: 700px; }
+.steps li {
+  counter-increment: s; position: relative;
+  padding-left: 2.4rem; margin-bottom: 1.3rem;
+  color: var(--muted); font-weight: 300; line-height: 1.75; font-size: 1.02rem;
 }
-.case-card p { font-size: 1rem; color: var(--muted); line-height: 1.7; flex: 1; }
-.case-card .impact {
-  font-size: .9rem; color: var(--accent); font-style: italic;
-  border-top: 1px solid var(--line); padding-top: .8rem; margin-top: auto;
+.steps li::before {
+  content: counter(s); position: absolute; left: 0; top: 0;
+  font-family: var(--display); font-size: 1.25rem;
+  color: var(--accent); line-height: 1.35;
 }
-.case-card a { color: var(--accent); text-decoration: none; }
-
-.bio {
-  font-size: 1.1rem; color: var(--muted); line-height: 1.8;
-  max-width: 680px; margin-bottom: 1.6rem; font-weight: 300;
+.steps b { color: var(--ink); font-weight: 500; }
+.faq { max-width: 700px; }
+.faq dt {
+  font-family: var(--serif); font-size: 1.05rem; font-weight: 600;
+  color: var(--ink); margin-bottom: .4rem; letter-spacing: -.01em;
 }
-.bio strong { color: var(--ink); font-weight: 500; }
-.bio em { color: var(--ink); }
-.bio a { color: var(--accent); text-decoration: none; }
-.bio a:hover { opacity: .75; }
-
-.contact-card {
+.faq dd {
+  color: var(--muted); font-weight: 300; line-height: 1.75;
+  font-size: 1.02rem; margin: 0 0 1.6rem;
+}
+.panel {
   background: var(--card); border: 1px solid var(--line-s);
-  border-radius: var(--r); padding: 2.2rem 2.4rem;
+  border-radius: var(--r); padding: 2.2rem 2.4rem; max-width: 700px;
 }
-.contact-card h2 {
-  font-family: var(--display); font-size: 1.8rem; font-weight: 400;
-  letter-spacing: -.02em; margin-bottom: .8rem; color: var(--ink);
+.panel h2 {
+  font-family: var(--display); font-size: 1.9rem; font-weight: 400;
+  letter-spacing: -.02em; margin-bottom: .9rem; color: var(--ink);
 }
-.contact-card p { color: var(--muted); line-height: 1.75; font-size: 1.05rem; margin-bottom: .6rem; }
-.contact-card p strong { color: var(--ink); font-weight: 500; }
-.contact-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.6rem; }
+.panel p { color: var(--muted); line-height: 1.75; font-size: 1.05rem; font-weight: 300; }
+.contact-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-top: 1.6rem; }
+.contact-row a.mail { color: var(--accent); text-decoration: none; font-size: .98rem; }
+.contact-row a.mail:hover { opacity: .75; }
 .btn {
   display: inline-flex; align-items: center;
-  padding: .65rem 1.4rem; border-radius: var(--r);
+  padding: .68rem 1.4rem; border-radius: var(--r);
   font-family: var(--sans); font-size: .95rem; font-weight: 500;
   text-decoration: none; cursor: pointer; transition: all .2s;
   border: 1.5px solid transparent;
@@ -223,96 +213,43 @@ section { margin-top: 5rem; }
 .btn.primary:hover { opacity: .85; }
 .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-s); }
 .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
-.btn.sm { padding: .5rem 1.1rem; font-size: .88rem; }
-
 .footer {
-  margin-top: 5rem; padding-top: 2rem;
+  margin-top: 4.5rem; padding-top: 2rem;
   border-top: 1px solid var(--line);
   display: flex; justify-content: space-between; align-items: center;
   flex-wrap: wrap; gap: .6rem; font-size: .9rem; color: var(--muted);
 }
 .footer a { color: var(--accent); text-decoration: none; }
 .footer a:hover { opacity: .75; }
-
+@media (max-width: 640px) {
+  .nav { padding: .8rem 1.1rem; }
+  .panel { padding: 1.8rem 1.5rem; }
+  .hero { padding: 3.5rem 0 3rem; }
+}
 @media (prefers-reduced-motion: no-preference) {
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  .hero .kicker    { animation: fadeUp .5s ease both; animation-delay: .05s; }
-  .hero h1         { animation: fadeUp .5s ease both; animation-delay: .12s; }
-  .hero .subhead   { animation: fadeUp .5s ease both; animation-delay: .2s; }
-  .hero .hero-cta  { animation: fadeUp .5s ease both; animation-delay: .26s; }
-  .hero .hero-note { animation: fadeUp .5s ease both; animation-delay: .32s; }
+  .hero .kicker     { animation: fadeUp .5s ease both; animation-delay: .05s; }
+  .hero h1          { animation: fadeUp .5s ease both; animation-delay: .12s; }
+  .hero .subhead    { animation: fadeUp .5s ease both; animation-delay: .2s; }
+  .hero .price-line { animation: fadeUp .5s ease both; animation-delay: .26s; }
+  .hero .hero-cta   { animation: fadeUp .5s ease both; animation-delay: .3s; }
+  .hero .hero-note  { animation: fadeUp .5s ease both; animation-delay: .36s; }
 }
-
-
-/* ─── stats ─── */
-.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-@media (max-width: 800px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
-.stat { background: var(--card); border: 1px solid var(--line-s); border-radius: var(--r); padding: 1.6rem 1.5rem; }
-.stat .num { font-family: var(--display); font-size: 2.1rem; color: var(--accent); line-height: 1.1; }
-.stat p { font-size: .95rem; color: var(--muted); line-height: 1.55; margin-top: .55rem; font-weight: 300; }
-.stat .src { display: block; font-size: .8rem; font-style: italic; color: var(--muted); opacity: .8; margin-top: .4rem; }
-
-/* ─── logo / wordmark strips ─── */
-.logos { margin-top: 2.6rem; max-width: 780px; }
-.logos + .logos { margin-top: 2.2rem; }
-.logos .lbl {
-  font-family: var(--serif); font-size: .8rem; font-weight: 500;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 1.1rem;
-}
-.logo-row { display: flex; flex-wrap: wrap; gap: 1rem 2.2rem; align-items: baseline; }
-.logo-row span {
-  font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
-  letter-spacing: -.01em; color: var(--ink); opacity: .82;
-}
-.logos.trained .logo-row span { font-size: 1.02rem; font-weight: 500; opacity: .7; }
-
-/* ─── method steps ─── */
-.step { border-left: 2px solid var(--line-s); padding-left: 1.6rem; margin-bottom: 2.4rem; max-width: 680px; }
-.step h3 { font-family: var(--serif); font-size: 1.18rem; font-weight: 600; color: var(--ink); margin-bottom: .6rem; letter-spacing: -.01em; }
-.step h3 .n { color: var(--accent); margin-right: .55rem; font-weight: 700; }
-.step p { color: var(--muted); line-height: 1.75; font-weight: 300; margin-bottom: .6rem; font-size: 1.02rem; }
-.step .you-get { font-style: italic; color: var(--accent); font-size: .95rem; }
-
-/* ─── offers ─── */
-.offer { background: var(--card); border: 1px solid var(--line-s); border-radius: var(--r); padding: 2.2rem 2.4rem; margin-bottom: 1.6rem; max-width: 780px; transition: border-color .2s; }
-.offer:hover { border-color: var(--accent); }
-.offer .co { font-family: var(--serif); font-size: .84rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
-.offer h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; letter-spacing: -.02em; color: var(--ink); margin-bottom: .3rem; }
-.offer .meta { font-size: .9rem; color: var(--muted); font-style: italic; margin-bottom: 1rem; }
-.offer h4 { font-family: var(--serif); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin: 1.2rem 0 .35rem; }
-.offer p { color: var(--muted); line-height: 1.7; font-weight: 300; font-size: 1rem; }
-.offer p strong { color: var(--ink); font-weight: 500; }
-
-/* ─── case studies ─── */
-.case { background: var(--card); border: 1px solid var(--line-s); border-radius: var(--r); padding: 2.2rem 2.4rem; margin-bottom: 2rem; max-width: 780px; }
-.case .co { font-family: var(--serif); font-size: .84rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-.case h4 { font-family: var(--serif); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin: 1.3rem 0 .3rem; }
-.case h4.final { color: var(--accent); }
-.case p { color: var(--muted); line-height: 1.75; font-weight: 300; font-size: 1rem; }
-.case p strong { color: var(--ink); font-weight: 500; }
-
-.navlinks a.active { color: var(--accent); }
-
   </style>
 </head>
 <body>
-
   <a class="skip" href="#main">skip to content</a>
 
   <header class="nav">
     <a class="brand" href="index.html"><span>tech</span>tuition</a>
     <nav class="navlinks" aria-label="primary">
-      <a href="method.html">method</a>
-      <a href="#fractional">fractional lead</a>
-      <a href="engagements.html">engagements</a>
-      <a href="proof.html">proof</a>
-      <a href="about.html">about</a>
-      <a href="#contact">contact</a>
-      <a href="https://deiadora.com">deiadora.com ↗</a>
+      <a href="#audit">the audit</a>
+      <a href="#evidence">evidence</a>
+      <a href="#about">about</a>
+      <a class="navcta" href="https://cal.com/deiadora/30min">book a call</a>
       <button class="text-toggle" id="textToggle" aria-label="toggle larger text" aria-pressed="false"><span class="a-sm">A</span><span class="a-lg">A</span></button>
       <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌗</button>
     </nav>
@@ -321,162 +258,123 @@ section { margin-top: 5rem; }
   <main class="page" id="main">
 
     <section class="hero" aria-labelledby="hero-h">
-      <p class="kicker">techtuition · ai enablement &amp; organizational capability</p>
-      <h1 id="hero-h">The AI mandate landed. The tools showed up. <em>The work didn't change.</em></h1>
+      <p class="kicker">content strategy · content operations · ai content strategy</p>
+      <h1 id="hero-h">See what is working, and what is not, <em>across your customer content system.</em></h1>
       <p class="subhead">
-        Somewhere between the announcement and Monday morning, adoption stalled. If you lead a team — content, ops, support, product — the licenses are paid for, the pilot went fine, and the actual work looks the way it did last year. You're being asked to make AI real: measurable, governed, part of how work happens. Without new headcount, and without breaking what already works.
+        Your content system is everything behind what customers read: the content itself, the workflows that produce it, the standards that shape it, the people who own and approve it, and the sources of truth it depends on. This audit gives you an evidenced picture of that system, including where generative AI can responsibly support it and where it would make things worse.
       </p>
-      <p class="subhead">
-        <strong>The tools were never the hard part.</strong> I build the organizational capability underneath adoption — redesigned workflows, working governance, and teams trained to run the system without me.
-      </p>
+      <p class="price-line">From $6,500 · delivered in three weeks</p>
       <div class="hero-cta">
-        <a class="btn primary" href="https://cal.com/deiadora/30min">schedule a call →</a>
-        <a class="btn ghost" href="#method">how this works ↓</a>
+        <a class="btn primary" href="https://cal.com/deiadora/30min">Book a 30-minute call →</a>
+        <a class="btn ghost" href="#audit">what the audit covers ↓</a>
       </div>
-      <p class="hero-note">independent · remote · engagements begin with a conversation, not a pitch</p>
+      <p class="hero-note">Independent consultant. San Diego, working with teams remotely.</p>
     </section>
 
-    <section id="stalls" aria-labelledby="stalls-label">
-      <p class="section-label" id="stalls-label">why adoption stalls</p>
-      <h2 class="section-heading">Organizations don't fail to try AI. <em>They fail to make it stick.</em></h2>
-      <div class="case-grid">
-        <div class="case-card">
-          <p class="co">tools without systems</p>
-          <p>A license is not a workflow. When AI arrives without evaluation criteria, governance, or a defined place in the process, every team member is left to improvise — and improvisation quietly reverts to the old way of working.</p>
-        </div>
-        <div class="case-card">
-          <p class="co">training without practice</p>
-          <p>A workshop creates enthusiasm; it doesn't create capability. If nothing about the daily work changes by Friday, the training evaporates by the following Monday. Adoption is a teaching problem — and teaching is repetition inside real work, not a slide deck beside it.</p>
-        </div>
-        <div class="case-card">
-          <p class="co">pilots without operations</p>
-          <p>The pilot succeeded, then stayed a pilot. Moving from “it worked once” to “it's how we work” requires SOPs, standards, measurement, and an owner — the operational layer most AI initiatives never build.</p>
-        </div>
-      </div>
+    <section id="problem" class="prose" aria-labelledby="problem-label">
+      <p class="section-label" id="problem-label">the problem</p>
+      <h2 class="section-heading">Customer communication drifts apart as teams grow.</h2>
+      <p>Customer communication is produced by different groups working from different assumptions. Marketing writes acquisition content, sales sends its own materials, onboarding lives in product or customer success, and help content belongs to support. Each group is competent, and the result across channels is still inconsistent.</p>
+      <p>Content gets duplicated, goes out of date, or ends up with no clear owner. Workflows, standards, approvals, and sources of truth fragment as teams grow, so a change made in one place is missed in three others.</p>
+      <p>Generative AI multiplies whatever is already there. Drawing on inconsistent source material, it produces inconsistent output at greater speed and volume. Documented standards, usable source material, a working review process, and explicit evaluation criteria are what make AI-assisted content reliable, governable, and reviewable.</p>
     </section>
 
-    <section id="method" aria-labelledby="method-label">
-      <p class="section-label" id="method-label">the method</p>
-      <h2 class="section-heading"><em>Diagnose → Redesign → Build → Enable → Leave.</em></h2>
-      <p class="section-intro">
-        I've run the same five-move arc for nearly two decades — through content systems, knowledge architecture, and now AI-enabled work. <strong>Diagnose</strong> the friction where it actually lives. <strong>Redesign</strong> the workflow around how work really happens. <strong>Build</strong> the system — governance, standards, evaluation criteria, and the technical infrastructure itself; I implement what I design, from agentic workflows to evaluation systems, so strategy doesn't die in the gap between the deck and the daily work. <strong>Enable</strong> the people who will run it, at every level. Then <strong>leave</strong> — because a system that still depends on the consultant is a system that failed.
-      </p>
-      <a class="btn ghost sm" href="method.html">the full method →</a>
+    <section id="audit" class="prose" aria-labelledby="audit-label">
+      <p class="section-label" id="audit-label">the audit</p>
+      <h2 class="section-heading">Content Operations &amp; AI Readiness Audit</h2>
+      <p>The audit assesses one customer journey across the stages relevant to the agreed scope, along with the operational system that produces and maintains that content.</p>
+      <p>A standard audit covers one functional team, one customer audience, and one defined customer journey. It includes interviews with up to five stakeholders, a representative review of customer-facing content and the standards, workflows, and tools behind it, and an assessment of up to two current or proposed AI-assisted content workflows.</p>
+      <p class="note">Broader organizational, multilingual, regulated, or multi-product scopes are quoted separately.</p>
+      <p class="note">The audit does not include exhaustive content inventory, original customer research, legal or security review, software implementation, platform integration, or production of new content.</p>
     </section>
 
-    <section id="proof" aria-labelledby="proof-label">
-      <p class="section-label" id="proof-label">proof</p>
-      <h2 class="section-heading">Measured in outcomes. <em>Verified by what's still running.</em></h2>
-      <div class="stat-grid">
-        <div class="stat"><p class="num">~$3M</p><p>saved through one workflow redesign at Airbnb<span class="src">internal analysis</span></p></div>
-        <div class="stat"><p class="num">1,500</p><p>people across one organization adopted one operating model at Coursera</p></div>
-        <div class="stat"><p class="num">100s</p><p>of practitioners trained, from Fortune 100/500 teams to four-person client crews</p></div>
-        <div class="stat"><p class="num">Still running</p><p>the systems I've built continue operating years after hand-off</p></div>
-      </div>
-      <div class="logos">
-        <p class="lbl">selected clients</p>
-        <div class="logo-row">
-          <span>Airbnb</span>
-          <span>Coursera</span>
-          <span>Navy Federal Credit Union</span>
-          <span>Luxe Incentives</span>
-          <span>Welk Resorts</span>
-        </div>
-      </div>
-      <div class="logos trained">
-        <p class="lbl">practitioners trained from</p>
-        <div class="logo-row">
-          <span>Meta</span>
-          <span>Google</span>
-          <span>Netflix</span>
-          <span>Atlassian</span>
-          <span>LATAM Airlines</span>
-          <span>&amp; hundreds more</span>
-        </div>
-      </div>
-      <p class="section-intro" style="margin-top:2.4rem;"><a href="proof.html">read the case studies →</a></p>
+    <section id="deliverables" aria-labelledby="deliverables-label">
+      <p class="section-label" id="deliverables-label">what you receive</p>
+      <ul class="deliverables">
+        <li><b>Current-state content-system map</b><span>Channels, content types, workflows, owners, tools, approvals, and handoffs, in a form your team can maintain.</span></li>
+        <li><b>Findings report</b><span>What is working, what is fragmented or duplicated, what is missing, and what creates customer, operational, or governance risk.</span></li>
+        <li><b>Keep, redesign, retire recommendations</b><span>Specific calls on content, processes, standards, tools, and governance, with the reasoning attached.</span></li>
+        <li><b>AI readiness assessment</b><span>Where AI can responsibly support the content lifecycle, which foundations are missing, and what should be left to people.</span></li>
+        <li><b>Prioritized 90-day roadmap</b><span>A sequence for the next quarter, ordered by dependency and impact.</span></li>
+        <li><b>90-minute leadership readout</b><span>A facilitated review of findings, priorities, and tradeoffs with the people who will act on them.</span></li>
+      </ul>
     </section>
 
-    <section id="doors" aria-labelledby="doors-label">
-      <p class="section-label" id="doors-label">three ways in</p>
-      <div class="case-grid">
-        <div class="case-card">
-          <p class="co">diagnose</p>
-          <h3>Know exactly where you stand</h3>
-          <p>A fixed-fee diagnostic that maps your workflows, adoption barriers, and governance gaps — and hands you a prioritized roadmap with the first intervention scoped. From $7,500 · two to four weeks.</p>
-          <p class="impact"><a href="engagements.html#diagnostic">the AI Capability Diagnostic →</a></p>
-        </div>
-        <div class="case-card">
-          <p class="co">build</p>
-          <h3>Turn one pilot into permanent practice</h3>
-          <p>Workflow redesign, governance, and implementation — or a fractional enablement lead who stands up the whole function and then helps you hire her replacement. Scoped engagements to multi-quarter.</p>
-          <p class="impact"><a href="engagements.html#pilot">Pilot-to-Practice</a> · <a href="engagements.html#fractional">Fractional Lead →</a></p>
-        </div>
-        <div class="case-card">
-          <p class="co">train</p>
-          <h3>The curriculum, in-house</h3>
-          <p>The capability-building curriculum I taught for four years at UX Content Collective and beyond — tailored to your stack, your governance reality, and your teams' actual work. Half-day to multi-week.</p>
-          <p class="impact"><a href="engagements.html#curriculum">the In-House Curriculum →</a></p>
-        </div>
+    <section id="evidence" aria-labelledby="evidence-label">
+      <p class="section-label" id="evidence-label">selected evidence</p>
+      <div class="ev">
+        <p class="co">Airbnb</p>
+        <p>I proposed an AI-assisted content workflow for the Help Center and built the operating practices behind it: curating the training data, consolidating seven style guides into one standard, writing the evaluation criteria, and reviewing hundreds of paired model outputs before rollout across 61 languages. I trained a direct report to document and own it, and it remained in use as of June 2026. I also led an eight-week content test that became Airbnb's first self-service refund resolution experience, with an estimated $3M in savings through ticket deflection.</p>
       </div>
-      <p class="section-intro" style="margin-top:2rem;">
-        Not sure which door? That's normal — most real problems arrive unlabeled. Start with the conversation; I'll propose the smallest engagement that solves the real problem.
-      </p>
-      <p class="section-intro" style="margin-top:1rem;">
-        Facing the decision <em>before</em> the mandate — what to adopt, what to skip, what to tell the board? That's advisory, and it lives at <a href="https://rebelevolve.com">rebelevolve.com</a>. Same research, different chair.
-      </p>
-    </section>
-
-    <section id="fractional" aria-labelledby="fractional-label">
-      <p class="section-label" id="fractional-label">the flagship engagement</p>
-      <h2 class="section-heading">When you need the whole function built — <em>and then owned in-house.</em></h2>
-      <div class="offer">
-        <p class="co">fractional enablement lead</p>
-        <h3>Someone accountable for AI adoption, until your team is.</h3>
-        <p class="meta">part-time · embedded · multi-quarter · priced by scope</p>
-        <p>Some organizations don't need a diagnostic or a single workshop — they need someone to own the whole thing: the strategy, the governance, the workflows, the training, and the uncomfortable job of making it all actually land. For a defined stretch, that's me. I embed with your team, stand up the enablement function end to end, and carry the accountability a stalled mandate has usually been missing.</p>
-        <h4>what I own</h4>
-        <p>The operating model and where AI fits it. Governance and evaluation standards that hold up. Redesigned workflows your team runs daily. The capability-building so people can actually work the new system — not just admire it. And the measurement that proves it's working.</p>
-        <h4>how it ends</h4>
-        <p><strong>By design, with me gone.</strong> The whole engagement points toward a function your team runs without me — including helping you define, hire, and onboard the permanent owner who takes the seat. A fractional lead who makes herself unnecessary is the point, not a risk.</p>
-        <div class="contact-row" style="margin-top:1.4rem;">
-          <a class="btn primary sm" href="https://cal.com/deiadora/30min">talk through fit →</a>
-          <a class="btn ghost sm" href="engagements.html#fractional">engagement details</a>
-        </div>
+      <div class="ev">
+        <p class="co">Coursera</p>
+        <p>I established the content design function, hired and led a team of three, and coordinated work across four product organizations. I built a shared content design system and trained approximately 200 designers, product managers, and engineers.</p>
+      </div>
+      <div class="ev">
+        <p class="co">Teaching and consulting</p>
+        <p>For four years I developed and taught eight-part content operations and AI content strategy frameworks to hundreds of practitioners globally. In smaller organizations I have built content and workflow standards, playbooks covering decisions, approvals, and handoffs, chatbot content and voice and tone guidance, and the training that lets a team keep the system running.</p>
       </div>
     </section>
 
-    <section id="research" aria-labelledby="research-label">
-      <p class="section-label" id="research-label">the research underneath</p>
-      <p class="bio">
-        Alongside the client work, I publish research: LLM evaluation (<em>Apart Research, 2026</em>) and an ongoing taxonomy of how constructive conversations progress — 264 documented pathways, becoming an API at <a href="https://quantummagic.ai">Quantum Magic</a>. You don't need the research to hire me. It's just why my evaluation rubrics ask questions other people's don't.
-      </p>
+    <section id="how" aria-labelledby="how-label">
+      <p class="section-label" id="how-label">how it works</p>
+      <ol class="steps">
+        <li><b>Fit and scope call.</b> You describe the situation and I ask what I need to know to scope it accurately.</li>
+        <li><b>Proposal and kickoff.</b> Fixed price, defined scope, named deliverables, and dates, followed by an agreement on materials, access, and interview scheduling.</li>
+        <li><b>Interviews and representative review.</b> Conversations with the people who request, produce, review, and maintain content, alongside review of the content, standards, workflows, and tools.</li>
+        <li><b>Analysis, mapping, and recommendations.</b> I build the map and findings and test my reading of the system against the people working inside it.</li>
+        <li><b>Leadership readout and handoff.</b> A facilitated session and the full deliverables, leaving you with a clear basis for deciding what to do next.</li>
+      </ol>
+    </section>
+
+    <section id="about" class="prose" aria-labelledby="about-label">
+      <p class="section-label" id="about-label">about</p>
+      <h2 class="section-heading">Deiadora Blanche</h2>
+      <p>I work on content systems: the strategy, operations, and standards that determine what an organization says to its customers and how that work gets produced and maintained.</p>
+      <p>At Airbnb I managed Help Center delivery and proposed the AI-assisted content workflow the team adopted, building the source material, consolidated standard, and evaluation criteria behind it. At Coursera I established the content design function, led a team of three across four product organizations, and trained roughly 200 people on a shared system. For four years I taught content operations and AI content strategy to practitioners internationally. I run an independent consulting practice and handle discovery, scoping, and delivery myself.</p>
+      <p>I hold an MSc in Innovation and Entrepreneurship from HEC Paris and a B.A. in Business Administration from Azusa Pacific University.</p>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-label">
+      <p class="section-label" id="faq-label">questions</p>
+      <dl class="faq">
+        <dt>What does the audit cost and how long does it take?</dt>
+        <dd>From $6,500, delivered in three weeks. You receive a fixed price and schedule in the proposal before work begins.</dd>
+
+        <dt>What does the standard scope cover?</dt>
+        <dd>One functional team, one customer audience, and one defined customer journey, with up to five stakeholder interviews, a representative review of content, standards, workflows, and tools, and assessment of up to two AI-assisted content workflows.</dd>
+
+        <dt>Do we need an active AI initiative?</dt>
+        <dd>No. Without one, the audit still addresses fragmentation, ownership, standards, and workflow. With one underway, it tells you whether the foundations are in place to support it.</dd>
+
+        <dt>Do you write content or implement software?</dt>
+        <dd>I do not build or integrate software. When the roadmap requires technical implementation, I identify the need and the kind of specialist required. Content strategy, standards, workflow redesign, evaluation criteria, and training can be scoped separately.</dd>
+
+        <dt>Do you work remotely?</dt>
+        <dd>Yes, with teams anywhere. I am based in San Diego.</dd>
+      </dl>
     </section>
 
     <section id="contact" aria-labelledby="contact-h">
-      <div class="contact-card">
-        <h2 id="contact-h">Bring the real problem.</h2>
-
-        <p>A stalled mandate, a pilot that won't scale, a team that needs to become capable of more than it was hired for — or the thing you can't quite name yet that's making this year harder than last year. <strong>Peer-to-peer from the first interaction.</strong></p>
-        <p>One 30-minute discovery call. We talk about what's actually happening — thirty minutes, no deck. If the fit is right, we'll schedule a follow up with a proposal review. If it isn't, I'll say so and point you somewhere better.</p>
+      <div class="panel">
+        <h2 id="contact-h">Get in touch</h2>
+        <p>A 30-minute call is a conversation about your situation and whether the audit is the right starting point. If it is not, I will say so.</p>
         <div class="contact-row">
-          <a class="btn primary" href="https://cal.com/deiadora/30min">book a 30</a>
-          <a class="btn ghost" href="https://deiadora.com">deiadora.com</a>
+          <a class="btn primary" href="https://cal.com/deiadora/30min">Book a 30-minute call →</a>
+          <a class="mail" href="mailto:hello@techtuition.ai">hello@techtuition.ai</a>
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <p>techtuition · ai enablement &amp; organizational capability</p>
-      <p>© <span id="year"></span> · part of the <a href="https://deiadora.com">deiadora ecosystem</a> 🌿</p>
+      <p>techtuition — content strategy, content operations, and AI content strategy</p>
+      <p>San Diego, CA · working remotely · <a href="mailto:hello@techtuition.ai">hello@techtuition.ai</a> · © <span id="year"></span></p>
     </footer>
 
   </main>
 
   <script>
-
     document.getElementById("year").textContent = new Date().getFullYear();
-
     const toggle  = document.getElementById("themeToggle");
     const root    = document.documentElement;
     const STORE   = "qc-theme";
@@ -506,7 +404,6 @@ section { margin-top: 5rem; }
         applyTheme(sysDark.matches ? "dark" : "light");
       }
     });
-
     const textToggle = document.getElementById("textToggle");
     const TEXT_STORE = "qc-textsize";
     function applyTextSize(size) {
@@ -527,7 +424,6 @@ section { margin-top: 5rem; }
       else { localStorage.removeItem(TEXT_STORE); }
       applyTextSize(next);
     });
-
   </script>
 </body>
 </html>
