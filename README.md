@@ -13,8 +13,6 @@ netlify/functions/contact.js  serverless function that files contact form
                                submissions as GitHub Issues
 favicon.svg / favicon.ico     favicon set
 og-image.png                  social sharing preview image (1200×630)
-linkedin-logo-300x300.png     LinkedIn company page logo
-linkedin-banner-1128x191.png  LinkedIn company page cover banner
 ```
 
 ## Features
