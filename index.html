@@ -93,18 +93,14 @@
   .wordmark{
     font-size:1.05rem; font-weight:500; letter-spacing:0.01em;
     display:flex; align-items:center; gap:10px;
+    background:none; border:none; cursor:pointer; color:var(--color-ink); font-family:inherit; padding:0;
   }
-  .wordmark .mark{
-    width:9px; height:9px; border-radius:50%;
-    background:var(--color-accent);
-    box-shadow:0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
-  }
+  .wordmark .mark{ flex-shrink:0; }
   nav.links{display:flex; align-items:center; gap:28px; font-size:0.95rem;}
   nav.links button.navlink{
     background:none; border:none; cursor:pointer; color:var(--color-ink);
     padding:2px 0; font-size:0.95rem; position:relative;
   }
-  nav.links button.navlink[aria-current="page"]{text-decoration:underline; text-underline-offset:5px;}
   .controls{display:flex; align-items:center; gap:10px; margin-left:14px;}
   .ctrl-btn{
     border:1px solid var(--color-line); background:transparent; color:var(--color-ink);
@@ -115,13 +111,16 @@
   .ctrl-btn:focus-visible, button:focus-visible, a:focus-visible, .accordion-trigger:focus-visible{
     outline:2px solid var(--color-accent); outline-offset:3px;
   }
-  .size-group{display:flex; align-items:center; border:1px solid var(--color-line); border-radius:100px; overflow:hidden;}
-  .size-group button{background:transparent; border:none; color:var(--color-ink); cursor:pointer; padding:6px 10px; font-size:0.78rem;}
-  .size-group button[aria-pressed="true"]{background:var(--color-accent); color:#fff;}
+  .size-toggle{gap:3px; padding:6px 12px;}
+  .size-toggle .a-small{font-size:0.7rem; font-weight:500;}
+  .size-toggle .a-big{font-size:1.05rem; font-weight:500;}
+  .size-toggle[aria-pressed="true"]{border-color:var(--color-accent); color:var(--color-accent);}
 
   @media (max-width:640px){
+    .nav-row{ flex-direction:column; gap:14px; padding:18px 0; }
+    .nav-row > div{ width:100%; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:14px; }
     nav.links{gap:16px;}
-    .controls{gap:6px;}
+    .controls{gap:6px; margin-left:0;}
   }
 
   /* ---------- SECTION BASE ---------- */
@@ -199,24 +198,57 @@
   .statement-cols .cta-cell{margin-top:18px;}
   @media (max-width:760px){ .statement-cols{grid-template-columns:1fr;} }
 
-  /* ---------- ABOUT ---------- */
-  .about-head{margin-bottom:56px;}
-  .about-top{
-    display:grid; grid-template-columns:1.2fr 0.8fr; gap:56px; align-items:center; margin-bottom:64px;
-  }
-  .about-top h2{font-weight:400;}
-  .portrait{
-    width:100%; aspect-ratio:1/1; border-radius:50%;
-    background:radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--color-accent) 55%, var(--color-bg-1)), var(--color-bg-4) 75%);
-    display:flex; align-items:center; justify-content:center; max-width:320px; margin:0 auto;
-  }
-  @media (max-width:760px){ .about-top{grid-template-columns:1fr;} }
+  /* ---------- ABOUT (Techtuition) ---------- */
+  .about-top{ max-width:52ch; margin-bottom:64px; }
+  .about-lead{ font-size:clamp(1.5rem, 3vw, 2.1rem); font-weight:300; line-height:1.25; }
 
   .about-bottom{
     display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;
   }
   .about-bottom p{color:var(--color-ink-soft); margin-bottom:24px; max-width:36ch;}
   @media (max-width:760px){ .about-bottom{grid-template-columns:1fr;} }
+
+  /* ---------- ABOUT (Deiadora Blanche) ---------- */
+  .section-founder{background:var(--color-bg-4); color:var(--color-ink-invert);}
+  .founder-intro{
+    display:grid; grid-template-columns:1.3fr 0.7fr; gap:56px; align-items:start; margin-bottom:64px;
+  }
+  .founder-copy h2{font-weight:300; margin-top:14px;}
+  .founder-subtitle{
+    font-size:1.05rem; color:var(--color-accent-bright); font-weight:500; margin-top:10px; display:block;
+  }
+  .founder-copy p{color:var(--color-ink-invert-soft); margin-top:20px; max-width:62ch;}
+  .founder-portrait{
+    width:100%; aspect-ratio:1/1; border-radius:50%; overflow:hidden; max-width:300px; margin:0 auto;
+  }
+  .founder-portrait img{width:100%; height:100%; object-fit:cover; display:block;}
+  @media (max-width:800px){ .founder-intro{grid-template-columns:1fr;} .founder-portrait{margin:0;} }
+
+  .founder-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-bottom:56px;
+  }
+  .founder-grid h3{font-weight:500; margin-bottom:18px; color:var(--color-accent-bright); font-size:1rem;}
+  .founder-grid ul{margin:0; padding:0; list-style:none;}
+  .founder-grid li{
+    color:var(--color-ink-invert-soft); font-size:0.95rem; line-height:1.55;
+    padding:14px 0; border-top:1px solid var(--color-line-invert);
+  }
+  .founder-grid div:first-child li:first-of-type, .founder-grid div:last-child li:first-of-type{border-top:1px solid var(--color-line-invert);}
+  @media (max-width:760px){ .founder-grid{grid-template-columns:1fr; gap:36px;} }
+
+  .founder-quote{
+    font-size:clamp(1.4rem,3.2vw,2rem); font-weight:300; font-style:italic; line-height:1.55;
+    color:var(--color-ink-invert); margin:0 auto; max-width:44ch;
+  }
+  .section-quote{
+    background:var(--color-bg-5); color:var(--color-ink-invert);
+    text-align:center; padding:clamp(100px,14vw,168px) 0;
+  }
+  .section-quote .wrap{max-width:840px; position:relative;}
+  .quote-mark{
+    display:block; font-size:5.5rem; font-family:Georgia, serif; font-style:italic;
+    color:var(--color-accent-bright); line-height:1; margin-bottom:8px; opacity:0.85;
+  }
 
   /* ---------- SERVICES ACCORDION ---------- */
   .accordion{border-top:1px solid var(--color-line-invert);}
@@ -252,16 +284,27 @@
   }
 
   /* ---------- MARQUEE ---------- */
+  .section-marquee{position:relative;}
   .marquee-track{
     display:flex; white-space:nowrap; gap:0;
     animation: scroll-marquee 26s linear infinite;
   }
+  .marquee-track.is-paused{animation-play-state:paused;}
   .marquee-track span{
     font-size:clamp(1.6rem,4vw,2.6rem); font-weight:300; padding:0 26px;
     display:flex; align-items:center; gap:26px;
   }
   @keyframes scroll-marquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
   @media (prefers-reduced-motion:reduce){ .marquee-track{animation:none;} }
+
+  .marquee-pause{
+    position:absolute; top:18px; right:clamp(20px,5vw,64px); z-index:2;
+    width:34px; height:34px; border-radius:50%;
+    border:1px solid var(--color-line-invert); background:color-mix(in srgb, var(--color-bg-7) 70%, transparent);
+    color:var(--color-ink-invert); cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .marquee-pause:hover{border-color:var(--color-accent-bright);}
 
   /* ---------- FOOTER ---------- */
   footer.site-footer .wrap{padding-top:56px; padding-bottom:40px;}
@@ -317,18 +360,22 @@
 
 <header class="site-nav">
   <div class="wrap nav-row">
-    <div class="wordmark"><span class="mark" aria-hidden="true"></span>Techtuition</div>
+    <button class="wordmark" data-view="home" aria-label="Techtuition — home">
+      <svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="27" fill="var(--color-accent-bright)"/>
+        <circle cx="47" cy="26" r="27" fill="var(--color-bg-1)"/>
+      </svg>
+      Techtuition
+    </button>
     <div style="display:flex; align-items:center;">
       <nav class="links" aria-label="Primary">
-        <button class="navlink" data-view="home" aria-current="page">Home</button>
+        <button class="navlink" data-scroll="about">About</button>
         <button class="navlink" data-view="contact">Contact</button>
       </nav>
       <div class="controls">
-        <div class="size-group" role="group" aria-label="Text size">
-          <button data-size="0.9" aria-pressed="false" aria-label="Smaller text">A-</button>
-          <button data-size="1" aria-pressed="true" aria-label="Default text size">A</button>
-          <button data-size="1.15" aria-pressed="false" aria-label="Larger text">A+</button>
-        </div>
+        <button class="ctrl-btn size-toggle" id="size-toggle" aria-pressed="false" aria-label="Increase text size">
+          <span class="a-small">A</span><span class="a-big">A</span>
+        </button>
         <button class="ctrl-btn" id="theme-toggle" aria-label="Toggle dark mode">
           <span id="theme-icon">☾</span><span id="theme-label">Dark</span>
         </button>
@@ -378,16 +425,8 @@
 
   <section class="section-about" id="about">
     <div class="wrap">
-      <div class="about-head reveal">
-        <span class="eyebrow">About</span>
-        <h2>Techtuition</h2>
-      </div>
       <div class="about-top reveal">
-        <h2 style="font-weight:400;">A trust &amp; clarity practice for teams building digital products and AI-driven experiences.</h2>
-        <div class="portrait">
-          <!-- Replace src below with your photo's filename once it's in the same folder as this page -->
-          <img src="deiadora_blanche.jpg" alt="Portrait of the founder of Techtuition" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
-        </div>
+        <p class="about-lead">A trust &amp; clarity practice for teams building digital products and AI-driven experiences.</p>
       </div>
       <div class="about-bottom reveal">
         <div>
@@ -424,6 +463,56 @@
     </div>
   </section>
 
+  <section class="section-founder" id="about-deiadora">
+    <div class="wrap">
+      <div class="founder-intro reveal">
+        <div class="founder-copy">
+          <span class="eyebrow">About</span>
+          <h2>Deiadora Blanche</h2>
+          <span class="founder-subtitle">The Intersection of Systems Design, Human Agency, and Emotional Safety</span>
+          <p>I am a product investigator, systems thinker, and information architect with over two decades of experience across business operations, digital transformation, and content strategy.</p>
+          <p>Where traditional design focuses solely on engagement and conversions, my work centers on human coherence and emotional safety. Long before product design prioritized user psychology, I spent 20+ years conducting deep ethnographic and neuro-phenomenological inquiry into how humans communicate, respond to threat, and navigate complex systems — from nonviolent communication and assertive interaction models to systemic emotional intelligence.</p>
+          <p>I see products non-linearly and multi-dimensionally — using a geodesic mindset to construct complex content architectures (including a 264-arc sentiment analysis taxonomy for B2B/B2C systems). I audit dark patterns and predatory microcopy with direct, unshakeable clarity, mapping digital flows that honor human agency while driving product integrity.</p>
+        </div>
+        <div class="founder-portrait">
+          <img src="deiadora_blanche.jpg" alt="Portrait of Deiadora Blanche">
+        </div>
+      </div>
+
+      <div class="founder-grid reveal">
+        <div>
+          <h3>Product, Systems &amp; Academic Rigor</h3>
+          <ul>
+            <li>M.Sc. in Innovation &amp; Entrepreneurship (HEC Paris)</li>
+            <li>B.A. in Business Administration (Azusa Pacific University)</li>
+            <li>20+ Years Operations &amp; Strategy: Digital transformation, product development, UX/UI content systems</li>
+            <li>Advanced Taxonomy &amp; AI Systems: Creator of a 264-arc sentiment analysis taxonomy for B2B/B2C intelligence</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Human Dynamics &amp; Phenomenological Research</h3>
+          <ul>
+            <li>Neuro-Phenomenological Inquiry: 20+ years researching human behavior, threat response, and cognitive coherence</li>
+            <li>Communication &amp; Relational Systems: NVC, assertive communication, empathetic system dynamics</li>
+            <li>Somatic &amp; Physiological Architecture: Empirical study of physical, emotional, and mental self-regulation models</li>
+            <li>Dark Pattern Investigation: Systematic auditing of predatory loops, coercive friction, and trust-eroding UI</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section-quote">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="quote-mark" aria-hidden="true">"</span>
+      <blockquote class="founder-quote reveal">
+        Digital architecture isn't linear — it's a multi-dimensional geometry of human experience. When you design for emotional intelligence, you build products that users trust instinctively because the underlying structure respects their agency.
+      </blockquote>
+    </div>
+  </section>
+
   <!-- Testimonial: hidden for now via the `hidden` attribute below — content and styling
        stay in place, remove `hidden` whenever you're ready to show it. -->
   <section class="section-testimonial" id="testimonial" hidden>
@@ -450,8 +539,12 @@
     </div>
   </section>
 
-  <section class="section-marquee" aria-hidden="true">
-    <div class="marquee-track">
+  <section class="section-marquee">
+    <button class="marquee-pause" id="marquee-pause" aria-pressed="false" aria-label="Pause scrolling text">
+      <svg class="icon-pause" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" fill="currentColor"/></svg>
+      <svg class="icon-play" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" hidden><path d="M3 1L12 7L3 13V1Z" fill="currentColor"/></svg>
+    </button>
+    <div class="marquee-track" id="marquee-track" aria-hidden="true">
       <span>Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span></span>
       <span>Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span></span>
     </div>
@@ -531,13 +624,14 @@
     syncThemeBtn();
   });
 
-  // ---- Font size ----
-  document.querySelectorAll('.size-group button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.size-group button').forEach(b => b.setAttribute('aria-pressed','false'));
-      btn.setAttribute('aria-pressed','true');
-      root.style.setProperty('--scale', btn.dataset.size);
-    });
+  // ---- Font size: single toggle between baseline and larger ----
+  const sizeToggle = document.getElementById('size-toggle');
+  let isLargeText = false;
+  sizeToggle.addEventListener('click', () => {
+    isLargeText = !isLargeText;
+    root.style.setProperty('--scale', isLargeText ? '1.15' : '1');
+    sizeToggle.setAttribute('aria-pressed', String(isLargeText));
+    sizeToggle.setAttribute('aria-label', isLargeText ? 'Decrease text size' : 'Increase text size');
   });
 
   // ---- Nav view switching ----
@@ -547,9 +641,6 @@
     const isContact = view === 'contact';
     homeView.hidden = isContact;
     contactView.hidden = !isContact;
-    document.querySelectorAll('.navlink').forEach(l => {
-      l.setAttribute('aria-current', l.dataset.view === view ? 'page' : 'false');
-    });
     window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
   }
   document.querySelectorAll('[data-view]').forEach(el => {
@@ -558,6 +649,25 @@
       showView(el.dataset.view);
     });
   });
+
+  // ---- About link: ensure we're on the home view, then smooth-scroll to it ----
+  document.querySelectorAll('[data-scroll]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = el.dataset.scroll;
+      const scrollToTarget = () => {
+        const target = document.getElementById(targetId);
+        if (target) target.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth'});
+      };
+      if (contactView && !contactView.hidden) {
+        showView('home');
+        requestAnimationFrame(scrollToTarget);
+      } else {
+        scrollToTarget();
+      }
+    });
+  });
+
 
   // ---- Contact form: posts to /api/contact, which files a GitHub Issue ----
   // This only works once the site is deployed with api/contact.js alongside it
@@ -596,6 +706,29 @@
     });
   }
 
+  // ---- Marquee pause/play toggle ----
+  const marqueeTrack = document.getElementById('marquee-track');
+  const marqueePause = document.getElementById('marquee-pause');
+  if (marqueeTrack && marqueePause) {
+    // If the OS-level reduced-motion preference is already stopping the animation,
+    // reflect that as "paused" in the button's initial state too.
+    let isPaused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const iconPause = marqueePause.querySelector('.icon-pause');
+    const iconPlay = marqueePause.querySelector('.icon-play');
+    function syncMarqueeBtn(){
+      marqueeTrack.classList.toggle('is-paused', isPaused);
+      marqueePause.setAttribute('aria-pressed', String(isPaused));
+      marqueePause.setAttribute('aria-label', isPaused ? 'Play scrolling text' : 'Pause scrolling text');
+      iconPause.hidden = isPaused;
+      iconPlay.hidden = !isPaused;
+    }
+    syncMarqueeBtn();
+    marqueePause.addEventListener('click', () => {
+      isPaused = !isPaused;
+      syncMarqueeBtn();
+    });
+  }
+
   // ---- Accordion ----
   document.querySelectorAll('.accordion-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
@@ -622,6 +755,8 @@
   const phaseMap = [
     { id: 'top',         phase: '100%', shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-1') },
     { id: 'about',       phase: '55%',  shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-3') },
+    { id: 'founder',     phase: '28%',  shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-4') },
+    { id: 'quote',       phase: '15%',  shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-5') },
     { id: 'testimonial', phase: '5%',   shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-6') },
     { id: 'podcast',     phase: '-10%', shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-6') }
   ];
@@ -634,9 +769,11 @@
     const sectionEls = [
       {el: document.querySelector('.section-hero'), cfg: phaseMap[0]},
       {el: document.getElementById('about'), cfg: phaseMap[1]},
-      {el: document.getElementById('testimonial'), cfg: phaseMap[2]},
-      {el: document.getElementById('podcast'), cfg: phaseMap[3]},
-      {el: document.querySelector('.section-marquee'), cfg: phaseMap[3]}, // fallback while testimonial/podcast are hidden
+      {el: document.getElementById('about-deiadora'), cfg: phaseMap[2]},
+      {el: document.querySelector('.section-quote'), cfg: phaseMap[3]},
+      {el: document.getElementById('testimonial'), cfg: phaseMap[4]},
+      {el: document.getElementById('podcast'), cfg: phaseMap[5]},
+      {el: document.querySelector('.section-marquee'), cfg: phaseMap[5]}, // fallback while testimonial/podcast are hidden
     ];
     const moonIO = new IntersectionObserver((entries) => {
       entries.forEach(e => { if(e.isIntersecting){
