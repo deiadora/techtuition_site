@@ -1,789 +1,1997 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Techtuition — Design for trust</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>TECHTUITION — Regenerative Systems Operations</title>
+<meta name="description" content="TECHTUITION — Regenerative Systems Operations. 4-week co-creation playbooks eliminating cross-functional friction, cognitive debt, and operational burnout." />
+<meta name="robots" content="index, follow, noai, noimageai" />
+<meta name="tdm-reservation" content="1" />
+<meta name="color-scheme" content="dark light" />
 
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" href="favicon.ico">
+<!-- Favicon & Touch Icons -->
+<link rel="icon" type="image/png" href="/techtuition_favicon.png" />
+<link rel="apple-touch-icon" href="/techtuition_favicon.png" />
 
-<!-- Social sharing preview (Open Graph + Twitter) -->
-<meta property="og:title" content="Techtuition — Designing digital products people can actually trust.">
-<meta property="og:description" content="Techtuition audits digital products, content ecosystems, and AI interfaces to eliminate dark patterns and design for genuine human trust.">
-<meta property="og:image" content="https://techtuition.ai/og-image.png">
-<meta property="og:url" content="https://techtuition.ai">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Techtuition — Designing digital products people can actually trust.">
-<meta name="twitter:description" content="Techtuition audits digital products, content ecosystems, and AI interfaces to eliminate dark patterns and design for genuine human trust.">
-<meta name="twitter:image" content="https://techtuition.ai/og-image.png">
+<!-- Open Graph / Social Sharing -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://techtuition.deiadora.com/" />
+<meta property="og:title" content="TECHTUITION — Regenerative Systems Operations" />
+<meta property="og:description" content="Stop spending half your team's energy just trying to locate the map. 4-week operational playbooks built on battle-tested enterprise architectures." />
+<meta property="og:image" content="/techtuition_banner_sm.jpeg" />
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://techtuition.deiadora.com/" />
+<meta name="twitter:title" content="TECHTUITION — Regenerative Systems Operations" />
+<meta name="twitter:description" content="Stop spending half your team's energy just trying to locate the map. 4-week operational playbooks built on battle-tested enterprise architectures." />
+<meta name="twitter:image" content="/techtuition_banner_sm.jpeg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@300;400;500&family=Rye&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap');
+/* ===========================================================================
+   TECHTUITION — Regenerative Systems Operations
+   Sovereign Design Tokens inherited from DEIADORA topology
+   =========================================================================== */
+:root{
+  --base-font-size: 16px;
+  --font-scale: 1;
 
-  :root{
-    --scale: 1;
-    --color-bg-1: #F3EFE5;   /* parchment - hero */
-    --color-bg-2: #DDE3D2;   /* pale sage - statement */
-    --color-bg-3: #9FAE8E;   /* sage - about */
-    --color-bg-4: #5C6E57;   /* moss - services */
-    --color-bg-5: #263427;   /* deep moss / dusk - testimonial lead-in */
-    --color-bg-6: #141B26;   /* night indigo - testimonial / podcast */
-    --color-bg-7: #0B0F16;   /* deepest night - marquee / footer */
-    --color-ink: #1B2019;
-    --color-ink-soft: rgba(27,32,25,0.68);
-    --color-ink-invert: #F3EFE5;
-    --color-ink-invert-soft: rgba(243,239,229,0.72);
-    --color-accent: #B8792F;
-    --color-accent-bright: #E3B463;
-    --color-line: rgba(27,32,25,0.22);
-    --color-line-invert: rgba(243,239,229,0.24);
-    --radius: 2px;
-    --maxw: 1180px;
-  }
+  /* Dark Theme */
+  --bg:         #07080b;
+  --bg-2:       #0d0d12;
+  --fg:         #efe7d8;
+  --fg-dim:     rgba(239,231,216,0.72);
+  --fg-faint:   rgba(239,231,216,0.42);
+  --fg-ghost:   rgba(239,231,216,0.18);
+  --rule:       rgba(239,231,216,0.12);
+  --rule-soft:  rgba(239,231,216,0.06);
+  --accent:     #c9a227;
+  --panel-bg:   rgba(10,10,14,0.95);
+  --chip-bg:    rgba(239,231,216,0.04);
+  --chip-bg-hi: rgba(239,231,216,0.09);
+  --card-bg:    rgba(239,231,216,0.024);
+  --focus:      #ffd86b;
+  --state:      #8c93a8;
 
-  html[data-theme="dark"]{
-    --color-bg-1: #10151C;
-    --color-bg-2: #131A22;
-    --color-bg-3: #161E27;
-    --color-bg-4: #182029;
-    --color-bg-5: #10161E;
-    --color-bg-6: #0A0E14;
-    --color-bg-7: #060810;
-    --color-ink: #F3EFE5;
-    --color-ink-soft: rgba(243,239,229,0.68);
-    --color-ink-invert: #F3EFE5;
-    --color-ink-invert-soft: rgba(243,239,229,0.72);
-    --color-accent: #E3B463;
-    --color-accent-bright: #F0C888;
-    --color-line: rgba(243,239,229,0.18);
-    --color-line-invert: rgba(243,239,229,0.24);
-  }
+  --mono:    "DM Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --sans:    "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --display: "Rye", Georgia, serif;
+}
+:root[data-theme="light"]{
+  /* Light Theme */
+  --bg:         #f7f5f0;
+  --bg-2:       #efece4;
+  --fg:         #1d1b18;
+  --fg-dim:     rgba(29,27,24,0.78);
+  --fg-faint:   rgba(29,27,24,0.50);
+  --fg-ghost:   rgba(29,27,24,0.16);
+  --rule:       rgba(29,27,24,0.14);
+  --rule-soft:  rgba(29,27,24,0.07);
+  --accent:     #9a6b14;
+  --panel-bg:   rgba(247,245,240,0.97);
+  --chip-bg:    rgba(29,27,24,0.038);
+  --chip-bg-hi: rgba(29,27,24,0.08);
+  --card-bg:    rgba(29,27,24,0.022);
+  --focus:      #7a4a00;
+  --state:      #5a6070;
+}
 
-  *{box-sizing:border-box;}
-  html{font-size: calc(16px * var(--scale)); scroll-behavior:smooth;}
-  body{
-    margin:0;
-    font-family:'DM Sans', system-ui, sans-serif;
-    color:var(--color-ink);
-    background:var(--color-bg-1);
-    -webkit-font-smoothing:antialiased;
-    transition: background 0.6s ease, color 0.4s ease;
-  }
-  img{max-width:100%; display:block;}
-  a{color:inherit;}
-  button{font-family:inherit;}
+*{ box-sizing:border-box; }
+html{ font-size: calc(var(--base-font-size) * var(--font-scale)); }
+html,body{ height:100%; }
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--sans); overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .5s ease, color .5s ease;
+}
+canvas#gl{ position:fixed; inset:0; width:100%; height:100%; display:block; z-index:0; }
 
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px, 5vw, 64px);}
+/* Accessibility & Focus States */
+:focus{ outline:none; }
+:focus-visible{
+  outline:2px solid var(--focus);
+  outline-offset:3px;
+  border-radius:2px;
+}
+.sr-only{
+  position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;
+}
+#skip{
+  position:fixed; top:-100px; left:12px; z-index:60;
+  background:var(--panel-bg); color:var(--fg); border:1px solid var(--rule);
+  font-family:var(--mono); font-size:0.7rem; letter-spacing:0.12em;
+  padding:0.7rem 1rem; text-decoration:none; border-radius:3px;
+  transition:top .2s ease;
+}
+#skip:focus{ top:12px; }
 
-  /* ---------- NAV ---------- */
-  header.site-nav{
-    position:sticky; top:0; z-index:50;
-    background:var(--color-bg-1);
-    border-bottom:1px solid var(--color-line);
-  }
-  .nav-row{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:22px 0;
-  }
-  .wordmark{
-    font-size:1.05rem; font-weight:500; letter-spacing:0.01em;
-    display:flex; align-items:center; gap:10px;
-    background:none; border:none; cursor:pointer; color:var(--color-ink); font-family:inherit; padding:0;
-  }
-  .wordmark .mark{ flex-shrink:0; }
-  nav.links{display:flex; align-items:center; gap:28px; font-size:0.95rem;}
-  nav.links button.navlink{
-    background:none; border:none; cursor:pointer; color:var(--color-ink);
-    padding:2px 0; font-size:0.95rem; position:relative;
-  }
-  .controls{display:flex; align-items:center; gap:10px; margin-left:14px;}
-  .ctrl-btn{
-    border:1px solid var(--color-line); background:transparent; color:var(--color-ink);
-    border-radius:100px; padding:6px 11px; font-size:0.78rem; cursor:pointer;
-    display:flex; align-items:center; gap:6px; line-height:1;
-  }
-  .ctrl-btn:hover{border-color:var(--color-accent);}
-  .ctrl-btn:focus-visible, button:focus-visible, a:focus-visible, .accordion-trigger:focus-visible{
-    outline:2px solid var(--color-accent); outline-offset:3px;
-  }
-  .size-toggle{gap:3px; padding:6px 12px;}
-  .size-toggle .a-small{font-size:0.7rem; font-weight:500;}
-  .size-toggle .a-big{font-size:1.05rem; font-weight:500;}
-  .size-toggle[aria-pressed="true"]{border-color:var(--color-accent); color:var(--color-accent);}
+/* Background Watermark */
+#bigtype{
+  position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:0.1em;
+  transition:padding-right .72s cubic-bezier(.22,.9,.2,1);
+}
+body.panel-open #bigtype{ padding-right:min(480px, 92vw); }
+@media (max-width:920px){ body.panel-open #bigtype{ padding-right:0; opacity:.25; } }
+#bt-index{
+  font-family:var(--mono); font-weight:300;
+  font-size:clamp(6rem, 23vw, 20rem); line-height:0.82;
+  letter-spacing:-0.05em; color:var(--fg);
+  opacity:0.045; transition:opacity .8s ease;
+}
+:root[data-theme="light"] #bt-index{ opacity:0.06; }
+#bt-word{
+  font-family:var(--sans); font-weight:500;
+  font-size:clamp(0.75rem, 2.8vw, 1.9rem); line-height:1;
+  letter-spacing:0.25em; text-indent:0.25em;
+  color:var(--fg); opacity:0.09;
+  transition:opacity .8s ease, letter-spacing 1s ease;
+  white-space:nowrap; max-width:100%;
+}
+:root[data-theme="light"] #bt-word{ opacity:0.12; }
+body.morphing #bt-index{ opacity:0.015; }
+body.morphing #bt-word{ opacity:0.03; letter-spacing:0.45em; }
 
-  @media (max-width:640px){
-    .nav-row{ flex-direction:column; gap:14px; padding:18px 0; }
-    .nav-row > div{ width:100%; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:14px; }
-    nav.links{gap:16px;}
-    .controls{gap:6px; margin-left:0;}
-  }
+/* Brand Lockup */
+#brand{
+  position:fixed; top:0; left:0; z-index:5;
+  padding:1.4rem 1.6rem; pointer-events:none; max-width:min(60vw, 30rem);
+}
+#brand .mark{
+  font-family:var(--display); font-size:1.45rem; line-height:1;
+  letter-spacing:0.02em; color:var(--fg);
+}
+#brand .tagline{
+  font-family:var(--sans); font-size:0.68rem; font-weight:400;
+  color:var(--fg-dim); margin-top:0.45rem; line-height:1.4;
+}
+#brand .imprint{
+  font-family:var(--mono); font-size:0.56rem; letter-spacing:0.14em;
+  color:var(--fg-faint); margin-top:0.35rem; text-transform:uppercase;
+}
 
-  /* ---------- SECTION BASE ---------- */
-  section{padding:clamp(64px,10vw,120px) 0; position:relative; overflow:hidden;}
-  .section-hero{background:var(--color-bg-1);}
-  .section-statement{background:var(--color-bg-2);}
-  .section-about{background:var(--color-bg-3); color:var(--color-ink);}
-  .section-services{background:var(--color-bg-4); color:var(--color-ink-invert);}
-  .section-testimonial{background:var(--color-bg-6); color:var(--color-ink-invert);}
-  .section-podcast{background:var(--color-bg-6); color:var(--color-ink-invert); padding-top:0;}
-  .section-marquee{background:var(--color-bg-7); color:var(--color-ink-invert);}
-  footer.site-footer{background:var(--color-bg-7); color:var(--color-ink-invert-soft);}
+/* Header Controls & Readout */
+#utility{
+  position:fixed; top:0; right:0; z-index:9;
+  padding:1.2rem 1.5rem; display:flex; flex-direction:column;
+  align-items:flex-end; gap:0.65rem;
+  transition:transform .72s cubic-bezier(.22,.9,.2,1);
+}
+@media (min-width:921px){
+  body.panel-open #utility{ transform:translateX(calc(-1 * min(480px, 92vw))); }
+}
+.nav-cluster{ display:flex; gap:0.65rem; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+.ctlrow{ display:flex; gap:0.35rem; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
 
-  /* subtle starfield for the night sections */
-  .stars{
-    position:absolute; inset:0; pointer-events:none; opacity:0.5;
-    background-image:
-      radial-gradient(1px 1px at 10% 20%, var(--color-ink-invert) 0, transparent 60%),
-      radial-gradient(1px 1px at 80% 10%, var(--color-ink-invert) 0, transparent 60%),
-      radial-gradient(1.5px 1.5px at 60% 70%, var(--color-ink-invert) 0, transparent 60%),
-      radial-gradient(1px 1px at 30% 80%, var(--color-ink-invert) 0, transparent 60%),
-      radial-gradient(1px 1px at 90% 55%, var(--color-ink-invert) 0, transparent 60%),
-      radial-gradient(1.5px 1.5px at 45% 35%, var(--color-ink-invert) 0, transparent 60%),
-      radial-gradient(1px 1px at 20% 55%, var(--color-ink-invert) 0, transparent 60%);
-    opacity:0.25;
-  }
+/* Action Buttons */
+.btn-toplink{
+  appearance:none; cursor:pointer; text-decoration:none;
+  background:var(--chip-bg-hi);
+  border:1px solid var(--rule);
+  color:var(--fg);
+  font-family:var(--sans);
+  font-size:0.75rem;
+  font-weight:600;
+  letter-spacing:0.02em;
+  padding:0.46rem 0.85rem;
+  border-radius:4px;
+  display:inline-flex;
+  align-items:center;
+  gap:0.45rem;
+  transition:background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+  line-height:1.1;
+  white-space:nowrap;
+  box-shadow:0 1px 4px rgba(0,0,0,0.18);
+}
+.btn-toplink:hover{
+  background:var(--state);
+  color:var(--bg);
+  border-color:var(--state);
+}
+.btn-toplink[aria-expanded="true"]{
+  background:var(--state);
+  color:var(--bg);
+  border-color:var(--state);
+}
+.btn-toplink .icon-glyph{
+  font-family:var(--mono);
+  font-size:0.7rem;
+  opacity:0.7;
+}
 
-  h1,h2,h3{font-weight:300; line-height:1.08; margin:0;}
-  h1{font-size:clamp(2.2rem, 5vw, 3.6rem); letter-spacing:-0.01em;}
-  h2{font-size:clamp(1.7rem, 3.6vw, 2.6rem); letter-spacing:-0.01em;}
-  h3{font-size:1.15rem; font-weight:500;}
-  p{line-height:1.6; margin:0;}
-  .eyebrow{
-    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:500;
-    color:var(--color-accent); margin-bottom:14px; display:block;
-  }
-  .underline-accent{
-    text-decoration:underline; text-decoration-color:var(--color-accent);
-    text-underline-offset:6px; text-decoration-thickness:2px;
-  }
+/* Micro-Controls */
+.ctl{
+  appearance:none; cursor:pointer;
+  background:var(--chip-bg); border:1px solid var(--rule-soft); color:var(--fg-dim);
+  font-family:var(--sans); font-size:0.68rem; font-weight:500;
+  padding:0.42rem 0.65rem; border-radius:3px;
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
+  line-height:1.1; white-space:nowrap;
+}
+.ctl:hover{ background:var(--chip-bg-hi); color:var(--fg); border-color:var(--rule); }
+.ctl[aria-pressed="true"]{ color:var(--state); border-color:currentColor; }
+.ctl .kbd{
+  font-family:var(--mono); font-size:0.6rem; opacity:.55; margin-left:0.4em;
+}
+.ctlgroup{ display:flex; border:1px solid var(--rule-soft); border-radius:3px; overflow:hidden; }
+.ctlgroup .ctl{ border:0; border-radius:0; border-right:1px solid var(--rule-soft); font-family:var(--mono); }
+.ctlgroup .ctl:last-child{ border-right:0; }
 
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--color-ink); color:var(--color-bg-1);
-    border:none; border-radius:100px; padding:14px 26px; font-size:0.92rem; font-weight:500;
-    cursor:pointer; text-decoration:none;
-    transition:transform 0.15s ease, opacity 0.15s ease;
-  }
-  .btn:hover{transform:translateY(-1px); opacity:0.9;}
-  .btn.ghost{
-    background:transparent; color:var(--color-ink); border:1px solid var(--color-line);
-  }
-  .link-arrow{
-    font-size:0.95rem; text-decoration:underline; text-underline-offset:5px; display:inline-block;
-  }
+#readout{
+  text-align:right; font-family:var(--mono); font-size:0.56rem;
+  letter-spacing:0.14em; color:var(--fg-faint); text-transform:uppercase;
+  line-height:1.9; pointer-events:none;
+}
+#readout b{ color:var(--fg-dim); font-weight:500; }
+@media (max-width:920px){ #readout{ display:none; } #utility{ padding:0.8rem 0.9rem; } }
+@media (max-width:700px){
+  #brand{ padding:0.85rem 1rem; max-width:44vw; }
+  #brand .mark{ font-size:1.15rem; }
+  #brand .tagline, #brand .imprint{ display:none; }
+  #utility{ padding:0.7rem 0.75rem; gap:0.4rem; }
+  .btn-toplink{ font-size:0.68rem; padding:0.38rem 0.6rem; }
+  .ctl{ font-size:0.62rem; padding:0.35rem 0.5rem; }
+  .ctl .kbd{ display:none; }
+}
 
-  /* ---------- HERO ---------- */
-  .hero-inner{
-    display:grid; grid-template-columns:1.3fr 0.7fr; gap:40px; align-items:center;
-  }
-  .hero-copy p.lede{margin-top:20px; font-size:1.05rem; color:var(--color-ink-soft); max-width:38ch;}
-  .moon-hero{justify-self:end;}
-  @media (max-width:800px){
-    .hero-inner{grid-template-columns:1fr;}
-    .moon-hero{justify-self:start; margin-top:24px;}
-  }
+/* Bottom Selector Rail */
+#selector{
+  position:fixed; left:0; right:0; bottom:0; z-index:6;
+  display:flex; align-items:flex-end; justify-content:center;
+  gap:clamp(2px,1.05vw,14px); padding:0 1.1rem 1.15rem;
+  flex-wrap:nowrap;
+}
+.sel{
+  appearance:none; background:transparent; border:0; cursor:pointer;
+  color:var(--fg-faint); font-family:var(--mono); font-size:0.62rem;
+  letter-spacing:0.08em; padding:0.6rem 0.36rem 0.5rem; position:relative;
+  display:flex; flex-direction:column; align-items:center; gap:0.55rem;
+  transition:color .3s ease; min-width:0;
+}
+.sel .tick{
+  width:1px; height:0.85rem; background:currentColor; opacity:.4;
+  transition:height .4s cubic-bezier(.2,.8,.2,1), opacity .3s ease;
+}
+.sel .num{ font-variant-numeric:tabular-nums; }
+.sel .word{
+  font-family:var(--sans); font-size:0.55rem; font-weight:500;
+  letter-spacing:0.04em; opacity:0;
+  transform:translateY(-3px); transition:opacity .3s ease, transform .3s ease;
+  white-space:nowrap; position:absolute; bottom:-0.15rem;
+}
+.sel:hover{ color:var(--fg-dim); }
+.sel:hover .tick{ height:1.35rem; opacity:.85; }
+.sel[aria-selected="true"]{ color:var(--state); }
+.sel[aria-selected="true"] .tick{ height:2rem; opacity:1; }
+@media (min-width:780px){
+  .sel{ padding-bottom:1.35rem; }
+  .sel[aria-selected="true"] .word{ opacity:.9; transform:translateY(0); }
+}
 
-  /* ---------- STATEMENT ---------- */
-  .statement-top{display:flex; align-items:flex-start; gap:28px; margin-bottom:44px;}
-  .statement-arrow{flex:0 0 auto; opacity:0.7; margin-top:14px;}
-  .statement-cols{
-    display:grid; grid-template-columns:1fr 1fr; gap:40px;
-  }
-  .statement-cols p{color:var(--color-ink-soft); font-size:0.98rem;}
-  .statement-cols .cta-cell{margin-top:18px;}
-  @media (max-width:760px){ .statement-cols{grid-template-columns:1fr;} }
+/* Slide-over Drawer */
+#panel{
+  position:fixed; top:0; right:0; bottom:0; z-index:12;
+  width:min(490px, 94vw);
+  background:var(--panel-bg);
+  backdrop-filter:blur(24px) saturate(120%);
+  -webkit-backdrop-filter:blur(24px) saturate(120%);
+  border-left:1px solid var(--rule);
+  transform:translateX(101%);
+  transition:transform .72s cubic-bezier(.22,.9,.2,1);
+  display:flex; flex-direction:column;
+}
+#panel.open{ transform:translateX(0); }
+#panel::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:2px;
+  background:var(--state); opacity:.75;
+}
+#ptab{
+  position:absolute; left:-2rem; top:50%; transform:translateY(-50%) rotate(180deg);
+  writing-mode:vertical-rl; background:var(--panel-bg);
+  border:1px solid var(--rule); border-right:0; border-radius:3px 0 0 3px;
+  color:var(--fg-dim); font-family:var(--sans); font-size:0.62rem; font-weight:500;
+  letter-spacing:0.18em; text-transform:uppercase; padding:1.1rem 0.46rem; cursor:pointer;
+  transition:color .25s ease;
+}
+#ptab:hover{ color:var(--fg); }
 
-  /* ---------- ABOUT (Techtuition) ---------- */
-  .about-top{ max-width:52ch; margin-bottom:64px; }
-  .about-lead{ font-size:clamp(1.5rem, 3vw, 2.1rem); font-weight:300; line-height:1.25; }
+#pbody{ overflow-y:auto; padding:2.4rem 2rem 3.4rem; flex:1; scrollbar-width:thin; }
+#pbody::-webkit-scrollbar{ width:4px; }
+#pbody::-webkit-scrollbar-thumb{ background:var(--fg-ghost); border-radius:4px; }
 
-  .about-bottom{
-    display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;
-  }
-  .about-bottom p{color:var(--color-ink-soft); margin-bottom:24px; max-width:36ch;}
-  @media (max-width:760px){ .about-bottom{grid-template-columns:1fr;} }
+/* Drawer Typography & Hierarchy */
+.p-head{ display:flex; align-items:baseline; gap:0.75rem; margin-bottom:1.1rem; }
+.p-idx{
+  font-family:var(--mono); font-size:2.2rem; font-weight:300; line-height:1;
+  color:var(--state); font-variant-numeric:tabular-nums;
+}
+.p-word{
+  font-family:var(--sans); font-size:1.35rem; font-weight:600; letter-spacing:-0.01em;
+  color:var(--fg); margin:0;
+}
 
-  /* ---------- ABOUT (Deiadora Blanche) ---------- */
-  .section-founder{background:var(--color-bg-4); color:var(--color-ink-invert);}
-  .founder-intro{
-    display:grid; grid-template-columns:1.3fr 0.7fr; gap:56px; align-items:start; margin-bottom:64px;
-  }
-  .founder-copy h2{font-weight:300; margin-top:14px;}
-  .founder-subtitle{
-    font-size:1.05rem; color:var(--color-accent-bright); font-weight:500; margin-top:10px; display:block;
-  }
-  .founder-copy p{color:var(--color-ink-invert-soft); margin-top:20px; max-width:62ch;}
-  .founder-portrait{
-    width:100%; aspect-ratio:1/1; border-radius:50%; overflow:hidden; max-width:300px; margin:0 auto;
-  }
-  .founder-portrait img{width:100%; height:100%; object-fit:cover; display:block;}
-  @media (max-width:800px){ .founder-intro{grid-template-columns:1fr;} .founder-portrait{margin:0;} }
+/* Metadata Pills */
+.p-meta-group{
+  display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:0.85rem;
+}
+.p-meta-pill{
+  display:inline-flex; align-items:center; gap:0.35rem;
+  font-family:var(--mono); font-size:0.58rem; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--fg-dim); background:var(--chip-bg); border:1px solid var(--rule-soft);
+  padding:0.35rem 0.55rem; border-radius:3px;
+}
+.p-meta-pill b{ color:var(--state); font-weight:500; }
 
-  .founder-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-bottom:56px;
-  }
-  .founder-grid h3{font-weight:500; margin-bottom:18px; color:var(--color-accent-bright); font-size:1rem;}
-  .founder-grid ul{margin:0; padding:0; list-style:none;}
-  .founder-grid li{
-    color:var(--color-ink-invert-soft); font-size:0.95rem; line-height:1.55;
-    padding:14px 0; border-top:1px solid var(--color-line-invert);
-  }
-  .founder-grid div:first-child li:first-of-type, .founder-grid div:last-child li:first-of-type{border-top:1px solid var(--color-line-invert);}
-  @media (max-width:760px){ .founder-grid{grid-template-columns:1fr; gap:36px;} }
+/* Sections */
+.p-sec{ border-top:1px solid var(--rule); padding:1.3rem 0 0.3rem; }
+.p-sec h3{
+  margin:0 0 0.75rem; font-family:var(--sans); font-weight:600;
+  font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--state);
+}
 
-  .founder-quote{
-    font-size:clamp(1.4rem,3.2vw,2rem); font-weight:300; font-style:italic; line-height:1.55;
-    color:var(--color-ink-invert); margin:0 auto; max-width:44ch;
-  }
-  .section-quote{
-    background:var(--color-bg-5); color:var(--color-ink-invert);
-    text-align:center; padding:clamp(100px,14vw,168px) 0;
-  }
-  .section-quote .wrap{max-width:840px; position:relative;}
-  .quote-mark{
-    display:block; font-size:5.5rem; font-family:Georgia, serif; font-style:italic;
-    color:var(--color-accent-bright); line-height:1; margin-bottom:8px; opacity:0.85;
-  }
+/* Unified Container Grammar */
+.card{
+  background:var(--card-bg);
+  border:1px solid var(--rule-soft);
+  border-radius:4px;
+  padding:1rem 1.1rem;
+  margin-bottom:0.9rem;
+}
+.card.highlight{
+  border-left:2px solid var(--state);
+}
+.card .card-label{
+  display:block; font-family:var(--sans); font-size:0.68rem; font-weight:600;
+  letter-spacing:0.06em; text-transform:uppercase; color:var(--state); margin-bottom:0.35rem;
+}
+.card .card-text{
+  margin:0; font-size:0.88rem; line-height:1.6; color:var(--fg-dim);
+}
+.card .card-text.italic{
+  font-style:italic; color:var(--fg);
+}
 
-  /* ---------- SERVICES ACCORDION ---------- */
-  .accordion{border-top:1px solid var(--color-line-invert);}
-  .accordion-item{border-bottom:1px solid var(--color-line-invert);}
-  .accordion-trigger{
-    width:100%; background:none; border:none; color:inherit; cursor:pointer;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:22px 2px; text-align:left; font-size:1.05rem; font-family:inherit;
-  }
-  .accordion-trigger .plus{font-size:1.2rem; font-weight:300; transition:transform 0.25s ease;}
-  .accordion-trigger[aria-expanded="true"] .plus{transform:rotate(45deg);}
-  .accordion-panel{
-    max-height:0; overflow:hidden; transition:max-height 0.3s ease;
-  }
-  .accordion-panel p{padding:0 2px 22px; color:var(--color-ink-invert-soft); max-width:56ch; font-size:0.95rem;}
+/* Operational Matrix Table inside Panel */
+.op-matrix-box{
+  background:rgba(0,0,0,0.25);
+  border:1px solid var(--rule-soft);
+  border-radius:4px;
+  padding:0.75rem;
+  margin-top:0.8rem;
+  font-size:0.78rem;
+}
+.op-matrix-row{
+  display:flex;
+  flex-direction:column;
+  gap:0.25rem;
+  border-bottom:1px solid var(--rule-soft);
+  padding:0.5rem 0;
+}
+.op-matrix-row:last-child{ border-bottom:0; }
+.op-matrix-title{
+  font-family:var(--mono);
+  font-size:0.65rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--state);
+}
+.op-matrix-desc{ color:var(--fg-dim); line-height:1.45; }
 
-  /* ---------- TESTIMONIAL ---------- */
-  .section-testimonial .wrap{max-width:820px;}
-  blockquote{
-    margin:32px 0 0; font-size:clamp(1.1rem,2.4vw,1.4rem); font-weight:300; line-height:1.55;
-  }
-  blockquote strong{font-weight:500;}
-  .attribution{margin-top:28px; font-size:0.9rem; text-decoration:underline; text-underline-offset:4px; opacity:0.85;}
+/* Action Buttons */
+.offers{ display:flex; flex-direction:column; gap:0.55rem; margin-top:0.6rem; }
+.offer{
+  display:flex; align-items:center; justify-content:space-between; gap:0.8rem;
+  font-family:var(--sans); font-size:0.75rem; font-weight:500;
+  text-decoration:none; cursor:pointer;
+  border:1px solid currentColor; border-radius:3px; padding:0.75rem 0.9rem;
+  color:var(--state); background:transparent; text-align:left;
+  transition:background .25s ease, color .25s ease;
+  appearance:none; width:100%;
+}
+.offer.secondary{ color:var(--fg-dim); border-color:var(--rule); }
+.offer:hover{ background:var(--state); color:var(--bg); border-color:var(--state); }
+.offer.secondary:hover{ background:var(--fg-dim); color:var(--bg); }
+.offer .arrow{ opacity:.7; font-family:var(--mono); }
 
-  /* ---------- PODCAST ---------- */
-  .podcast-inner{
-    padding:64px 0; border-top:1px solid var(--color-line-invert);
-  }
-  .podcast-inner p{color:var(--color-ink-invert-soft); max-width:44ch; margin-top:14px;}
-  .podcast-actions{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap;}
-  .note-edit{
-    font-size:0.75rem; opacity:0.55; margin-top:10px; font-style:italic;
-  }
+/* Footer */
+.p-foot{
+  margin-top:2.2rem; border-top:1px solid var(--rule); padding-top:1.2rem;
+  font-family:var(--sans); font-size:0.72rem; line-height:1.75; color:var(--fg-faint);
+}
+.p-foot strong{ color:var(--fg-dim); font-weight:500; }
+.p-foot-expand{
+  margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--rule-soft);
+  display:flex; flex-direction:column; gap:0.5rem;
+}
+.p-socials{ display:flex; gap:0.55rem; align-items:center; }
+.social-link{
+  display:inline-flex; align-items:center; justify-content:center;
+  color:var(--fg-dim); border:1px solid var(--rule-soft); border-radius:3px;
+  width:1.75rem; height:1.75rem; text-decoration:none;
+  transition:color .2s ease, border-color .2s ease, background .2s ease;
+}
+.social-link:hover{
+  color:var(--state); border-color:var(--state); background:var(--chip-bg-hi);
+}
+.social-link svg{ width:0.85rem; height:0.85rem; fill:currentColor; }
 
-  /* ---------- MARQUEE ---------- */
-  .section-marquee{position:relative;}
-  .marquee-track{
-    display:flex; white-space:nowrap; gap:0;
-    animation: scroll-marquee 26s linear infinite;
-  }
-  .marquee-track.is-paused{animation-play-state:paused;}
-  .marquee-track span{
-    font-size:clamp(1.6rem,4vw,2.6rem); font-weight:300; padding:0 26px;
-    display:flex; align-items:center; gap:26px;
-  }
-  @keyframes scroll-marquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
-  @media (prefers-reduced-motion:reduce){ .marquee-track{animation:none;} }
+.p-legal-row{
+  margin-top:0.85rem; padding-top:0.75rem; border-top:1px solid var(--rule-soft);
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;
+  font-size:0.65rem;
+}
+.btn-legal-link{
+  appearance:none; background:transparent; border:0; padding:0; cursor:pointer;
+  color:var(--fg-faint); font-family:var(--sans); font-size:0.65rem; text-decoration:underline;
+  text-underline-offset:2px; transition:color .2s ease;
+}
+.btn-legal-link:hover{ color:var(--state); }
 
-  .marquee-pause{
-    position:absolute; top:18px; right:clamp(20px,5vw,64px); z-index:2;
-    width:34px; height:34px; border-radius:50%;
-    border:1px solid var(--color-line-invert); background:color-mix(in srgb, var(--color-bg-7) 70%, transparent);
-    color:var(--color-ink-invert); cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .marquee-pause:hover{border-color:var(--color-accent-bright);}
+/* Modals */
+.scrim{
+  position:fixed; inset:0; z-index:30; background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  display:flex; align-items:center; justify-content:center; padding:1.5rem;
+  opacity:0; pointer-events:none; transition:opacity .35s ease;
+}
+:root[data-theme="light"] .scrim{ background:rgba(60,55,45,0.45); }
+.scrim.open{ opacity:1; pointer-events:auto; }
+.dlg{
+  background:var(--bg-2); border:1px solid var(--rule); border-radius:5px;
+  width:min(680px, 100%); max-height:86vh; overflow-y:auto;
+  padding:2.2rem 2.2rem 2rem; position:relative;
+  transform:translateY(10px) scale(.985); transition:transform .35s cubic-bezier(.22,.9,.2,1);
+}
+.dlg.dlg-wide{ width:min(820px, 100%); }
+.scrim.open .dlg{ transform:none; }
+.dlg h2{
+  margin:0 0 0.35rem; font-family:var(--sans); font-weight:600;
+  font-size:1.35rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--fg);
+}
+.dlg .dlg-sub{
+  font-family:var(--sans); font-size:0.75rem; color:var(--fg-faint); margin-bottom:1.4rem;
+}
+.dlg h3{
+  margin:1.4rem 0 0.5rem; font-family:var(--sans); font-weight:600;
+  font-size:0.85rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--state);
+}
+.dlg p{ margin:0 0 0.95rem; font-size:0.92rem; line-height:1.7; color:var(--fg-dim); }
+.dlg p.lede{ font-size:1.02rem; color:var(--fg); line-height:1.65; font-weight:400; }
+.dlg ul{ margin:0 0 1.1rem; padding-left:1.3rem; color:var(--fg-dim); font-size:0.88rem; line-height:1.65; }
+.dlg li{ margin-bottom:0.45rem; }
+.dlg .close{
+  position:absolute; top:0.85rem; right:0.9rem; background:transparent;
+  border:1px solid var(--rule-soft); border-radius:3px; color:var(--fg-faint);
+  font-family:var(--sans); font-size:0.68rem; font-weight:500;
+  padding:0.4rem 0.6rem; cursor:pointer;
+}
+.dlg .close:hover{ color:var(--fg); border-color:var(--rule); }
 
-  /* ---------- FOOTER ---------- */
-  footer.site-footer .wrap{padding-top:56px; padding-bottom:40px;}
-  .footer-wordmark{font-size:1.6rem; color:var(--color-ink-invert); margin-bottom:14px;}
-  .footer-tagline{max-width:34ch; margin-bottom:20px;}
-  footer.site-footer a{text-decoration:underline; text-underline-offset:4px;}
-  .footer-social{margin-top:16px; margin-left:22px; display:inline-block; color:var(--color-accent-bright);}
+/* Markdown Preview Area */
+.md-preview{
+  background:rgba(0,0,0,0.3); border:1px solid var(--rule-soft);
+  border-radius:4px; padding:1.2rem; max-height:46vh; overflow-y:auto;
+  font-family:var(--mono); font-size:0.75rem; line-height:1.7; color:var(--fg-dim);
+  white-space:pre-wrap;
+}
 
-  /* ---------- SIGNATURE MOON (fixed) ---------- */
-  .moon-signature{
-    position:fixed; right:22px; bottom:22px; z-index:60;
-    width:34px; height:34px; border-radius:50%;
-    background:var(--color-accent-bright);
-    overflow:hidden; box-shadow:0 0 14px color-mix(in srgb, var(--color-accent-bright) 45%, transparent);
-    transition: background 0.6s ease;
-  }
-  .moon-signature::after{
-    content:''; position:absolute; top:-4%; left:var(--phase, 100%);
-    width:108%; height:108%; border-radius:50%;
-    background:var(--moon-shadow, #0B0F16);
-    transition: left 0.8s ease, background 0.6s ease;
-  }
-  @media (max-width:640px){ .moon-signature{width:26px; height:26px; right:14px; bottom:14px;} }
+#hint{
+  position:fixed; left:1.6rem; bottom:1.15rem; z-index:5;
+  font-family:var(--mono); font-size:0.54rem; letter-spacing:0.14em;
+  color:var(--fg-ghost); text-transform:uppercase; line-height:2;
+  pointer-events:none;
+}
+#hint .k{ color:var(--fg-faint); }
+@media (max-width:1180px){ #hint{ display:none; } }
 
-  /* ---------- REVEAL ---------- */
-  .reveal{opacity:0; transform:translateY(14px); transition:opacity 0.7s ease, transform 0.7s ease;}
-  .reveal.is-visible{opacity:1; transform:translateY(0);}
-  @media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none;} }
-
-  /* ---------- CONTACT VIEW ---------- */
-  .contact-hero{background:var(--color-bg-2); padding-top:clamp(64px,10vw,110px);}
-  .contact-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:56px; align-items:start;}
-  .contact-info p{margin-top:18px;}
-  .contact-info .email{font-size:1.05rem;}
-  .contact-info .book-link{display:block; margin-top:10px; text-decoration:underline; text-underline-offset:4px;}
-  .contact-info .social{margin-top:26px; display:inline-block;}
-  form.contact-form{margin-top:6px;}
-  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:22px;}
-  .field label{display:block; font-size:0.92rem; margin-bottom:8px;}
-  .field label .req{color:var(--color-ink-soft); font-weight:400; font-size:0.82rem;}
-  .field input, .field textarea{
-    width:100%; border:1px solid var(--color-line); background:transparent; color:var(--color-ink);
-    border-radius:100px; padding:13px 18px; font-family:inherit; font-size:0.95rem;
-  }
-  .field textarea{border-radius:16px; min-height:120px; resize:vertical;}
-  .field.full{margin-bottom:22px;}
-  @media (max-width:760px){ .contact-grid{grid-template-columns:1fr;} .form-row{grid-template-columns:1fr;} }
-
-  [hidden]{display:none !important;}
+#veil{
+  position:fixed; inset:0; z-index:40; background:var(--bg);
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1.2rem;
+  transition:opacity 1s ease; font-family:var(--mono);
+  font-size:0.6rem; letter-spacing:0.26em; color:var(--fg-faint); text-transform:uppercase;
+}
+#veil.gone{ opacity:0; pointer-events:none; }
+#veil .ring{
+  width:2rem; height:2rem; border:1px solid var(--rule);
+  border-top-color:var(--accent); border-radius:50%;
+  animation:spin 1.6s linear infinite;
+}
+@keyframes spin{ to{ transform:rotate(360deg); } }
+@media (prefers-reduced-motion: reduce){
+  #veil .ring{ animation:none; }
+  #panel, #bigtype, .scrim, .dlg{ transition-duration:.01ms !important; }
+}
 </style>
 </head>
 <body>
 
-<header class="site-nav">
-  <div class="wrap nav-row">
-    <button class="wordmark" data-view="home" aria-label="Techtuition — home">
-      <svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
-        <circle cx="32" cy="32" r="27" fill="var(--color-accent-bright)"/>
-        <circle cx="47" cy="26" r="27" fill="var(--color-bg-1)"/>
-      </svg>
-      Techtuition
-    </button>
-    <div style="display:flex; align-items:center;">
-      <nav class="links" aria-label="Primary">
-        <button class="navlink" data-scroll="about">About</button>
-        <button class="navlink" data-view="contact">Contact</button>
-      </nav>
-      <div class="controls">
-        <button class="ctrl-btn size-toggle" id="size-toggle" aria-pressed="false" aria-label="Increase text size">
-          <span class="a-small">A</span><span class="a-big">A</span>
-        </button>
-        <button class="ctrl-btn" id="theme-toggle" aria-label="Toggle dark mode">
-          <span id="theme-icon">☾</span><span id="theme-label">Dark</span>
-        </button>
-      </div>
-    </div>
-  </div>
+<a id="skip" href="#selector">Skip to state controls</a>
+<div id="a11y-announcer" class="sr-only" role="status" aria-live="assertive" aria-atomic="true"></div>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<div id="bigtype" aria-hidden="true">
+  <div id="bt-index">00</div>
+  <div id="bt-word">// THE FIELD</div>
+</div>
+
+<header id="brand">
+  <div class="mark">TECHTUITION</div>
+  <div class="tagline">Regenerative Systems Operations</div>
+  <div class="imprint">Deiadora Blanche · Enterprise Playbook Sprint</div>
 </header>
 
-<!-- ============ HOME VIEW ============ -->
-<main id="view-home">
-
-  <section class="section-hero">
-    <div class="wrap hero-inner reveal">
-      <div class="hero-copy">
-        <h1>Designing digital products people can actually <span class="underline-accent">trust.</span></h1>
-        <p class="lede">Techtuition audits and rebuilds digital products, content ecosystems, and AI interfaces — replacing dark patterns with interfaces that respect human attention and emotional agency.</p>
-      </div>
-      <div class="moon-hero" aria-hidden="true">
-        <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
-          <circle cx="70" cy="70" r="50" fill="var(--color-accent)" opacity="0.9"/>
-          <circle cx="88" cy="58" r="50" fill="var(--color-bg-1)"/>
-          <circle cx="30" cy="30" r="1.6" fill="var(--color-ink-soft)"/>
-          <circle cx="15" cy="90" r="1.6" fill="var(--color-ink-soft)"/>
-          <circle cx="120" cy="100" r="1.6" fill="var(--color-ink-soft)"/>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-statement">
-    <div class="wrap">
-      <div class="statement-top reveal">
-        <svg class="statement-arrow" width="70" height="24" viewBox="0 0 70 24" fill="none" aria-hidden="true">
-          <path d="M0 12H66M66 12L54 2M66 12L54 22" stroke="var(--color-ink)" stroke-width="1.4"/>
-        </svg>
-        <h2>I audit digital products, content ecosystems, and AI interfaces to eliminate dark patterns and design for genuine human trust.</h2>
-      </div>
-      <div class="statement-cols reveal">
-        <p>If your product, onboarding flow, or AI interface has started to feel like it's working against the people using it rather than for them, this is where we start looking.</p>
-        <div>
-          <p>Together we'll map where trust breaks down, rebuild the flows and copy that caused it, and set your team up with principles that hold as the product grows.</p>
-          <div class="cta-cell"><a href="https://cal.com/deiadora/30min?overlayCalendar=true" target="_blank" rel="noopener" class="link-arrow">Book a free strategy call →</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-about" id="about">
-    <div class="wrap">
-      <div class="about-top reveal">
-        <p class="about-lead">A trust &amp; clarity practice for teams building digital products and AI-driven experiences.</p>
-      </div>
-      <div class="about-bottom reveal">
-        <div>
-          <p>From one-off dark pattern audits to ongoing partnership through a launch, I tailor the engagement to where your product is and what's putting user trust at risk.</p>
-          <a href="https://cal.com/deiadora/30min?overlayCalendar=true" target="_blank" rel="noopener" class="btn">Book a free strategy call</a>
-        </div>
-        <div class="accordion" id="services-accordion">
-          <div class="accordion-item">
-            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-1">
-              <span>EQ design</span><span class="plus" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-panel" id="panel-1">
-              <p>Designing conversational interfaces, content taxonomies, and user flows that respect human cognitive limits and emotional agency.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-2">
-              <span>Dark pattern audits</span><span class="plus" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-panel" id="panel-2">
-              <p>Identifying predatory UI loops, artificial urgency, hidden fees, and coercive microcopy that erode brand credibility and user trust.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-trigger" aria-expanded="false" aria-controls="panel-3">
-              <span>Emotional safety architecture</span><span class="plus" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-panel" id="panel-3">
-              <p>Structuring end-to-end product logic — from initial onboarding to help center documentation and AI chatbots — for absolute clarity, safety, and coherence.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-founder" id="about-deiadora">
-    <div class="wrap">
-      <div class="founder-intro reveal">
-        <div class="founder-copy">
-          <span class="eyebrow">About</span>
-          <h2>Deiadora Blanche</h2>
-          <span class="founder-subtitle">The Intersection of Systems Design, Human Agency, and Emotional Safety</span>
-          <p>I am a product investigator, systems thinker, and information architect with over two decades of experience across business operations, digital transformation, and content strategy.</p>
-          <p>Where traditional design focuses solely on engagement and conversions, my work centers on human coherence and emotional safety. Long before product design prioritized user psychology, I spent 20+ years conducting deep ethnographic and neuro-phenomenological inquiry into how humans communicate, respond to threat, and navigate complex systems — from nonviolent communication and assertive interaction models to systemic emotional intelligence.</p>
-          <p>I see products non-linearly and multi-dimensionally — using a geodesic mindset to construct complex content architectures (including a 264-arc sentiment analysis taxonomy for B2B/B2C systems). I audit dark patterns and predatory microcopy with direct, unshakeable clarity, mapping digital flows that honor human agency while driving product integrity.</p>
-        </div>
-        <div class="founder-portrait">
-          <img src="deiadora_blanche.jpg" alt="Portrait of Deiadora Blanche">
-        </div>
-      </div>
-
-      <div class="founder-grid reveal">
-        <div>
-          <h3>Product, Systems &amp; Academic Rigor</h3>
-          <ul>
-            <li>M.Sc. in Innovation &amp; Entrepreneurship (HEC Paris)</li>
-            <li>B.A. in Business Administration (Azusa Pacific University)</li>
-            <li>20+ Years Operations &amp; Strategy: Digital transformation, product development, UX/UI content systems</li>
-            <li>Advanced Taxonomy &amp; AI Systems: Creator of a 264-arc sentiment analysis taxonomy for B2B/B2C intelligence</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Human Dynamics &amp; Phenomenological Research</h3>
-          <ul>
-            <li>Neuro-Phenomenological Inquiry: 20+ years researching human behavior, threat response, and cognitive coherence</li>
-            <li>Communication &amp; Relational Systems: NVC, assertive communication, empathetic system dynamics</li>
-            <li>Somatic &amp; Physiological Architecture: Empirical study of physical, emotional, and mental self-regulation models</li>
-            <li>Dark Pattern Investigation: Systematic auditing of predatory loops, coercive friction, and trust-eroding UI</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section-quote">
-    <div class="stars" aria-hidden="true"></div>
-    <div class="wrap">
-      <span class="quote-mark" aria-hidden="true">"</span>
-      <blockquote class="founder-quote reveal">
-        Digital architecture isn't linear — it's a multi-dimensional geometry of human experience. When you design for emotional intelligence, you build products that users trust instinctively because the underlying structure respects their agency.
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- Testimonial: hidden for now via the `hidden` attribute below — content and styling
-       stay in place, remove `hidden` whenever you're ready to show it. -->
-  <section class="section-testimonial" id="testimonial" hidden>
-    <div class="stars" aria-hidden="true"></div>
-    <div class="wrap reveal">
-      <span class="eyebrow underline-accent">Testimonial</span>
-      <blockquote>
-        "[Placeholder — swap in a real client quote here.] Working with Techtuition, we finally saw where our onboarding was quietly working against new users. The rebuilt flow was clearer, calmer, and <strong>cut support tickets significantly</strong> in the first month."
-      </blockquote>
-      <div class="attribution">[Client name], [Title] at [Company]</div>
-    </div>
-  </section>
-
-  <!-- Podcast/resources: hidden for now — same as testimonial above, remove `hidden` later. -->
-  <section class="section-podcast" id="podcast" hidden>
-    <div class="wrap podcast-inner reveal">
-      <span class="eyebrow">[Optional section — remove or replace if you don't have this]</span>
-      <h2>Check out [Podcast / newsletter name]</h2>
-      <p>A short line on what this is and who it's for — swap this in once you decide whether this section stays.</p>
-      <div class="podcast-actions">
-        <a href="#" class="btn">Watch</a>
-        <a href="#" class="btn ghost">Listen</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-marquee">
-    <button class="marquee-pause" id="marquee-pause" aria-pressed="false" aria-label="Pause scrolling text">
-      <svg class="icon-pause" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" fill="currentColor"/></svg>
-      <svg class="icon-play" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" hidden><path d="M3 1L12 7L3 13V1Z" fill="currentColor"/></svg>
+<div id="utility">
+  <div class="nav-cluster">
+    <button class="btn-toplink" id="btn-sprint" type="button" aria-haspopup="dialog" aria-controls="sprint-dlg" aria-expanded="false">
+      <span>Co-Create Sprint</span>
+      <span class="icon-glyph" aria-hidden="true">↗</span>
     </button>
-    <div class="marquee-track" id="marquee-track" aria-hidden="true">
-      <span>Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span></span>
-      <span>Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span> Design for trust <span style="color:var(--color-accent-bright)">✦</span></span>
+
+    <button class="btn-toplink" id="btn-playbook" type="button" aria-haspopup="dialog" aria-controls="playbook-dlg" aria-expanded="false">
+      <span>Open Source Playbook</span>
+      <span class="icon-glyph" aria-hidden="true">↗</span>
+    </button>
+
+    <a href="https://deiadora.com/" class="btn-toplink" target="_blank" rel="noopener noreferrer">
+      <span>DEIADORA</span>
+      <span class="icon-glyph" aria-hidden="true">↗</span>
+    </a>
+
+    <div class="ctlrow">
+      <button class="ctl" id="btn-theme" type="button" aria-pressed="false">
+        <span id="theme-label">Dark</span><span class="kbd" aria-hidden="true">T</span>
+      </button>
+      <button class="ctl" id="btn-motion" type="button" aria-pressed="false">
+        <span id="motion-label">Motion on</span><span class="kbd" aria-hidden="true">P</span>
+      </button>
+      <button class="ctl" id="btn-audio" type="button" aria-pressed="false">
+        <span id="audio-label">Audio off</span><span class="kbd" aria-hidden="true">M</span>
+      </button>
     </div>
-  </section>
+  </div>
 
-</main>
+  <div class="ctlrow">
+    <div class="ctlgroup" role="group" aria-label="Display text size">
+      <button class="ctl" id="btn-fdown" type="button" aria-label="Decrease text size">A&minus;</button>
+      <button class="ctl" id="btn-freset" type="button" aria-label="Reset text size to 100 percent"><span id="font-label">100%</span></button>
+      <button class="ctl" id="btn-fup" type="button" aria-label="Increase text size">A+</button>
+    </div>
+  </div>
 
-<!-- ============ CONTACT VIEW ============ -->
-<main id="view-contact" hidden>
-  <section class="contact-hero">
-    <div class="stars" aria-hidden="true" style="opacity:0"></div>
-    <div class="wrap">
-      <h1 class="reveal">Let's talk.</h1>
-      <div class="contact-grid" style="margin-top:48px;">
-        <div class="contact-info reveal">
-          <p class="email">hello@techtuition.ai</p>
-          <a href="https://cal.com/deiadora/30min?overlayCalendar=true" target="_blank" rel="noopener" class="book-link">Book a free strategy call</a>
-          <a href="https://www.linkedin.com/company/techtuition/" target="_blank" rel="noopener" class="social" aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-accent)"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V21h-4V9z"/></svg>
+  <div id="readout" aria-hidden="true">
+    <div>Node <b id="ro-state">00</b></div>
+    <div>Geometry <b id="ro-anchor">Quantum Field</b></div>
+    <div>Drone <b id="ro-audio">off</b></div>
+    <div>Motion <b id="ro-motion">live</b></div>
+  </div>
+</div>
+
+<nav id="selector" role="tablist" aria-label="10-node operational topology 0 through 9"></nav>
+
+<aside id="panel" role="tabpanel" aria-labelledby="tab-0" tabindex="-1">
+  <button id="ptab" type="button" aria-controls="panel" aria-expanded="false">Dossier</button>
+  <div id="pbody"></div>
+</aside>
+
+<div id="hint" aria-hidden="true">
+  <div><span class="k">0–9</span> select node &nbsp;·&nbsp; <span class="k">←→</span> step</div>
+  <div><span class="k">click</span> advance &nbsp;·&nbsp; <span class="k">drag</span> orbit</div>
+  <div><span class="k">T</span> theme &nbsp;·&nbsp; <span class="k">P</span>/<span class="k">space</span> motion &nbsp;·&nbsp; <span class="k">+ −</span> text size</div>
+  <div><span class="k">A</span> dossier &nbsp;·&nbsp; <span class="k">M</span> audio &nbsp;·&nbsp; <span class="k">?</span> sprint</div>
+</div>
+
+<!-- Co-Create Sprint Modal -->
+<div class="scrim" id="sprint-scrim">
+  <div class="dlg" id="sprint-dlg" role="dialog" aria-modal="true" aria-labelledby="sprint-title" tabindex="-1">
+    <button class="close" type="button" data-close="sprint">Close &nbsp;Esc</button>
+    <h2 id="sprint-title">Work With Deiadora</h2>
+    <div class="dlg-sub">Techtuition · 4-Week Regenerative Systems Operations Sprint</div>
+
+    <p class="lede">Regenerative means everyone comes to work and gets the job done without burning half their cognitive and emotional energy just trying to locate the map.</p>
+
+    <p>We take cross-functional ambiguity across Product, Design, AI, and Operations and co-create your living, 10-node operational playbook in 4 weeks flat.</p>
+
+    <div class="card highlight" style="margin-top:1.1rem">
+      <span class="card-label">The 4-Week Co-Creation Model</span>
+      <ul style="margin:0; padding-left:1.2rem; font-size:0.86rem; line-height:1.65;">
+        <li><strong>Week 1: Needs Discovery & Friction Mapping</strong> — Design thinking workshops identifying cognitive drag and broken handoffs.</li>
+        <li><strong>Week 2: Stakeholder Deep Dives</strong> — 1-on-1 strategic alignment with cross-functional leadership.</li>
+        <li><strong>Week 3: Systems Architecture & Drafting</strong> — Constructing the 10-node geometric playbook and phase matrices.</li>
+        <li><strong>Week 4: Readout & Activation Handoff</strong> — Full team walkthrough, alignment ceremony, and governance release.</li>
+      </ul>
+    </div>
+
+    <div class="offers" style="margin-top:1.4rem">
+      <a class="offer" id="sprint-direct-link" href="mailto:herself@deiadora.com?subject=Techtuition%204-Week%20Sprint%20Inquiry&body=Team%20%2F%20Company%3A%0A%0ACurrent%20operational%20friction%20or%20handoff%20drag%3A%0A%0AOperating%20timeline%3A%0A">
+        <span>Initiate 4-Week Sprint Inquiry with Deiadora</span> <span class="arrow" aria-hidden="true">&#8594;</span>
+      </a>
+      <a class="offer secondary" href="https://linkedin.com/in/deiadora" target="_blank" rel="noopener noreferrer">
+        <span>Connect via LinkedIn</span> <span class="arrow" aria-hidden="true">&#8594;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Open Source Playbook Modal -->
+<div class="scrim" id="playbook-scrim">
+  <div class="dlg dlg-wide" id="playbook-dlg" role="dialog" aria-modal="true" aria-labelledby="playbook-title" tabindex="-1">
+    <button class="close" type="button" data-close="playbook">Close &nbsp;Esc</button>
+    <h2 id="playbook-title">The Open Source Playbook</h2>
+    <div class="dlg-sub">Techtuition · 10-Node Semantic Markdown Architecture</div>
+
+    <p class="lede">The core scaffolding is open access under a sovereign attribution license. Copy the markdown below straight into your team's knowledge repository (Notion, GitHub, Confluence).</p>
+
+    <div class="offers" style="margin-bottom:1rem">
+      <button class="offer" type="button" id="btn-copy-md"><span>Copy Entire Markdown Playbook to Clipboard</span> <span class="arrow" aria-hidden="true">&#9646;</span></button>
+    </div>
+
+    <div class="md-preview" id="md-content"># TECHTUITION: Regenerative Systems Operations Playbook
+Architected by Deiadora Blanche
+
+## 00 // THE FIELD — Orientation & Operating Agreements
+* Purpose: Establishing psychological safety, shared vocabulary, and baseline cognitive sovereignty.
+* Exit Criteria: Non-negotiable team charter signed by all functional leads.
+
+## 01 // COHERENCE — North Star & Decision Rights
+* Purpose: Eliminating decision swirl and defining escalation channels.
+* Exit Criteria: Singular decision rights matrix (DACI / RAPID) implemented.
+
+## 02 // RECOGNITION — Domain Boundaries & Handoff Thresholds
+* Purpose: Defining exact borders between Product, Design, Content, and Engineering.
+* Exit Criteria: Zero unowned gray areas; explicit handoff contracts.
+
+## 03 // DISCERNMENT — Communication Topology & Focus Defense
+* Purpose: Structural protection of calendar time; async-first documentation hygiene.
+* Exit Criteria: Protected focus blocks and synchronous meeting thresholds locked.
+
+## 04 // WAVE — Knowledge Architecture & Source of Truth
+* Purpose: Single-source documentation across tasks, specifications, and codebases.
+* Exit Criteria: Elimination of duplicated knowledge stores and shadow trackers.
+
+## 05 // DIRECTION — Cross-Functional Workflow Pipelines
+* Purpose: End-to-end delivery lifecycle across all agreed phases.
+* Phase Matrix Schema (Discover, Define, Design, Build, Ship):
+  1. Rituals & Cadences (What meetings are attended)
+  2. Active Responsibilities (Who completes what core tasks)
+  3. Concrete Exit Deliverables (Unambiguous gate artifacts)
+  4. Shared Resources & Repos (Transparent access to all project assets)
+
+## 06 // TRANSMISSION — AI Tooling & Automation Guardrails
+* Purpose: Safe, frictionless integration of agentic workflows and prompt repositories.
+* Exit Criteria: Human-in-the-loop verification gates established.
+
+## 07 // EXPRESSION — Regenerative Capacity & Recovery Tides
+* Purpose: Protecting team stamina through cyclical sprint tides and blameless retrospectives.
+* Exit Criteria: Buffer intervals inserted between high-intensity release sprints.
+
+## 08 // STRUCTURE — Evolutionary Governance & Versioning
+* Purpose: Preserving playbook fidelity as the organization scales without documentation drift.
+* Exit Criteria: Quarterly operational review cadence established.
+
+## 09 // SOURCE — Core Resource Repository & Asset Kits
+* Purpose: Immediate access to sprint templates, PRD kits, Figma files, and design system tokens.
+* Exit Criteria: Living resource directory accessible to all contributors.</div>
+  </div>
+</div>
+
+<!-- Sovereign Terms & Custody Modal -->
+<div class="scrim" id="legal-scrim">
+  <div class="dlg dlg-wide" id="legal" role="dialog" aria-modal="true" aria-labelledby="legal-title" tabindex="-1">
+    <button class="close" type="button" data-close="legal">Close &nbsp;Esc</button>
+    <h2 id="legal-title">Legal Architecture &amp; Sovereign Terms</h2>
+    <div class="dlg-sub">Deiadora Blanche // TECHTUITION &mdash; Regenerative Systems Operations &middot; California, United States</div>
+
+    <p class="lede">This platform operates under a sovereign custodial model: our work product is legally protected against unauthorized extraction, and our digital infrastructure maintains default-zero telemetry on all visitors.</p>
+
+    <h3>Part 1: Terms of Use &amp; Intellectual Property Custody</h3>
+    <p>All operational frameworks, geometric ontologies, ethnographic models, case study narratives, audio compositions, and code published on <code>techtuition.deiadora.com</code> and associated domains are the proprietary intellectual property and custodial work product of Deiadora Blanche.</p>
+    <ul>
+      <li><strong>Prohibition on Automated Scraping &amp; AI Training:</strong> No portion of this site may be scraped, crawled, ingested, vectorized, tokenized, or used as training data for machine learning models or generative AI without an explicit written commercial license. Technical anti-mining protocols (<code>noai</code>, <code>noimageai</code>, <code>tdm-reservation</code>) are strictly asserted.</li>
+      <li><strong>Open Source Playbook License:</strong> Teams are granted an open license to utilize the 10-node Markdown framework internally for operational improvement, provided attribution to Deiadora Blanche / Techtuition remains intact. Derivative commercial resale is prohibited.</li>
+    </ul>
+
+    <h3>Part 2: Privacy Policy (Default-Zero Telemetry)</h3>
+    <p>In accordance with Node 00 (The Field), TECHTUITION operates on a <strong>default-zero telemetry architecture</strong>:</p>
+    <ul>
+      <li><strong>Zero Third-Party Trackers:</strong> No analytics pixels, session recordings, or third-party behavioral scripts.</li>
+      <li><strong>Zero Marketing Cookies:</strong> No ad-tech tracking or cross-site fingerprinting beacons.</li>
+      <li><strong>Local Preferences Only:</strong> Accessibility preferences (contrast, font scale, motion) stay strictly within your local browser storage.</li>
+    </ul>
+
+    <h3>Part 3: Governing Law &amp; Inquiries</h3>
+    <p>Direct all legal notices and enterprise rights inquiries to <code>herself@deiadora.com</code>.</p>
+  </div>
+</div>
+
+<div id="veil"><div class="ring" aria-hidden="true"></div><div>Initialising Techtuition Field</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+"use strict";
+
+const CONTACT_OBF = ["herself", "deiadora.com"].join("@");
+
+const Perlin = (function(){
+  const p = new Uint8Array(512);
+  const perm = [151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,
+  8,99,37,240,21,10,23,190,6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,
+  177,33,88,237,149,56,87,174,20,125,136,171,168,68,175,74,165,71,134,139,48,27,166,77,146,
+  158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,102,143,54,65,25,63,
+  161,1,216,80,73,209,76,132,187,208,89,18,169,200,196,135,130,116,188,159,86,164,100,109,
+  198,173,186,3,64,52,217,226,250,124,123,5,202,38,147,118,126,255,82,85,212,207,206,59,227,
+  47,16,58,17,182,189,28,42,223,183,170,213,119,248,152,2,44,154,163,70,221,153,101,155,167,
+  43,172,9,129,22,39,253,19,98,108,110,79,113,224,232,178,185,112,104,218,246,97,228,251,34,
+  242,193,238,210,144,12,191,179,162,241,81,51,145,235,249,14,239,107,49,192,214,31,181,199,
+  106,157,184,84,204,176,115,121,50,45,127,4,150,254,138,236,205,93,222,114,67,29,24,72,243,
+  141,128,195,78,66,215,61,156,180];
+  for(let i=0;i<256;i++){ p[i]=perm[i]; p[i+256]=perm[i]; }
+  const fade = t => t*t*t*(t*(t*6-15)+10);
+  const lp = (a,b,t) => a+t*(b-a);
+  function grad(h,x,y,z){
+    h &= 15;
+    const u = h<8 ? x : y;
+    const v = h<4 ? y : (h===12||h===14 ? x : z);
+    return ((h&1)===0?u:-u) + ((h&2)===0?v:-v);
+  }
+  return {
+    n3(x,y,z){
+      const X=Math.floor(x)&255, Y=Math.floor(y)&255, Z=Math.floor(z)&255;
+      x-=Math.floor(x); y-=Math.floor(y); z-=Math.floor(z);
+      const u=fade(x), v=fade(y), w=fade(z);
+      const A=p[X]+Y, AA=p[A]+Z, AB=p[A+1]+Z;
+      const B=p[X+1]+Y, BA=p[B]+Z, BB=p[B+1]+Z;
+      return lp(
+        lp(lp(grad(p[AA],x,y,z),      grad(p[BA],x-1,y,z),      u),
+           lp(grad(p[AB],x,y-1,z),    grad(p[BB],x-1,y-1,z),    u), v),
+        lp(lp(grad(p[AA+1],x,y,z-1),  grad(p[BA+1],x-1,y,z-1),  u),
+           lp(grad(p[AB+1],x,y-1,z-1),grad(p[BB+1],x-1,y-1,z-1),u), v), w);
+    }
+  };
+})();
+
+function flow(x,y,z,t,out){
+  const s=0.045;
+  out.x = Perlin.n3(x*s,      y*s,      z*s + t*0.05);
+  out.y = Perlin.n3(x*s+31.7, y*s-11.3, z*s + t*0.05);
+  out.z = Perlin.n3(x*s-57.1, y*s+77.9, z*s + t*0.05) * 0.45;
+  return out;
+}
+
+const SPECTRUM_NAMES = [
+  "Alabaster Pearl",
+  "Radiant Amber",
+  "Sage / Seafoam",
+  "Electric Cerulean",
+  "Emerald Jade",
+  "Iris / Indigo",
+  "Resonant Amethyst",
+  "Coral Rose",
+  "Crystalline Lapis",
+  "Aurora Gold"
+];
+
+const ACCENT_DARK = [
+  0xd9d5cb,
+  0xe8a938,
+  0x6bb89e,
+  0x4caee6,
+  0x3eb885,
+  0x7c7ee0,
+  0xaa70e0,
+  0xe87a74,
+  0x5294e2,
+  0xf0cf65
+];
+
+const ACCENT_LIGHT = [
+  0x424652,
+  0xa66d0c,
+  0x287058,
+  0x146d9e,
+  0x1f7850,
+  0x4044a6,
+  0x6b309e,
+  0xb83d37,
+  0x1c5ea8,
+  0x997510
+];
+
+const STATES = [
+{
+  key:"THE FIELD",
+  pulse:0.55, amp:0.030, spin:0.035, base:57.0, ratios:[1,2,3],
+  anchor:"Quantum field / Zero-point",
+  opFocus:"Orientation & Cultural Baseline",
+  regenPrinciple:"Unconditioned Ground",
+  systemDeliverable:"Baseline friction audit, team vocabulary dictionary, and psychological safety operating agreements.",
+  cognitiveRelief:"Stops immediate, reactive firefighting and gives the team breathing room to orient without defensive postures.",
+  enterprisePedigree:"Proven baseline diagnostic deployed across multi-disciplinary product organizations to reset cognitive drag."
+},
+{
+  key:"COHERENCE",
+  pulse:0.85, amp:0.028, spin:0.055, base:61.7, ratios:[1,2,3,4],
+  anchor:"Torus",
+  opFocus:"North Star Charter & Decision Rights",
+  regenPrinciple:"The Non-Depleting Loop",
+  systemDeliverable:"Singular team operational charter, escalation thresholds, and decision rights framework (DACI / RAPID).",
+  cognitiveRelief:"Eliminates endless consensus loops and decision paralysis. Team members know who holds the call.",
+  enterprisePedigree:"Implemented for leadership squads to clarify cross-functional authority across distributed operations."
+},
+{
+  key:"RECOGNITION",
+  pulse:1.10, amp:0.026, spin:0.048, base:65.4, ratios:[1,1.5,2,3],
+  anchor:"Vesica piscis",
+  opFocus:"Domain Boundaries & Role Ownership",
+  regenPrinciple:"Dyadic Integrity",
+  systemDeliverable:"Unambiguous ownership margin between Product, Design, Content, and Engineering.",
+  cognitiveRelief:"Eliminates unowned gray areas where work falls through cracks or colleagues duplicate efforts.",
+  enterprisePedigree:"Foundational scoping models used to delineate cross-functional handoffs in complex agile software environments."
+},
+{
+  key:"DISCERNMENT",
+  pulse:1.40, amp:0.024, spin:0.062, base:69.3, ratios:[1,1.3333,2,2.6667],
+  anchor:"Tetrahedron / Merkaba",
+  opFocus:"Communication Topology & Focus Defense",
+  regenPrinciple:"Structural Economy",
+  systemDeliverable:"Strict synchronous vs. asynchronous communication protocols, meeting hygiene, and focus blocks.",
+  cognitiveRelief:"Restores deep focus time. Protects calendars from fragmented 30-minute sync bloat and notification anxiety.",
+  enterprisePedigree:"Engineered for remote and distributed product units to reduce weekly meeting load by over 30%."
+},
+{
+  key:"WAVE",
+  pulse:1.75, amp:0.055, spin:0.040, base:73.4, ratios:[1,1.5,1.7321,3,4.5],
+  anchor:"Hexahedron",
+  opFocus:"Knowledge Architecture & Repos",
+  regenPrinciple:"Distributed Load",
+  systemDeliverable:"Single source of truth architecture across task boards, engineering repos, and content specs.",
+  cognitiveRelief:"Stops the endless 'Where is the latest link?' swirl. Knowledge lives in structured, predictable containers.",
+  enterprisePedigree:"Architected enterprise-level information architecture systems used across global product ecosystems."
+},
+{
+  key:"DIRECTION",
+  pulse:2.10, amp:0.022, spin:0.075, base:77.8, ratios:[1,1.25,1.5,2,2.5],
+  anchor:"Tesseract",
+  opFocus:"Cross-Functional Workflow Pipelines",
+  regenPrinciple:"Multi-Scalar Orientation",
+  systemDeliverable:"The 4-Dimension Process Matrix across all agreed delivery phases (Discover, Define, Design, Build, Ship).",
+  cognitiveRelief:"Everyone knows exactly what phase they are in, which meetings they attend, and what artifact unlocks the next gate.",
+  enterprisePedigree:"The exact operational framework that architected Design Operations at Coursera and AI Product Lifecycles at Airbnb."
+},
+{
+  key:"TRANSMISSION",
+  pulse:2.40, amp:0.020, spin:0.058, base:82.4, ratios:[1,1.618,2,2.618,4.236],
+  anchor:"Dodecahedron",
+  opFocus:"AI & Automation Guardrails",
+  regenPrinciple:"Proportional Alignment",
+  systemDeliverable:"Integrated agentic workflows, prompt libraries, and human-in-the-loop verification checkpoints.",
+  cognitiveRelief:"Removes tedious copy-paste workflows and administrative churn without sacrificing human qualitative oversight.",
+  enterprisePedigree:"Developed for high-velocity AI product systems to safely scale content generation and operational throughput."
+},
+{
+  key:"EXPRESSION",
+  pulse:2.05, amp:0.032, spin:0.050, base:87.3, ratios:[1,1.125,1.25,1.5,1.875],
+  anchor:"Egg of Life",
+  opFocus:"Regenerative Capacity & Recovery Tides",
+  regenPrinciple:"Embodied Delivery",
+  systemDeliverable:"Sprint buffer topologies, cyclical recovery periods (ebb & flood tides), and blameless retrospective rituals.",
+  cognitiveRelief:"Recognizes neurodivergent and human cognitive cycles. Teams sprint with intensity then regenerate without shame.",
+  enterprisePedigree:"Proven sustainability framework designed to stop senior tech talent burnout and structural attrition."
+},
+{
+  key:"STRUCTURE",
+  pulse:1.60, amp:0.018, spin:0.044, base:92.5, ratios:[1,1.4142,2,2.8284,4],
+  anchor:"Octagon",
+  opFocus:"Evolutionary Governance & Versioning",
+  regenPrinciple:"Load-Bearing Permeability",
+  systemDeliverable:"Quarterly playbook audit cadences, maintenance rituals, and change-management protocols.",
+  cognitiveRelief:"Ensures documentation never becomes stale shelfware. The playbook evolves as the company scales.",
+  enterprisePedigree:"Governance architecture maintaining living operational playbooks across multi-year enterprise lifecycles."
+},
+{
+  key:"SOURCE",
+  pulse:1.25, amp:0.034, spin:0.030, base:98.0, ratios:[1,1.1111,1.5,2.25,3],
+  anchor:"Nonagon",
+  opFocus:"Resource Hub & Asset Kits",
+  regenPrinciple:"Origin Synthesis",
+  systemDeliverable:"Central library of PRD templates, Figma design tokens, content style repos, and onboarding checklists.",
+  cognitiveRelief:"New team members onboard in days rather than months. Every contributor draws from the replenishing center.",
+  enterprisePedigree:"Comprehensive design and product tooling libraries empowering cross-functional teams worldwide."
+}
+];
+
+function pad(n){ return String(n).padStart(2,'0'); }
+
+const pbody = document.getElementById('pbody');
+const panel = document.getElementById('panel');
+const ptab  = document.getElementById('ptab');
+
+function syncPanel(){
+  const open = panel.classList.contains('open');
+  document.body.classList.toggle('panel-open', open);
+  ptab.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function openPanel(){ panel.classList.add('open'); syncPanel(); }
+function closePanel(){ panel.classList.remove('open'); syncPanel(); }
+function togglePanel(){
+  panel.classList.toggle('open'); syncPanel();
+  announce(panel.classList.contains('open') ? 'Dossier opened.' : 'Dossier closed.');
+}
+ptab.addEventListener('click', e=>{ e.stopPropagation(); togglePanel(); });
+
+function renderPanel(i){
+  const S = STATES[i];
+  const year = new Date().getFullYear();
+
+  let matrixHtml = '';
+  if(i === 5){
+    matrixHtml = `
+      <div class="card highlight" style="margin-top:0.9rem">
+        <span class="card-label">The 4-Dimension Process Matrix (Coursera &amp; Airbnb Proven)</span>
+        <p class="card-text" style="font-size:0.8rem; margin-bottom:0.6rem;">Applied across every agreed-upon phase (e.g., Discover, Define, Design, Build, Ship):</p>
+        <div class="op-matrix-box">
+          <div class="op-matrix-row">
+            <span class="op-matrix-title">1. Cadences &amp; Rituals</span>
+            <span class="op-matrix-desc">Exact ceremonies attended by each function. Eliminates calendar bloat; clarifies who is present vs. async.</span>
+          </div>
+          <div class="op-matrix-row">
+            <span class="op-matrix-title">2. Active Responsibilities</span>
+            <span class="op-matrix-desc">Core functional responsibilities completed during the phase. Removes duplicate effort.</span>
+          </div>
+          <div class="op-matrix-row">
+            <span class="op-matrix-title">3. Concrete Deliverables</span>
+            <span class="op-matrix-desc">Explicit gate artifacts shipped before phase exit (PRD, design spec, code branch, telemetry contract).</span>
+          </div>
+          <div class="op-matrix-row">
+            <span class="op-matrix-title">4. Shared Resources &amp; Repos</span>
+            <span class="op-matrix-desc">Direct links to working boards, repositories, and documentation. Total cross-functional transparency.</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  pbody.innerHTML = `
+    <div class="p-head">
+      <div class="p-idx">${pad(i)}</div>
+      <h2 class="p-word">${S.key}</h2>
+    </div>
+
+    <!-- Container 1: Operational Focus & Geometric Anchor -->
+    <div class="card highlight">
+      <span class="card-label">Operational Focus</span>
+      <p class="card-text">${S.opFocus}</p>
+      
+      <div class="p-meta-group">
+        <span class="p-meta-pill">GEOMETRIC ANCHOR: <b>${S.anchor.toUpperCase()}</b></span>
+        <span class="p-meta-pill">PRINCIPLE: <b>${S.regenPrinciple.toUpperCase()}</b></span>
+      </div>
+    </div>
+
+    <!-- Container 2: Concrete Deliverable & Cognitive Drag Relief -->
+    <div class="card">
+      <div style="margin-bottom:0.85rem;">
+        <span class="card-label">Concrete System Deliverable</span>
+        <p class="card-text">${S.systemDeliverable}</p>
+      </div>
+
+      <div style="margin-bottom:0.85rem;">
+        <span class="card-label">Cognitive Drag Relief</span>
+        <p class="card-text italic">${S.cognitiveRelief}</p>
+      </div>
+
+      <div>
+        <span class="card-label">Enterprise Pedigree</span>
+        <p class="card-text">${S.enterprisePedigree}</p>
+      </div>
+    </div>
+
+    ${matrixHtml}
+
+    <!-- Explore More -->
+    <section class="p-sec">
+      <h3>Take Action</h3>
+      <div class="offers">
+        <button class="offer" type="button" data-open="sprint"><span>Co-Create This Playbook (4-Week Sprint)</span> <span class="arrow" aria-hidden="true">&#8594;</span></button>
+        <button class="offer secondary" type="button" data-open="playbook"><span>View Open Source Markdown</span> <span class="arrow" aria-hidden="true">&#8594;</span></button>
+      </div>
+    </section>
+
+    <footer class="p-foot">
+      <div><strong>TECHTUITION</strong> — Regenerative Systems Operations.</div>
+      <div>Founded by Deiadora Blanche. Battle-tested operational architecture at Coursera, Airbnb, and enterprise leaders.</div>
+      <div class="p-foot-expand">
+        <div>Stop spending half your team's energy just trying to locate the map.</div>
+        <div class="p-socials">
+          <a class="social-link" href="https://linkedin.com/in/deiadora" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63Z"/>
+            </svg>
           </a>
         </div>
-        <form class="contact-form reveal" id="contact-form">
-          <div class="field full">
-            <label for="fname">Name</label>
-            <div class="form-row">
-              <div class="field"><label for="fname">First name <span class="req">(required)</span></label><input id="fname" required></div>
-              <div class="field"><label for="lname">Last name <span class="req">(required)</span></label><input id="lname" required></div>
-            </div>
-          </div>
-          <div class="field full">
-            <label for="email">Email <span class="req">(required)</span></label>
-            <input id="email" type="email" required>
-          </div>
-          <div class="field full">
-            <label for="msg">Message <span class="req">(required)</span></label>
-            <textarea id="msg" required></textarea>
-          </div>
-          <button type="submit" class="btn">Send</button>
-        </form>
       </div>
-    </div>
-  </section>
-</main>
+      <div class="p-legal-row">
+        <div>&copy; <span class="cr-year">${year}</span> Deiadora Blanche. All rights reserved.</div>
+        <button type="button" class="btn-legal-link" data-open="legal">Sovereign Terms &amp; Privacy</button>
+      </div>
+    </footer>
+  `;
+  pbody.scrollTop = 0;
+}
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-wordmark">Techtuition</div>
-    <p class="footer-tagline">Helping teams design digital products and AI interfaces people can trust.</p>
-    <a href="#" data-view="contact" class="footer-nav-link">Contact</a>
-    <a href="https://deiadora.com" target="_blank" rel="noopener" style="margin-left:20px;">Research &amp; writing →</a>
-    <a href="https://www.linkedin.com/company/techtuition/" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-3px;"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V21h-4V9z"/></svg>
-    </a>
-  </div>
-</footer>
+const R = 8.6;
+const SEG_TARGET = 1080;
 
-<div class="moon-signature" id="moon-signature" aria-hidden="true"></div>
-
-<script>
-  // ---- Theme: default from system, manual override ----
-  const root = document.documentElement;
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  let manualTheme = prefersDark ? 'dark' : 'light';
-  root.setAttribute('data-theme', manualTheme);
-
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
-  const themeLabel = document.getElementById('theme-label');
-  function syncThemeBtn(){
-    if(manualTheme === 'dark'){ themeIcon.textContent='☀'; themeLabel.textContent='Light'; }
-    else { themeIcon.textContent='☾'; themeLabel.textContent='Dark'; }
+function seg(a,b){ return [a[0],a[1],a[2], b[0],b[1],b[2]]; }
+function circleSegs(cx,cy,cz, r, axis, n){
+  const out=[]; let prev=null;
+  for(let i=0;i<=n;i++){
+    const a = i/n*Math.PI*2, c=Math.cos(a)*r, s=Math.sin(a)*r;
+    let p;
+    if(axis==='z') p=[cx+c, cy+s, cz];
+    else if(axis==='y') p=[cx+c, cy, cz+s];
+    else p=[cx, cy+c, cz+s];
+    if(prev) out.push(seg(prev,p));
+    prev=p;
   }
-  syncThemeBtn();
-  themeToggle.addEventListener('click', () => {
-    manualTheme = manualTheme === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', manualTheme);
-    syncThemeBtn();
-  });
-
-  // ---- Font size: single toggle between baseline and larger ----
-  const sizeToggle = document.getElementById('size-toggle');
-  let isLargeText = false;
-  sizeToggle.addEventListener('click', () => {
-    isLargeText = !isLargeText;
-    root.style.setProperty('--scale', isLargeText ? '1.15' : '1');
-    sizeToggle.setAttribute('aria-pressed', String(isLargeText));
-    sizeToggle.setAttribute('aria-label', isLargeText ? 'Decrease text size' : 'Increase text size');
-  });
-
-  // ---- Nav view switching ----
-  const homeView = document.getElementById('view-home');
-  const contactView = document.getElementById('view-contact');
-  function showView(view){
-    const isContact = view === 'contact';
-    homeView.hidden = isContact;
-    contactView.hidden = !isContact;
-    window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+  return out;
+}
+function sphereWire(cx,cy,cz,r,rings,detail){
+  const out=[];
+  for(let k=1;k<rings;k++){
+    const phi = k/rings*Math.PI;
+    out.push(...circleSegs(cx, cy+Math.cos(phi)*r, cz, Math.sin(phi)*r, 'y', detail));
   }
-  document.querySelectorAll('[data-view]').forEach(el => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      showView(el.dataset.view);
-    });
-  });
-
-  // ---- About link: ensure we're on the home view, then smooth-scroll to it ----
-  document.querySelectorAll('[data-scroll]').forEach(el => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = el.dataset.scroll;
-      const scrollToTarget = () => {
-        const target = document.getElementById(targetId);
-        if (target) target.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth'});
-      };
-      if (contactView && !contactView.hidden) {
-        showView('home');
-        requestAnimationFrame(scrollToTarget);
-      } else {
-        scrollToTarget();
-      }
-    });
-  });
-
-
-  // ---- Contact form: posts to /api/contact, which files a GitHub Issue ----
-  // This only works once the site is deployed with api/contact.js alongside it
-  // (see the comments in that file for setup steps). Locally/in preview it will
-  // show the error state — that's expected until it's deployed.
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalLabel = submitBtn.textContent;
-      submitBtn.textContent = 'Sending…';
-      submitBtn.disabled = true;
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            firstName: document.getElementById('fname').value,
-            lastName: document.getElementById('lname').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('msg').value,
-          }),
-        });
-        if (res.ok) {
-          submitBtn.textContent = 'Sent!';
-          contactForm.reset();
-        } else {
-          submitBtn.textContent = 'Something went wrong — try again';
-        }
-      } catch (err) {
-        submitBtn.textContent = 'Something went wrong — try again';
-      } finally {
-        setTimeout(() => { submitBtn.textContent = originalLabel; submitBtn.disabled = false; }, 3000);
-      }
-    });
-  }
-
-  // ---- Marquee pause/play toggle ----
-  const marqueeTrack = document.getElementById('marquee-track');
-  const marqueePause = document.getElementById('marquee-pause');
-  if (marqueeTrack && marqueePause) {
-    // If the OS-level reduced-motion preference is already stopping the animation,
-    // reflect that as "paused" in the button's initial state too.
-    let isPaused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const iconPause = marqueePause.querySelector('.icon-pause');
-    const iconPlay = marqueePause.querySelector('.icon-play');
-    function syncMarqueeBtn(){
-      marqueeTrack.classList.toggle('is-paused', isPaused);
-      marqueePause.setAttribute('aria-pressed', String(isPaused));
-      marqueePause.setAttribute('aria-label', isPaused ? 'Play scrolling text' : 'Pause scrolling text');
-      iconPause.hidden = isPaused;
-      iconPlay.hidden = !isPaused;
+  for(let m=0;m<rings;m++){
+    const th = m/rings*Math.PI;
+    let prev=null;
+    for(let i=0;i<=detail;i++){
+      const phi = i/detail*Math.PI*2;
+      const p=[ cx + r*Math.sin(phi)*Math.cos(th), cy + r*Math.cos(phi), cz + r*Math.sin(phi)*Math.sin(th) ];
+      if(prev) out.push(seg(prev,p));
+      prev=p;
     }
-    syncMarqueeBtn();
-    marqueePause.addEventListener('click', () => {
-      isPaused = !isPaused;
-      syncMarqueeBtn();
-    });
   }
+  return out;
+}
+function polyEdges(verts, target, tol){
+  const out=[];
+  for(let i=0;i<verts.length;i++)
+    for(let j=i+1;j<verts.length;j++){
+      const a=verts[i], b=verts[j];
+      const d=Math.hypot(a[0]-b[0],a[1]-b[1],a[2]-b[2]);
+      if(Math.abs(d-target)<tol) out.push(seg(a,b));
+    }
+  return out;
+}
 
-  // ---- Accordion ----
-  document.querySelectorAll('.accordion-trigger').forEach(trigger => {
-    trigger.addEventListener('click', () => {
-      const panel = document.getElementById(trigger.getAttribute('aria-controls'));
-      const expanded = trigger.getAttribute('aria-expanded') === 'true';
-      trigger.setAttribute('aria-expanded', String(!expanded));
-      panel.style.maxHeight = expanded ? '0px' : panel.scrollHeight + 'px';
-    });
+/* 0 · THE FIELD */
+function buildField(t){
+  const out=[]; const N=520;
+  for(let i=0;i<N;i++){
+    const y = 1 - (i/(N-1))*2;
+    const rad = Math.sqrt(Math.max(0,1-y*y));
+    const th = i * 2.399963;
+    const rr = R * (0.42 + 0.78*Math.pow((i%97)/97, 0.6));
+    const x = Math.cos(th)*rad*rr, z = Math.sin(th)*rad*rr, yy = y*rr;
+    const n = Perlin.n3(x*0.12, yy*0.12, z*0.12 + t*0.06);
+    const len = 0.16 + Math.abs(n)*0.55;
+    out.push([ x-Math.cos(n*7)*len, yy-Math.sin(n*5)*len, z-Math.cos(n*3+1.7)*len,
+               x+Math.cos(n*7)*len, yy+Math.sin(n*5)*len, z+Math.cos(n*3+1.7)*len ]);
+  }
+  return out;
+}
+/* 1 · COHERENCE */
+function buildTorus(){
+  const out=[]; const Rt=R*0.72, rt=R*0.29, NU=34, NV=12;
+  const P=(u,v)=>[ (Rt+rt*Math.cos(v))*Math.cos(u), rt*Math.sin(v), (Rt+rt*Math.cos(v))*Math.sin(u) ];
+  for(let i=0;i<NU;i++){
+    const u=i/NU*Math.PI*2;
+    for(let j=0;j<NV;j++) out.push(seg(P(u,j/NV*Math.PI*2), P(u,(j+1)/NV*Math.PI*2)));
+  }
+  for(let j=0;j<NV;j++){
+    const v=j/NV*Math.PI*2;
+    for(let i=0;i<NU;i++) out.push(seg(P(i/NU*Math.PI*2,v), P((i+1)/NU*Math.PI*2,v)));
+  }
+  return out;
+}
+/* 2 · RECOGNITION */
+function buildVesica(){
+  const r=R*0.66, d=r*0.5, out=[];
+  out.push(...sphereWire(-d,0,0, r, 6, 34));
+  out.push(...sphereWire( d,0,0, r, 6, 34));
+  const h = Math.sqrt(r*r - d*d);
+  out.push(...circleSegs(0,0,0, h, 'x', 72));
+  out.push(...circleSegs(0,0,0, h, 'z', 72));
+  return out;
+}
+/* 3 · DISCERNMENT */
+function buildTetra(){
+  const k=R*0.70;
+  const v=[[k,k,k],[k,-k,-k],[-k,k,-k],[-k,-k,k]];
+  const out=polyEdges(v, Math.hypot(2*k,2*k,0), 0.001);
+  const inv=v.map(p=>[-p[0]*0.42,-p[1]*0.42,-p[2]*0.42]);
+  out.push(...polyEdges(inv, Math.hypot(2*k*0.42,2*k*0.42,0), 0.001));
+  v.forEach(p=>out.push(seg([0,0,0],p)));
+  return out;
+}
+/* 4 · WAVE */
+function buildHex(t){
+  const out=[]; const a=R*0.168; const rings=4;
+  const cells=[];
+  for(let q=-rings;q<=rings;q++)
+    for(let s=Math.max(-rings,-q-rings); s<=Math.min(rings,-q+rings); s++)
+      cells.push([ a*1.5*q, a*Math.sqrt(3)*(s + q/2) ]);
+  const zOf=(x,y)=> Math.sin(x*0.50 - t*1.5)*1.15 + Math.cos(y*0.46 + t*1.1)*0.88;
+  cells.forEach(c=>{
+    const pts=[];
+    for(let i=0;i<6;i++){
+      const ang=Math.PI/180*(60*i);
+      const x=c[0]+a*Math.cos(ang), y=c[1]+a*Math.sin(ang);
+      pts.push([x, y, zOf(x,y)]);
+    }
+    for(let i=0;i<6;i++) out.push(seg(pts[i], pts[(i+1)%6]));
   });
+  return out;
+}
+/* 5 · DIRECTION */
+function buildTesseract(t){
+  const s=R*0.46, out=[], v4=[];
+  for(let i=0;i<16;i++)
+    v4.push([ (i&1?1:-1)*s, (i&2?1:-1)*s, (i&4?1:-1)*s, (i&8?1:-1)*s ]);
+  const a=t*0.42, b=t*0.29;
+  const proj = p => {
+    let [x,y,z,w]=p;
+    let nx = x*Math.cos(a) - w*Math.sin(a); let nw = x*Math.sin(a) + w*Math.cos(a);
+    x=nx; w=nw;
+    let ny = y*Math.cos(b) - w*Math.sin(b); nw = y*Math.sin(b) + w*Math.cos(b);
+    y=ny; w=nw;
+    const k = 2.6/(3.2 - w/s);
+    return [x*k, y*k, z*k];
+  };
+  const p3=v4.map(proj);
+  for(let i=0;i<16;i++)
+    for(let j=i+1;j<16;j++){
+      const diff=i^j;
+      if((diff & (diff-1))===0) out.push(seg(p3[i],p3[j]));
+    }
+  return out;
+}
+/* 6 · TRANSMISSION */
+function buildDodeca(){
+  const phi=(1+Math.sqrt(5))/2, ip=1/phi, k=R*0.52, v=[];
+  for(const sx of [1,-1]) for(const sy of [1,-1]) for(const sz of [1,-1]) v.push([sx*k,sy*k,sz*k]);
+  for(const sy of [1,-1]) for(const sz of [1,-1]) v.push([0, sy*ip*k, sz*phi*k]);
+  for(const sx of [1,-1]) for(const sy of [1,-1]) v.push([sx*ip*k, sy*phi*k, 0]);
+  for(const sx of [1,-1]) for(const sz of [1,-1]) v.push([sx*phi*k, 0, sz*ip*k]);
+  const out=polyEdges(v, 2*ip*k, 0.0008*k+0.004);
+  const j=k*0.42, iv=[];
+  for(const s1 of [1,-1]) for(const s2 of [1,-1]){
+    iv.push([0, s1*j, s2*phi*j]); iv.push([s1*j, s2*phi*j, 0]); iv.push([s1*phi*j, 0, s2*j]);
+  }
+  out.push(...polyEdges(iv, 2*j, 0.004));
+  return out;
+}
+/* 7 · EXPRESSION */
+function buildEgg(){
+  const r=R*0.30, out=[], centers=[[0,0,0]];
+  for(let i=0;i<6;i++){
+    const a=i/6*Math.PI*2;
+    centers.push([Math.cos(a)*r*2, Math.sin(a)*r*2, 0]);
+  }
+  centers.push([0,0, r*1.63]);
+  centers.forEach(c=>out.push(...sphereWire(c[0],c[1],c[2], r, 4, 22)));
+  return out;
+}
+/* 8 · STRUCTURE */
+function buildOcta(){
+  const r=R*0.66, h=R*0.60, out=[], top=[], bot=[], mid=[];
+  for(let i=0;i<8;i++){
+    const a=i/8*Math.PI*2 + Math.PI/8;
+    top.push([Math.cos(a)*r,  h, Math.sin(a)*r]);
+    bot.push([Math.cos(a)*r, -h, Math.sin(a)*r]);
+    mid.push([Math.cos(a)*r*1.04, 0, Math.sin(a)*r*1.04]);
+  }
+  for(let i=0;i<8;i++){
+    out.push(seg(top[i], top[(i+1)%8]));
+    out.push(seg(bot[i], bot[(i+1)%8]));
+    out.push(seg(top[i], bot[i]));
+    out.push(seg(top[i], bot[(i+1)%8]));
+    out.push(seg(top[i], top[(i+3)%8]));
+    out.push(seg(bot[i], bot[(i+3)%8]));
+    out.push(mid[i], mid[(i+1)%8]);
+  }
+  return out;
+}
+/* 9 · SOURCE */
+function buildEnnea(){
+  const r=R*0.78, out=[];
+  const pt=i=>{
+    const a = -Math.PI/2 + (i%9)/9*Math.PI*2;
+    return [Math.cos(a)*r, Math.sin(a)*r, Math.sin(a*3)*R*0.10];
+  };
+  const hexad=[0,3,1,7,4,5,0];
+  for(let i=0;i<hexad.length-1;i++) out.push(seg(pt(hexad[i]), pt(hexad[i+1])));
+  const tri=[2,5,8,2];
+  for(let i=0;i<tri.length-1;i++) out.push(seg(pt(tri[i]), pt(tri[i+1])));
+  for(let i=0;i<9;i++){
+    out.push(seg(pt(i), pt((i+1)%9)));
+    out.push(seg([0,0,0], pt(i)));
+  }
+  out.push(...circleSegs(0,0,0, r*0.20, 'z', 48));
+  out.push(...circleSegs(0,0,0, r, 'z', 90));
+  return out;
+}
 
-  // ---- Reveal on scroll ----
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduceMotion && 'IntersectionObserver' in window){
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-    }, {threshold:0.15});
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
-  }
+const BUILDERS = [
+  {fn:buildField,     dynamic:true },
+  {fn:buildTorus,     dynamic:false},
+  {fn:buildVesica,    dynamic:false},
+  {fn:buildTetra,     dynamic:false},
+  {fn:buildHex,       dynamic:true },
+  {fn:buildTesseract, dynamic:true },
+  {fn:buildDodeca,    dynamic:false},
+  {fn:buildEgg,       dynamic:false},
+  {fn:buildOcta,      dynamic:false},
+  {fn:buildEnnea,     dynamic:false}
+];
 
-  // ---- Signature moon: phase shifts with section in view ----
-  const moon = document.getElementById('moon-signature');
-  const phaseMap = [
-    { id: 'top',         phase: '100%', shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-1') },
-    { id: 'about',       phase: '55%',  shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-3') },
-    { id: 'founder',     phase: '28%',  shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-4') },
-    { id: 'quote',       phase: '15%',  shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-5') },
-    { id: 'testimonial', phase: '5%',   shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-6') },
-    { id: 'podcast',     phase: '-10%', shadow: () => getComputedStyle(root).getPropertyValue('--color-bg-6') }
-  ];
-  function setMoonPhase(entry){
-    moon.style.setProperty('--phase', entry.phase);
-    moon.style.setProperty('--moon-shadow', entry.shadow());
+function resample(segs, target){
+  segs = segs.slice().sort((A,B)=>{
+    const am=Math.atan2((A[1]+A[4])/2,(A[0]+A[3])/2);
+    const bm=Math.atan2((B[1]+B[4])/2,(B[0]+B[3])/2);
+    if(am!==bm) return am-bm;
+    return ((A[2]+A[5])/2) - ((B[2]+B[5])/2);
+  });
+  const n=segs.length, out=new Float32Array(target*6);
+  if(n===0) return out;
+  const counts=new Array(n).fill(0);
+  for(let j=0;j<target;j++) counts[Math.floor(j*n/target)]++;
+  let o=0;
+  for(let i=0;i<n;i++){
+    const c=counts[i];
+    if(c===0) continue;
+    const s=segs[i];
+    for(let k=0;k<c && o<out.length;k++){
+      const t0=k/c, t1=(k+1)/c;
+      out[o++]=s[0]+(s[3]-s[0])*t0; out[o++]=s[1]+(s[4]-s[1])*t0; out[o++]=s[2]+(s[5]-s[2])*t0;
+      out[o++]=s[0]+(s[3]-s[0])*t1; out[o++]=s[1]+(s[4]-s[1])*t1; out[o++]=s[2]+(s[5]-s[2])*t1;
+    }
   }
-  setMoonPhase(phaseMap[0]);
-  if('IntersectionObserver' in window){
-    const sectionEls = [
-      {el: document.querySelector('.section-hero'), cfg: phaseMap[0]},
-      {el: document.getElementById('about'), cfg: phaseMap[1]},
-      {el: document.getElementById('about-deiadora'), cfg: phaseMap[2]},
-      {el: document.querySelector('.section-quote'), cfg: phaseMap[3]},
-      {el: document.getElementById('testimonial'), cfg: phaseMap[4]},
-      {el: document.getElementById('podcast'), cfg: phaseMap[5]},
-      {el: document.querySelector('.section-marquee'), cfg: phaseMap[5]}, // fallback while testimonial/podcast are hidden
-    ];
-    const moonIO = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting){
-        const match = sectionEls.find(s => s.el === e.target);
-        if(match) setMoonPhase(match.cfg);
-      }});
-    }, {threshold:0.4});
-    sectionEls.forEach(s => { if(s.el) moonIO.observe(s.el); });
+  while(o<out.length){ out[o]=out[o-6]; o++; }
+  return out;
+}
+function bake(i, t){ return resample(BUILDERS[i].fn(t||0), SEG_TARGET); }
+
+const canvas = document.getElementById('gl');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:false, powerPreference:'high-performance' });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x07080b, 0.0165);
+const camera = new THREE.PerspectiveCamera(52, 1, 0.1, 400);
+camera.position.set(0, 0, 34);
+const world = new THREE.Group();
+scene.add(world);
+
+const VERT_COUNT = SEG_TARGET*2;
+const posArr  = new Float32Array(VERT_COUNT*3);
+let srcArr    = bake(0, 0);
+let tgtArr    = srcArr.slice();
+posArr.set(srcArr);
+
+const posAttr = new THREE.BufferAttribute(posArr, 3);
+posAttr.setUsage ? posAttr.setUsage(THREE.DynamicDrawUsage) : (posAttr.dynamic = true);
+
+const lineGeo = new THREE.BufferGeometry();
+lineGeo.setAttribute('position', posAttr);
+const lineMat = new THREE.LineBasicMaterial({ color:new THREE.Color(ACCENT_DARK[0]), transparent:true, opacity:0.78, depthWrite:false });
+const formLines = new THREE.LineSegments(lineGeo, lineMat);
+world.add(formLines);
+
+const haloGeo = new THREE.BufferGeometry();
+haloGeo.setAttribute('position', posAttr);
+const haloMat = new THREE.LineBasicMaterial({ color:new THREE.Color(ACCENT_DARK[0]), transparent:true, opacity:0.17, depthWrite:false });
+const formHalo = new THREE.LineSegments(haloGeo, haloMat);
+formHalo.scale.setScalar(1.035);
+world.add(formHalo);
+
+const nodeGeo = new THREE.BufferGeometry();
+nodeGeo.setAttribute('position', posAttr);
+const nodeMat = new THREE.PointsMaterial({ color:new THREE.Color(0xefe7d8), size:0.085, sizeAttenuation:true, transparent:true, opacity:0.55, depthWrite:false });
+const formNodes = new THREE.Points(nodeGeo, nodeMat);
+world.add(formNodes);
+
+/* Particles */
+const PCOUNT = 2200, PBOX = 62;
+const pPos = new Float32Array(PCOUNT*3);
+const pSeed = new Float32Array(PCOUNT);
+for(let i=0;i<PCOUNT;i++){
+  pPos[i*3]   = (Math.random()-0.5)*PBOX;
+  pPos[i*3+1] = (Math.random()-0.5)*PBOX*0.72;
+  pPos[i*3+2] = (Math.random()-0.5)*PBOX*0.6 - 8;
+  pSeed[i] = Math.random();
+}
+const pGeo = new THREE.BufferGeometry();
+const pAttr = new THREE.BufferAttribute(pPos,3);
+pAttr.setUsage ? pAttr.setUsage(THREE.DynamicDrawUsage) : (pAttr.dynamic=true);
+pGeo.setAttribute('position', pAttr);
+const pMat = new THREE.PointsMaterial({ color:new THREE.Color(0xbfb7a8), size:0.075, sizeAttenuation:true, transparent:true, opacity:0.42, depthWrite:false });
+scene.add(new THREE.Points(pGeo, pMat));
+
+/* Vector Currents */
+const CCOUNT = 460;
+const cPos = new Float32Array(CCOUNT*6);
+const cOrigin = new Float32Array(CCOUNT*3);
+for(let i=0;i<CCOUNT;i++){
+  cOrigin[i*3]   = (Math.random()-0.5)*PBOX*1.15;
+  cOrigin[i*3+1] = (Math.random()-0.5)*PBOX*0.8;
+  cOrigin[i*3+2] = (Math.random()-0.5)*40 - 18;
+}
+const cGeo = new THREE.BufferGeometry();
+const cAttr = new THREE.BufferAttribute(cPos,3);
+cAttr.setUsage ? cAttr.setUsage(THREE.DynamicDrawUsage) : (cAttr.dynamic=true);
+cGeo.setAttribute('position', cAttr);
+const cMat = new THREE.LineBasicMaterial({ color:new THREE.Color(0x6a6f82), transparent:true, opacity:0.20, depthWrite:false });
+scene.add(new THREE.LineSegments(cGeo, cMat));
+
+/* IK Serpent */
+const SJ = 78, SLEN = 0.66;
+const joints = [];
+for(let i=0;i<SJ;i++) joints.push(new THREE.Vector3(19 - i*SLEN, 6, -6));
+const sPos = new Float32Array(SJ*3);
+const sGeo = new THREE.BufferGeometry();
+const sAttr = new THREE.BufferAttribute(sPos,3);
+sAttr.setUsage ? sAttr.setUsage(THREE.DynamicDrawUsage) : (sAttr.dynamic=true);
+sGeo.setAttribute('position', sAttr);
+const sMat = new THREE.LineBasicMaterial({ color:new THREE.Color(0x9b7fd4), transparent:true, opacity:0.5, depthWrite:false });
+scene.add(new THREE.Line(sGeo, sMat));
+const sNodeMat = new THREE.PointsMaterial({ color:new THREE.Color(0xc9a227), size:0.12, sizeAttenuation:true, transparent:true, opacity:0.5, depthWrite:false });
+scene.add(new THREE.Points(sGeo, sNodeMat));
+const serpTarget = new THREE.Vector3();
+
+/* Butterfly Attractor */
+const butterfly = new THREE.Group();
+const wingMats = [];
+function wingShape(sign){
+  const s = new THREE.Shape();
+  s.moveTo(0, 0);
+  s.bezierCurveTo(sign*0.25, 0.62,  sign*1.06, 0.78,  sign*1.14, 0.20);
+  s.bezierCurveTo(sign*1.20,-0.14,  sign*0.86,-0.22,  sign*0.52,-0.10);
+  s.bezierCurveTo(sign*0.78,-0.30,  sign*0.84,-0.74,  sign*0.44,-0.80);
+  s.bezierCurveTo(sign*0.14,-0.84,  sign*0.02,-0.40,  0, 0);
+  const g = new THREE.ShapeGeometry(s, 18);
+  const m = new THREE.MeshBasicMaterial({ color:new THREE.Color(0xefe7d8), transparent:true, opacity:0.20, side:THREE.DoubleSide, depthWrite:false });
+  const pivot = new THREE.Group();
+  pivot.add(new THREE.Mesh(g, m));
+  const pts = s.getPoints(48);
+  const eg = new THREE.BufferGeometry().setFromPoints(pts.map(p=>new THREE.Vector3(p.x,p.y,0)));
+  const em = new THREE.LineBasicMaterial({ color:0xefe7d8, transparent:true, opacity:0.62, depthWrite:false });
+  pivot.add(new THREE.LineLoop(eg, em));
+  wingMats.push({fill:m, edge:em});
+  return pivot;
+}
+const wingL = wingShape(-1), wingR = wingShape(1);
+butterfly.add(wingL, wingR);
+const bodyMat = new THREE.LineBasicMaterial({ color:0xefe7d8, transparent:true, opacity:0.5, depthWrite:false });
+{
+  const bodyGeo = new THREE.BufferGeometry();
+  bodyGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([0,0.34,0, 0,-0.46,0]),3));
+  butterfly.add(new THREE.Line(bodyGeo, bodyMat));
+}
+const sparkMat = new THREE.PointsMaterial({ color:0xc9a227, size:0.5, transparent:true, opacity:0.75, depthWrite:false });
+{
+  const sparkGeo = new THREE.BufferGeometry();
+  sparkGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([0,0.1,0]),3));
+  butterfly.add(new THREE.Points(sparkGeo, sparkMat));
+}
+butterfly.scale.setScalar(1.15);
+scene.add(butterfly);
+const bPos = new THREE.Vector3(6, 3, 9);
+const bVel = new THREE.Vector3();
+const bTarget = new THREE.Vector3(6, 3, 9);
+
+/* Theme Engine */
+const THEMES = {
+  dark: {
+    bg:0x07080b, fog:0.0165, blend:THREE.AdditiveBlending, accents:ACCENT_DARK,
+    lineOp:0.78, haloOp:0.17, nodeC:0xefe7d8, nodeOp:0.55,
+    partC:0xbfb7a8, partOp:0.42, partMix:0.62,
+    curC:0x4a4f60,  curOp:0.20,  curMix:0.70,
+    serpC:0x9b7fd4, serpOp:0.50, serpMix:0.55, serpNodeC:0xc9a227,
+    wingFill:0.20, wingEdge:0.62, bodyOp:0.50, sparkC:0xc9a227,
+    mixTo:0xefe7d8
+  },
+  light: {
+    bg:0xf7f5f0, fog:0.0118, blend:THREE.NormalBlending, accents:ACCENT_LIGHT,
+    lineOp:0.88, haloOp:0.12, nodeC:0x1d1b18, nodeOp:0.55,
+    partC:0x8f887c, partOp:0.50, partMix:0.50,
+    curC:0xb3ac9f,  curOp:0.42,  curMix:0.55,
+    serpC:0xa2542a, serpOp:0.55, serpMix:0.50, serpNodeC:0x9a6b14,
+    wingFill:0.26, wingEdge:0.80, bodyOp:0.70, sparkC:0x9a6b14,
+    mixTo:0x1d1b18
   }
+};
+let themeName = 'dark';
+let TH = THEMES.dark;
+const MIX_TO   = new THREE.Color(0xefe7d8);
+const PART_BASE= new THREE.Color(0xbfb7a8);
+const CUR_BASE = new THREE.Color(0x4a4f60);
+const SERP_BASE= new THREE.Color(0x9b7fd4);
+
+function hex(n){ return '#'+n.toString(16).padStart(6,'0'); }
+function ACC(i){ return TH.accents[i]; }
+
+function applyTheme(name, announceIt){
+  themeName = (name === 'light') ? 'light' : 'dark';
+  TH = THEMES[themeName];
+  document.documentElement.setAttribute('data-theme', themeName);
+
+  const blend = TH.blend;
+  [lineMat, haloMat, nodeMat, pMat, cMat, sMat, sNodeMat, bodyMat, sparkMat].forEach(m=>{
+    m.blending = blend; m.needsUpdate = true;
+  });
+  wingMats.forEach(w=>{
+    w.fill.blending = blend; w.fill.needsUpdate = true; w.fill.opacity = TH.wingFill;
+    w.edge.blending = blend; w.edge.needsUpdate = true; w.edge.opacity = TH.wingEdge;
+  });
+  nodeMat.color.set(TH.nodeC);   nodeMat.opacity = TH.nodeOp;
+  pMat.opacity = TH.partOp;      cMat.opacity = TH.curOp;
+  sMat.opacity = TH.serpOp;      sNodeMat.color.set(TH.serpNodeC);
+  bodyMat.opacity = TH.bodyOp;   sparkMat.color.set(TH.sparkC);
+
+  MIX_TO.set(TH.mixTo);
+  PART_BASE.set(TH.partC);
+  CUR_BASE.set(TH.curC);
+  SERP_BASE.set(TH.serpC);
+
+  scene.fog.density = TH.fog;
+  scene.fog.color.setHex(TH.bg);
+  renderer.setClearColor(TH.bg, 1);
+
+  col.from.setHex(ACC(current)); col.to.setHex(ACC(current)); col.cur.setHex(ACC(current));
+  lineMat.color.copy(col.cur); haloMat.color.copy(col.cur);
+  document.documentElement.style.setProperty('--state', hex(ACC(current)));
+
+  const label = themeName === 'dark' ? 'Dark' : 'Light';
+  document.getElementById('theme-label').textContent = label;
+  const tbtn = document.getElementById('btn-theme');
+  tbtn.setAttribute('aria-pressed', themeName === 'light' ? 'true' : 'false');
+  if(announceIt) announce('Theme: ' + (themeName === 'dark' ? 'dark obsidian' : 'light bone paper') + '.');
+}
+
+const Audio = (function(){
+  let ctx=null, master=null, filt=null, voices=[], started=false, muted=false;
+  const VOICES = 5;
+  const FLOOR = 0.00012;
+  const LEVEL = 0.16;
+
+  function ramp(param, target, dur){
+    const now = ctx.currentTime;
+    const from = Math.max(param.value, FLOOR);
+    param.cancelScheduledValues(now);
+    param.setValueAtTime(from, now);
+    param.exponentialRampToValueAtTime(Math.max(target, FLOOR), now + dur);
+  }
+  function init(){
+    if(started) return;
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if(!AC) return;
+    try { ctx = new AC(); } catch(e){ return; }
+    master = ctx.createGain(); master.gain.value = FLOOR;
+    const comp = ctx.createDynamicsCompressor();
+    comp.threshold.value = -22; comp.ratio.value = 6;
+    filt = ctx.createBiquadFilter();
+    filt.type='lowpass'; filt.frequency.value = 760; filt.Q.value = 0.9;
+    filt.connect(master); master.connect(comp); comp.connect(ctx.destination);
+    for(let i=0;i<VOICES;i++){
+      const o = ctx.createOscillator();
+      o.type = i===0 ? 'sine' : (i%2 ? 'sine' : 'triangle');
+      o.frequency.value = 60;
+      o.detune.value = (i-2)*2.2;
+      const g = ctx.createGain(); g.gain.value = FLOOR;
+      o.connect(g); g.connect(filt); o.start();
+      voices.push({o,g});
+    }
+    const lfo = ctx.createOscillator(); lfo.frequency.value = 0.055;
+    const lg = ctx.createGain(); lg.gain.value = 220;
+    lfo.connect(lg); lg.connect(filt.frequency); lfo.start();
+    started = true;
+    ramp(master.gain, LEVEL, 2.4);
+    apply(current, true);
+    ui();
+  }
+  function apply(i, hard){
+    if(!started) return;
+    const S = STATES[i], now = ctx.currentTime, tau = hard ? 0.2 : 0.75;
+    voices.forEach((v,k)=>{
+      const ratio = S.ratios[k];
+      if(ratio === undefined){ ramp(v.g.gain, FLOOR, hard ? 0.25 : 0.9); }
+      else {
+        v.o.frequency.setTargetAtTime(S.base*ratio, now, tau);
+        ramp(v.g.gain, 0.30/Math.pow(k+1,0.78), hard ? 0.25 : 0.9);
+      }
+    });
+    filt.frequency.setTargetAtTime(520 + i*145, now, 1.1);
+  }
+  function toggle(){
+    if(!started){ init(); ui(); return; }
+    muted = !muted;
+    ramp(master.gain, muted ? FLOOR : LEVEL, 0.45);
+    ui();
+    announce(muted ? 'Audio paused.' : 'Audio resumed.');
+  }
+  function ui(){
+    const on = started && !muted;
+    const ro = document.getElementById('ro-audio');
+    if(ro) ro.textContent = on ? 'on' : 'off';
+    const lbl = document.getElementById('audio-label');
+    if(lbl) lbl.textContent = on ? 'Audio on' : 'Audio off';
+    const btn = document.getElementById('btn-audio');
+    if(btn) btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  }
+  function resume(){ if(ctx && ctx.state==='suspended') ctx.resume(); }
+  return { init, apply, toggle, resume, ui, get on(){ return started && !muted; } };
+})();
+document.getElementById('btn-audio').addEventListener('click', ()=>{ Audio.resume(); Audio.toggle(); });
+
+/* State Machine */
+let current = 0;
+let morphT = 1;
+let spinBoost = 0;
+let paused = false;
+let fontScale = 1;
+
+const col = { cur:new THREE.Color(ACCENT_DARK[0]), from:new THREE.Color(ACCENT_DARK[0]), to:new THREE.Color(ACCENT_DARK[0]) };
+const par = { pulse:STATES[0].pulse, amp:STATES[0].amp, spin:STATES[0].spin,
+              fPulse:STATES[0].pulse, fAmp:STATES[0].amp, fSpin:STATES[0].spin };
+
+const announcer = document.getElementById('a11y-announcer');
+function announce(msg){
+  announcer.textContent = '';
+  window.setTimeout(()=>{ announcer.textContent = msg; }, 60);
+}
+
+function morphDuration(){ return paused ? 0.45 : 1.55; }
+
+function paintHUD(i){
+  document.getElementById('bt-index').textContent = pad(i);
+  document.getElementById('bt-word').textContent  = '// ' + STATES[i].key;
+  document.getElementById('ro-state').textContent = pad(i) + ' ' + STATES[i].key;
+  document.getElementById('ro-anchor').textContent = STATES[i].anchor;
+  [...document.querySelectorAll('.sel')].forEach((b,k)=>{
+    const on = k===i;
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
+    b.tabIndex = on ? 0 : -1;
+  });
+  panel.setAttribute('aria-labelledby', 'tab-'+i);
+}
+
+function setState(i, initial){
+  i = ((i % 10) + 10) % 10;
+  if(i === current && !initial){ openPanel(); return; }
+  srcArr = posArr.slice();
+  tgtArr = bake(i, clock);
+  morphT = initial ? 1 : 0;
+  col.from.copy(col.cur); col.to.setHex(ACC(i));
+  par.fPulse=par.pulse; par.fAmp=par.amp; par.fSpin=par.spin;
+  current = i;
+  spinBoost = initial ? 0 : 1;
+  document.documentElement.style.setProperty('--state', hex(ACC(i)));
+  if(!paused){
+    document.body.classList.add('morphing');
+    window.setTimeout(()=>document.body.classList.remove('morphing'), morphDuration()*620);
+  }
+  paintHUD(i);
+  renderPanel(i);
+  if(!initial && window.innerWidth > 720) openPanel();
+  Audio.apply(i, false);
+  if(!initial){
+    const S = STATES[i];
+    announce('Node ' + pad(i) + ', ' + S.key + ' — ' + S.opFocus + '. Geometry: ' + S.anchor);
+  }
+}
+
+const selNav = document.getElementById('selector');
+STATES.forEach((s,i)=>{
+  const b=document.createElement('button');
+  b.className='sel'; b.type='button'; b.id='tab-'+i;
+  b.setAttribute('role','tab');
+  b.setAttribute('aria-controls','panel');
+  b.setAttribute('aria-selected', i===0 ? 'true':'false');
+  b.tabIndex = i===0 ? 0 : -1;
+  b.setAttribute('aria-label', 'Node ' + pad(i) + ', ' + s.key + ' — ' + s.opFocus);
+  b.innerHTML = '<span class="tick" aria-hidden="true"></span><span class="num">'+pad(i)+'</span><span class="word" aria-hidden="true">'+s.key+'</span>';
+  b.addEventListener('click', e=>{ e.stopPropagation(); setState(i); });
+  selNav.appendChild(b);
+});
+selNav.addEventListener('keydown', e=>{
+  let next = null;
+  if(e.key === 'ArrowRight' || e.key === 'ArrowDown') next = current + 1;
+  else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = current - 1;
+  else if(e.key === 'Home') next = 0;
+  else if(e.key === 'End') next = 9;
+  if(next === null) return;
+  e.preventDefault(); e.stopPropagation();
+  setState(next);
+  document.getElementById('tab-'+current).focus();
+});
+
+const dialogs = {
+  sprint:   { scrim:document.getElementById('sprint-scrim'),   box:document.getElementById('sprint-dlg'),   trigger:document.getElementById('btn-sprint') },
+  playbook: { scrim:document.getElementById('playbook-scrim'), box:document.getElementById('playbook-dlg'), trigger:document.getElementById('btn-playbook') },
+  legal:    { scrim:document.getElementById('legal-scrim'),    box:document.getElementById('legal'),        trigger:null }
+};
+let lastFocus = null;
+let openDialogName = null;
+
+function openDialog(name){
+  const d = dialogs[name];
+  if(!d) return;
+  lastFocus = document.activeElement;
+  d.scrim.classList.add('open');
+  openDialogName = name;
+  if(d.trigger) d.trigger.setAttribute('aria-expanded','true');
+  window.setTimeout(()=>{ d.box.querySelector('.close').focus(); }, 60);
+  announce(name + ' dialog opened.');
+}
+function closeDialog(name){
+  const d = dialogs[name] || dialogs[openDialogName];
+  if(!d) return;
+  d.scrim.classList.remove('open');
+  if(d.trigger) d.trigger.setAttribute('aria-expanded','false');
+  openDialogName = null;
+  if(lastFocus && lastFocus.focus) lastFocus.focus();
+}
+Object.keys(dialogs).forEach(name=>{
+  const d = dialogs[name];
+  d.scrim.addEventListener('mousedown', e=>{ if(e.target === d.scrim) closeDialog(name); });
+  d.box.querySelector('.close').addEventListener('click', ()=>closeDialog(name));
+});
+
+document.getElementById('btn-sprint').addEventListener('click', ()=>openDialog('sprint'));
+document.getElementById('btn-playbook').addEventListener('click', ()=>openDialog('playbook'));
+
+/* Copy Markdown function */
+document.getElementById('btn-copy-md').addEventListener('click', ()=>{
+  const md = document.getElementById('md-content').textContent;
+  navigator.clipboard.writeText(md).then(()=>{
+    const btn = document.getElementById('btn-copy-md');
+    btn.innerHTML = '<span>Copied to Clipboard!</span> <span class="arrow" aria-hidden="true">&#10003;</span>';
+    announce('Full markdown playbook copied to clipboard.');
+    window.setTimeout(()=>{
+      btn.innerHTML = '<span>Copy Entire Markdown Playbook to Clipboard</span> <span class="arrow" aria-hidden="true">&#9646;</span>';
+    }, 3000);
+  });
+});
+
+/* Event delegation for dynamically rendered triggers in panel */
+pbody.addEventListener('click', e=>{
+  const target = e.target.closest('[data-open]');
+  if(target){
+    e.preventDefault();
+    openDialog(target.getAttribute('data-open'));
+  }
+});
+
+function trapFocus(e){
+  if(!openDialogName || e.key !== 'Tab') return;
+  const box = dialogs[openDialogName].box;
+  const f = [...box.querySelectorAll('a[href],button,input,select,textarea,[tabindex]:not([tabindex="-1"])')]
+            .filter(el=>el.offsetParent !== null);
+  if(!f.length) return;
+  const first = f[0], last = f[f.length-1];
+  if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+  else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+}
+
+function setMotion(next, announceIt){
+  paused = !next;
+  document.getElementById('ro-motion').textContent = paused ? 'paused' : 'live';
+  document.getElementById('motion-label').textContent = paused ? 'Motion off' : 'Motion on';
+  const b = document.getElementById('btn-motion');
+  b.setAttribute('aria-pressed', paused ? 'true' : 'false');
+  if(paused) document.body.classList.remove('morphing');
+  if(announceIt) announce(paused ? 'Motion paused.' : 'Motion resumed.');
+}
+document.getElementById('btn-motion').addEventListener('click', ()=>setMotion(paused, true));
+
+const mqDark = window.matchMedia('(prefers-color-scheme: dark)');
+let themeManual = false;
+document.getElementById('btn-theme').addEventListener('click', ()=>{
+  themeManual = true;
+  applyTheme(themeName === 'dark' ? 'light' : 'dark', true);
+});
+if(mqDark.addEventListener){
+  mqDark.addEventListener('change', e=>{ if(!themeManual) applyTheme(e.matches ? 'dark' : 'light', false); });
+}
+
+const FONT_MIN = 0.85, FONT_MAX = 1.50, FONT_STEP = 0.05;
+function setFontScale(v, announceIt){
+  fontScale = Math.max(FONT_MIN, Math.min(FONT_MAX, Math.round(v*100)/100));
+  document.documentElement.style.setProperty('--font-scale', String(fontScale));
+  const pct = Math.round(fontScale*100) + '%';
+  document.getElementById('font-label').textContent = pct;
+  document.getElementById('btn-fdown').disabled = fontScale <= FONT_MIN + 0.001;
+  document.getElementById('btn-fup').disabled   = fontScale >= FONT_MAX - 0.001;
+  if(announceIt) announce('Text size ' + pct + '.');
+}
+document.getElementById('btn-fdown').addEventListener('click', ()=>setFontScale(fontScale - FONT_STEP, true));
+document.getElementById('btn-fup').addEventListener('click',   ()=>setFontScale(fontScale + FONT_STEP, true));
+document.getElementById('btn-freset').addEventListener('click',()=>setFontScale(1, true));
+
+function isFormish(el){
+  return el && el.closest && !!el.closest('input,textarea,select,[contenteditable="true"]');
+}
+window.addEventListener('keydown', e=>{
+  if(openDialogName){
+    if(e.key === 'Escape'){ e.preventDefault(); closeDialog(openDialogName); return; }
+    trapFocus(e);
+    return;
+  }
+  if(e.metaKey || e.ctrlKey || e.altKey) return;
+  if(isFormish(e.target)) return;
+  const k = e.key, low = typeof k === 'string' ? k.toLowerCase() : '';
+
+  if(k >= '0' && k <= '9'){ setState(parseInt(k,10)); return; }
+  if(low === 'm'){ Audio.toggle(); return; }
+  if(low === 't'){ themeManual = true; applyTheme(themeName === 'dark' ? 'light' : 'dark', true); return; }
+  if(low === 'a'){ togglePanel(); return; }
+  if(low === 'p'){ setMotion(paused, true); return; }
+  if(k === ' ' || k === 'Spacebar'){
+    if(e.target && e.target.closest && e.target.closest('button,a')) return;
+    e.preventDefault(); setMotion(paused, true); return;
+  }
+  if(k === '+' || k === '='){ e.preventDefault(); setFontScale(fontScale + FONT_STEP, true); return; }
+  if(k === '-' || k === '_'){ e.preventDefault(); setFontScale(fontScale - FONT_STEP, true); return; }
+  if(k === '?' || (k === '/' && e.shiftKey)){ e.preventDefault(); openDialog('sprint'); return; }
+  if(k === 'Escape'){ closePanel(); return; }
+  if(selNav.contains(e.target)) return;
+  if(k === 'ArrowRight' || k === 'ArrowDown'){ setState(current+1); }
+  if(k === 'ArrowLeft'  || k === 'ArrowUp'  ){ setState(current-1); }
+});
+
+const pointer = { nx:0, ny:0, down:false, dragged:false, sx:0, sy:0 };
+const orbit = { x:0, y:0, tx:0, ty:0 };
+window.addEventListener('pointermove', e=>{
+  pointer.nx = (e.clientX/window.innerWidth)*2 - 1;
+  pointer.ny = -((e.clientY/window.innerHeight)*2 - 1);
+  if(pointer.down){
+    pointer.dragged = true;
+    orbit.tx += (e.clientX - pointer.sx) * 0.0042;
+    orbit.ty += (e.clientY - pointer.sy) * 0.0030;
+    orbit.ty = Math.max(-0.7, Math.min(0.7, orbit.ty));
+    pointer.sx = e.clientX; pointer.sy = e.clientY;
+  }
+});
+canvas.addEventListener('pointerdown', e=>{
+  pointer.down=true; pointer.dragged=false; pointer.sx=e.clientX; pointer.sy=e.clientY;
+});
+window.addEventListener('pointerup', ()=>{ pointer.down=false; });
+canvas.addEventListener('click', ()=>{
+  if(!pointer.dragged) setState(current+1);
+});
+
+function resize(){
+  const w = window.innerWidth, h = window.innerHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w/h;
+  camera.fov = w < 700 ? 66 : 52;
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', resize);
+resize();
+
+const ease = t => t<0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+const lerp = (a,b,t) => a + (b-a)*t;
+let clock = 0, last = performance.now();
+const _f = new THREE.Vector3(), _ndc = new THREE.Vector3(), _acc = new THREE.Vector3();
+
+function updateForm(dt, adt){
+  const S = STATES[current];
+  if(morphT < 1) morphT = Math.min(1, morphT + dt / morphDuration());
+  const e = ease(morphT);
+  if(BUILDERS[current].dynamic && morphT > 0.06 && (!paused || morphT < 1)) tgtArr = bake(current, clock);
+  const turb = paused ? 0 : (1 - Math.abs(2*morphT - 1)) * 1.9;
+
+  par.pulse = lerp(par.fPulse, S.pulse, e);
+  par.amp   = lerp(par.fAmp,   S.amp,   e);
+  par.spin  = lerp(par.fSpin,  S.spin,  e);
+  const amp = paused ? 0 : par.amp;
+
+  for(let i=0;i<posArr.length;i+=3){
+    let x = srcArr[i]   + (tgtArr[i]   - srcArr[i]  ) * e;
+    let y = srcArr[i+1] + (tgtArr[i+1] - srcArr[i+1]) * e;
+    let z = srcArr[i+2] + (tgtArr[i+2] - srcArr[i+2]) * e;
+    if(turb > 0.002){
+      const n = Perlin.n3(x*0.12 + clock*0.4, y*0.12, z*0.12);
+      const m = Perlin.n3(y*0.11 - clock*0.3, z*0.11, x*0.11);
+      x += n*turb; y += m*turb; z += (n+m)*0.5*turb;
+    }
+    const p = 1 + amp * Math.sin(clock*par.pulse*2.6 + (x+y+z)*0.34);
+    posArr[i] = x*p; posArr[i+1] = y*p; posArr[i+2] = z*p;
+  }
+  posAttr.needsUpdate = true;
+
+  col.cur.copy(col.from).lerp(col.to, e);
+  lineMat.color.copy(col.cur);
+  haloMat.color.copy(col.cur);
+  lineMat.opacity = TH.lineOp - 0.18 + 0.18*Math.abs(Math.sin(clock*par.pulse));
+  haloMat.opacity = TH.haloOp*0.6 + TH.haloOp*0.7*(1-Math.abs(2*morphT-1));
+  nodeMat.opacity = TH.nodeOp*(0.58 + 0.42*e);
+
+  spinBoost *= Math.pow(0.16, dt);
+  const sp = par.spin * (1 + spinBoost*5.5);
+  formLines.rotation.y += sp*adt;
+  formLines.rotation.x += sp*0.31*adt;
+  formHalo.rotation.copy(formLines.rotation);
+  formNodes.rotation.copy(formLines.rotation);
+  formHalo.scale.setScalar(1.03 + (paused ? 0 : 0.02*Math.sin(clock*par.pulse*1.3)));
+
+  scene.fog.color.setHex(TH.bg);
+  renderer.setClearColor(TH.bg, 1);
+}
+
+function updateParticles(adt){
+  if(adt > 0){
+    for(let i=0;i<PCOUNT;i++){
+      const o=i*3;
+      flow(pPos[o], pPos[o+1], pPos[o+2], clock, _f);
+      const sp = 0.9 + pSeed[i]*1.5;
+      pPos[o]   += _f.x * adt * sp * 2.6;
+      pPos[o+1] += _f.y * adt * sp * 2.6 + adt*0.25;
+      pPos[o+2] += _f.z * adt * sp * 2.0;
+      if(pPos[o] >  PBOX*0.6) pPos[o] -= PBOX*1.2;
+      if(pPos[o] < -PBOX*0.6) pPos[o] -= PBOX*1.2;
+      if(pPos[o+1] >  PBOX*0.42) pPos[o+1] -= PBOX*0.84;
+      if(pPos[o+1] < -PBOX*0.42) pPos[o+1] += PBOX*0.84;
+      if(pPos[o+2] >  20) pPos[o+2] -= 56;
+      if(pPos[o+2] < -36) pPos[o+2] += 56;
+    }
+    pAttr.needsUpdate = true;
+  }
+  pMat.color.copy(col.cur).lerp(PART_BASE, TH.partMix);
+}
+
+function updateCurrents(){
+  for(let i=0;i<CCOUNT;i++){
+    const o=i*3, q=i*6;
+    const x=cOrigin[o], y=cOrigin[o+1], z=cOrigin[o+2];
+    flow(x,y,z,clock,_f);
+    const L = 1.5 + _f.length()*2.4;
+    cPos[q]=x; cPos[q+1]=y; cPos[q+2]=z;
+    cPos[q+3]=x+_f.x*L; cPos[q+4]=y+_f.y*L; cPos[q+5]=z+_f.z*L;
+  }
+  cAttr.needsUpdate = true;
+  cMat.color.copy(col.cur).lerp(CUR_BASE, TH.curMix);
+}
+
+function updateSerpent(adt){
+  if(adt > 0){
+    const a = clock*0.22;
+    const rx = 19 + Math.sin(clock*0.31)*3.4;
+    const ry = 11.5 + Math.cos(clock*0.27)*2.6;
+    serpTarget.set(
+      Math.cos(a)*rx + Perlin.n3(clock*0.3, 0, 0)*4,
+      Math.sin(a*1.31)*ry + Perlin.n3(0, clock*0.3, 0)*3.2,
+      Math.sin(a*0.7)*9 - 5
+    );
+    joints[0].lerp(serpTarget, Math.min(1, adt*2.3));
+    for(let i=1;i<SJ;i++){
+      const prev = joints[i-1], j = joints[i];
+      flow(j.x, j.y, j.z, clock, _f);
+      const und = Math.sin(clock*2.4 - i*0.30) * 2.2;
+      j.x += (_f.x*1.6 + und*0.35)*adt;
+      j.y += (_f.y*1.6 + und*0.45)*adt;
+      j.z += _f.z*adt*1.2;
+      const dx=j.x-prev.x, dy=j.y-prev.y, dz=j.z-prev.z;
+      const d=Math.hypot(dx,dy,dz) || 1e-6, k=SLEN/d;
+      j.set(prev.x + dx*k, prev.y + dy*k, prev.z + dz*k);
+      const o=i*3; sPos[o]=j.x; sPos[o+1]=j.y; sPos[o+2]=j.z;
+    }
+    sPos[0]=joints[0].x; sPos[1]=joints[0].y; sPos[2]=joints[0].z;
+    sAttr.needsUpdate = true;
+  }
+  sMat.opacity = TH.serpOp * (0.62 + (paused ? 0.25 : 0.38*Math.abs(Math.sin(clock*0.6))));
+  sMat.color.copy(col.cur).lerp(SERP_BASE, TH.serpMix);
+}
+
+function updateButterfly(dt, adt){
+  _ndc.set(pointer.nx, pointer.ny, 0.5).unproject(camera).sub(camera.position).normalize();
+  const t = (7 - camera.position.z) / (_ndc.z || -1e-6);
+  bTarget.copy(camera.position).addScaledVector(_ndc, t);
+  const halfH = Math.tan(camera.fov*Math.PI/360) * Math.abs(camera.position.z - 7);
+  const halfW = halfH * camera.aspect;
+  let rightLimit = halfW*0.86;
+  if(panel.classList.contains('open') && window.innerWidth > 920){
+    rightLimit = halfW*(1 - 2*Math.min(480, window.innerWidth*0.92)/window.innerWidth) * 0.92;
+  }
+  bTarget.x = Math.max(-halfW*0.86, Math.min(rightLimit, bTarget.x));
+  bTarget.y = Math.max(-halfH*0.80, Math.min(halfH*0.72, bTarget.y));
+
+  _acc.copy(bTarget).sub(bPos).multiplyScalar(4.4);
+  bVel.addScaledVector(_acc, dt);
+  bVel.multiplyScalar(Math.pow(0.028, dt));
+  bPos.addScaledVector(bVel, dt);
+  butterfly.position.copy(bPos);
+
+  const speed = bVel.length();
+  const flap = 0.62 + Math.min(1.5, speed*0.18);
+  const phase = paused ? 0.34 : Math.sin(clock * (7.5 + speed*1.1));
+  wingL.rotation.y =  phase*flap;
+  wingR.rotation.y = -phase*flap;
+  butterfly.rotation.z = Math.max(-0.6, Math.min(0.6, -bVel.x*0.035));
+  butterfly.rotation.x = Math.max(-0.5, Math.min(0.5,  bVel.y*0.022));
+  wingMats.forEach(w=>{
+    w.fill.color.copy(col.cur).lerp(MIX_TO, 0.55);
+    w.edge.color.copy(col.cur).lerp(MIX_TO, 0.45);
+  });
+  bodyMat.color.copy(MIX_TO);
+  butterfly.scale.setScalar(1.05 + Math.min(0.5, speed*0.02));
+}
+
+function frame(now){
+  requestAnimationFrame(frame);
+  let dt = Math.min(0.05, (now - last)/1000);
+  last = now;
+  const adt = paused ? 0 : dt;
+  clock += adt;
+
+  orbit.x += (orbit.tx + pointer.nx*0.30 - orbit.x) * Math.min(1, dt*2.4);
+  orbit.y += (orbit.ty - pointer.ny*0.20 - orbit.y) * Math.min(1, dt*2.4);
+  world.rotation.y = orbit.x;
+  world.rotation.x = orbit.y;
+
+  let shift = 0;
+  if(panel.classList.contains('open') && window.innerWidth > 920){
+    const panelPx = Math.min(480, window.innerWidth*0.92);
+    const vh = 2*Math.tan(camera.fov*Math.PI/360)*Math.abs(camera.position.z);
+    shift = -(panelPx/window.innerWidth) * (vh*camera.aspect) * 0.5;
+  }
+  world.position.x += (shift - world.position.x) * Math.min(1, dt*2.0);
+
+  updateForm(dt, adt);
+  updateParticles(adt);
+  updateCurrents();
+  updateSerpent(adt);
+  updateButterfly(Math.max(dt, 0.0001), adt);
+
+  camera.position.x += ((pointer.nx*2.4) - camera.position.x) * Math.min(1, dt*1.4);
+  camera.position.y += ((pointer.ny*1.6) - camera.position.y) * Math.min(1, dt*1.4);
+  camera.lookAt(0,0,0);
+
+  renderer.render(scene, camera);
+}
+
+/* Boot */
+(function boot(){
+  applyTheme(mqDark.matches ? 'dark' : 'light', false);
+  const mqMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  setMotion(!mqMotion.matches, false);
+  if(mqMotion.addEventListener) mqMotion.addEventListener('change', e=>setMotion(!e.matches, true));
+
+  setFontScale(1, false);
+  Audio.ui();
+  setState(0, true);
+  requestAnimationFrame(frame);
+  window.setTimeout(()=>document.getElementById('veil').classList.add('gone'), 420);
+  window.setTimeout(()=>announce('TECHTUITION Regenerative Systems Operations loaded.'), 1200);
+})();
+
+window.TECHTUITION = {
+  STATES,
+  setState, applyTheme, setMotion, setFontScale, openDialog,
+  get state(){ return current; },
+  get theme(){ return themeName; },
+  get motion(){ return paused ? 'paused' : 'live'; }
+};
 </script>
-
 </body>
 </html>
