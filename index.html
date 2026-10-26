@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>TECHTUITION — Regenerative Systems Operations // Node 07: Expression</title>
-<meta name="description" content="TECHTUITION — Regenerative Systems Operations. Interactive diagnostic console mapping team friction to a customized 4-week playbook sprint." />
+<title>TECHTUITION — Systems Architecture &amp; Content Operations</title>
+<meta name="description" content="Fix operational friction and user drop-off before it compounds. Systems Architecture, Content Operations, and AI Governance by Deiadora Blanche (ex-Coursera, Airbnb)." />
 <meta name="robots" content="index, follow, noai, noimageai" />
 <meta name="tdm-reservation" content="1" />
 <meta name="color-scheme" content="dark light" />
@@ -16,30 +16,20 @@
 <!-- Open Graph / Social Sharing -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://techtuition.ai/" />
-<meta property="og:title" content="TECHTUITION — Regenerative Systems Operations // Node 07: Expression" />
-<meta property="og:description" content="Diagnose operational friction, calendar drag, and phase-gate ambiguity. Build your living team playbook in 4 weeks." />
+<meta property="og:title" content="TECHTUITION — Systems Architecture &amp; Content Operations" />
+<meta property="og:description" content="Fix operational friction and user drop-off before it compounds. Sole practice by Deiadora Blanche · ex-Coursera, Airbnb." />
 <meta property="og:image" content="/techtuition_banner_sm.jpeg" />
-
-<!-- Twitter / X Cards -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content="https://techtuition.ai/" />
-<meta name="twitter:title" content="TECHTUITION — Regenerative Systems Operations" />
-<meta name="twitter:description" content="Diagnose operational friction, calendar drag, and phase-gate ambiguity. Build your living team playbook in 4 weeks." />
-<meta name="twitter:image" content="/techtuition_banner_sm.jpeg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@300;400;500&family=Rye&display=swap" rel="stylesheet">
 
 <style>
-/* ===========================================================================
-   TECHTUITION — Node 07: Expression // Coral Rose Sovereign Tokens
-   =========================================================================== */
 :root{
   --base-font-size: 16px;
   --font-scale: 1;
 
-  /* Dark Theme — Node 07 Coral Rose Anchor */
+  /* Dark Theme */
   --bg:         #07080b;
   --bg-2:       #0d0d12;
   --fg:         #efe7d8;
@@ -49,8 +39,8 @@
   --rule:       rgba(239,231,216,0.12);
   --rule-soft:  rgba(239,231,216,0.06);
   --accent:     #e87a74; /* Coral Rose */
-  --state:      #e87a74; /* Node 07 Primary State */
-  --panel-bg:   rgba(10,10,14,0.94);
+  --state:      #e87a74;
+  --panel-bg:   rgba(10,10,14,0.92);
   --chip-bg:    rgba(239,231,216,0.04);
   --chip-bg-hi: rgba(232,122,116,0.12);
   --card-bg:    rgba(239,231,216,0.024);
@@ -61,7 +51,7 @@
   --display: "Rye", Georgia, serif;
 }
 :root[data-theme="light"]{
-  /* Light Theme — Node 07 Coral Rose Anchor */
+  /* Light Theme */
   --bg:         #f7f5f0;
   --bg-2:       #efece4;
   --fg:         #1d1b18;
@@ -72,7 +62,7 @@
   --rule-soft:  rgba(29,27,24,0.07);
   --accent:     #b83d37;
   --state:      #b83d37;
-  --panel-bg:   rgba(247,245,240,0.96);
+  --panel-bg:   rgba(247,245,240,0.95);
   --chip-bg:    rgba(29,27,24,0.038);
   --chip-bg-hi: rgba(184,61,55,0.12);
   --card-bg:    rgba(29,27,24,0.022);
@@ -80,284 +70,206 @@
 }
 
 *{ box-sizing:border-box; }
-html{ font-size: calc(var(--base-font-size) * var(--font-scale)); }
-html,body{ height:100%; }
+html{ font-size: calc(var(--base-font-size) * var(--font-scale)); scroll-behavior: smooth; }
 body{
   margin:0; background:var(--bg); color:var(--fg);
-  font-family:var(--sans); overflow-x:hidden; overflow-y:auto;
+  font-family:var(--sans); overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
-  transition:background-color .5s ease, color .5s ease;
+  transition:background-color .4s ease, color .4s ease;
 }
 
+/* Ambient 3D Canvas Background */
 canvas#gl{
-  position:fixed; inset:0; width:100%; height:100%; display:block; z-index:0; pointer-events:auto;
+  position:fixed; inset:0; width:100%; height:100%; display:block; z-index:0; pointer-events:none;
 }
 
-/* Accessibility & Focus States */
-:focus{ outline:none; }
-:focus-visible{
-  outline:2px solid var(--focus);
-  outline-offset:3px;
-  border-radius:2px;
-}
-.sr-only{
-  position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
-  overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;
-}
-#skip{
-  position:fixed; top:-100px; left:12px; z-index:60;
-  background:var(--panel-bg); color:var(--fg); border:1px solid var(--rule);
-  font-family:var(--mono); font-size:0.7rem; letter-spacing:0.12em;
-  padding:0.7rem 1rem; text-decoration:none; border-radius:3px;
-  transition:top .2s ease;
-}
-#skip:focus{ top:12px; }
-
-/* Background Watermark */
-#bigtype{
-  position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden;
-  display:flex; align-items:center; justify-content:center;
-  flex-direction:column; gap:0.1em;
-}
-#bt-index{
-  font-family:var(--mono); font-weight:300;
-  font-size:clamp(6rem, 23vw, 20rem); line-height:0.82;
-  letter-spacing:-0.05em; color:var(--state);
-  opacity:0.04;
-}
-#bt-word{
-  font-family:var(--sans); font-weight:500;
-  font-size:clamp(0.75rem, 2.5vw, 1.8rem); line-height:1;
-  letter-spacing:0.25em; text-indent:0.25em;
-  color:var(--fg); opacity:0.08;
-  white-space:nowrap; max-width:100%;
+.wrap{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.8rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* Header & Utility Bar */
-#brand{
-  position:fixed; top:0; left:0; z-index:10;
-  padding:1.4rem 1.6rem; pointer-events:none; max-width:min(60vw, 32rem);
+header.site-header{
+  position: sticky; top: 0; z-index: 30;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule-soft);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background-color .4s ease, border-color .4s ease;
 }
-#brand .mark{
-  font-family:var(--display); font-size:1.45rem; line-height:1;
-  letter-spacing:0.02em; color:var(--fg);
+.header-inner{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 0;
 }
-#brand .tagline{
-  font-family:var(--sans); font-size:0.68rem; font-weight:400;
-  color:var(--fg-dim); margin-top:0.45rem; line-height:1.4;
+.brand-lockup{
+  display: flex; flex-direction: column; text-decoration: none; color: inherit;
 }
-#brand .imprint{
-  font-family:var(--mono); font-size:0.56rem; letter-spacing:0.14em;
-  color:var(--state); margin-top:0.35rem; text-transform:uppercase; font-weight:500;
+.brand-lockup .mark{
+  font-family: var(--display); font-size: 1.35rem; line-height: 1; letter-spacing: 0.02em; color: var(--fg);
+}
+.brand-lockup .sub{
+  font-family: var(--sans); font-size: 0.68rem; color: var(--fg-dim); margin-top: 0.25rem; font-weight: 500;
+}
+.brand-lockup .pedigree{
+  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--state); margin-top: 0.2rem;
 }
 
-#utility{
-  position:fixed; top:0; right:0; z-index:10;
-  padding:1.2rem 1.5rem; display:flex; flex-direction:column;
-  align-items:flex-end; gap:0.65rem;
+.nav-actions{ display: flex; align-items: center; gap: 0.55rem; }
+.btn-nav{
+  appearance: none; cursor: pointer; text-decoration: none;
+  background: var(--chip-bg); border: 1px solid var(--rule-soft); color: var(--fg-dim);
+  font-family: var(--sans); font-size: 0.72rem; font-weight: 500;
+  padding: 0.44rem 0.75rem; border-radius: 3px;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: all .2s ease; line-height: 1.1;
 }
-.nav-cluster{ display:flex; gap:0.55rem; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
-.ctlrow{ display:flex; gap:0.35rem; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+.btn-nav:hover{ background: var(--chip-bg-hi); color: var(--fg); border-color: var(--rule); }
+.btn-nav.primary{
+  background: var(--state); color: var(--bg); border-color: var(--state); font-weight: 600;
+}
+.btn-nav.primary:hover{ opacity: 0.9; }
 
-.btn-toplink{
-  appearance:none; cursor:pointer; text-decoration:none;
-  background:var(--chip-bg-hi);
-  border:1px solid var(--state);
-  color:var(--fg);
-  font-family:var(--sans);
-  font-size:0.75rem;
-  font-weight:600;
-  letter-spacing:0.02em;
-  padding:0.46rem 0.85rem;
-  border-radius:4px;
-  display:inline-flex;
-  align-items:center;
-  gap:0.45rem;
-  transition:all .2s ease;
-  line-height:1.1;
-  white-space:nowrap;
-  box-shadow:0 1px 4px rgba(0,0,0,0.18);
-}
-.btn-toplink:hover{
-  background:var(--state);
-  color:var(--bg);
-}
-.btn-toplink.secondary{
-  background:var(--chip-bg);
-  border-color:var(--rule);
-}
-.btn-toplink.secondary:hover{
-  border-color:var(--state);
-  color:var(--state);
-  background:var(--chip-bg-hi);
-}
-.btn-toplink .icon-glyph{ font-family:var(--mono); font-size:0.7rem; opacity:0.8; }
-
+/* Micro-Controls */
 .ctl{
-  appearance:none; cursor:pointer;
-  background:var(--chip-bg); border:1px solid var(--rule-soft); color:var(--fg-dim);
-  font-family:var(--sans); font-size:0.68rem; font-weight:500;
-  padding:0.42rem 0.65rem; border-radius:3px;
-  transition:all .2s ease; line-height:1.1; white-space:nowrap;
+  appearance: none; cursor: pointer;
+  background: var(--chip-bg); border: 1px solid var(--rule-soft); color: var(--fg-dim);
+  font-family: var(--sans); font-size: 0.68rem; font-weight: 500;
+  padding: 0.42rem 0.62rem; border-radius: 3px; transition: all .2s ease;
 }
-.ctl:hover{ background:var(--chip-bg-hi); color:var(--fg); border-color:var(--rule); }
-.ctl[aria-pressed="true"]{ color:var(--state); border-color:currentColor; }
-.ctl .kbd{ font-family:var(--mono); font-size:0.6rem; opacity:.55; margin-left:0.4em; }
+.ctl:hover{ background: var(--chip-bg-hi); color: var(--fg); border-color: var(--rule); }
+.ctlgroup{ display: flex; border: 1px solid var(--rule-soft); border-radius: 3px; overflow: hidden; }
+.ctlgroup .ctl{ border: 0; border-radius: 0; border-right: 1px solid var(--rule-soft); font-family: var(--mono); }
+.ctlgroup .ctl:last-child{ border-right: 0; }
 
-.ctlgroup{ display:flex; border:1px solid var(--rule-soft); border-radius:3px; overflow:hidden; }
-.ctlgroup .ctl{ border:0; border-radius:0; border-right:1px solid var(--rule-soft); font-family:var(--mono); }
-.ctlgroup .ctl:last-child{ border-right:0; }
+/* Hero Section */
+.hero{
+  padding: 5.5rem 0 4rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.hero-tag{
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--state); margin-bottom: 1.1rem;
+}
+.hero h1{
+  font-size: clamp(2rem, 4.4vw, 3.4rem); font-weight: 600; line-height: 1.15;
+  letter-spacing: -0.02em; margin: 0 0 1.2rem; max-width: 860px; color: var(--fg);
+}
+.hero p.lead{
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--fg-dim); line-height: 1.65;
+  margin: 0 0 2rem; max-width: 780px;
+}
+.hero-meta-row{
+  display: flex; flex-wrap: wrap; gap: 1.6rem; align-items: center;
+  font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em;
+  color: var(--fg-faint); text-transform: uppercase;
+  padding-top: 1.2rem; border-top: 1px solid var(--rule-soft);
+}
+.hero-meta-row span b{ color: var(--fg); font-weight: 500; }
 
-/* Stage Layout */
-#stage{
-  position:relative; z-index:2; min-height:100vh;
-  display:grid; grid-template-columns:1fr minmax(340px, 490px);
-  padding:6.8rem 2.4rem 4rem;
-  pointer-events:none;
+/* Two-Track Architecture Section */
+.tracks-section{
+  padding: 4.8rem 0;
+  border-bottom: 1px solid var(--rule-soft);
 }
-@media (max-width:980px){
-  #stage{ grid-template-columns:1fr; padding-top:5.8rem; }
+.sec-header{
+  margin-bottom: 2.8rem;
 }
-
-#stage-left{
-  pointer-events:none; display:flex; flex-direction:column; justify-content:flex-end;
-  padding-bottom:1.5rem; max-width:42rem;
+.sec-tag{
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em;
+  color: var(--state); text-transform: uppercase; margin-bottom: 0.4rem;
 }
-.stage-tag{
-  font-family:var(--mono); font-size:0.68rem; letter-spacing:0.18em;
-  text-transform:uppercase; color:var(--state); margin-bottom:0.75rem;
+.sec-header h2{
+  font-size: 1.85rem; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 0.5rem;
 }
-.stage-title{
-  font-family:var(--sans); font-size:clamp(1.75rem, 3.8vw, 3rem);
-  font-weight:600; line-height:1.18; letter-spacing:-0.02em; margin:0 0 1rem;
-  color:var(--fg);
-}
-.stage-lede{
-  font-size:1.02rem; line-height:1.65; color:var(--fg-dim); margin:0 0 1.4rem; max-width:34rem;
-}
-.mesh-meta{
-  display:inline-flex; align-items:center; gap:0.6rem;
-  font-family:var(--mono); font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase;
-  color:var(--fg-faint); background:rgba(0,0,0,0.3); border:1px solid var(--rule-soft);
-  padding:0.4rem 0.75rem; border-radius:3px; width:fit-content; pointer-events:auto;
-}
-.mesh-meta b{ color:var(--state); }
-
-/* Diagnostic Console (Stage Right) */
-#stage-right{
-  pointer-events:auto; display:flex; flex-direction:column; gap:1.1rem;
-}
-.console-panel{
-  background:var(--panel-bg);
-  backdrop-filter:blur(24px) saturate(120%);
-  -webkit-backdrop-filter:blur(24px) saturate(120%);
-  border:1px solid var(--rule);
-  border-radius:6px;
-  padding:1.6rem 1.6rem 1.4rem;
-  box-shadow:0 12px 36px rgba(0,0,0,0.45);
-}
-.console-head{
-  display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.9rem;
-  border-bottom:1px solid var(--rule-soft); padding-bottom:0.65rem;
-}
-.console-title{
-  font-family:var(--sans); font-size:0.85rem; font-weight:600;
-  letter-spacing:0.08em; text-transform:uppercase; color:var(--state); margin:0;
-}
-.console-counter{
-  font-family:var(--mono); font-size:0.65rem; color:var(--fg-faint);
-}
-.console-counter b{ color:var(--fg); }
-
-/* Friction Checkboxes */
-.friction-list{ display:flex; flex-direction:column; gap:0.65rem; }
-.friction-item{
-  display:grid; grid-template-columns:auto 1fr; gap:0.75rem; align-items:flex-start;
-  background:var(--card-bg); border:1px solid var(--rule-soft); border-radius:4px;
-  padding:0.75rem 0.85rem; cursor:pointer; transition:all .2s ease;
-  user-select:none;
-}
-.friction-item:hover{
-  border-color:var(--rule); background:var(--chip-bg);
-}
-.friction-item.active{
-  border-color:var(--state); background:var(--chip-bg-hi);
-  border-left:3px solid var(--state);
-}
-.friction-checkbox{
-  width:1.1rem; height:1.1rem; border:1px solid var(--rule); border-radius:2px;
-  display:flex; align-items:center; justify-content:center; margin-top:0.12rem;
-  transition:all .2s ease; font-family:var(--mono); font-size:0.75rem; color:transparent;
-}
-.friction-item.active .friction-checkbox{
-  background:var(--state); border-color:var(--state); color:var(--bg);
-}
-.friction-body{ display:flex; flex-direction:column; gap:0.15rem; }
-.friction-name{
-  font-size:0.82rem; font-weight:600; color:var(--fg); line-height:1.3;
-}
-.friction-desc{
-  font-size:0.72rem; color:var(--fg-dim); line-height:1.45;
-}
-.friction-node{
-  font-family:var(--mono); font-size:0.58rem; letter-spacing:0.08em;
-  color:var(--state); text-transform:uppercase; margin-top:0.25rem;
+.sec-header p{
+  margin: 0; font-size: 0.95rem; color: var(--fg-dim); max-width: 680px;
 }
 
-/* Diagnostic Readout Box */
-.readout-card{
-  background:rgba(232,122,116,0.04);
-  border:1px solid rgba(232,122,116,0.22);
-  border-radius:4px;
-  padding:1rem 1.1rem;
-  margin-top:0.85rem;
+.tracks-grid{
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.6rem;
 }
-.readout-label{
-  font-family:var(--mono); font-size:0.62rem; text-transform:uppercase; letter-spacing:0.12em;
-  color:var(--state); font-weight:600; margin-bottom:0.35rem; display:block;
+.track-card{
+  background: var(--panel-bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 2rem 2rem 1.8rem;
+  display: flex; flex-direction: column; justify-content: space-between;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  transition: transform .25s ease, border-color .25s ease;
 }
-.readout-text{
-  font-size:0.84rem; line-height:1.55; color:var(--fg-dim); margin:0 0 0.65rem;
+.track-card:hover{
+  transform: translateY(-2px);
+  border-color: var(--state);
 }
-.readout-nodes{
-  display:flex; flex-wrap:wrap; gap:0.35rem; margin-top:0.5rem;
+.track-card.featured{
+  border-left: 3px solid var(--state);
 }
-.node-pill{
-  font-family:var(--mono); font-size:0.58rem; text-transform:uppercase; letter-spacing:0.08em;
-  background:var(--chip-bg); border:1px solid var(--rule-soft); padding:0.25rem 0.5rem;
-  border-radius:3px; color:var(--fg);
+.track-header{
+  margin-bottom: 1.4rem;
 }
-.node-pill.highlight{
-  border-color:var(--state); color:var(--state); background:var(--chip-bg-hi); font-weight:500;
+.track-timeline{
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--state); margin-bottom: 0.5rem;
+}
+.track-card h3{
+  font-size: 1.4rem; font-weight: 600; margin: 0 0 0.6rem; color: var(--fg);
+}
+.track-card p.track-desc{
+  font-size: 0.9rem; line-height: 1.6; color: var(--fg-dim); margin: 0 0 1.4rem;
+}
+.track-deliverables{
+  list-style: none; padding: 0; margin: 0 0 1.8rem; display: flex; flex-direction: column; gap: 0.55rem;
+}
+.track-deliverables li{
+  font-size: 0.82rem; color: var(--fg-dim); line-height: 1.45; display: flex; gap: 0.5rem;
+}
+.track-deliverables li::before{
+  content: "—"; color: var(--state); font-family: var(--mono);
+}
+.btn-track{
+  appearance: none; cursor: pointer; text-decoration: none;
+  background: var(--chip-bg-hi); border: 1px solid var(--state); color: var(--fg);
+  font-family: var(--sans); font-size: 0.82rem; font-weight: 600;
+  padding: 0.75rem 1rem; border-radius: 4px; display: flex; align-items: center; justify-content: space-between;
+  transition: all .2s ease;
+}
+.btn-track:hover{ background: var(--state); color: var(--bg); }
+.btn-track.primary{ background: var(--state); color: var(--bg); }
+.btn-track.primary:hover{ opacity: 0.9; }
+
+/* Process Matrix Section */
+.matrix-section{
+  padding: 4.8rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.matrix-card{
+  background: var(--card-bg);
+  border: 1px solid var(--rule-soft);
+  border-radius: 6px;
+  padding: 1.8rem;
+  margin-top: 2rem;
+}
+.matrix-grid{
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.4rem; margin-top: 1.4rem;
+}
+.matrix-col{
+  display: flex; flex-direction: column; gap: 0.4rem;
+}
+.matrix-title{
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--state); font-weight: 600;
+}
+.matrix-desc{
+  font-size: 0.82rem; line-height: 1.5; color: var(--fg-dim);
 }
 
-/* Action Block inside Console */
-.console-actions{ display:flex; flex-direction:column; gap:0.55rem; margin-top:1rem; }
-.offer{
-  display:flex; align-items:center; justify-content:space-between; gap:0.8rem;
-  font-family:var(--sans); font-size:0.78rem; font-weight:600;
-  text-decoration:none; cursor:pointer;
-  border:1px solid currentColor; border-radius:3px; padding:0.75rem 0.95rem;
-  color:var(--state); background:transparent; text-align:left;
-  transition:all .2s ease; appearance:none; width:100%;
-}
-.offer.primary{
-  background:var(--state); color:var(--bg); border-color:var(--state);
-}
-.offer.primary:hover{
-  background:#f5a39e; border-color:#f5a39e;
-}
-.offer.secondary{
-  color:var(--fg-dim); border-color:var(--rule);
-}
-.offer.secondary:hover{
-  background:var(--chip-bg-hi); color:var(--state); border-color:var(--state);
-}
-.offer .arrow{ font-family:var(--mono); opacity:0.8; }
-
-/* Modals */
+/* Playbook Viewer Modal */
 .scrim{
-  position:fixed; inset:0; z-index:30; background:rgba(0,0,0,0.65);
+  position:fixed; inset:0; z-index:60; background:rgba(0,0,0,0.65);
   backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
   display:flex; align-items:center; justify-content:center; padding:1.5rem;
   opacity:0; pointer-events:none; transition:opacity .35s ease;
@@ -366,11 +278,10 @@ canvas#gl{
 .scrim.open{ opacity:1; pointer-events:auto; }
 .dlg{
   background:var(--bg-2); border:1px solid var(--rule); border-radius:5px;
-  width:min(680px, 100%); max-height:86vh; overflow-y:auto;
+  width:min(780px, 100%); max-height:86vh; overflow-y:auto;
   padding:2.2rem 2.2rem 2rem; position:relative;
   transform:translateY(10px) scale(.985); transition:transform .35s cubic-bezier(.22,.9,.2,1);
 }
-.dlg.dlg-wide{ width:min(820px, 100%); }
 .scrim.open .dlg{ transform:none; }
 .dlg h2{
   margin:0 0 0.35rem; font-family:var(--sans); font-weight:600;
@@ -379,14 +290,6 @@ canvas#gl{
 .dlg .dlg-sub{
   font-family:var(--sans); font-size:0.75rem; color:var(--state); margin-bottom:1.4rem;
 }
-.dlg h3{
-  margin:1.4rem 0 0.5rem; font-family:var(--sans); font-weight:600;
-  font-size:0.85rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--state);
-}
-.dlg p{ margin:0 0 0.95rem; font-size:0.92rem; line-height:1.7; color:var(--fg-dim); }
-.dlg p.lede{ font-size:1.02rem; color:var(--fg); line-height:1.65; font-weight:400; }
-.dlg ul{ margin:0 0 1.1rem; padding-left:1.3rem; color:var(--fg-dim); font-size:0.88rem; line-height:1.65; }
-.dlg li{ margin-bottom:0.45rem; }
 .dlg .close{
   position:absolute; top:0.85rem; right:0.9rem; background:transparent;
   border:1px solid var(--rule-soft); border-radius:3px; color:var(--fg-faint);
@@ -394,230 +297,194 @@ canvas#gl{
   padding:0.4rem 0.6rem; cursor:pointer;
 }
 .dlg .close:hover{ color:var(--fg); border-color:var(--rule); }
-
 .md-preview{
   background:rgba(0,0,0,0.3); border:1px solid var(--rule-soft);
-  border-radius:4px; padding:1.2rem; max-height:46vh; overflow-y:auto;
+  border-radius:4px; padding:1.2rem; max-height:48vh; overflow-y:auto;
   font-family:var(--mono); font-size:0.75rem; line-height:1.7; color:var(--fg-dim);
   white-space:pre-wrap;
 }
 
 /* Site Footer */
-#site-footer{
-  position:relative; z-index:3; border-top:1px solid var(--rule);
-  padding:1.4rem 2.4rem; font-family:var(--sans); font-size:0.72rem;
-  line-height:1.7; color:var(--fg-faint); background:rgba(7,8,11,0.85);
-  backdrop-filter:blur(10px);
-  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+footer.site-footer{
+  border-top: 1px solid var(--rule-soft);
+  padding: 3rem 0 4rem;
+  font-family: var(--sans); font-size: 0.74rem; line-height: 1.7; color: var(--fg-faint);
+  background: var(--bg);
+  position: relative; z-index: 2;
 }
-#site-footer strong{ color:var(--fg-dim); font-weight:500; }
-.footer-links{ display:flex; gap:1rem; align-items:center; }
+.footer-inner{
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem;
+}
 .btn-legal-link{
-  appearance:none; background:transparent; border:0; padding:0; cursor:pointer;
-  color:var(--fg-faint); font-family:var(--sans); font-size:0.72rem; text-decoration:underline;
-  text-underline-offset:2px; transition:color .2s ease;
+  appearance: none; background: transparent; border: 0; padding: 0; cursor: pointer;
+  color: var(--fg-faint); font-family: var(--sans); font-size: 0.74rem; text-decoration: underline;
+  text-underline-offset: 2px; transition: color .2s ease;
 }
-.btn-legal-link:hover{ color:var(--state); }
-
-#veil{
-  position:fixed; inset:0; z-index:40; background:var(--bg);
-  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1.2rem;
-  transition:opacity 1s ease; font-family:var(--mono);
-  font-size:0.6rem; letter-spacing:0.26em; color:var(--state); text-transform:uppercase;
-}
-#veil.gone{ opacity:0; pointer-events:none; }
-#veil .ring{
-  width:2.2rem; height:2.2rem; border:1px solid var(--rule);
-  border-top-color:var(--accent); border-radius:50%;
-  animation:spin 1.6s linear infinite;
-}
-@keyframes spin{ to{ transform:rotate(360deg); } }
+.btn-legal-link:hover{ color: var(--state); }
 </style>
 </head>
 <body>
 
-<a id="skip" href="#diagnostic-console">Skip to diagnostic console</a>
-<div id="a11y-announcer" class="sr-only" role="status" aria-live="assertive" aria-atomic="true"></div>
-
+<!-- Ambient WebGL Scene Canvas -->
 <canvas id="gl" aria-hidden="true"></canvas>
 
-<div id="bigtype" aria-hidden="true">
-  <div id="bt-index">07</div>
-  <div id="bt-word">// EXPRESSION IN PRACTICE</div>
-</div>
+<!-- Header -->
+<header class="site-header">
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="/" class="brand-lockup">
+        <span class="mark">TECHTUITION</span>
+        <span class="sub">Systems Architecture &amp; Content Operations</span>
+        <span class="pedigree">Sole practice by Deiadora Blanche · ex-Coursera, Airbnb</span>
+      </a>
 
-<header id="brand">
-  <div class="mark">TECHTUITION</div>
-  <div class="tagline">Regenerative Systems Operations</div>
-  <div class="imprint">Node 07 // The Egg of Life · Sole Practice by Deiadora Blanche</div>
-</header>
-
-<div id="utility">
-  <div class="nav-cluster">
-    <a href="https://deiadora.com/" class="btn-toplink secondary" target="_blank" rel="noopener noreferrer">
-      <span>← Return to DEIADORA // Root</span>
-    </a>
-
-    <button class="btn-toplink secondary" id="btn-playbook" type="button" aria-haspopup="dialog" aria-controls="playbook-dlg">
-      <span>Open Source Playbook</span>
-      <span class="icon-glyph" aria-hidden="true">↗</span>
-    </button>
-
-    <div class="ctlrow">
-      <button class="ctl" id="btn-theme" type="button" aria-pressed="false">
-        <span id="theme-label">Dark</span><span class="kbd" aria-hidden="true">T</span>
-      </button>
-      <button class="ctl" id="btn-motion" type="button" aria-pressed="false">
-        <span id="motion-label">Motion on</span><span class="kbd" aria-hidden="true">P</span>
-      </button>
-      <button class="ctl" id="btn-audio" type="button" aria-pressed="false">
-        <span id="audio-label">Audio off</span><span class="kbd" aria-hidden="true">M</span>
-      </button>
-    </div>
-  </div>
-
-  <div class="ctlrow">
-    <div class="ctlgroup" role="group" aria-label="Display text size">
-      <button class="ctl" id="btn-fdown" type="button" aria-label="Decrease text size">A&minus;</button>
-      <button class="ctl" id="btn-freset" type="button" aria-label="Reset text size to 100 percent"><span id="font-label">100%</span></button>
-      <button class="ctl" id="btn-fup" type="button" aria-label="Increase text size">A+</button>
-    </div>
-  </div>
-</div>
-
-<main id="stage">
-  <!-- Left Side: Sovereign Architecture Narrative -->
-  <section id="stage-left">
-    <div class="stage-tag">Node 07: Embodied Delivery</div>
-    <h1 class="stage-title">Stop spending half your energy just trying to locate the map.</h1>
-    <p class="stage-lede">
-      Regenerative operations means your cross-functional team comes to work and executes without burning out their nervous systems on gray-area handoffs, calendar sprawl, or ambiguous decision rights. We turn operational friction into a living, tailored playbook in four weeks.
-    </p>
-
-    <div class="mesh-meta">
-      <span>Geometry: <b>The Egg of Life</b></span>
-      <span>·</span>
-      <span>Spectrum: <b>Coral Rose</b></span>
-      <span>·</span>
-      <span>Engine: <b>Three.js Active</b></span>
-    </div>
-  </section>
-
-  <!-- Right Side: Systemic Friction Diagnostic Console -->
-  <aside id="stage-right">
-    <div class="console-panel" id="diagnostic-console">
-      <div class="console-head">
-        <h2 class="console-title">Friction Topology Diagnostic</h2>
-        <div class="console-counter">Friction Vectors: <b id="active-count">2</b>/6</div>
-      </div>
-
-      <p style="font-size:0.78rem; line-height:1.5; color:var(--fg-dim); margin:0 0 1rem;">
-        Select where your organization is experiencing operational leaks. The 3D cellular engine adapts in real time to isolate your sprint focus:
-      </p>
-
-      <div class="friction-list" role="group" aria-label="Operational friction vectors">
-        <!-- Vector 0: Decisions -->
-        <div class="friction-item" data-index="0" tabindex="0" role="checkbox" aria-checked="false">
-          <div class="friction-checkbox" aria-hidden="true">&#10003;</div>
-          <div class="friction-body">
-            <span class="friction-name">Decision Swirl &amp; Gray Authority</span>
-            <span class="friction-desc">Unclear ownership, endless consensus loops, and unowned escalation channels.</span>
-            <span class="friction-node">Maps to Node 01 // Coherence</span>
-          </div>
-        </div>
-
-        <!-- Vector 1: Hand-offs (Active by default) -->
-        <div class="friction-item active" data-index="1" tabindex="0" role="checkbox" aria-checked="true">
-          <div class="friction-checkbox" aria-hidden="true">&#10003;</div>
-          <div class="friction-body">
-            <span class="friction-name">Unowned Boundary Margins</span>
-            <span class="friction-desc">Handoffs drop between Product, Design, Content, and Eng; duplicate labor occurs.</span>
-            <span class="friction-node">Maps to Node 02 // Recognition</span>
-          </div>
-        </div>
-
-        <!-- Vector 2: Calendar Drag -->
-        <div class="friction-item" data-index="2" tabindex="0" role="checkbox" aria-checked="false">
-          <div class="friction-checkbox" aria-hidden="true">&#10003;</div>
-          <div class="friction-body">
-            <span class="friction-name">Calendar Bloat &amp; Notification Drag</span>
-            <span class="friction-desc">Fragmented 30-minute syncs destroy deep focus; lack of async documentation rules.</span>
-            <span class="friction-node">Maps to Node 03 // Discernment</span>
-          </div>
-        </div>
-
-        <!-- Vector 3: Knowledge Sprawl -->
-        <div class="friction-item" data-index="3" tabindex="0" role="checkbox" aria-checked="false">
-          <div class="friction-checkbox" aria-hidden="true">&#10003;</div>
-          <div class="friction-body">
-            <span class="friction-name">Fragmented Knowledge Repositories</span>
-            <span class="friction-desc">Chasing links across Slack DMs; no single authoritative source of truth.</span>
-            <span class="friction-node">Maps to Node 04 // Wave</span>
-          </div>
-        </div>
-
-        <!-- Vector 4: Phase Gates (Active by default) -->
-        <div class="friction-item active" data-index="4" tabindex="0" role="checkbox" aria-checked="true">
-          <div class="friction-checkbox" aria-hidden="true">&#10003;</div>
-          <div class="friction-body">
-            <span class="friction-name">Phase Gate Ambiguity &amp; Delivery Friction</span>
-            <span class="friction-desc">Teams do not agree on current product lifecycle phases, exit criteria, or deliverables.</span>
-            <span class="friction-node">Maps to Node 05 // Direction (Process Matrix)</span>
-          </div>
-        </div>
-
-        <!-- Vector 5: AI Tooling Sprawl -->
-        <div class="friction-item" data-index="5" tabindex="0" role="checkbox" aria-checked="false">
-          <div class="friction-checkbox" aria-hidden="true">&#10003;</div>
-          <div class="friction-body">
-            <span class="friction-name">Unguarded AI &amp; Prompt Sprawl</span>
-            <span class="friction-desc">Ad-hoc AI workflows without standardized prompts, evaluations, or human verification gates.</span>
-            <span class="friction-node">Maps to Node 06 // Transmission</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dynamic Readout -->
-      <div class="readout-card">
-        <span class="readout-label">Diagnostic Readout: Tailored Sprint Architecture</span>
-        <p class="readout-text" id="readout-summary">
-          Targeting 2 critical systemic leaks. Focus sprint centers on cross-functional handoff margins and the 4-dimension process matrix.
-        </p>
-        <div class="readout-nodes" id="readout-pills">
-          <span class="node-pill highlight">Node 02 Recognition</span>
-          <span class="node-pill highlight">Node 05 Direction</span>
-          <span class="node-pill">Node 07 Expression (Sprint Anchor)</span>
-        </div>
-      </div>
-
-      <!-- Conversion CTAs -->
-      <div class="console-actions">
-        <a class="offer primary" id="btn-sprint-dispatch" href="#">
-          <span>Co-Create 4-Week Sprint with Deiadora</span> <span class="arrow" aria-hidden="true">&#8594;</span>
+      <div class="nav-actions">
+        <a href="https://deiadora.com/" class="btn-nav" target="_blank" rel="noopener noreferrer">
+          <span>&larr; DEIADORA // Root</span>
         </a>
-        <button class="offer secondary" type="button" id="btn-download-tailored">
-          <span>Export Tailored Playbook Markdown</span> <span class="arrow" aria-hidden="true">&#8595;</span>
+
+        <button class="btn-nav" id="btn-playbook" type="button" aria-haspopup="dialog" aria-controls="playbook-dlg">
+          <span>Open Source Playbook</span>
+        </button>
+
+        <a href="#tracks" class="btn-nav primary">
+          <span>Engagement Options</span>
+        </a>
+
+        <button class="ctl" id="btn-theme" type="button" aria-pressed="false" aria-label="Toggle theme">
+          <span id="theme-label">Dark</span>
         </button>
       </div>
     </div>
-  </aside>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-tag">Systems Architecture &amp; Content Operations</div>
+      <h1>Fix the operational friction and user drop-off before it compounds.</h1>
+      <p class="lead">
+        When digital products and teams grow, the seams pull apart: onboarding flows stall, cross-functional handoffs get lost in the gray, and ad-hoc AI tools create operational drag. Techtuition diagnoses where systems leak clarity and rebuilds the operating backbone so teams and products run without burning out.
+      </p>
+
+      <div class="hero-meta-row">
+        <span>ARCHITECT: <b>Deiadora Blanche (ex-Coursera, Airbnb)</b></span>
+        <span>LINEAGE: <b>Coursera DesignOps · Airbnb AI Product Lifecycle</b></span>
+        <span>STANDARD: <b>Human-Tested · Default-Zero Telemetry</b></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-Track Architecture Section -->
+  <section class="tracks-section" id="tracks">
+    <div class="wrap">
+      <div class="sec-header">
+        <div class="sec-tag">Two Ways to Engage</div>
+        <h2>Surgical Teardowns &amp; 4-Week Enablement Sprints</h2>
+        <p>Clear, fixed-scope operational engagements designed to solve structural bottlenecks without boundless retainers or open-ended consulting swirl.</p>
+      </div>
+
+      <div class="tracks-grid">
+        <!-- Track 1: Systems Teardown -->
+        <article class="track-card">
+          <div class="track-header">
+            <div class="track-timeline">Track 01 // 10-Day Diagnostic Audit</div>
+            <h3>The Systems Teardown</h3>
+            <p class="track-desc">
+              A high-focus diagnostic teardown of a critical onboarding flow, product taxonomy, or cross-functional content pipeline to pinpoint exact drop-off and friction points.
+            </p>
+          </div>
+
+          <ul class="track-deliverables">
+            <li><strong>Friction Topology Audit:</strong> Direct heuristic review identifying cognitive drag and conversion leaks.</li>
+            <li><strong>Cross-Functional Handoff Map:</strong> Highlighting where specs fall through cracks between Product, Design, and Eng.</li>
+            <li><strong>Remediation Blueprint:</strong> Clear, prioritized action items ready for immediate sprint execution.</li>
+          </ul>
+
+          <a class="btn-track" href="mailto:herself@deiadora.com?subject=Techtuition%2010-Day%20Systems%20Teardown%20Inquiry&body=Hi%20Deiadora%2C%0A%0AWe%20are%20interested%20in%20a%2010-Day%20Systems%20Teardown%20for%20our%20team%2Fproduct.%0A%0AProduct%20%2F%20Surface%20URL%3A%0AKey%20Friction%20or%20Drop-Off%20Noticed%3A%0ATarget%20Start%20Timeline%3A%0A%0ALet's%20connect.">
+            <span>Book a Systems Teardown (10 Days)</span> <span>&rarr;</span>
+          </a>
+        </article>
+
+        <!-- Track 2: 4-Week Playbook Sprint -->
+        <article class="track-card featured">
+          <div class="track-header">
+            <div class="track-timeline">Track 02 // 4-Week Enablement Sprint</div>
+            <h3>Operations &amp; Playbook Sprint</h3>
+            <p class="track-desc">
+              Hands-on co-creation of your living, 10-node operational playbook, cross-functional handoff matrices, and human-in-the-loop AI governance.
+            </p>
+          </div>
+
+          <ul class="track-deliverables">
+            <li><strong>Week 1 (Discovery):</strong> Design-thinking friction mapping with ICs and functional leads.</li>
+            <li><strong>Week 2 (Deep Dives):</strong> Strategic 1-on-1 alignment across Product, Design, Eng, and Ops leadership.</li>
+            <li><strong>Week 3 (Systems Build):</strong> Drafting the 10-node playbook, communication rules, and Process Matrix.</li>
+            <li><strong>Week 4 (Activation):</strong> Complete team walkthrough, governance handoff, and immediate operational lift.</li>
+          </ul>
+
+          <a class="btn-track primary" href="mailto:herself@deiadora.com?subject=Techtuition%204-Week%20Playbook%20Sprint%20Inquiry&body=Hi%20Deiadora%2C%0A%0AWe%20are%20interested%20in%20co-creating%20our%20team's%20operational%20playbook%20via%20the%204-week%20sprint.%0A%0ATeam%20%2F%20Organization%3A%0ACurrent%20Operational%20Friction%3A%0ATarget%20Timeline%3A%0A%0ALet's%20connect.">
+            <span>Co-Create 4-Week Playbook Sprint</span> <span>&rarr;</span>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Matrix Section -->
+  <section class="matrix-section">
+    <div class="wrap">
+      <div class="sec-header">
+        <div class="sec-tag">Human-Tested Methodology</div>
+        <h2>The 4-Dimension Process Matrix</h2>
+        <p>The exact delivery framework used to architect Design Operations at Coursera and AI Product Lifecycles at Airbnb. Applied across each agreed delivery phase (Discover, Define, Design, Build, Ship):</p>
+      </div>
+
+      <div class="matrix-card">
+        <div class="matrix-grid">
+          <div class="matrix-col">
+            <span class="matrix-title">1. Cadences &amp; Rituals</span>
+            <span class="matrix-desc">Exact ceremonies attended by each function. Cuts meeting bloat and clarifies who is synchronous vs. async.</span>
+          </div>
+          <div class="matrix-col">
+            <span class="matrix-title">2. Active Responsibilities</span>
+            <span class="matrix-desc">Explicit functional tasks owned during the phase. Eliminates role ambiguity and duplicate work.</span>
+          </div>
+          <div class="matrix-col">
+            <span class="matrix-title">3. Concrete Deliverables</span>
+            <span class="matrix-desc">Unambiguous gate artifacts shipped before advancing (PRD, design spec, code branch, eval rubric).</span>
+          </div>
+          <div class="matrix-col">
+            <span class="matrix-title">4. Shared Resources &amp; Repos</span>
+            <span class="matrix-desc">Direct links to working boards, repositories, and documentation. Total cross-functional transparency.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- Open Source Playbook Modal -->
 <div class="scrim" id="playbook-scrim">
-  <div class="dlg dlg-wide" id="playbook-dlg" role="dialog" aria-modal="true" aria-labelledby="playbook-title" tabindex="-1">
-    <button class="close" type="button" data-close="playbook">Close &nbsp;Esc</button>
+  <div class="dlg" id="playbook-dlg" role="dialog" aria-modal="true" aria-labelledby="playbook-title" tabindex="-1">
+    <button class="close" type="button" id="btn-close-playbook">Close &nbsp;Esc</button>
     <h2 id="playbook-title">The Open Source Playbook</h2>
     <div class="dlg-sub">Techtuition · 10-Node Semantic Markdown Architecture (00–09)</div>
 
-    <p class="lede">The foundational operational framework is open access under sovereign attribution. Copy the entire markdown structure directly into your team's workspace.</p>
+    <p style="font-size:0.88rem; line-height:1.6; color:var(--fg-dim); margin-bottom:1rem;">
+      The core operational scaffolding is open access under sovereign attribution. Copy the entire markdown structure directly into your team's workspace (Notion, GitHub, Confluence).
+    </p>
 
-    <div class="offers" style="margin-bottom:1rem">
-      <button class="offer" type="button" id="btn-copy-md"><span>Copy Entire Markdown Playbook</span> <span class="arrow" aria-hidden="true">&#9646;</span></button>
+    <div style="margin-bottom:1rem">
+      <button class="btn-track" type="button" id="btn-copy-md" style="width:fit-content; padding:0.5rem 0.85rem;">
+        <span>Copy Entire Markdown Playbook</span>
+      </button>
     </div>
 
     <div class="md-preview" id="md-content"># TECHTUITION: Regenerative Systems Operations Playbook
-Architected by Deiadora Blanche // Node 07: Expression
+Architected by Deiadora Blanche // Node 07: Expression in Practice
 
 ## 00 // THE FIELD — Orientation & Operating Agreements
 * Purpose: Psychological safety, shared vocabulary, baseline cognitive sovereignty.
@@ -665,48 +532,46 @@ Architected by Deiadora Blanche // Node 07: Expression
   </div>
 </div>
 
-<!-- Sovereign Legal Modal -->
+<!-- Sovereign Terms & Privacy Modal -->
 <div class="scrim" id="legal-scrim">
-  <div class="dlg dlg-wide" id="legal-dlg" role="dialog" aria-modal="true" aria-labelledby="legal-title" tabindex="-1">
-    <button class="close" type="button" data-close="legal">Close &nbsp;Esc</button>
+  <div class="dlg" id="legal-dlg" role="dialog" aria-modal="true" aria-labelledby="legal-title" tabindex="-1">
+    <button class="close" type="button" id="btn-close-legal">Close &nbsp;Esc</button>
     <h2 id="legal-title">Legal Architecture &amp; Sovereign Terms</h2>
-    <div class="dlg-sub">Deiadora Blanche // TECHTUITION &mdash; Regenerative Systems Operations &middot; California, United States</div>
+    <div class="dlg-sub">Deiadora Blanche // TECHTUITION &mdash; Systems Architecture &middot; California, United States</div>
 
-    <p class="lede">This platform operates under a sovereign custodial model: our work product is legally protected against unauthorized extraction, and our digital infrastructure maintains default-zero telemetry on all visitors.</p>
-
-    <h3>Terms of Use &amp; Intellectual Property Custody</h3>
-    <p>All operational frameworks, geometric ontologies, ethnographic models, case study narratives, audio compositions, and code published on <code>techtuition.ai</code> are the proprietary intellectual property and custodial work product of Deiadora Blanche.</p>
-    <ul>
-      <li><strong>Anti-Mining Assertion:</strong> Automated scraping, crawling, ingestion, vectorization, and model training are prohibited (<code>noai</code>, <code>noimageai</code>, <code>tdm-reservation: 1</code>).</li>
+    <p style="font-size:0.92rem; line-height:1.65; color:var(--fg-dim);">
+      All operational frameworks, case study narratives, audio compositions, and code published on <code>techtuition.ai</code> are the proprietary intellectual property and custodial work product of Deiadora Blanche.
+    </p>
+    <ul style="font-size:0.86rem; color:var(--fg-dim); line-height:1.65; padding-left:1.2rem; margin:0.8rem 0 1.2rem;">
+      <li><strong>Anti-Mining Assertion:</strong> Automated scraping, crawling, ingestion, and model training are strictly prohibited (<code>noai</code>, <code>noimageai</code>, <code>tdm-reservation: 1</code>).</li>
       <li><strong>Open Source Playbook License:</strong> Teams are granted an open license to utilize the 10-node Markdown framework internally for operational improvement, provided attribution to Deiadora Blanche / Techtuition remains intact.</li>
+      <li><strong>Default-Zero Telemetry:</strong> We deploy zero third-party analytics pixels, session recordings, or commercial tracking beacons.</li>
     </ul>
-
-    <h3>Privacy Policy: Default-Zero Telemetry</h3>
-    <p>We deploy zero Google Analytics, Meta Pixels, session recordings, or commercial tracking beacons. Local settings (theme, text size, motion) remain on your client device.</p>
   </div>
 </div>
 
-<footer id="site-footer">
-  <div>
-    <strong>TECHTUITION</strong> — Regenerative Systems Operations. Sole practice by Deiadora Blanche.
-    <div>Human-tested operational architecture across Coursera, Airbnb, and enterprise systems.</div>
-  </div>
-  <div class="footer-links">
-    <div>&copy; <span id="cr-year">2026</span> Deiadora Blanche. All rights reserved.</div>
-    <button type="button" class="btn-legal-link" id="btn-open-legal">Sovereign Terms &amp; Privacy</button>
+<!-- Site Footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <strong>TECHTUITION</strong> — Systems Architecture &amp; Content Operations. Sole practice by Deiadora Blanche.<br>
+        Human-tested operational architecture across Coursera, Airbnb, and enterprise systems.
+      </div>
+      <div>
+        &copy; <span id="cr-year">2026</span> Deiadora Blanche. All rights reserved. &middot;
+        <button type="button" class="btn-legal-link" id="btn-open-legal">Sovereign Terms &amp; Privacy</button>
+      </div>
+    </div>
   </div>
 </footer>
-
-<div id="veil"><div class="ring" aria-hidden="true"></div><div>Aligning Node 07 Field</div></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 "use strict";
 
-const CONTACT_EMAIL = "herself@deiadora.com";
-
 /* ===========================================================================
-   Three.js Engine: Interactive Egg of Life (Node 07)
+   Ambient WebGL Egg of Life Scene (Node 07)
    =========================================================================== */
 const canvas = document.getElementById('gl');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:false, powerPreference:'high-performance' });
@@ -715,25 +580,25 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
 const scene = new THREE.Scene();
 const CORAL_DARK = 0xe87a74;
 const CORAL_LIGHT = 0xb83d37;
-scene.fog = new THREE.FogExp2(0x07080b, 0.018);
+scene.fog = new THREE.FogExp2(0x07080b, 0.016);
 
-const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 300);
-camera.position.set(0, 0, 32);
+const camera = new THREE.PerspectiveCamera(48, 1, 0.1, 300);
+camera.position.set(0, 0, 34);
 
 const eggGroup = new THREE.Group();
 scene.add(eggGroup);
 
-// Ambient Floating Particles
-const PCOUNT = 1400;
+// Ambient Dust Particles
+const PCOUNT = 1100;
 const pPos = new Float32Array(PCOUNT * 3);
 for(let i=0; i<PCOUNT; i++){
-  pPos[i*3]   = (Math.random()-0.5) * 60;
-  pPos[i*3+1] = (Math.random()-0.5) * 45;
-  pPos[i*3+2] = (Math.random()-0.5) * 40 - 6;
+  pPos[i*3]   = (Math.random()-0.5) * 65;
+  pPos[i*3+1] = (Math.random()-0.5) * 50;
+  pPos[i*3+2] = (Math.random()-0.5) * 40 - 10;
 }
 const pGeo = new THREE.BufferGeometry();
 pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-const pMat = new THREE.PointsMaterial({ color:CORAL_DARK, size:0.075, transparent:true, opacity:0.35, depthWrite:false, blending:THREE.AdditiveBlending });
+const pMat = new THREE.PointsMaterial({ color:CORAL_DARK, size:0.07, transparent:true, opacity:0.3, depthWrite:false });
 scene.add(new THREE.Points(pGeo, pMat));
 
 // Helper: Wireframe Sphere
@@ -765,201 +630,75 @@ function createSphereWire(r, rings, detail, col, opacity){
   }
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(pts), 3));
-  const mat = new THREE.LineBasicMaterial({ color:col, transparent:true, opacity:opacity, depthWrite:false, blending:THREE.AdditiveBlending });
+  const mat = new THREE.LineBasicMaterial({ color:col, transparent:true, opacity:opacity, depthWrite:false });
   return new THREE.LineSegments(geo, mat);
 }
 
-// Build 8-Cell Egg of Life Anatomy
-const CELL_RADIUS = 2.75;
-const cells = [];
+// Build 8-Cell Egg of Life Structure
+const CELL_R = 2.8;
+const wires = [];
 
-// Central Nucleus Cell
-const centerCell = new THREE.Group();
-centerCell.add(createSphereWire(CELL_RADIUS, 5, 24, CORAL_DARK, 0.45));
-eggGroup.add(centerCell);
+const centerSphere = createSphereWire(CELL_R, 5, 22, CORAL_DARK, 0.4);
+eggGroup.add(centerSphere);
+wires.push(centerSphere.material);
 
-// 6 Equatorial Cells (Directly bound to the 6 Friction Vectors)
 for(let i=0; i<6; i++){
   const ang = (i / 6) * Math.PI * 2;
-  const cx = Math.cos(ang) * CELL_RADIUS * 1.95;
-  const cy = Math.sin(ang) * CELL_RADIUS * 1.95;
-  const cellGroup = new THREE.Group();
-  cellGroup.position.set(cx, cy, 0);
-
-  const wire = createSphereWire(CELL_RADIUS, 4, 20, CORAL_DARK, 0.22);
-  const halo = createSphereWire(CELL_RADIUS * 1.08, 3, 16, 0xffd86b, 0.0); // Highlight halo
-
-  cellGroup.add(wire);
-  cellGroup.add(halo);
-  eggGroup.add(cellGroup);
-
-  cells.push({ group:cellGroup, wire:wire.material, halo:halo.material, basePos:new THREE.Vector3(cx,cy,0), active:false });
+  const cx = Math.cos(ang) * CELL_R * 1.9;
+  const cy = Math.sin(ang) * CELL_R * 1.9;
+  const sphere = createSphereWire(CELL_R, 4, 18, CORAL_DARK, 0.22);
+  sphere.position.set(cx, cy, 0);
+  eggGroup.add(sphere);
+  wires.push(sphere.material);
 }
 
-// 1 Crown Cell (Sprint Architecture Container)
-const crownCell = new THREE.Group();
-crownCell.position.set(0, 0, CELL_RADIUS * 1.85);
-crownCell.add(createSphereWire(CELL_RADIUS * 1.05, 4, 20, CORAL_DARK, 0.28));
-eggGroup.add(crownCell);
+const crownSphere = createSphereWire(CELL_R * 1.05, 4, 18, CORAL_DARK, 0.25);
+crownSphere.position.set(0, 0, CELL_R * 1.85);
+eggGroup.add(crownSphere);
+wires.push(crownSphere.material);
 
-/* ===========================================================================
-   Diagnostic State Management & Dynamic Linking
-   =========================================================================== */
-const VECTOR_DATA = [
-  { name:"Decision Swirl & Gray Authority", node:"Node 01 Coherence", desc:"Singular team charter, escalation thresholds, and decision rights matrix." },
-  { name:"Unowned Boundary Margins", node:"Node 02 Recognition", desc:"Unambiguous ownership margins between Product, Design, Content, and Engineering." },
-  { name:"Calendar Bloat & Notification Drag", node:"Node 03 Discernment", desc:"Strict async communication protocols, focus blocks, and meeting hygiene." },
-  { name:"Fragmented Knowledge Repositories", node:"Node 04 Wave", desc:"Single source of truth architecture across task boards and specs." },
-  { name:"Phase Gate Ambiguity & Delivery Friction", node:"Node 05 Direction", desc:"The 4-Dimension Process Matrix across all agreed delivery stages." },
-  { name:"Unguarded AI & Prompt Sprawl", node:"Node 06 Transmission", desc:"Integrated agentic workflows, prompt libraries, and human verification gates." }
-];
+// Parallax tracking
+const pointer = { x:0, y:0, tx:0, ty:0 };
+window.addEventListener('pointermove', e => {
+  pointer.tx = (e.clientX / window.innerWidth) * 2 - 1;
+  pointer.ty = -(e.clientY / window.innerHeight) * 2 + 1;
+});
 
-const frictionItems = document.querySelectorAll('.friction-item');
-const activeCountEl = document.getElementById('active-count');
-const readoutSummaryEl = document.getElementById('readout-summary');
-const readoutPillsEl = document.getElementById('readout-pills');
-const sprintDispatchBtn = document.getElementById('btn-sprint-dispatch');
-const announcer = document.getElementById('a11y-announcer');
+function resize(){
+  const w = window.innerWidth, h = window.innerHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
 
-function announce(msg){
-  announcer.textContent = '';
-  window.setTimeout(()=>{ announcer.textContent = msg; }, 60);
-}
-
-function updateDiagnostic(){
-  const activeIndices = [];
-  frictionItems.forEach((item, idx)=>{
-    const isActive = item.classList.contains('active');
-    item.setAttribute('aria-checked', isActive ? 'true' : 'false');
-    cells[idx].active = isActive;
-    if(isActive) activeIndices.push(idx);
-  });
-
-  activeCountEl.textContent = activeIndices.length;
-
-  // Construct Summary & Pills
-  if(activeIndices.length === 0){
-    readoutSummaryEl.textContent = "Select one or more friction vectors above to generate your customized 4-week sprint delivery scope.";
-    readoutPillsEl.innerHTML = `<span class="node-pill">Node 07 Expression (Baseline Container)</span>`;
+  // Position ambient egg comfortably in the right background on desktop
+  if(w > 900){
+    eggGroup.position.x = 8.5;
+    eggGroup.position.y = -1.2;
   } else {
-    readoutSummaryEl.textContent = `Targeting ${activeIndices.length} operational drag vectors. Co-creation sprint maps directly into your living team playbook.`;
-    
-    let pillsHtml = activeIndices.map(i => `<span class="node-pill highlight">${VECTOR_DATA[i].node}</span>`).join('');
-    pillsHtml += `<span class="node-pill">Node 07 Expression (Execution Anchor)</span>`;
-    readoutPillsEl.innerHTML = pillsHtml;
+    eggGroup.position.x = 0;
+    eggGroup.position.y = 0;
   }
-
-  // Update Dynamic Mailto Link
-  const selectedNames = activeIndices.map(i => `• ${VECTOR_DATA[i].name} (${VECTOR_DATA[i].node})`).join('\n');
-  const mailSubject = encodeURIComponent(`Techtuition 4-Week Sprint Inquiry [${activeIndices.length} Vectors Identified]`);
-  const mailBody = encodeURIComponent(
-    `Hi Deiadora,\n\nI ran the Techtuition Diagnostic Console for our team.\n\nIdentified Operational Friction Vectors:\n${selectedNames || '• General Systems Operations Review'}\n\nTeam / Organization:\nOperating Timeline:\nKey Pain Points:\n\nLet's discuss co-creating our playbook sprint.`
-  );
-  sprintDispatchBtn.href = `mailto:${CONTACT_EMAIL}?subject=${mailSubject}&body=${mailBody}`;
 }
+window.addEventListener('resize', resize);
+resize();
 
-frictionItems.forEach(item => {
-  function toggle(){
-    item.classList.toggle('active');
-    updateDiagnostic();
-    const idx = parseInt(item.getAttribute('data-index'), 10);
-    const active = item.classList.contains('active');
-    announce(`${VECTOR_DATA[idx].name} ${active ? 'selected' : 'deselected'}.`);
-  }
-  item.addEventListener('click', toggle);
-  item.addEventListener('keydown', e=>{
-    if(e.key === ' ' || e.key === 'Enter'){
-      e.preventDefault();
-      toggle();
-    }
-  });
-});
+let clock = 0;
+function animate(){
+  requestAnimationFrame(animate);
+  clock += 0.016;
 
-// Initial update on load
-updateDiagnostic();
+  pointer.x += (pointer.tx - pointer.x) * 0.04;
+  pointer.y += (pointer.ty - pointer.y) * 0.04;
 
-/* ===========================================================================
-   Tailored Markdown Export
-   =========================================================================== */
-document.getElementById('btn-download-tailored').addEventListener('click', ()=>{
-  const activeIndices = [];
-  frictionItems.forEach((item, idx)=>{
-    if(item.classList.contains('active')) activeIndices.push(idx);
-  });
+  eggGroup.rotation.y = clock * 0.12 + pointer.x * 0.25;
+  eggGroup.rotation.x = Math.sin(clock * 0.3) * 0.15 + pointer.y * 0.2;
+  eggGroup.rotation.z = Math.cos(clock * 0.2) * 0.08;
 
-  let md = `# TECHTUITION: Tailored 4-Week Sprint Playbook Scope\nArchitected by Deiadora Blanche // Node 07: Expression in Practice\nDate Generated: ${new Date().toISOString().split('T')[0]}\n\n`;
-  md += `## Targeted Systemic Friction Vectors (${activeIndices.length} Active):\n`;
-  activeIndices.forEach(i => {
-    md += `* **${VECTOR_DATA[i].name}** [${VECTOR_DATA[i].node}]\n  Deliverable: ${VECTOR_DATA[i].desc}\n`;
-  });
-  md += `\n## The 4-Week Co-Creation Timeline:\n`;
-  md += `* **Week 1: Needs Discovery & Friction Mapping** — Design thinking sessions with ICs diagnosing cognitive debt.\n`;
-  md += `* **Week 2: Stakeholder Deep Dives** — 1-on-1 strategic alignment with cross-functional leadership.\n`;
-  md += `* **Week 3: Systems Architecture & Drafting** — Constructing targeted playbook sections and the Process Matrix.\n`;
-  md += `* **Week 4: Readout & Activation Handoff** — Full team walkthrough, alignment ceremony, and governance release.\n`;
+  renderer.render(scene, camera);
+}
+animate();
 
-  const blob = new Blob([md], { type:'text/markdown' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `techtuition-sprint-scope.md`;
-  a.click();
-  announce('Tailored playbook markdown exported.');
-});
-
-/* ===========================================================================
-   Audio Synthesizer: 432 Hz Coral Drone
-   =========================================================================== */
-const AudioEngine = (function(){
-  let ctx=null, master=null, filt=null, voices=[], started=false, muted=false;
-  function init(){
-    if(started) return;
-    const AC = window.AudioContext || window.webkitAudioContext;
-    if(!AC) return;
-    try { ctx = new AC(); } catch(e){ return; }
-    master = ctx.createGain(); master.gain.value = 0.0001;
-    filt = ctx.createBiquadFilter();
-    filt.type = 'lowpass'; filt.frequency.value = 680; filt.Q.value = 0.8;
-    filt.connect(master); master.connect(ctx.destination);
-
-    // Node 07 Base Frequency: 87.3 Hz (Coral Rose Harmonic)
-    const base = 87.3;
-    const ratios = [1, 1.125, 1.25, 1.5, 1.875];
-    ratios.forEach((r, k)=>{
-      const o = ctx.createOscillator();
-      o.type = k%2 ? 'sine' : 'triangle';
-      o.frequency.value = base * r;
-      o.detune.value = (k - 2) * 1.8;
-      const g = ctx.createGain();
-      g.gain.value = 0.18 / Math.pow(k + 1, 0.7);
-      o.connect(g); g.connect(filt); o.start();
-      voices.push({o,g});
-    });
-    started = true;
-    master.gain.exponentialRampToValueAtTime(0.14, ctx.currentTime + 2.0);
-    ui();
-  }
-  function toggle(){
-    if(!started){ init(); return; }
-    muted = !muted;
-    master.gain.exponentialRampToValueAtTime(muted ? 0.0001 : 0.14, ctx.currentTime + 0.4);
-    ui();
-    announce(muted ? 'Audio paused.' : 'Audio resumed.');
-  }
-  function ui(){
-    const on = started && !muted;
-    const lbl = document.getElementById('audio-label');
-    const btn = document.getElementById('btn-audio');
-    if(lbl) lbl.textContent = on ? 'Audio on' : 'Audio off';
-    if(btn) btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-  }
-  function resume(){ if(ctx && ctx.state === 'suspended') ctx.resume(); }
-  return { toggle, resume, get on(){ return started && !muted; } };
-})();
-document.getElementById('btn-audio').addEventListener('click', ()=>{ AudioEngine.resume(); AudioEngine.toggle(); });
-
-/* ===========================================================================
-   Theme & Micro-Controls
-   =========================================================================== */
+/* Theme Switcher */
 let currentTheme = 'dark';
 function applyTheme(name){
   currentTheme = name === 'light' ? 'light' : 'dark';
@@ -967,10 +706,9 @@ function applyTheme(name){
   const isLight = currentTheme === 'light';
   document.getElementById('theme-label').textContent = isLight ? 'Light' : 'Dark';
   document.getElementById('btn-theme').setAttribute('aria-pressed', isLight ? 'true' : 'false');
-  
+
   const col = isLight ? CORAL_LIGHT : CORAL_DARK;
-  centerCell.children[0].material.color.setHex(col);
-  cells.forEach(c => c.wire.color.setHex(col));
+  wires.forEach(m => m.color.setHex(col));
   pMat.color.setHex(col);
   scene.fog.color.setHex(isLight ? 0xf7f5f0 : 0x07080b);
   renderer.setClearColor(isLight ? 0xf7f5f0 : 0x07080b, 1);
@@ -979,160 +717,38 @@ document.getElementById('btn-theme').addEventListener('click', ()=>{
   applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
 });
 
-let motionOn = true;
-function setMotion(v){
-  motionOn = v;
-  document.getElementById('motion-label').textContent = motionOn ? 'Motion on' : 'Motion off';
-  document.getElementById('btn-motion').setAttribute('aria-pressed', motionOn ? 'false' : 'true');
-}
-document.getElementById('btn-motion').addEventListener('click', ()=>setMotion(!motionOn));
+/* Modals */
+const playbookScrim = document.getElementById('playbook-scrim');
+const legalScrim = document.getElementById('legal-scrim');
 
-let fontScale = 1;
-function setFont(v){
-  fontScale = Math.max(0.85, Math.min(1.4, v));
-  document.documentElement.style.setProperty('--font-scale', String(fontScale));
-  document.getElementById('font-label').textContent = Math.round(fontScale * 100) + '%';
-}
-document.getElementById('btn-fdown').addEventListener('click', ()=>setFont(fontScale - 0.05));
-document.getElementById('btn-fup').addEventListener('click',   ()=>setFont(fontScale + 0.05));
-document.getElementById('btn-freset').addEventListener('click',()=>setFont(1));
+document.getElementById('btn-playbook').addEventListener('click', ()=>playbookScrim.classList.add('open'));
+document.getElementById('btn-close-playbook').addEventListener('click', ()=>playbookScrim.classList.remove('open'));
 
-/* ===========================================================================
-   Modals & Dialogs
-   =========================================================================== */
-const scrims = {
-  playbook: document.getElementById('playbook-scrim'),
-  legal: document.getElementById('legal-scrim')
-};
-function openModal(id){
-  const s = scrims[id];
-  if(s){ s.classList.add('open'); s.querySelector('.close').focus(); }
-}
-function closeModal(id){
-  const s = scrims[id];
-  if(s) s.classList.remove('open');
-}
-document.getElementById('btn-playbook').addEventListener('click', ()=>openModal('playbook'));
-document.getElementById('btn-open-legal').addEventListener('click', ()=>openModal('legal'));
-document.querySelectorAll('[data-close]').forEach(b => {
-  b.addEventListener('click', ()=>closeModal(b.getAttribute('data-close')));
-});
-Object.values(scrims).forEach(s => {
+document.getElementById('btn-open-legal').addEventListener('click', ()=>legalScrim.classList.add('open'));
+document.getElementById('btn-close-legal').addEventListener('click', ()=>legalScrim.classList.remove('open'));
+
+[playbookScrim, legalScrim].forEach(s => {
   s.addEventListener('mousedown', e => { if(e.target === s) s.classList.remove('open'); });
 });
 
+window.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    playbookScrim.classList.remove('open');
+    legalScrim.classList.remove('open');
+  }
+});
+
+/* Copy Markdown */
 document.getElementById('btn-copy-md').addEventListener('click', ()=>{
   const md = document.getElementById('md-content').textContent;
   navigator.clipboard.writeText(md).then(()=>{
     const b = document.getElementById('btn-copy-md');
-    b.innerHTML = '<span>Copied to Clipboard!</span> <span class="arrow" aria-hidden="true">&#10003;</span>';
-    announce('Markdown playbook copied.');
-    window.setTimeout(()=>{
-      b.innerHTML = '<span>Copy Entire Markdown Playbook</span> <span class="arrow" aria-hidden="true">&#9646;</span>';
-    }, 2800);
+    b.innerHTML = '<span>Copied to Clipboard! &#10003;</span>';
+    setTimeout(()=>{ b.innerHTML = '<span>Copy Entire Markdown Playbook</span>'; }, 2600);
   });
 });
 
-/* ===========================================================================
-   Keyboard Shortcuts
-   =========================================================================== */
-window.addEventListener('keydown', e => {
-  if(e.target.closest('input,textarea,select')) return;
-  const k = e.key.toLowerCase();
-  if(k === 'escape'){ Object.keys(scrims).forEach(closeModal); }
-  if(k === 't'){ applyTheme(currentTheme === 'dark' ? 'light' : 'dark'); }
-  if(k === 'p'){ setMotion(!motionOn); }
-  if(k === 'm'){ AudioEngine.toggle(); }
-  if(k === '+'){ setFont(fontScale + 0.05); }
-  if(k === '-'){ setFont(fontScale - 0.05); }
-});
-
-/* ===========================================================================
-   Pointer Orbit & Window Resize
-   =========================================================================== */
-const pointer = { x:0, y:0, tx:0, ty:0, down:false, sx:0, sy:0 };
-window.addEventListener('pointermove', e => {
-  pointer.tx = (e.clientX / window.innerWidth) * 2 - 1;
-  pointer.ty = -(e.clientY / window.innerHeight) * 2 + 1;
-  if(pointer.down){
-    eggGroup.rotation.y += (e.clientX - pointer.sx) * 0.005;
-    eggGroup.rotation.x += (e.clientY - pointer.sy) * 0.005;
-    pointer.sx = e.clientX; pointer.sy = e.clientY;
-  }
-});
-canvas.addEventListener('pointerdown', e => {
-  pointer.down = true; pointer.sx = e.clientX; pointer.sy = e.clientY;
-});
-window.addEventListener('pointerup', ()=>{ pointer.down = false; });
-
-function resize(){
-  const w = window.innerWidth, h = window.innerHeight;
-  renderer.setSize(w, h, false);
-  camera.aspect = w / h;
-  camera.fov = w < 800 ? 64 : 50;
-  camera.updateProjectionMatrix();
-
-  // Shift 3D mesh slightly left on desktop so it balances with the right-side console
-  if(w > 980){
-    eggGroup.position.x = -6.2;
-  } else {
-    eggGroup.position.x = 0;
-    eggGroup.position.y = 2.5;
-  }
-}
-window.addEventListener('resize', resize);
-resize();
-
-/* ===========================================================================
-   Main Render Loop
-   =========================================================================== */
-let clock = 0;
-function animate(){
-  requestAnimationFrame(animate);
-  const dt = 0.016;
-  if(motionOn) clock += dt;
-
-  pointer.x += (pointer.tx - pointer.x) * 0.06;
-  pointer.y += (pointer.ty - pointer.y) * 0.06;
-
-  // Gentle idle rotation + pointer parallax
-  if(motionOn){
-    eggGroup.rotation.y += 0.004;
-    eggGroup.rotation.x = Math.sin(clock * 0.45) * 0.14 + pointer.y * 0.25;
-    eggGroup.rotation.z = Math.cos(clock * 0.35) * 0.08 + pointer.x * 0.2;
-  }
-
-  // Update dynamic cells based on active diagnostic checkboxes
-  cells.forEach((c, idx) => {
-    const targetScale = c.active ? 1.18 : 1.0;
-    const targetOp = c.active ? 0.75 : 0.20;
-    const haloOp = c.active ? 0.45 + Math.sin(clock * 3.5 + idx) * 0.2 : 0.0;
-
-    c.group.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.08);
-    c.wire.opacity += (targetOp - c.wire.opacity) * 0.08;
-    c.halo.opacity += (haloOp - c.halo.opacity) * 0.08;
-
-    // Gentle organic breathing pulse
-    if(motionOn){
-      const breathe = Math.sin(clock * 1.8 + idx * 0.8) * 0.12;
-      c.group.position.x = c.basePos.x + (c.basePos.x * 0.04 * breathe);
-      c.group.position.y = c.basePos.y + (c.basePos.y * 0.04 * breathe);
-    }
-  });
-
-  // Central cell gentle respiration
-  const cScale = 1 + Math.sin(clock * 1.5) * 0.03;
-  centerCell.scale.set(cScale, cScale, cScale);
-
-  renderer.render(scene, camera);
-}
-animate();
-
-// Remove loading curtain
-window.setTimeout(()=>{
-  document.getElementById('veil').classList.add('gone');
-  announce('TECHTUITION Node 07: Expression in Practice initialized.');
-}, 450);
+document.getElementById('cr-year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
